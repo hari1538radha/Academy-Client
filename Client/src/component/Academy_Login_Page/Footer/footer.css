@@ -1,0 +1,160 @@
+.footer {
+
+    height: 543px;
+    position: relative;
+
+
+}
+
+.Linepic {
+    display: flex;
+    justify-content: center;
+    margin-top: 74px;
+
+}
+
+.Logo {
+
+    position: absolute;
+    top: 169px;
+    left: 98.5px;
+    padding-left: 40px;
+
+}
+
+.Social p {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.1488px;
+    line-height: 24px;
+
+    /* Dark */
+
+    color: #0A142F;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.Location-footer {
+    display: flex;
+    position: absolute;
+    top: 183px;
+    left: 723px;
+    gap: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+}
+
+.Caller-container {
+    display: flex;
+    position: absolute;
+    top: 229px;
+    left: 726px;
+    gap: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+}
+
+.printer-container {
+    display: flex;
+    position: absolute;
+    top: 229px;
+    left: 1004px;
+    gap: 21px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.Social {
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    top: 303px;
+    left: 720px;
+}
+
+.Social-logos {
+    display: flex;
+    gap: 35px;
+}
+
+.Login-btn-footer {
+    width: 67px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: #0081FE;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.15px;
+    line-height: 24px;
+    position: absolute;
+    top: 387px;
+    right: 127px;
+
+}
+
+.Line2 {
+    height: 1px;
+    background: #7BB9FC;
+    mix-blend-mode: normal;
+    opacity: 0.2;
+    width: 1249px;
+    position: absolute;
+    top: 432px;
+    left: 100px;
+}
+
+.footer-link-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 449px;
+    margin-left: 100px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.15px;
+    line-height: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+.Footer-link {
+    display: flex;
+    gap: 50px;
+    margin-right: 370px;
+
+}
+
+.Footer-link a {
+    text-decoration: none;
+    color: black;
+}
+
+.Copyright-container {
+    display: flex;
+    color: #0A142F;
+
+    mix-blend-mode: normal;
+    opacity: 0.5;
+
+}

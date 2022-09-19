@@ -14,37 +14,37 @@
     padding: 19px;
 }
 
-.Login-container {
+.Signup-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 440px;
-    height: 418px;
-    gap: 34px;
+    height: 510px;
+    gap: 15px;
     background: rgba(255, 255, 255, 0.300);
     border-radius: 15px;
 
 
 }
 
-.Login-main {
+.Signup-main {
     display: flex;
-    padding-top: 147px;
+    padding-top: 100px;
     justify-content: center;
 
 }
 
 .image {
-    background-image: url(../Images/Background.svg);
+    background-image: url(../Academy_Login_Page/Images/Background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 711px;
 }
 
-.Email-input {
-    width: 420px;
+.fistname-input {
+    width: 201px;
     height: 55px;
     background: #FFFFFF;
     opacity: 0.99;
@@ -63,7 +63,32 @@
 
     color: #B0ACAC;
 }
+.LastName-input
+{
+    width: 201px;
+    height: 55px;
+    background: #FFFFFF;
+    opacity: 0.99;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16.3636px;
+    line-height: 25px;
+    padding-left: 19px;
+    /* identical to box height */
 
+
+    /* grey */
+
+    color: #B0ACAC;
+}
+.Name-input-container
+{
+    display: flex;
+    gap: 16px;
+}
 .password-input {
     width: 420px;
     height: 55px;
@@ -84,8 +109,27 @@
     color: #B0ACAC;
 
 }
+.Email-input
+{
+    width: 420px;
+    height: 55px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16.3636px;
+    line-height: 25px;
+    padding-left: 19px;
+    /* identical to box height */
 
-.login-btn {
+
+    /* grey */
+
+    color: #B0ACAC;  
+}
+.Signup-btn {
     background: #5375E2;
     width: 420px;
     height: 55px;
@@ -99,7 +143,7 @@
     color: white;
 }
 
-.login-footer {
+.Signup-footer {
     display: flex;
     font-family: 'Poppins';
     font-style: normal;
@@ -112,8 +156,12 @@
     /* footer txt */
     color: #000000;
 }
+.Signup-footer p{
+    padding-right: 5px;
+    
+}
 
-.login-footer a {
+.Signup-footer a {
     text-decoration: none;
     padding-left: 2px;
     color: #0081FE
