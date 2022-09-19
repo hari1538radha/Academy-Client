@@ -1,0 +1,49 @@
+.footer
+{
+   
+    height: 543px;
+    position: relative;
+
+}
+.Linepic
+{
+
+    margin-left: 100px;
+    margin-top: 74px;
+    
+
+}
+.Logo
+{
+
+    position: absolute;
+    top: 169px;
+    left: 98.5px;
+
+}
+.Location-footer
+{
+    display: flex;
+    position: absolute;
+    top: 183px;
+    left: 723px;
+    gap: 24px;
+
+}
+.Caller-container
+{
+    display: flex;
+    position: absolute;
+    top: 229px;
+    left: 726px;
+    gap: 20px;
+
+}
+.printer-container
+{
+    display: flex;
+    position: absolute;
+    top: 229px;
+    left: 1004px;
+    gap: 21px;
+}
