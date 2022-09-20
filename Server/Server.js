@@ -1,11 +1,22 @@
 import Express from "express";
 import { PORT, mongoUrl } from "./Config/config.js";
 import mongoose from "mongoose";
+import routes from "./Routes/Routes.js";
+import bodyParser from "body-parser";
 
 const app = Express();
 
-mongoose.connect(mongoUrl).then(() => console.log("database connected successfully!!"))
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/authenticate", routes);
+
+mongoose
+  .connect(mongoUrl)
+  .then(() => console.log("Database Connection successfully!!!"))
+  .catch((err) => console.log("Database Connection Failed!!!", err.message));
 
 app.listen(PORT, () => {
-    console.log(`server listening at ${PORT}`);
-})
+  console.log(`server listening at ${PORT}`);
+});
