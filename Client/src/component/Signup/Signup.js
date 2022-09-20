@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from './navbar'
-import Loginlogo from "../Academy_Login_Page/Images/Vector.svg"
-import Footer from '../Academy_Login_Page/Footer/footer'
+import Loginlogo from "../Login/Images/Vector.svg"
+import Footer from '../Login/Footer/footer'
 import "./Signup.css"
 
 const Signup = () => {
@@ -39,7 +39,7 @@ const handleSignupData = (e) =>
         <button className='Signup-btn'>SIGN UP</button>
         <div className='Signup-footer'>
           <p>Already have an account? </p>
-          <a>LOG in</a>
+          <a>LOG IN</a>
         </div>
 
       </div>

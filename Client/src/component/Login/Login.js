@@ -1,7 +1,7 @@
 import React from 'react'
-import Loginlogo from "../Academy_Login_Page/Images/Vector.svg"
+import Loginlogo from "../Login/Images/Vector.svg"
 import "./CSS/Login.css"
-import Footer from "../Academy_Login_Page/Footer/footer.js"
+import Footer from "../Login/Footer/footer.js"
 const Login = () => {
 
 const Handelsubmitdata = (e) =>

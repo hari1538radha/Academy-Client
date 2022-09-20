@@ -1,7 +1,7 @@
 
 import './App.css';
-import NavBar from './component/Academy_Login_Page/navBar';
-import Login from './component/Academy_Login_Page/Login';
+import NavBar from './component/Login/navBar';
+import Login from './component/Login/Login';
 
 function App() {
   return (

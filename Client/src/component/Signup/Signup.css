@@ -36,7 +36,7 @@
 }
 
 .image {
-    background-image: url(../Academy_Login_Page/Images/Background.svg);
+    background-image: url(../Login/Images/Background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -130,7 +130,7 @@
     color: #B0ACAC;  
 }
 .Signup-btn {
-    background: #5375E2;
+    background: hsl(226, 71%, 61%);
     width: 420px;
     height: 55px;
     border-radius: 15px;
@@ -138,7 +138,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 16.3636px;
+    font-size: 16px;
     line-height: 25px;
     color: white;
 }
