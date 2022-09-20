@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { userModel } from "../Schema/UserSchema.js";
+import { userModel } from "../Schema/userSchema.js";
 
 export const signup = async (req, res) => {
   userModel.findOne({ userEmail: req.body.userEmail }, async (err, data) => {

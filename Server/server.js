@@ -1,7 +1,7 @@
 import Express from "express";
 import { PORT, mongoUrl } from "./Config/config.js";
 import mongoose from "mongoose";
-import Routes from "./Routes/Routes.js";
+import routes from "./Routes/Routes.js";
 import bodyParser from "body-parser";
 
 const app = Express();
