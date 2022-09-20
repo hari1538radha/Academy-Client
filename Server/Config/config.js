@@ -1,7 +1,14 @@
+import dotenv from "dotenv"
 import morgan from 'morgan';
 
-const PORT = 5000;
+dotenv.config();
+
+const PORT = process.env.PORT;
 
 const logger = morgan('combined');
 
-export {PORT, logger};
+const mongoUrl = `mongodb+srv://${process.env.DB_userName}:${process.env.DB_password}@academy.ilmon77.mongodb.net/${process.env.DB_name}?retryWrites=true&w=majority`
+
+export { PORT, logger, mongoUrl };
+
+
