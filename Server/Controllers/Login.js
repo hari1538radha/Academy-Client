@@ -13,6 +13,8 @@ export const login = async (req, res) => {
       res.status(200).send({ message: "Valid password" });
     } else {
       res.status(400).send({ error: "Invalid Password" });
-  } 
+    }
+  } else {
+    res.status(401).send({ error: "User does not exist" });
   }
 };
