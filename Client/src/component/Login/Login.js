@@ -2,7 +2,10 @@ import React from 'react'
 import Loginlogo from "../Login/Images/Vector.svg"
 import "./CSS/Login.css"
 import Footer from "../Login/Footer/footer.js"
+import {useDispatch,useSelector} from "react-redux"
 const Login = () => {
+
+
 
 const Handelsubmitdata = (e) =>
 {
@@ -11,7 +14,7 @@ e.preventDefault();
    const Email =element[0].value;
    const password = element[1].value;
 
-   console.log(Email,password);
+
 }
 
 
