@@ -1,168 +1,160 @@
 .Loginlogo {
-    background: #5375E2;
-    box-shadow: 0px 0px 4px rgba(176, 16, 48, 0.3);
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+  background: #5375e2;
+  box-shadow: 0px 0px 4px rgba(176, 16, 48, 0.3);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .Loginlogo img {
-
-    padding: 19px;
+  padding: 19px;
 }
 
 .Signup-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 440px;
-    height: 510px;
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.300);
-    border-radius: 15px;
-
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 440px;
+  height: 510px;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
 }
 
 .Signup-main {
-    display: flex;
-    padding-top: 100px;
-    justify-content: center;
-
+  display: flex;
+  padding-top: 100px;
+  justify-content: center;
 }
 
 .image {
-    background-image: url(../Login/Images/Background.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 711px;
+  background-image: url(../Login/Images/Background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 711px;
 }
 
 .fistname-input {
-    width: 201px;
-    height: 55px;
-    background: #FFFFFF;
-    opacity: 0.99;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16.3636px;
-    line-height: 25px;
-    padding-left: 19px;
-    /* identical to box height */
+  width: 201px;
+  height: 55px;
+  background: #ffffff;
+  opacity: 0.99;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  padding-left: 19px;
+  color: #000000;
+  /* identical to box height */
 
+  /* grey */
 
-    /* grey */
-
-    color: #B0ACAC;
+  /* color: #B0ACAC; */
 }
-.LastName-input
-{
-    width: 201px;
-    height: 55px;
-    background: #FFFFFF;
-    opacity: 0.99;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16.3636px;
-    line-height: 25px;
-    padding-left: 19px;
-    /* identical to box height */
+.LastName-input {
+  width: 201px;
+  height: 55px;
+  background: #ffffff;
+  opacity: 0.99;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  padding-left: 19px;
+  color: #000000;
+  /* identical to box height */
 
+  /* grey */
 
-    /* grey */
-
-    color: #B0ACAC;
+  /* color: #B0ACAC; */
 }
-.Name-input-container
-{
-    display: flex;
-    gap: 16px;
+.Name-input-container {
+  display: flex;
+  gap: 16px;
 }
 .password-input {
-    width: 420px;
-    height: 55px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16.3636px;
-    line-height: 25px;
-    padding-left: 19px;
-    /* identical to box height */
+  color: #000000;
+  width: 420px;
+  height: 55px;
+  background: #ffffff;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  padding-left: 19px;
+  /* identical to box height */
 
+  /* grey */
 
-    /* grey */
-
-    color: #B0ACAC;
-
+  /* color: #B0ACAC; */
 }
-.Email-input
-{
-    width: 420px;
-    height: 55px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16.3636px;
-    line-height: 25px;
-    padding-left: 19px;
-    /* identical to box height */
+.Email-input {
+  color: #000000;
+  width: 420px;
+  height: 55px;
+  background: #ffffff;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  padding-left: 19px;
+  /* identical to box height */
 
+  /* grey */
 
-    /* grey */
-
-    color: #B0ACAC;  
+  /* color: #B0ACAC;   */
 }
 .Signup-btn {
-    background: hsl(226, 71%, 61%);
-    width: 420px;
-    height: 55px;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 25px;
-    color: white;
+  cursor: pointer;
+  background: hsl(226, 71%, 61%);
+  width: 420px;
+  height: 55px;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  color: white;
 }
 
 .Signup-footer {
-    display: flex;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height */
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
 
-
-    /* footer txt */
-    color: #000000;
+  /* footer txt */
+  color: #000000;
 }
-.Signup-footer p{
-    padding-right: 5px;
-    
+.Signup-footer p {
+  padding-right: 5px;
 }
 
 .Signup-footer a {
-    text-decoration: none;
-    padding-left: 2px;
-    color: #0081FE
+  cursor: pointer;
+  text-decoration: none;
+  padding-left: 2px;
+  color: #0081fe;
 }
