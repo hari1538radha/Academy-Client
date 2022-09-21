@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import Signup from "../src/component/Signup/Signup"
+import Landing from "../src/component/Landing/Landing.js"
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,6 +13,7 @@ root.render(
        <Routes>
         <Route path='/' element={<App/>} exact ></Route>
         <Route path='/Signup' element={<Signup/>}></Route>
+        <Route path ='/Landing' element={<Landing/>}></Route>
        </Routes>
        </BrowserRouter>
 
