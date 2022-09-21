@@ -8,6 +8,7 @@ import Landing from "../src/component/Landing/Landing.js";
 import Searchpage from './component/searchpage/searchpage';
 import Quiz from './component/Quiz/quiz';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainQuiz from "./component/Mainquiz/MainQuiz";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <Route path="/landing" element={<Landing />}></Route>
           <Route path='/quiz' element={<Quiz/>}></Route>
           <Route path='/searchpage' element={<Searchpage/>}></Route>
+          <Route path='/quiz/Startquiz' element={<MainQuiz/>}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>

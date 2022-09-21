@@ -4,10 +4,12 @@ import StartQuizlog from "../Login/Images/Start Quiz.svg"
 import Quizimage from "../Login/Images/quiz-image.svg"
 import "./quiz.css"
 import Footer from '../Login/Footer/footer'
-const quiz = () => {
+import { useNavigate } from 'react-router-dom'
+const Quiz = () => {
+  const Navigate =useNavigate();
     const startQuiz =() =>
     {
-        console.log("hi")
+      Navigate('/quiz/Startquiz');
     }
   return (
     <div>
@@ -63,4 +65,4 @@ const quiz = () => {
   )
 }
 
-export default quiz
+export default Quiz
