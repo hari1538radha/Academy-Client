@@ -3,7 +3,7 @@ import Loginlogo from "../Login/Images/Vector.svg"
 import "./CSS/Login.css"
 import Footer from "../Login/Footer/footer.js"
 import { useDispatch } from 'react-redux'
-import { getUser } from '../Store/Slice/LoginSlice'
+import { getUser } from '../../Store/Slice/LoginSlice'
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,8 @@ const Login = () => {
     const element = e.target.elements
     const Email = element[0].value;
     const password = element[1].value;
-
+    element[0].value = "";
+    element[1].value = "";
     dispatch(getUser({ Email, password }));
   }
   return (
