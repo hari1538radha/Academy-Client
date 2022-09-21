@@ -3,8 +3,11 @@ import { PORT, mongoUrl } from "./Config/config.js";
 import mongoose from "mongoose";
 import routes from "./Routes/Routes.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = Express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 

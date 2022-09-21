@@ -5,7 +5,7 @@ import '../Signup/Navbar.css'
 const NavBar = () => {
   return (
     <div className='Navbar'>
-        <img className='AcademyLogo' src={AcademyLogo}></img>
+        <img className='AcademyLogo' src={AcademyLogo} alt={"logo"}></img>
         <button className='Login-btn'>Login</button>
     </div>
   )
