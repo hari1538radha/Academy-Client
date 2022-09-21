@@ -13,22 +13,9 @@ export const signup = async (req, res) => {
           response: "Invalid Email",
         });
       } else {
-        const {
-          userFirstname,
-          userLastname,
-          userEmail,
-          userPassword,
-          userPhoneNumber,
-        } = req.body;
-        if (
-          !(
-            userFirstname &&
-            userLastname &&
-            userEmail &&
-            userPassword &&
-            userPhoneNumber
-          )
-        ) {
+        const { userFirstname, userLastname, userEmail, userPassword } =
+          req.body;
+        if (!(userFirstname && userLastname && userEmail && userPassword)) {
           return res
             .status(429)
             .send({ message: "Inefficient data", response: "Inefficient" });
