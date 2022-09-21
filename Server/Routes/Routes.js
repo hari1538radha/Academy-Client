@@ -8,7 +8,7 @@ import { events } from "../Controllers/landingEvents.js";
 
 const Route = express.Router();
 Route.post("/signup", signup);
-Route.get('/login', login);
+Route.post('/login', login);
 Route.post("/topicUpload", uploadData);
 Route.post("/topEventsUpload", eventData);
 Route.get("/topics", topics);
