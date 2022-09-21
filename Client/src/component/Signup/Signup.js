@@ -40,7 +40,7 @@ const Signup = () => {
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
-    dispatch(signup({  userFirstName, userLastName, userEmail, userPassword }));
+    dispatch(signup({ userFirstName, userLastName, userEmail, userPassword }));
   };
 
   return (
