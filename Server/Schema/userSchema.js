@@ -18,10 +18,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    userPhoneNumber: {
-      type: Number,
-      required: true,
-    },
   },
   { timestamps: true }
 );
