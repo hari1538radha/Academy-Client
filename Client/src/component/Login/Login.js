@@ -5,12 +5,12 @@ import { loginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Login/Footer/footer.js";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  console.log(state);
-  const Handelsubmitdata = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const element = e.target.elements;
     const userEmail = element[0].value;
@@ -18,14 +18,14 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(loginUser({ userEmail, userPassword }));
-    console.log(userEmail, userPassword);
+    useNavigate('/landing');
   };
 
   return (
     <>
       <div className="image">
         <div className="Login-main">
-          <form onSubmit={Handelsubmitdata}>
+          <form onSubmit={handleSubmit}>
             <div className="Login-container">
               <div className="Loginlogo">
                 {" "}
