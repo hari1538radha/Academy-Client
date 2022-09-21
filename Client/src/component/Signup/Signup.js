@@ -32,15 +32,15 @@ const Signup = () => {
   const handleSignupData = (e) => {
     e.preventDefault();
     const ele = e.target.elements;
-    const firstName = ele[0].value;
-    const lastName = ele[1].value;
-    const Emailid = ele[2].value;
-    const password = ele[3].value;
+    const userFirstName = ele[0].value;
+    const userLastName = ele[1].value;
+    const userEmail = ele[2].value;
+    const userPassword = ele[3].value;
     ele[0].value = "";
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
-    dispatch(signup({ firstName, lastName, Emailid, password }));
+    dispatch(signup({  userFirstName, userLastName, userEmail, userPassword }));
   };
 
   return (
