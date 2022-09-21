@@ -8,6 +8,7 @@ import Footer from "../Login/Footer/footer.js";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const handleSubmit = (e) => {
@@ -18,7 +19,7 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(loginUser({ userEmail, userPassword }));
-    useNavigate('/landing');
+    navigate('/landing');
   };
 
   return (
