@@ -14,6 +14,7 @@ export const signup = createAsyncThunk("user", async (data) => {
     reducer: {},
     extraReducers: {
       [signup.pending]: (state, action) => {
+        state.loading = true;
         state.data = {
           response : "success"
         }

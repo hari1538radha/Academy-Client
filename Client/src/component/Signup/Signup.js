@@ -73,7 +73,7 @@ const Signup = () => {
                 <input
                   className="Email-input"
                   placeholder="Email Address *"
-                  type="text"
+                  type="email"
                   required
                 ></input>
                 <input
