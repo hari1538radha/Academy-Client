@@ -9,6 +9,7 @@ import Footer from "../Login/Footer/footer.js";
 const Login = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  console.log(state);
   const Handelsubmitdata = (e) => {
     e.preventDefault();
     const element = e.target.elements;
