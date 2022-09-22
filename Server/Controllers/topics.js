@@ -16,7 +16,7 @@ export const uploadData = (req, res) => {
                 res.send(err);
             }
             res.status(200).send({
-                message: "Added Sucessfully!!!",
+                message: "Added Sucessfully!!!", 
             });
         });
     }
