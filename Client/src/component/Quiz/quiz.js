@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../../component/Navbar/navbar'
 import StartQuizlog from "../Login/Images/Start Quiz.svg"
-import Quizimage from "../Login/Images/quiz-image.svg"
+import Quizimage from "../Login/Images/quiz.svg"
 import "./quiz.css"
 import Footer from '../Login/Footer/footer'
 import { useNavigate } from 'react-router-dom'
@@ -18,7 +18,7 @@ const Quiz = () => {
             <img src={StartQuizlog} className='quiz-header'></img>
             <div  className='quiz-container-block'> 
             <div className='quiz-image'>
-          
+          <img src={Quizimage}></img>
                 </div>
             <div  className='quiz-details-container'>
                 <div className='quiz-details'  > <div className='quiz-details-left'>

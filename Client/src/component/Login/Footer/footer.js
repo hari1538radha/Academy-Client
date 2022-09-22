@@ -1,5 +1,4 @@
 import React from 'react'
-import "./footer.css"
 import Linepic from "../Images/Linepic.svg"
 import Logo from "../Images/Academy.svg"
 import Location from '../Images/Locationlogo.svg'
