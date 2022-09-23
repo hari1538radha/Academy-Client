@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
@@ -35,12 +35,14 @@ const Login = () => {
               <input
                 className="Email-input"
                 placeholder="Email Address *"
-                type="text"
+                type="email"
+                required
               ></input>
               <input
                 className="password-input"
                 type="password"
                 placeholder="Password *"
+                required
               ></input>
               <button className="login-btn">LOGIN</button>
               <div className="login-footer">
