@@ -1,28 +1,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { axio } from "../../Config/Config";
 
-export const landingInfo = createAsyncThunk("landininfo", async () => {
-  const urlRes = fetch(`http://localhost:8000/authenticate/events`).then(
-    (res) => {
-      return res.json();
-    }
-  );
-  console.log(urlRes);
-  return urlRes;
+export const landingInfo = createAsyncThunk("User", async () => {
+  return axio.get(`/authenticate/topics`)
+
 });
 
 export const landingReducer = createSlice({
   name: "landinginfo",
   initialState: {
-    Dipslay: [],
+    Display: [],
     loading: false,
   },
   reducer: {},
-  extraReducer: {
+  extraReducers: {
     [landingInfo.pending]: (state, action) => {
       state.loading = true;
     },
     [landingInfo.fulfilled]: (state, action) => {
-      state.Display = action.payload.data;
+      console.log(action.payload);
+      state.Display = action.payload.data.data;
       state.loading = false;
     },
     [landingInfo.rejected]: (state, action) => {
