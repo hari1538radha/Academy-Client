@@ -28,6 +28,7 @@
 .Login-main {
   display: flex;
   padding-top: 147px;
+
   justify-content: center;
 }
 
@@ -36,7 +37,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 711px;
+  /* height: 711px; */
 }
 
 .Email-input {
@@ -103,11 +104,209 @@
   /* identical to box height */
 
   /* footer txt */
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .login-footer a {
   text-decoration: none;
   padding-left: 5px;
   color: #0081fe;
+}
+
+
+
+/* Responsive for login-page */
+@media all and (min-width :768px) and (max-width : 853px) {
+  .image {
+    width: 768px;
+    height: 380px;
+    left: 0%;
+    top: 0px;
+  }
+
+  .Login-main {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 235px;
+    height: 222.8px;
+    left: 266.67px;
+    top: 78.2px;
+
+
+    /* background: #FFFFFF; */
+    /* opacity: 0.3; */
+    border-radius: 8px;
+  }
+
+  /* .input.Email-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    width: 224px;
+    height: 29.33px;
+    left: 272px;
+    top: 129.93px;
+
+   
+
+    background: #FFFFFF;
+    opacity: 0.99;
+    border-radius: 8px;
+  } */
+
+  .login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    cursor: pointer;
+    width: 224px;
+    height: 30px;
+    top: 225px;
+    left: 272px;
+    border-radius: 8px;
+    background: rgba(83, 117, 226, 1);
+
+  }
+
+  input.password-input {
+    background: rgba(255, 255, 255, 1);
+    width: 224px;
+    height: 30px;
+    top: 178px;
+    left: 272px;
+    border-radius: 8px;
+    opacity: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  input.Email-input {
+    width: 224px;
+    height: 30px;
+    top: 130px;
+    left: 272px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 99%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .login-footer {
+    width: 138px;
+    height: 13px;
+    top: 282px;
+    left: 314px;
+    opacity: 99%;
+    font-family: 'Poppins';
+    
+    font-style: normal;
+    /* font-weight//:; */
+    font-size: 7px;
+    line-height: 13px;
+
+  }
+  .login-footer a {
+    color:red;
+    padding-right: 20px;
+    height: 15px;
+    top: 282px;
+    opacity: 99%;
+    font-family: 'Poppins';
+    
+    font-style: normal;
+    font-size:8px;
+    line-height: 13px;
+  }
+
+  .Login-container {
+    width: 235px;
+    height: 223px;
+    top: 79px;
+    left: 267px;
+    border-radius: 8px;
+    gap: 18px;
+    /* position: relative; */
+    /* margin-right: 50px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  form {
+    margin-top: 257px;
+    margin-right: 20px;
+  }
+
+
+
+
+  img.AcademyLogo {
+    /* position: absolute; */
+    width: 89px;
+    height: 27px;
+    top: 8px;
+    left: 10px;
+    margin-top: 20px;
+
+
+  }
+
+  button.Login-btn {
+    width: 95px;
+    height: 25px;
+    top: 10px;
+    left: 620px;
+    border-radius: 16px;
+    border: 1.5px solid #E25353;
+    border-radius: 16px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+  img.Logo {
+    width: 122px;
+    height: 37px;
+
+    top: 68px;
+    left: 17px;
+    padding-left: 0px;
+
+  }
+  .Footer-link {
+    top: 357px;
+    left: 18px;
+    font-size: 12px;
+    gap: 13px;
+  }
+  p {
+    width: 259px;
+    height: 18px;
+    top:130px;
+    left: 465px;
+  }
+  .printer-container {
+    width: 304px;
+    height: 22px;
+    left: 86%;
+    right: 6%;
+    gap: 10px;
+  }
+  .social-logos {
+    gap:5px;
+    left: 69%;
+  }
 }

@@ -24,13 +24,14 @@ const Login = () => {
 
   return (
     <>
+
       <div className="image">
         <div className="Login-main">
           <form onSubmit={handleSubmit}>
             <div className="Login-container">
               <div className="Loginlogo">
                 {" "}
-                <img src={Loginlogo}></img>
+                <img className="profile-logo" src={Loginlogo}></img>
               </div>
               <input
                 className="Email-input"
@@ -45,7 +46,7 @@ const Login = () => {
               <button className="login-btn">LOGIN</button>
               <div className="login-footer">
                 <p>Don't have an account?</p>
-                <a href="/Signup">SIGN UP</a>
+                <a href="/Signup">SIGNUP</a>
               </div>
             </div>
           </form>
