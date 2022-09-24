@@ -7,7 +7,7 @@ import cors from "cors";
 
 const app = Express();
 
-app.use(cors());
+app.use(cors({ origin: true }));
 
 app.use(bodyParser.json());
 
