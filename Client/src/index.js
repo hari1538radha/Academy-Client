@@ -7,6 +7,7 @@ import Signup from "../src/component/Signup/Signup";
 import Landing from "../src/component/Landing/Landing.js";
 import Searchpage from './component/searchpage/searchpage';
 import Quiz from './component/Quiz/quiz';
+import DetailPage from "./component/Detailpage/Main/DetailPage"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -20,6 +21,7 @@ root.render(
           <Route path="/landing" element={<Landing />}></Route>
           <Route path='/quiz' element={<Quiz/>}></Route>
           <Route path='/searchpage' element={<Searchpage/>}></Route>
+          <Route path='/detailPage' element={<DetailPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>

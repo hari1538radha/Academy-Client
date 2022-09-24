@@ -18,7 +18,7 @@ const navbar = () => {
           <a href='#'>Careers</a>
           <a href='#'>Develop</a>
         </div>
-        <button className='Logout-btn'>Log out</button>
+        <button className='Logout-btn'>Logout</button>
 
       </div>
       <img className='navlinklogo' src={navlinklogo}></img>
