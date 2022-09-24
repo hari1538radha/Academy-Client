@@ -39,9 +39,9 @@ console.log(file);
   
   //                 region:"us-west-1",
   
-  //                 accessKeyId: "AKIAXD5SXXTHGRNDGYXL"	,
+  //                 accessKeyId: ""	,
   
-  //                 secretAccessKey:"GMcImQMEW3fdDVC6Nn2KOcGv/6GdXcNPXn3iAz1l"
+  //                 secretAccessKey:""
   
   //            }
   
