@@ -9,6 +9,7 @@ import Searchpage from './component/searchpage/searchpage';
 import Quiz from './component/Quiz/quiz';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainQuiz from "./component/Mainquiz/MainQuiz";
+import Userdata from "./component/usersdata/userdata";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -22,6 +23,9 @@ root.render(
           <Route path='/quiz' element={<Quiz/>}></Route>
           <Route path='/searchpage' element={<Searchpage/>}></Route>
           <Route path='/quiz/Startquiz' element={<MainQuiz/>}></Route>
+          <Route path='/admin' element={<Userdata/>}></Route>
+
+      
         </Routes>
       </BrowserRouter>
     </Provider>

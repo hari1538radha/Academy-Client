@@ -1,7 +1,11 @@
 import React from 'react'
 import { utils, read } from "xlsx"
-
-const userdata = () => {
+import S3FileUpload from 'react-s3';
+import { useDispatch, useSelector } from "react-redux";
+import uploaduserdata from "../../Store/Slice/userdata"
+window.Buffer = window.Buffer || require("buffer").Buffer;
+const Userdata = () => {
+  const dispatch = useDispatch();
   const readUploadFile = (e) => {
     e.preventDefault();
     console.log(e.target.files)
@@ -14,21 +18,57 @@ const userdata = () => {
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
 
-        const datas = json
-        console.log(datas[0])
+        const datas = json[0]
+        console.log(datas);
+        dispatch(uploaduserdata(datas));
 
       }
+
       reader.readAsArrayBuffer(e.target.files[0]);
+
     }
-
-
   }
+   const onFileChange = (file) =>{
+console.log(file);
+    
+  
+  // const config = {
+  
+  //                 bucketName:"academyaws",
+  
+  
+  //                 region:"us-west-1",
+  
+  //                 accessKeyId: "AKIAXD5SXXTHGRNDGYXL"	,
+  
+  //                 secretAccessKey:"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"
+  
+  //            }
+  
+  //   //upload file to s3
+  
+  // S3FileUpload.uploadFile(file, config)
+  
+  //             .then((data)=>{
+  
+  //                   console.log(data.location);// it return the file url
+  
+  //              })
+  
+  //              .catch((err) =>{
+  
+  //               console.log(err)
+  
+  //               });
+  
+  }
+  
   return (
     <div>
       <input type="file" name='upload' id='upload' onChange={readUploadFile}></input>
+      <input type="file" onChange={onFileChange} />
     </div>
   )
 
-
 }
-export default userdata
+export default Userdata
