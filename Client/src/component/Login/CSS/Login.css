@@ -1,0 +1,113 @@
+.Loginlogo {
+  background: #5375e2;
+  box-shadow: 0px 0px 4px rgba(176, 16, 48, 0.3);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.Loginlogo img {
+  padding: 19px;
+}
+
+.Login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 440px;
+  height: 418px;
+  gap: 34px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+}
+
+.Login-main {
+  display: flex;
+  padding-top: 147px;
+  justify-content: center;
+}
+
+.image {
+  background-image: url(../Images/Background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 711px;
+}
+
+.Email-input {
+  width: 420px;
+  height: 55px;
+  background: #ffffff;
+  opacity: 0.99;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  padding-left: 19px;
+  /* identical to box height */
+
+  /* grey */
+
+  /* color: #B0ACAC; */
+}
+
+.password-input {
+  width: 420px;
+  height: 55px;
+  background: #ffffff;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  padding-left: 19px;
+  /* identical to box height */
+
+  /* grey */
+
+  /* color: #B0ACAC; */
+}
+
+.login-btn {
+  cursor: pointer;
+  background: #5375e2;
+  width: 420px;
+  height: 55px;
+  border-radius: 15px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.3636px;
+  line-height: 25px;
+  color: white;
+}
+
+.login-footer {
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  /* footer txt */
+  color: #000000;
+}
+
+.login-footer a {
+  text-decoration: none;
+  padding-left: 5px;
+  color: #0081fe;
+}
