@@ -2,10 +2,10 @@ import "./App.css";
 import Login from "./component/Login/Login";
 import ExcelToJson from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
-import SearchPage from "./component/SearchPage/SearchPage";
-import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/MainQuiz/MainQuiz";
-import DetailPage from "./component/DetailPage/Main/DetailPage";
+import SearchPage from "../src/component/searchpage/searchpage";
+import Quiz from "../src/component/Quiz/quiz";
+import MainQuiz from "../src/component/Mainquiz/MainQuiz";
+import DetailPage from "../src/component/Detailpage/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
 

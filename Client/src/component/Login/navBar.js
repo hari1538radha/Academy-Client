@@ -1,12 +1,12 @@
 import React from 'react'
 import AcademyLogo from "../Login/Images/Academy.svg"
 import "./CSS/Navbar.css"
-
+import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <div className='Navbar'>
         <img className='AcademyLogo' src={AcademyLogo}></img>
-        <button className='Login-btn'>SIGN UP</button>
+        <Link to="/signup" className='Login-btn'>SIGN UP</Link>
     </div>
   )
 }

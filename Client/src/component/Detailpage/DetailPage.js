@@ -3,7 +3,7 @@ import image from '../Landing/Img/Rectangle 15.png';
 import './detailPage.css'
 function detailPage() {
   return (
-    <div className='main-container'>
+    <div className='main-container-detailpage'>
     <div className='title-container'>
         <h1 className='title'>Java</h1>
         <p className='content-container'>Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, 

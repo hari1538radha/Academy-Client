@@ -7,7 +7,7 @@ import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const Login = () => {
               <button className="login-btn">LOGIN</button>
               <div className="login-footer">
                 <p>Don't have an account?</p>
-                <a href="/Signup">SIGN UP</a>
+                <Link to="/Signup">SIGN UP</Link>
               </div>
             </div>
           </form>

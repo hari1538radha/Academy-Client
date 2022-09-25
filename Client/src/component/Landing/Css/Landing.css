@@ -89,7 +89,7 @@ span.but-text {
   margin: 10px;
   margin-left: 18px;
 }
-a {
+.readmore{
   display: flex;
   gap: 11px;
   text-decoration: none;
@@ -188,9 +188,9 @@ h2.topic1 {
   margin-left: 50px;
   gap: 20px;
 }
-img {
+/*img {
   border-radius: 15px 15px 0px 0px;
-}
+}*/
 .img {
   display: contents;
 }

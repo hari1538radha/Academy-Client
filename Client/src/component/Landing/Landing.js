@@ -73,7 +73,7 @@ function Landing() {
                     <div className="sub-top-1" key={obj.id}>
                       <h2 className="topic1">{obj.topicTitle}</h2>
                       <p className="sub-contain">{obj.topicDescription}</p>
-                      <a href="">
+                      <a className="readmore" href="">
                         <span className="material-symbols-outlined">
                           menu_book
                         </span>
