@@ -9,7 +9,7 @@ import img4 from "./Img/Rectangle 14.jpg";
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
-import { landingInfo } from "../../Store/Slice/LandingSlice.js";
+import { landingInfo } from "../../Store/Slice/TopicSlice/.js";
 import { Events } from "../../Store/Slice/EventSlice.js";
 
 function Landing() {
@@ -18,14 +18,14 @@ function Landing() {
     Dispatch(landingInfo());
   }, []);
 
-  const { Display, loading } = useSelector((state) => state.landingInfo);
+  const { topicData, topicLoading } = useSelector((state) => state.landingInfo);
 
   const DispatchEvents = useDispatch();
   useEffect(() => {
     DispatchEvents(Events());
   }, []);
 
-  const { Show, loadingData } = useSelector((state) => state.Events);
+  const { eventsData, eventLoading } = useSelector((state) => state.Events);
 
   return (
     <div>
@@ -71,8 +71,8 @@ function Landing() {
             <h1 className="topic"> Topics</h1>
             {/* <button className="next-but"><span className="material-symbols-outlined">navigate_next</span></button> */}
             <div className="sub-top">
-              {Display.length > 0 &&
-                Display.map((obj) => {
+              {topicData.length > 0 &&
+                topicData.map((obj) => {
                   return (
                     <div className="sub-top-1" key={obj.id}>
                       <h2 className="topic1">{obj.topicTitle}</h2>
@@ -95,8 +95,8 @@ function Landing() {
               <h1>Top Events</h1>
             </div>
             <div className="third-full-con">
-              {Show.length > 0 &&
-                Show.map((obj) => {
+              {eventsData.length > 0 &&
+                eventsData.map((obj) => {
                   return (
                     <div key={obj.eve}>
                       <div className="third-sub-con">

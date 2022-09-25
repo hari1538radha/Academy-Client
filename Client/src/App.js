@@ -1,8 +1,8 @@
 import "./App.css";
 import NavBar from "./component/Login/navBar";
 import Login from "./component/Login/Login";
-import Userdata from "./component/usersdata/userdata";
-import Signup from "../src/component/Signup/Signup";
+import Userdata from "./component/ExcelToJson/userdata";
+import Signup from ".../component/usersdata/ExcelToJson
 import Landing from "../src/component/Landing/Landing.js";
 import Searchpage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";

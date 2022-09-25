@@ -1,17 +1,17 @@
 import React from "react";
-import Linepic from "../Images/Linepic.svg";
-import Logo from "../Images/Academy.svg";
-import Location from "../Images/Locationlogo.svg";
-import callerlogo from "../Images/CallerLogo.svg";
-import printerlogo from "../Images/printerlogo.svg";
-import facebook from "../Images/Facebook.svg";
-import twitter from "../Images/Twitter.svg";
-import Linkedin from "../Images/LinkedIn.svg";
-import youtube from "../Images/Youtube.svg";
-import instagram from "../Images/Instagram.svg";
-import google from "../Images/GooglePlus.svg";
-import pinster from "../Images/Pinterest.svg";
-import Wifilogo from "../Images/wifilogo.svg";
+import Linepic from "../Login/Images/Linepic.svg";
+import Logo from "../Login/Images/Academy.svg";
+import Location from "../Login/Images/Locationlogo.svg";
+import callerlogo from "../Login/Images/CallerLogo.svg";
+import printerlogo from "../Login/Images/printerlogo.svg";
+import facebook from "../Login/Images/Facebook.svg";
+import twitter from "../Login/Images/Twitter.svg";
+import Linkedin from "../Login/Images/LinkedIn.svg";
+import youtube from "../Login/Images/Youtube.svg";
+import instagram from "../Login/Images/Instagram.svg";
+import google from "../Login/Images/GooglePlus.svg";
+import pinster from "../Login/Images/Pinterest.svg";
+import Wifilogo from "../Login/Images/wifilogo.svg";
 
 const footer = () => {
   return (

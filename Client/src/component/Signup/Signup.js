@@ -11,7 +11,7 @@ import { signup } from "../../Store/Slice/SignupSlice";
 const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { data, loading } = useSelector((state) => state.sigupdata);
+  const { signupData, loading } = useSelector((state) => state.signupInfo);
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
 
   useEffect(() => {
