@@ -20,13 +20,8 @@ function Landing() {
   }, []);
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
-  const { eventsData, eventLoading } = useSelector((state) => state.eventInfo);
+  const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
 
-  // const dispatchEvents = useDispatch();
-
-  // useEffect(() => {
-  //   dispatchEvents(Events());
-  // }, []);
 
   return (
     <div>
