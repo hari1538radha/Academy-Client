@@ -10,10 +10,9 @@ const topicsSchema = new mongoose.Schema(
       type: String,
       requried: true,
     },
-    cardId:
-    {
+    cardId: {
       type: String,
-    }
+    },
   },
   { timestamps: true }
 );

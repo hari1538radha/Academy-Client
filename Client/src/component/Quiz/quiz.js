@@ -3,7 +3,7 @@ import NavBar from '../../component/Navbar/navbar'
 import StartQuizlog from "../Login/Images/Start Quiz.svg"
 import Quizimage from "../Login/Images/quiz.svg"
 import "./quiz.css"
-import Footer from '../Login/Footer/footer'
+import Footer from '../Footer/footer'
 import { useNavigate } from 'react-router-dom'
 const Quiz = () => {
   const Navigate =useNavigate();
@@ -60,7 +60,7 @@ const Quiz = () => {
            <button className="chapter-seemore-btn">See More</button>
         </div>
         </div>
-          <Footer/>
+          <Footer />
         </div>
   )
 }

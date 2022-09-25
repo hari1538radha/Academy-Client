@@ -1,18 +1,17 @@
 import React from "react";
-import "../Css/footer.css";
-import Linepic from "../Img/Linepic.svg";
-import Logo from "../Img/Academy.svg";
-import Location from "../Img/Locationlogo.svg";
-import callerlogo from "../Img/CallerLogo.svg";
-import printerlogo from "../Img/printerlogo.svg";
-import facebook from "../Img/Facebook.svg";
-import twitter from "../Img/Twitter.svg";
-import Linkedin from "../Img/LinkedIn.svg";
-import youtube from "../Img/Youtube.svg";
-import instagram from "../Img/Instagram.svg";
-import google from "../Img/GooglePlus.svg";
-import pinster from "../Img/Pinterest.svg";
-import Wifilogo from "../Img/wifilogo.svg";
+import Linepic from "../Images/Linepic.svg";
+import Logo from "../Images/Academy.svg";
+import Location from "../Images/Locationlogo.svg";
+import callerlogo from "../Images/CallerLogo.svg";
+import printerlogo from "../Images/printerlogo.svg";
+import facebook from "../Images/Facebook.svg";
+import twitter from "../Images/Twitter.svg";
+import Linkedin from "../Images/LinkedIn.svg";
+import youtube from "../Images/Youtube.svg";
+import instagram from "../Images/Instagram.svg";
+import google from "../Images/GooglePlus.svg";
+import pinster from "../Images/Pinterest.svg";
+import Wifilogo from "../Images/wifilogo.svg";
 
 const footer = () => {
   return (
@@ -50,7 +49,6 @@ const footer = () => {
           </div>
         </div>
       </div>
-      <div className="Login-btn-footer">Log in</div>
       <div className="Line2"></div>
       <div className="footer-link-container">
         <div className="Footer-link">

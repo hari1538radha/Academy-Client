@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../Navbar/navbar.js'
 import DetailPage from '../DetailPage'
-import Footer from '../../Login/Footer/footer'
+import Footer from '../../Footer/footer'
 
 function detailrender() {
   return (

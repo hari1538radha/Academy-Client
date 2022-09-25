@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../Login/Footer/footer'
+import Footer from '../Footer/footer'
 import "./mainquiz.css"
 import Navbar from '../Navbar/navbar'
 import ReactPaginate from 'react-paginate'

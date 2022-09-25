@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./navbar";
 import Loginlogo from "../Login/Images/Vector.svg";
-import Footer from "../Login/Footer/footer";
+import Footer from "../Footer/footer";
 import "./Signup.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

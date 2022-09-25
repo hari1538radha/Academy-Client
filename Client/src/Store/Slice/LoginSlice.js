@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk("User", async (data) => {
 });
 
 export const loginReducer = createSlice({
-  name: "userData",
+  name: "login",
   initialState: {
     loginData: [],
     loading: false,
@@ -19,8 +19,7 @@ export const loginReducer = createSlice({
     [loginUser.fulfilled]: (state, action) => {
       state.loading = false;
 
-      console.log(action);
-      state.loginData.push( action.payload.data);
+      state.loginData.push(action.payload.data);
     },
     [loginUser.rejected]: (state, action) => {
       state.loading = false;

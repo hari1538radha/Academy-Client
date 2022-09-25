@@ -1,36 +1,29 @@
-import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {axio} from "../../Config/Config.js";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { axio } from "../../Config/Config.js";
 
-
-export const Events = createAsyncThunk("user",async()=>{
-    return axio.get(`/authenticate/events`)
-},)
+export const Events = createAsyncThunk("user", async () => {
+  return axio.get(`/authenticate/events`);
+});
 
 export const eventsReducers = createSlice({
-    name:"Events",
-    initialState:{
-        Show :[],
-        loadingData:false,
+  name: "events",
+  initialState: {
+    eventsData: [],
+    eventLoading: false,
+  },
+  reducers: {},
+  extraReducers: {
+    [Events.pending]: (state, action) => {
+      state.eventLoading = true;
     },
-   reducers : {},
-    extraReducers: {
-        [Events.pending]:(state,action)=>{
-            state.loadingData=true;
-
-        },
-        [Events.fulfilled]:(state,action)=>{
-            console.log(action.payload);
-            state.Show = action.payload.data.data;
-            state.loadingData=false;
-
-
-        },
-        [Events.rejected]:(state,action)=>{
-            state.loadingData=false;
-
-        },
-    }
-
-})
+    [Events.fulfilled]: (state, action) => {
+      state.eventsData = action.payload.data.data;
+      state.eventLoading = false;
+    },
+    [Events.rejected]: (state, action) => {
+      state.eventLoading = false;
+    },
+  },
+});
 export const Dipslay = eventsReducers.reducer;
 export default Dipslay;

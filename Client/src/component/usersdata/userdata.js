@@ -2,7 +2,7 @@ import React from 'react'
 import { utils, read } from "xlsx"
 import S3FileUpload from 'react-s3';
 import { useDispatch, useSelector } from "react-redux";
-import uploaduserdata from "../../Store/Slice/userdata"
+import uploaduserdata from "../../Store/Slice/excelToJson"
 window.Buffer = window.Buffer || require("buffer").Buffer;
 const Userdata = () => {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import Navbar from '../Navbar/navbar'
 import Searchlogo from "../Login/Images/search logo.svg"
 import "../searchpage/search.css"
 import readmorelogo from "../Login/Images/readmorelogo.svg"
-import Footer from '../Login/Footer/footer'
+import Footer from '../Footer/footer'
 import ReactPaginate from "react-paginate"
 const searchpage = () => {
     const mockdata = [

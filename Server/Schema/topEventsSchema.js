@@ -4,19 +4,18 @@ const topEventSchema = new mongoose.Schema(
   {
     eventName: {
       type: String,
-      required: true,
+      required: true
     },
     eventDescription: {
       type: String,
-      requried: true,
+      requried: true
     },
     eventImage: {
       data: Buffer,
-      contentType: String,
+      contentType: String
     },
-    cardId :
-    {
-      type : String,
+    cardId: {
+      type: String
     }
   },
   { timestamps: true }

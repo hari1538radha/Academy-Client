@@ -1,11 +1,15 @@
-
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import signupReducer from "./Slice/SignupSlice";
-import landing from "./Slice/LandingSlice";
-import Dipslay from "./Slice/EventSlice";
-import userreducer from "./Slice/userdata";
+import TopicReducer from "./Slice/TopicSlice";
+import DisplayReducer from "./Slice/EventSlice";
+import excelToJsonReducer from "./Slice/ExcelToJson";
 
-const rootReducer = combineReducers({ sigupdata: signupReducer,landingInfo :landing ,Events:Dipslay,userdatas:userreducer});
+const rootReducer = combineReducers({
+  signupInfo: signupReducer,
+  topicInfo: TopicReducer,
+  eventsInfo: DisplayReducer,
+  excelToJsonInfo: excelToJsonReducer,
+});
 
 const store = configureStore({
   reducer: rootReducer,

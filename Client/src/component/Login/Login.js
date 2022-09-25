@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
-import Footer from "../Login/Footer/footer.js";
+import Footer from "../Footer/footer";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {

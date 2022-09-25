@@ -6,7 +6,7 @@ import img1 from "./Img/Frame.svg";
 import img3 from "./Img/Vector.svg";
 import img4 from "./Img/Rectangle 14.jpg";
 // import img5 from "./Img/Quiz.jpg"
-import Footer from "./Footer/footer.js";
+import Footer from "../Footer/footer";
 import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
 import { landingInfo } from "../../Store/Slice/LandingSlice.js";
@@ -19,7 +19,6 @@ function Landing() {
   }, []);
 
   const { Display, loading } = useSelector((state) => state.landingInfo);
-  console.log(Display);
 
   const DispatchEvents = useDispatch();
   useEffect(() => {
@@ -27,7 +26,6 @@ function Landing() {
   }, []);
 
   const { Show, loadingData } = useSelector((state) => state.Events);
-  console.log(Show);
 
   return (
     <div>
@@ -37,7 +35,7 @@ function Landing() {
           <div className="left">
             <div className="fst-con-head">
               <h1>
-                Be led by the <span className="dreams-color">dreams</span>{" "} in
+                Be led by the <span className="dreams-color">dreams</span> in
               </h1>
 
               <h1>
@@ -49,7 +47,9 @@ function Landing() {
               Success is not how high you have climbed, but how <br></br>you
               make a positive difference to the world
             </p>
-            <button className="know button"><span className="but-text">Know More</span></button>
+            <button className="know button">
+              <span className="but-text">Know More</span>
+            </button>
           </div>
           <div className="right">
             <img src={img1}></img>
@@ -83,7 +83,6 @@ function Landing() {
                         </span>
                         Read More
                       </a>
-                    
                     </div>
                   );
                 })}
@@ -96,26 +95,22 @@ function Landing() {
               <h1>Top Events</h1>
             </div>
             <div className="third-full-con">
-              {Show.length >0 && Show.map((obj)=>{
-                return (
-                  <div key={obj.eve}>
-                    <div className="third-sub-con">
-                    <div className="img">
-                      <img src={img4}></img>
+              {Show.length > 0 &&
+                Show.map((obj) => {
+                  return (
+                    <div key={obj.eve}>
+                      <div className="third-sub-con">
+                        <div className="img">
+                          <img src={img4}></img>
+                        </div>
+                        <div className="third-head">{obj.eventName}</div>
+                        <div className="third-con">
+                          <p className="details"> {obj.eventDescription}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="third-head">
-                      {obj.eventName}
-                    </div>
-                    <div className="third-con">
-                     <p className="details"> {obj.eventDescription}</p>
-
-                    </div>
-                    </div>
-
-                  </div>
-                )
-              })}
-              
+                  );
+                })}
             </div>
           </div>
         </div>

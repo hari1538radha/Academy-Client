@@ -1,15 +1,31 @@
-
-import './App.css';
-import NavBar from './component/Login/navBar';
-import Login from './component/Login/Login';
-import Userdata from './component/usersdata/userdata';
+import "./App.css";
+import NavBar from "./component/Login/navBar";
+import Login from "./component/Login/Login";
+import Userdata from "./component/usersdata/userdata";
+import Signup from "../src/component/Signup/Signup";
+import Landing from "../src/component/Landing/Landing.js";
+import Searchpage from "./component/searchpage/searchpage";
+import Quiz from "./component/Quiz/quiz";
+import MainQuiz from "./component/Mainquiz/MainQuiz";
+import DetailPage from "./component/Detailpage/Main/DetailPage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      <Login/>
-   </div>
+      <Routes>
+        <Route path="/" element={<App />} exact></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/landing" element={<Landing />}></Route>
+        <Route path="/quiz" element={<Quiz />}></Route>
+        <Route path="/searchpage" element={<Searchpage />}></Route>
+        <Route path="/detailPage" element={<DetailPage />}></Route>
+        <Route path="/quiz/Startquiz" element={<MainQuiz />}></Route>
+        <Route path="/admin" element={<Userdata />}></Route>
+      </Routes>
+      <NavBar />
+      <Login />
+    </div>
   );
 }
 
