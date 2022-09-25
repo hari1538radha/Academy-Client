@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import NavBar from "./navBar";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../Store/Slice/LoginSlice";
+import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer";
@@ -11,6 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const element = e.target.elements;
@@ -18,12 +20,13 @@ const Login = () => {
     const userPassword = element[1].value;
     element[0].value = "";
     element[1].value = "";
-    dispatch(loginUser({ userEmail, userPassword }));
-    navigate('/landing');
+    dispatch(postLoginUser({ userEmail, userPassword }));
+    navigate("/landing");
   };
 
   return (
     <>
+    <NavBar/>
       <div className="image">
         <div className="Login-main">
           <form onSubmit={handleSubmit}>

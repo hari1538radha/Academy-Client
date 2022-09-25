@@ -1,6 +1,6 @@
 import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-export const uploaduserdata = createAsyncThunk("Userdatas", async (data) => {
+export const postExcelData = createAsyncThunk("Userdatas", async (data) => {
   console.log(data);
   return axio.post(`/authenticate/uploaduserdatas`, data);
 });
@@ -12,14 +12,14 @@ export const excelToJsonModel = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [uploaduserdata.pending]: (state, action) => {
+    [postExcelData.pending]: (state, action) => {
       state.loading = true;
     },
-    [uploaduserdata.rejected]: (state, action) => {
+    [postExcelData.rejected]: (state, action) => {
       state.userdata = action.payload;
       state.loading = false;
     },
-    [uploaduserdata.rejected]: (state, action) => {
+    [postExcelData.rejected]: (state, action) => {
       state.loading = false;
     },
   },

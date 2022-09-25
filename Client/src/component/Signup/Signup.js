@@ -6,7 +6,7 @@ import "./Signup.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from "../../Store/Slice/SignupSlice";
+import { postSignupData } from "../../Store/Slice/SignupSlice";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -15,19 +15,19 @@ const Signup = () => {
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
 
   useEffect(() => {
-    if (data.response === "success") {
+    if (signupData.response === "success") {
       setLoginStatus({
         status: 1,
         message: "success",
       });
       // navigate('/landing');
-    } else if (data.response === "failure") {
+    } else if (signupData.response === "failure") {
       setLoginStatus({
         status: 1,
         message: "failure",
       });
     }
-  }, [data]);
+  }, [signupData]);
 
   const handleSignupData = (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ const Signup = () => {
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
-    dispatch(signup({ userFirstName, userLastName, userEmail, userPassword }));
+    dispatch(postSignupData({ userFirstName, userLastName, userEmail, userPassword }));
   };
 
   return (
@@ -55,7 +55,6 @@ const Signup = () => {
                   {" "}
                   <img src={Loginlogo}></img>
                 </div>
-                <p>Sign up</p>
                 <div className="Name-input-container">
                   <input
                     className="fistname-input"

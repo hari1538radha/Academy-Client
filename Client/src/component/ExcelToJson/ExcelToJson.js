@@ -2,8 +2,10 @@ import React from 'react'
 import { utils, read } from "xlsx"
 import S3FileUpload from 'react-s3';
 import { useDispatch, useSelector } from "react-redux";
-import uploaduserdata from "../../Store/Slice/excelToJson"
+import excelToJson from "../../Store/Slice/ExcelToJson";
+
 window.Buffer = window.Buffer || require("buffer").Buffer;
+
 const Userdata = () => {
   const dispatch = useDispatch();
   const readUploadFile = (e) => {
@@ -12,15 +14,14 @@ const Userdata = () => {
     if (e.target.files) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const data = e.target.result;
-        const workbook = read(data, { type: "array" });
+        const result = e.target.result;
+        const workbook = read(result, { type: "array" });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
 
-        const datas = json[0]
-        console.log(datas);
-        dispatch(uploaduserdata(datas));
+        const data = json[0]
+        dispatch(excelToJson(data));
 
       }
 

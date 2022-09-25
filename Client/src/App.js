@@ -1,30 +1,28 @@
 import "./App.css";
-import NavBar from "./component/Login/navBar";
 import Login from "./component/Login/Login";
-import Userdata from "./component/ExcelToJson/userdata";
-import Signup from ".../component/usersdata/ExcelToJson
+import ExcelToJson from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
-import Searchpage from "./component/searchpage/searchpage";
+import SearchPage from "./component/SearchPage/SearchPage";
 import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/Mainquiz/MainQuiz";
-import DetailPage from "./component/Detailpage/Main/DetailPage";
+import MainQuiz from "./component/MainQuiz/MainQuiz";
+import DetailPage from "./component/DetailPage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
+import Signup from './component/Signup/Signup';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<App />} exact></Route>
+        <Route path="/" element={<Login />} exact></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/landing" element={<Landing />}></Route>
         <Route path="/quiz" element={<Quiz />}></Route>
-        <Route path="/searchpage" element={<Searchpage />}></Route>
-        <Route path="/detailPage" element={<DetailPage />}></Route>
-        <Route path="/quiz/Startquiz" element={<MainQuiz />}></Route>
-        <Route path="/admin" element={<Userdata />}></Route>
+        <Route path="/search" element={<SearchPage />}></Route>
+        <Route path="/detail" element={<DetailPage />}></Route>
+        <Route path="/quiz/start" element={<MainQuiz />}></Route>
+        <Route path="/admin" element={<ExcelToJson />}></Route>
       </Routes>
-      <NavBar />
-      <Login />
     </div>
   );
 }
