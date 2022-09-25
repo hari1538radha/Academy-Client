@@ -8,7 +8,7 @@ function detailPage() {
         <h1 className='title'>Java</h1>
         <p className='content-container'>Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, 
             Lina Bengtsson. Robothandel pevis: och al.lorem ipsum dipse ulti lorem iupsum </p>
-            <img className='image'src={image}/>
+            <img className='detail-image'src={image}/>
             <p className='subcontent-container'>Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, Lina Bengtsson. Robothandel pevis: och al.lorem ipsum dipse ulti lorem iupsum Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, Lina Bengtsson. Robothandel pevis:
                  och al.lorem ipsum dipse ulti lorem iupsum Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm </p>
               <p className='see-more'> <a>See more</a></p>   
