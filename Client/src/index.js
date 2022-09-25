@@ -1,5 +1,6 @@
+
 import { Provider } from "react-redux";
-import store from "./Store/Store/Store";
+import store from "./Store/Store";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -7,9 +8,10 @@ import Signup from "../src/component/Signup/Signup";
 import Landing from "../src/component/Landing/Landing.js";
 import Searchpage from './component/searchpage/searchpage';
 import Quiz from './component/Quiz/quiz';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainQuiz from "./component/Mainquiz/MainQuiz";
 import Userdata from "./component/usersdata/userdata";
+import DetailPage from "./component/Detailpage/Main/DetailPage"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -22,10 +24,9 @@ root.render(
           <Route path="/landing" element={<Landing />}></Route>
           <Route path='/quiz' element={<Quiz/>}></Route>
           <Route path='/searchpage' element={<Searchpage/>}></Route>
+          <Route path='/detailPage' element={<DetailPage/>}></Route>
           <Route path='/quiz/Startquiz' element={<MainQuiz/>}></Route>
           <Route path='/admin' element={<Userdata/>}></Route>
-
-      
         </Routes>
       </BrowserRouter>
     </Provider>
