@@ -9,23 +9,24 @@ import img4 from "./Img/Rectangle 14.jpg";
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
-import { landingInfo } from "../../Store/Slice/TopicSlice/.js";
-import { Events } from "../../Store/Slice/EventSlice.js";
+import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
+import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 
 function Landing() {
-  const Dispatch = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
-    Dispatch(landingInfo());
+    dispatch(getTopicInfo());
+    dispatch(getEventInfo());
   }, []);
 
-  const { topicData, topicLoading } = useSelector((state) => state.landingInfo);
+  const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
+  const { eventsData, eventLoading } = useSelector((state) => state.eventInfo);
 
-  const DispatchEvents = useDispatch();
-  useEffect(() => {
-    DispatchEvents(Events());
-  }, []);
+  // const dispatchEvents = useDispatch();
 
-  const { eventsData, eventLoading } = useSelector((state) => state.Events);
+  // useEffect(() => {
+  //   dispatchEvents(Events());
+  // }, []);
 
   return (
     <div>

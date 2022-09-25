@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from '../Navbar/navbar'
-import Searchlogo from "../Login/Images/search logo.svg"
-import "../searchpage/search.css"
+import Searchlogo from "../Login/Images/searchlogo.svg"
+import "./search.css"
 import readmorelogo from "../Login/Images/readmorelogo.svg"
 import Footer from '../Footer/footer'
-import ReactPaginate from "react-paginate"
-const searchpage = () => {
+
+const SearchPage = () => {
     const mockdata = [
         {
             "topic": "Engineering",
@@ -38,7 +38,6 @@ const searchpage = () => {
         }
 
     ]
-    console.log(mockdata);
     return (
         <div>
             <nav>
@@ -101,4 +100,4 @@ const searchpage = () => {
     )
 }
 
-export default searchpage
+export default SearchPage

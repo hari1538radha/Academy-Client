@@ -12,6 +12,7 @@ import instagram from "../Login/Images/Instagram.svg";
 import google from "../Login/Images/GooglePlus.svg";
 import pinster from "../Login/Images/Pinterest.svg";
 import Wifilogo from "../Login/Images/wifilogo.svg";
+import './footer.css'
 
 const footer = () => {
   return (

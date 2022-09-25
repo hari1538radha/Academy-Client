@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
-export const loginUser = createAsyncThunk("User", async (data) => {
+export const postLoginUser = createAsyncThunk("User", async (data) => {
   return axio.post("/authenticate/login", data);
 });
 
@@ -13,15 +13,15 @@ export const loginReducer = createSlice({
   },
   reducer: {},
   extraReducers: {
-    [loginUser.pending]: (state, action) => {
+    [postLoginUser.pending]: (state, action) => {
       state.loading = true;
     },
-    [loginUser.fulfilled]: (state, action) => {
+    [postLoginUser.fulfilled]: (state, action) => {
       state.loading = false;
 
       state.loginData.push(action.payload.data);
     },
-    [loginUser.rejected]: (state, action) => {
+    [postLoginUser.rejected]: (state, action) => {
       state.loading = false;
     },
   },
