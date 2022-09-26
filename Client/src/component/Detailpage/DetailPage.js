@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../Landing/Img/Rectangle15.png';
+import detailimage from '../Landing/Img/Rectangle15.png';
 import './detailPage.css'
 import Navbar from '../Navbar/navbar.js'
 // import { course } from '../../Store/Slice/DetailpageSlice.js';
@@ -24,7 +24,7 @@ function DetailPage() {
       <h1 className='title'>Java</h1>
         <p className='content-container'>Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, 
             Lina Bengtsson. Robothandel pevis: och al.lorem ipsum dipse ulti lorem iupsum </p>
-            <img className='image'src={image}/>
+            <img className='detailimage'src={detailimage}/>
             <p className='subcontent-container'>Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, Lina Bengtsson. Robothandel pevis: och al.lorem ipsum dipse ulti lorem iupsum Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm niled. Multirade lädirade lell. Kode jäkiren, Lina Bengtsson. Robothandel pevis:
                  och al.lorem ipsum dipse ulti lorem iupsum Sos pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm </p>
               <p className='see-more'> <a>See more</a></p>   
