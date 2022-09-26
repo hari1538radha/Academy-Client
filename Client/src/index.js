@@ -21,7 +21,7 @@ root.render(
           <Route path="/landing" element={<Landing />}></Route>
           <Route path='/quiz' element={<Quiz/>}></Route>
           <Route path='/searchpage' element={<Searchpage/>}></Route>
-          <Route path='/detailPage' element={<DetailPage/>}></Route>
+          <Route path='/detailpage' element={<DetailPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>
