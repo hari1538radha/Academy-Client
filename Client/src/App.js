@@ -5,7 +5,7 @@ import Landing from "../src/component/Landing/Landing.js";
 import SearchPage from "./component/SearchPage/SearchPage";
 import Quiz from "./component/Quiz/quiz";
 import MainQuiz from "./component/MainQuiz/MainQuiz";
-import DetailPage from "./component/DetailPage/Main/DetailPage";
+import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
 

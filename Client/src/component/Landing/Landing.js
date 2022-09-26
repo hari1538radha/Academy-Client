@@ -4,7 +4,7 @@ import NavBar from "./navBar";
 import img1 from "./Img/Frame.svg";
 // import img2 from "./Img/button.svg";
 import img3 from "./Img/Vector.svg";
-import img4 from "./Img/Rectangle 14.jpg";
+import img4 from "./Img/Rectangle-14.jpg";
 // import img5 from "./Img/Quiz.jpg"
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";

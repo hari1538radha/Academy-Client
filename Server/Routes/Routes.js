@@ -8,6 +8,8 @@ import { events } from "../Controllers/landingEvents.js";
 import { images } from "../Controllers/images.js";
 import { execlToJsonCtrl } from "../Controllers/excelToJson.js";
 import { userProfileData } from "../Controllers/userProfile.js";
+import { detailPage } from "../Controllers/Detail.js";
+import { details} from "../Controllers/DetailPage.js";
 const Route = express.Router();
 Route.post("/signup", signup);
 Route.post("/login", login);
@@ -17,5 +19,7 @@ Route.get("/topics", topics);
 Route.get("/events", events);
 Route.post("/upload-images", images);
 Route.post("/exceltojson", execlToJsonCtrl);
-Route.get("/userProfile", userProfileData)
+Route.get("/userProfile", userProfileData);
+Route.post("/detailpage",detailPage)
+Route.get("/detailpage",details);
 export default Route;
