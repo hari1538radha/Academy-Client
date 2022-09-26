@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../Landing/Img/Rectangle 15.png';
+import image from '../Landing/Img/Rectangle15.png';
 import './detailPage.css'
 import Navbar from '../Navbar/navbar.js'
 // import { course } from '../../Store/Slice/DetailpageSlice.js';
