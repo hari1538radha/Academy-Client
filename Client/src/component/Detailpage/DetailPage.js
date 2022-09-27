@@ -17,6 +17,7 @@ function DetailPage() {
   //   }
   // }))
   return (
+
     <div>
       <div className="main-container" >
       <Navbar/>
@@ -54,6 +55,7 @@ function DetailPage() {
           </p>
         </div>
         </div> 
+
   );
 }
 

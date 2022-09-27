@@ -1,3 +1,4 @@
+
 * {
   margin: 0px;
   padding: 0px;
@@ -9,8 +10,10 @@
   height: 1000px;
   margin-right: 200px;
   display: flex;
-  border-radius: 10px;
+   border-radius: 10px;
 }
+
+
 .title {
   position: absolute;
   width: 85px;
@@ -134,6 +137,7 @@ color: rgba(70, 70, 70, 0.64);
   justify-content: center;
   align-items: center;
   border-radius: 3px;
+  text-decoration: none;
   color: rgba(70, 70, 70, 0.64);
 }
 

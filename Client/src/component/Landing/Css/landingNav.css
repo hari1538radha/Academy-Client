@@ -12,3 +12,18 @@
     color: #060606;
 
 } */
+.Navbar {
+  height: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Navbar a {
+  text-decoration: none;
+  color: black;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17.8417px;
+}
