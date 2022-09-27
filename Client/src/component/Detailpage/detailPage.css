@@ -2,44 +2,52 @@
   margin: 0px;
   padding: 0px;
 }
-.main-container {
-  margin-bottom: 100px;
+.main-container{
+  width: 100%;
+}
+.header-container{
   height: 1000px;
-  width: 924px;
-  left: 100px;
+  margin-right: 200px;
   display: flex;
   border-radius: 10px;
 }
-
 .title {
   position: absolute;
+  width: 85px;
   height: 50px;
-  margin-top: 20px;
-  margin-left: 100px;
-  padding-top: 30px;
-  font-family: "Poppins";
+  left: 100px;
+  top: 113px;
+  
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
   font-size: 33px;
   line-height: 50px;
+  /* identical to box height */
+  
   display: flex;
   align-items: center;
-  color: #696f79;
+  
+  color: #696F79;
 }
 
 .content-container {
   position: absolute;
-  width: 920px;
+  width: 919.62px;
   height: 90px;
   left: 100px;
-  top: 169px;
-  font-family: "Poppins";
+  top: 178.81px;
+  
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
   display: flex;
   align-items: center;
+  
+  /* text */
+  
   color: rgba(70, 70, 70, 0.64);
 }
 
@@ -53,39 +61,42 @@
 }
 
 .subcontent-container {
-  margin-top: 658px;
-  width: 920px;
-  height: 180px;
-  margin-left: 100px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
-  display: flex;
-  align-items: center;
-
-  color: rgba(70, 70, 70, 0.64);
+  position: absolute;
+width: 919px;
+height: 180px;
+left: 100px;
+top: 730.95px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+display: flex;
+align-items: center;
+color: rgba(70, 70, 70, 0.64);
 }
 
 .see-more {
   position: absolute;
-  font-family: "Poppins";
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
-  margin-left: 360px;
-  margin-top: 30px;
+  margin-left: 40%;
+  margin-top: 25%;
   display: flex;
-  cursor: pointer;
-  color: #29b3d2;
   align-items: center;
+  cursor: pointer;
+  color: #45AFC7;
 }
-
-.chapters-container {
+.course-container {
   position: absolute;
-  left: 35%;
+  left:45%;
   right: 35%;
   top: 10%;
   bottom: 17%;
@@ -94,24 +105,39 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  margin-left: 43%;
+  margin-left: 40%;
   display: flex;
+  text-align: center;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
+  column-gap: 20%;
+  flex-direction: column;
   color: rgba(70, 70, 70, 0.64);
 }
 
-.chapters-container a {
+.course-title{
+  top:10px;
+  padding: 20px;
+}
+
+.course-container a {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 500;
+  font-size:20px;
   line-height: 27px;
   display: flex;
+  margin-right: 20px;
+  column-gap: 20%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 3px;
   color: rgba(70, 70, 70, 0.64);
 }
 
-.chapter-seemore-btn {
+.course-seemore-btn {
   width: 287px;
   height: 44px;
   border-radius: 15px;
@@ -123,180 +149,20 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  margin-top: -7px;
-}
-
-.chapters-container a {
-  width: 287px;
-  height: 40px;
+  margin-bottom:20px;
   text-align: center;
   justify-content: center;
-  align-items: center;
 }
 
-.chapters-container a:hover {
-  transition-duration: 0.03s;
+
+.course-container a:hover {
   background: #0081fee5;
   color: white;
   height: 40px;
   width: 285px;
 }
-
-.chapters-container {
-  cursor: pointer;
-}
-
-.chapter-seemore-btn:hover {
+.course-seemore-btn:hover {
   background: rgba(18, 103, 186, 0.9);
   cursor: pointer;
-}
-
-@media only screen and (min-width: 360px) and (max-width: 764px) {
-  .main-container {
-    margin-right: 50px;
-  }
-
-  .title h1 {
-    position: absolute;
-    width: 51px;
-    height: 29px;
-    left: 16.25px;
-    top: 63px;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 19.6197px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-
-    color: #696f79;
-  }
-
-  .content-container {
-    position: absolute;
-    width: 546.75px;
-    height: 54px;
-    left: 16.25px;
-    top: 160px;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11.8907px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-
-    /* text */
-
-    color: rgba(70, 70, 70, 0.64);
-  }
-
-  .image {
-    position: absolute;
-    width: 546px;
-    height: 228px;
-    left: 17px;
-    top: 250px;
-    border-radius: 6px;
-  }
-
-  .subcontent-container {
-    position: absolute;
-    width: 546px;
-    height: 108px;
-    left: 17px;
-    top: 200px;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11.8907px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-
-    /* text */
-
-    color: rgba(70, 70, 70, 0.64);
-  }
-
-  .see-more {
-    position: absolute;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 30px;
-    margin-left: 60px;
-    margin-top: 80px;
-    display: flex;
-    cursor: pointer;
-    color: #29b3d2;
-    align-items: center;
-  }
-
-  .chapters-container {
-    height: 561px;
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 5%;
-  }
-
-  .chapters-container a {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 27px;
-    margin-top: 500%;
-    margin-right: 700px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    color: rgba(70, 70, 70, 0.64);
-  }
-
-  .chapter-seemore-btn {
-    width: 287px;
-    height: 44px;
-
-    background: #09829d;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-    margin-top: -7px;
-  }
-
-  .chapters-container a {
-    width: 287px;
-    height: 40px;
-  }
-
-  .chapters-container a:hover {
-    transition-duration: 0.05s;
-    background: #0081fee5;
-    color: white;
-  }
-
-  .chapters-container {
-    cursor: pointer;
-  }
-
-  .chapter-seemore-btn:hover {
-    background: rgba(18, 103, 186, 0.9);
-    cursor: pointer;
-  }
+  color: white;
 }
