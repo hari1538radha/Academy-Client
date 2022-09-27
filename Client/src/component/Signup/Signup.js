@@ -83,8 +83,8 @@ const Signup = () => {
                 ></input>
                 <button className="Signup-btn">SIGN UP</button>
                 <div className="Signup-footer">
-                  <p>Already have an account? </p>
-                  <Link to="/">LOG IN</Link>
+                  <p className="redirect">Already have an account? </p>
+                  <Link className="redirect" to="/">LOG IN</Link>
                 </div>
               </div>
             </form>
