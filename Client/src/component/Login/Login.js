@@ -39,11 +39,13 @@ const Login = () => {
                 className="Email-input"
                 placeholder="Email Address *"
                 type="text"
+                required
               ></input>
               <input
                 className="password-input"
                 type="password"
                 placeholder="Password *"
+                required
               ></input>
               <button className="login-btn">LOGIN</button>
               <div className="login-footer">

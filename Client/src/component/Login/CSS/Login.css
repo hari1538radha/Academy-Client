@@ -28,15 +28,17 @@
 .Login-main {
   display: flex;
   padding-top: 147px;
+
   justify-content: center;
 }
 
 .image {
   background-image: url(../Images/Background.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  /* position: absolute; */
+  width: 1440px;
   height: 711px;
+  left: 0px;
+  top: 0px;
 }
 
 .Email-input {
@@ -52,11 +54,7 @@
   font-size: 16.3636px;
   line-height: 25px;
   padding-left: 19px;
-  /* identical to box height */
 
-  /* grey */
-
-  /* color: #B0ACAC; */
 }
 
 .password-input {
@@ -71,11 +69,6 @@
   font-size: 16.3636px;
   line-height: 25px;
   padding-left: 19px;
-  /* identical to box height */
-
-  /* grey */
-
-  /* color: #B0ACAC; */
 }
 
 .login-btn {
@@ -100,14 +93,177 @@
   font-weight: 800;
   font-size: 16px;
   line-height: 24px;
-  /* identical to box height */
-
-  /* footer txt */
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .login-footer a {
   text-decoration: none;
   padding-left: 5px;
   color: #0081fe;
+}
+
+/* Responsive for login-page */
+@media all and (min-width :481px) and (max-width : 768px) {
+  button.login-btn {
+    font-size: 10px;
+  }
+  .Loginlogo img {
+    height: 50px !important;
+}
+
+  .Loginlogo {
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  .image {
+    width: 768px;
+    height: 380px !important;
+    left: 0px;
+    top: 0px;
+
+  }
+
+  input::placeholder {
+    font-size: 9px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Login-main {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 235px;
+    height: 222.8px;
+    left: 266.67px;
+    top: 78.2px;
+    border-radius: 8px;
+  }
+
+
+  .login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    width: 224px;
+    height: 30px;
+    top: 225px;
+    left: 272px;
+    border-radius: 8px;
+    background: rgba(83, 117, 226, 1);
+
+  }
+
+  input.password-input {
+    background: rgba(255, 255, 255, 1);
+    width: 224px;
+    height: 30px;
+    top: 178px;
+    left: 272px;
+    border-radius: 8px;
+    opacity: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  input.Email-input {
+    width: 224px;
+    height: 30px;
+    top: 130px;
+    left: 272px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .login-footer {
+    width: 138px;
+    height: 13px;
+    top: 282px;
+    left: 314px;
+    opacity: 99%;
+    font-family: 'Poppins';
+    font-style: normal;
+    /* font-weight//:; */
+    font-size: 7px;
+    line-height: 13px;
+
+  }
+
+  .login-footer a {
+    color: red;
+    padding-right: 20px;
+    height: 15px;
+    top: 282px;
+    opacity: 99%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 8px;
+    line-height: 13px;
+  }
+
+  .Login-container {
+
+    height: 223px;
+    width: 235px;
+    left: 267px;
+    top: 79px;
+    border-radius: 8px;
+    margin-bottom: 220px;
+    gap: 18px;
+  }
+
+  form {
+    margin-top: 257px;
+    margin-right: 20px;
+  }
+
+  img.AcademyLogo {
+    /* position: absolute; */
+    width: 89px;
+    height: 27px;
+    top: 8px;
+    left: 10px;
+    margin-top: 20px;
+  }
+
+  button.Login-btn {
+    width: 95px;
+    height: 25px;
+    top: 10px;
+    left: 620px;
+    border-radius: 16px;
+    border: 1.5px solid #E25353;
+    border-radius: 16px;
+    margin-top: 12px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+
+  /* footer */
+
+  .Linepic {
+    width: 680px;
+    margin-right: 70px;
+    margin-left: 45px;
+  }
+
+  img.Logo {
+    width: 122px;
+    height: 37px;
+    top: 68px;
+    left: 17px;
+    padding-left: 0px;
+  }
 }
