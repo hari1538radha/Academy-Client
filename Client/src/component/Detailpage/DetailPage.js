@@ -1,8 +1,23 @@
-import React from 'react'
-import image from '../Landing/Img/Rectangle 15.png';
-import './detailPage.css'
-function detailPage() {
+import React from "react";
+import detailimage from "../Landing/Img/Rectangle-15.png";
+import "./detailPage.css";
+import Navbar from "../Navbar/navbar.js";
+// import { course } from '../../Store/Slice/DetailpageSlice.js';
+// import {useEffect} from "react"
+// import { useDispatch,useSelector } from 'react-redux';
+function DetailPage() {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(course());
+  // }, []);
+
+  // const {courseDetail,loading}=useSelector((state)=>state.course.map(data=>{
+  //   if(data.title=="value()"){
+  //     return data;
+  //   }
+  // }))
   return (
+
     <div className='main-container-detailpage'>
     <div className='title-container'>
         <h1 className='title'>Java</h1>
@@ -24,11 +39,9 @@ function detailPage() {
             <a href="">Javascript</a>
             <a className='chapter-seemore-btn 'href="">SeeMore</a>            
         
-    </div>
-    </div>
-    
 
-  )
+    </div>
+  );
 }
 
-export default detailPage
+export default DetailPage;

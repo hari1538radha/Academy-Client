@@ -4,7 +4,9 @@ import NavBar from "./navBar";
 import img1 from "./Img/Frame.svg";
 // import img2 from "./Img/button.svg";
 import img3 from "./Img/Vector.svg";
-import img4 from "./Img/Rectangle 14.jpg";
+import img4 from "./Img/Rectangle-14.jpg";
+import img6 from "./Img/BookLogo.svg";
+import img7 from "./Img/NextButton.svg";
 // import img5 from "./Img/Quiz.jpg"
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
@@ -23,7 +25,6 @@ function Landing() {
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   const {loginData,loading} = useSelector((state) => state.loginInfo);
     console.log(loginData)
-
 
   return (
     <div>
@@ -50,7 +51,10 @@ function Landing() {
             </button>
           </div>
           <div className="right">
-            <img src={img1}></img>
+            <div>
+              <img className="top-ryt-img" src={img1}></img>
+            </div>
+            
           </div>
         </div>
         <div className="search">
@@ -67,7 +71,7 @@ function Landing() {
         <div className="second-contant">
           <div className="sub-con">
             <h1 className="topic"> Topics</h1>
-            {/* <button className="next-but"><span className="material-symbols-outlined">navigate_next</span></button> */}
+
             <div className="sub-top">
               {topicData.length > 0 &&
                 topicData.map((obj) => {
@@ -75,15 +79,22 @@ function Landing() {
                     <div className="sub-top-1" key={obj.id}>
                       <h2 className="topic1">{obj.topicTitle}</h2>
                       <p className="sub-contain">{obj.topicDescription}</p>
-                      <a className="readmore" href="">
-                        <span className="material-symbols-outlined">
-                          menu_book
-                        </span>
+
+                      <div className="Read-More">
+                      <a href="">
+                        <img src={img6} className="book-logo"></img>
+
                         Read More
                       </a>
+                      </div>
                     </div>
                   );
                 })}
+              <div className="next-but">
+                <buttton>
+                  <img className="click-but" src={img7}></img>
+                </buttton>
+              </div>
             </div>
           </div>
         </div>
@@ -113,7 +124,7 @@ function Landing() {
           </div>
         </div>
         <div>
-          <Footer />
+          <Footer/>
         </div>
       </>
     </div>
