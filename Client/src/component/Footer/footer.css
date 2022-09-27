@@ -22,9 +22,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-
-  /* Dark */
-
   color: #0a142f;
 
   mix-blend-mode: normal;
@@ -146,3 +143,26 @@
   mix-blend-mode: normal;
   opacity: 0.5;
 }
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px ) and (max-width:1024px){
+
+
+  .Logo {
+    position: absolute;
+    top: 75px;
+    left: 20px;
+    padding-left: 30px;
+    width: 135px;
+}
+
+
+}
+
