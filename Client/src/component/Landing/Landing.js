@@ -21,6 +21,8 @@ function Landing() {
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
+  const {loginData,loading} = useSelector((state) => state.loginInfo);
+    console.log(loginData)
 
 
   return (

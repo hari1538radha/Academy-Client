@@ -2,6 +2,7 @@
   margin-top: 40px;
   margin-bottom: 100px;
   height: 1000px;
+  display: flex;
 }
 .title-container {
   width: 1000px;
@@ -95,6 +96,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 3px;
+  text-decoration: none;
   color: rgba(70, 70, 70, 0.64);
 }
 

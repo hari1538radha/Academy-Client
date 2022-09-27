@@ -15,15 +15,14 @@ function detailPage() {
     </div>
     <div className='chapters-container'>
         
-           <p><a href="">Chapters</a></p>
-           <p><a href="">Machines</a></p>
-           <p><a href="">Electrical</a></p>
-            <p><a href="">Java</a></p>
-            <p><a href="">C++</a></p>
-            <p><a href="">Python</a></p>
-            <p><a href="">Javascript</a></p>
-            <p><a className='chapter-seemore-btn 'href="">SeeMore</a></p>
-            
+           <a href="">Chapters</a>
+           <a href="">Machines</a>
+           <a href="">Electrical</a>
+            <a href="">Java</a>
+            <a href="">C++</a>
+                        <a href="">Python</a>
+            <a href="">Javascript</a>
+            <a className='chapter-seemore-btn 'href="">SeeMore</a>            
         
     </div>
     </div>

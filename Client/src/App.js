@@ -5,9 +5,10 @@ import Landing from "../src/component/Landing/Landing.js";
 import SearchPage from "../src/component/searchpage/searchpage";
 import Quiz from "../src/component/Quiz/quiz";
 import MainQuiz from "../src/component/Mainquiz/MainQuiz";
-import DetailPage from "../src/component/Detailpage/DetailPage";
+import DetailPage from "../src/component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
+import UserProfile from "./component/userProfile/UserProfile";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
         <Route path="/detail" element={<DetailPage />}></Route>
         <Route path="/quiz/start" element={<MainQuiz />}></Route>
         <Route path="/admin" element={<ExcelToJson />}></Route>
-      </Routes>
+        <Route path="/profile" element={<UserProfile/>}></Route>
+  </Routes>
     </div>
   );
 }
