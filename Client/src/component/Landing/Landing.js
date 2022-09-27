@@ -23,6 +23,8 @@ function Landing() {
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
+  const {loginData,loading} = useSelector((state) => state.loginInfo);
+    console.log(loginData)
 
   return (
     <div>
@@ -77,9 +79,11 @@ function Landing() {
                     <div className="sub-top-1" key={obj.id}>
                       <h2 className="topic1">{obj.topicTitle}</h2>
                       <p className="sub-contain">{obj.topicDescription}</p>
+
                       <div className="Read-More">
                       <a href="">
                         <img src={img6} className="book-logo"></img>
+
                         Read More
                       </a>
                       </div>

@@ -1,15 +1,18 @@
+
+.main-container-detailpage {
+  margin-top: 40px;
+  margin-bottom: 100px;
+  height: 1000px;
+  display: flex;
+   border-radius: 10px;
+    width: 924px;
+    }
+
 * {
   margin: 0px;
   padding: 0px;
 }
-.main-container {
-  margin-bottom: 100px;
-  height: 1000px;
-  width: 924px;
-  left: 100px;
-  display: flex;
-  border-radius: 10px;
-}
+
 
 .title {
   position: absolute;
@@ -108,6 +111,7 @@
   line-height: 27px;
   display: flex;
   border-radius: 3px;
+  text-decoration: none;
   color: rgba(70, 70, 70, 0.64);
 }
 

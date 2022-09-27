@@ -57,7 +57,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 550;
-  font-size: 15px;
+  font-size: 17px;
 
   line-height: 22px;
   /* identical to box height */
@@ -128,7 +128,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 14.2222px;
+  font-size: 16px;
   line-height: 21px;
   display: flex;
   align-items: center;
@@ -148,7 +148,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 14.2222px;
+  font-size: 16px;
   line-height: 21px;
   display: flex;
   align-items: center;
@@ -158,6 +158,8 @@
 
   color: rgba(70, 70, 70, 0.64);
 }
+
+
 .page-class:hover {
   color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
@@ -170,6 +172,7 @@
 .endtest-block {
   margin-top: 44px;
   margin-left: 16px;
+  
 }
 .quiz-questions--header {
   display: flex;
@@ -196,7 +199,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 14.2222px;
+  font-size: 16px;
   line-height: 21px;
   display: flex;
   align-items: center;

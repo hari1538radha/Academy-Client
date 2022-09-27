@@ -90,6 +90,17 @@ span.but-text {
   margin-left: 18px;
 }
 
+.readmore {
+  display: flex;
+  gap: 11px;
+  text-decoration: none;
+  color: #5375e287;
+  margin-left: 22px;
+  font-size: 15px;
+  align-items: center;
+}
+
+
 .search {
   display: flex;
   justify-content: center;
@@ -195,9 +206,11 @@ img.click-but {
   margin-left: 50px;
   gap: 20px;
 }
-/* img {
+
+/*img {
   border-radius: 15px 15px 0px 0px;
-} */
+}*/
+
 .img {
   display: contents;
 }
