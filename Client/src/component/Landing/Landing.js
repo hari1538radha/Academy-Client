@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
 import NavBar from "./navBar";
 import img1 from "./Img/Frame.svg";
 // import img2 from "./Img/button.svg";
@@ -7,6 +7,7 @@ import img3 from "./Img/Vector.svg";
 import img4 from "./Img/Rectangle-14.jpg";
 import img6 from "./Img/BookLogo.svg";
 import img7 from "./Img/NextButton.svg";
+import {useNavigate } from 'react-router-dom'
 // import img5 from "./Img/Quiz.jpg"
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
@@ -15,6 +16,18 @@ import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 
 function Landing() {
+
+  const navigate = useNavigate();
+
+  const navigateDetail =()=>{
+    navigate('/detail');
+  }
+  const navigateSearch = ()=>{
+    navigate('/search')
+  }
+
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTopicInfo());
@@ -65,7 +78,10 @@ function Landing() {
             required={true}
           ></input>
           <div className="search-img">
-            <img src={img3}></img>
+            <button className="but-click" onClick={navigateSearch}>
+            <img  className="search-but" src={img3}></img>
+            </button>
+            
           </div>
         </div>
         <div className="second-contant">
@@ -81,7 +97,7 @@ function Landing() {
                       <p className="sub-contain">{obj.topicDescription}</p>
 
                       <div className="Read-More">
-                      <a href="">
+                      <a href="/detail">
                         <img src={img6} className="book-logo"></img>
 
                         Read More
@@ -91,7 +107,7 @@ function Landing() {
                   );
                 })}
               <div className="next-but">
-                <buttton>
+                <buttton onClick={navigateDetail} >
                   <img className="click-but" src={img7}></img>
                 </buttton>
               </div>
@@ -110,12 +126,12 @@ function Landing() {
                     <div key={obj.eve}>
                       <div className="third-sub-con">
                         <div className="img">
-                          <img src={img4}></img>
+                          <img className="eve-img" src={img4}></img>
                         </div>
                         <div className="third-head">{obj.eventName}</div>
-                        <div className="third-con">
-                          <p className="details"> {obj.eventDescription}</p>
-                        </div>
+                        
+                          <p className="details"><p>{obj.eventDescription}</p> </p>
+                     
                       </div>
                     </div>
                   );
