@@ -1,12 +1,11 @@
-import React from "react";
-import NavBar from "./navbar";
-import Loginlogo from "../Login/Images/Vector.svg";
-import Footer from "../Footer/footer";
-import "./Signup.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { postSignupData } from "../../Store/Slice/SignupSlice";
+import Footer from "../Footer/footer";
+import Loginlogo from "../Login/Images/Vector.svg";
+import NavBar from "./navbar";
+import "./Signup.css";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -84,7 +83,7 @@ const Signup = () => {
                 <button className="Signup-btn">SIGN UP</button>
                 <div className="Signup-footer">
                   <p>Already have an account? </p>
-                  <Link to="/">LOG IN</Link>
+                  <Link to="/landing">LOG IN</Link>
                 </div>
               </div>
             </form>

@@ -1,14 +1,15 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 import AcademyLogo from "../Login/Images/Academy.svg"
-import "./mainNavbar.css"
 import navlinklogo from "../Login/Images/responsivenavlink.svg"
-
+import "./mainNavbar.css"
 const navbar = () => {
   return (
     <div className='navbarcontainer'>
       <div className='navbar'>
-        <img className='AcademyLogo' src={AcademyLogo}></img>
-
+      <Link to="/landing">
+        <img className="AcademyLogo" src={AcademyLogo}></img>
+      </Link>
+        
         <div className='navlinks'>
           <a href='#'>About</a>
           <a href='#'>Contact</a>
@@ -18,8 +19,10 @@ const navbar = () => {
           <a href='#'>Careers</a>
           <a href='#'>Develop</a>
         </div>
-        <button className='Logout-btn'>Log out</button>
-
+        
+        <Link to="/">
+          <button className='Logout-btn'>Log out</button>
+        </Link>
       </div>
       <img className='navlinklogo' src={navlinklogo}></img>
     </div>

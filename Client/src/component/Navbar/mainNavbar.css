@@ -44,6 +44,7 @@
 }
 
 .Logout-btn {
+    cursor: pointer;
     width: 131.58px;
     height: 33.45px;
     border: 1px solid #E25353;

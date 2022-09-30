@@ -1,11 +1,12 @@
-import React from "react";
-import AcademyLogo from "../Login/Images/Academy.svg";
+import { Link } from "react-router-dom";
 import "../Landing/Css/landingNav.css";
-
+import AcademyLogo from "../Login/Images/Academy.svg";
 const NavBar = () => {
   return (
     <div className="Navbar">
-      <img className="AcademyLogo" src={AcademyLogo}></img>
+      <Link to="/landing">
+        <img className="AcademyLogo" src={AcademyLogo}></img>
+      </Link>
     
         <a href="">About</a>
         <a href="">Contact</a>
@@ -16,7 +17,10 @@ const NavBar = () => {
         <a href="/quiz">Quiz</a>
       
 
-      <button className="Login-btn">Login</button>
+      {/* <button className="Login-btn">Login</button> */}
+      <Link to="/">
+          <button className='Logout-btn'>Log out</button>
+        </Link>
     </div>
   );
 };
