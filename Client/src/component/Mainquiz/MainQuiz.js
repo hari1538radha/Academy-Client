@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../Footer/footer";
 import "./mainquiz.css";
-import Navbar from "../Navbar/navbar";
+import Navbar from "../Navbar/navBar";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 import quizHintLogo from "../Login/Images/quizhintlogo.svg";

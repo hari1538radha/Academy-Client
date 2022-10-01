@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../../component/Navbar/navbar";
+import NavBar from "../Navbar/navBar";
 import startQuizLogo from "../Login/Images/startquiz.svg";
 import quizImage from "../Login/Images/quiz.svg";
 import "./quiz.css";

@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Navbar/navbar'
+import Navbar from '../Navbar/navBar'
 import Searchlogo from "../Login/Images/searchlogo.svg"
 import "./search.css"
 import readmorelogo from "../Login/Images/readmorelogo.svg"

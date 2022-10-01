@@ -1,0 +1,111 @@
+/* .a{     
+    position: absolute;
+    width: 55px;
+    height: 27px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17.8417px;
+    line-height: 27px;
+    
+    
+    color: #060606;
+
+} */
+.Navbar {
+  height: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Navbar a {
+  text-decoration: none;
+  color: black;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17.8417px;
+}
+
+/* .Login-btn {
+  width: 131.58px;
+  height: 33.45px;
+  border: 1px solid #E25353;
+  border-radius: 22.3022px;
+  color: #C00000;
+  background: #FFFFFF;
+  margin-right: 100px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+} */
+
+.Login-btn {
+  width: 130px;
+  height: 32px;
+  border: 1px solid #E25353;
+  border-radius: 22.3022px;
+  color: #C00000;
+  background: #FFFFFF;
+  margin-right: 100px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+}
+
+.navlinklogo {
+    margin-right: 10px;
+    display: none;
+}
+
+.Logout-btn {
+    cursor: pointer;
+    width: 131.58px;
+    height: 33.45px;
+    border: 1px solid #E25353;
+    color: white;
+    background: #FB4B4B;
+    border-radius: 22.3022px;
+    margin-right: 100px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+}
+
+@media screen and (max-width:1100px) {
+    .Logout-btn {
+        margin-right: 20px;
+
+    }
+
+    .navlinks {
+        margin-left: 50px;
+    }
+
+}
+
+@media screen and (max-width:900px) {
+    .navlinks {
+        display: none;
+
+    }
+
+    .navlinklogo {
+        display: block;
+    }
+
+}

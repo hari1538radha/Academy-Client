@@ -1,7 +1,6 @@
 import React from "react";
 import courseimage from "../Landing/Img/Rectangle-15.png";
 import "./detailPage.css";
-import Navbar from "../Navbar/navbar.js";
 // import { course } from '../../Store/Slice/DetailpageSlice.js';
 // import {useEffect} from "react"
 // import { useDispatch,useSelector } from 'react-redux';
@@ -19,9 +18,6 @@ function DetailPage() {
   return (
 
     <div>
-      <div className="main-container" >
-      <Navbar/>
-      </div>
       <div className="header-container">
         <h1 className="title">Java</h1>
         <p className="content-container">
