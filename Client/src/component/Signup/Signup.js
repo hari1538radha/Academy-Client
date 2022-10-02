@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { postSignupData } from "../../Store/Slice/SignupSlice";
 import Footer from "../Footer/footer";
 import Loginlogo from "../Login/Images/Vector.svg";
-import NavBar from "../Navbar/navBar";
+import NavBar from "../Navbar/navbar";
 import "./Signup.css";
 
 const Signup = () => {
@@ -47,8 +47,9 @@ const Signup = () => {
       <NavBar />
       <>
         <div className="image">
-          <div className="Signup-main">
+         
             <form onSubmit={handleSignupData}>
+            <div className="Signup-main">
               <div className="Signup-container">
                 <div className="Loginlogo">
                   {" "}
@@ -85,9 +86,10 @@ const Signup = () => {
                   <p>Already have an account? </p>
                   <Link to="/login">LOG IN</Link>
                 </div>
-              </div>
+
+                </div>              </div>
             </form>
-          </div>
+          
         </div>
         <div>
           <Footer />
