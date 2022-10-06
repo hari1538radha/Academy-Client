@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const excelToJsonSchema = new mongoose.Schema({
-  "S.No": {
+  S_No: {
     type: Number,
   },
   State: {
@@ -12,6 +12,9 @@ const excelToJsonSchema = new mongoose.Schema({
   },
   Yrofestab:{
     type: Number,
+  },
+  Location_Coordinates: {
+    type: String,
   },
   Name: {
     type: String,
@@ -33,10 +36,22 @@ const excelToJsonSchema = new mongoose.Schema({
   },
   Phone: {
     type: String,
+  },
+  Village: {
+    type: String,
+  },
+  Email: {
+    type: String,
+  },
+  Image: {
+    type: String,
+  },
+  Logo: {
+    type: String
   }
 });
 
 export const excelToJsonModel = new mongoose.model(
-  "execlToJson",
+  "excelToJson",
   excelToJsonSchema
 );

@@ -13,7 +13,7 @@ app.use(bodyParser.json({limit: '5mb'}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/authenticate", routes);
+app.use("/api", routes);
 
 mongoose
   .connect(mongoUrl)

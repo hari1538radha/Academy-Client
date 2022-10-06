@@ -14,41 +14,50 @@ import pinster from "../Login/Images/Pinterest.svg";
 import Wifilogo from "../Login/Images/wifilogo.svg";
 import './footer.css'
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className="footer">
 
-      <div className="blue-line"></div>
+      <div className="Linepic"></div>
 
-      <img className="Logo" src={Logo}></img>
-      <div>
-        <div className="Location-footer">
-          {" "}
-          <img src={Location}></img>
-          <p>345 Faulconer Drive, Suite 4 • Charlottesville</p>
-        </div>
-        <div className="Caller-container">
-          <img src={callerlogo}></img>
-          <p>(123) 456-7</p>
-        </div>
-        <div className="printer-container">
-          <img src={printerlogo}></img>
-          <p>(123) 456-7</p>
-        </div>
-        <div className="Social">
-          <p>Social Media</p>
-          <div className="Social-logos">
-            <img src={facebook} alt="facebook"></img>
-            <img src={twitter} alt="twitter"></img>
-            <img src={Linkedin} alt="Linkedin"></img>
-            <img src={youtube} alt="Youtube"></img>
-            <img src={instagram} alt="Instagram"></img>
-            <img src={google} alt="Google"></img>
-            <img src={pinster} alt="Pinster"></img>
-            <img src={Wifilogo} alt="wifilogo"></img>
+      <div className="footer-divider">
+
+        <img className="Logo" src={Logo}></img>
+
+        <div className="right-footer">
+
+          <div className="Location-footer">
+            <img src={Location}></img>
+            <p>345 Faulconer Drive, Suite 4 • Charlottesville</p>
+          </div>
+
+          <div className="contact-info">
+            <div className="Caller-container">
+              <img src={callerlogo}></img>
+              <p>(123) 456-7</p>
+            </div>
+            <div className="printer-container">
+              <img src={printerlogo}></img>
+              <p>(123) 456-7</p>
+            </div>
+          </div>
+
+          <div className="Social">
+            <p>Social Media</p>
+            <div className="Social-logos">
+              <img src={facebook} alt="facebook"></img>
+              <img src={twitter} alt="twitter"></img>
+              <img src={Linkedin} alt="Linkedin"></img>
+              <img src={youtube} alt="Youtube"></img>
+              <img src={instagram} alt="Instagram"></img>
+              <img src={google} alt="Google"></img>
+              <img src={pinster} alt="Pinster"></img>
+              <img src={Wifilogo} alt="wifilogo"></img>
+            </div>
           </div>
         </div>
       </div>
+
       <div className="Line2"></div>
       <div className="footer-link-container">
         <div className="Footer-link">
@@ -62,8 +71,22 @@ const footer = () => {
           <p>Copyright © 2018 • Lift Media Inc.</p>
         </div>
       </div>
+      <div className="Social-hidden">
+              <img src={facebook} alt="facebook"></img>
+              <img src={twitter} alt="twitter"></img>
+              <img src={Linkedin} alt="Linkedin"></img>
+              <img src={youtube} alt="Youtube"></img>
+              <img src={instagram} alt="Instagram"></img>
+              <img src={google} alt="Google"></img>
+              <img src={pinster} alt="Pinster"></img>
+              <img src={Wifilogo} alt="wifilogo"></img>
+            </div>
+            <div className="line-3"></div>
+            <div className="hidden-copyright-container">
+              <p>Copyright © 2018 • Lift Media Inc.</p>
+            </div>
     </div>
   );
 };
 
-export default footer;
+export default Footer;
