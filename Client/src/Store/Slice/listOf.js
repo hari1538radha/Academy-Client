@@ -4,7 +4,7 @@ import { axio } from "../../Config/Config";
 
 export const postlistData = createAsyncThunk("list/of-program",
 (data) => {
-    return axio.post(`/authenticate/listofexcel`, data);
+    return axio.post(`/api/listofexcel`, data);
 })
 
 const programModel = createSlice({

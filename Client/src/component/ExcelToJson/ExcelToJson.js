@@ -17,53 +17,63 @@ const Userdata = () => {
   const navigate = useNavigate();
 
   const [message, setMessage] = useState();
-  const [fileName, setFileName] = useState('');
-  const [opt, setopt] = useState();
+  const [fileName, setFileName] = useState("");
+  const [opt, setOpt] = useState();
 
   const { Userdata, loading } = useSelector((state) => state.excelToJsonInfo);
 
-  const options = ["Universities", "Program", "Quiz", "Details"];
+  const options = [
+    "Select any",
+    "Universities",
+    "Program",
+    "Quiz",
+    "Topics",
+    "Events",
+  ];
 
   const readUploadFile = (e) => {
     e.preventDefault();
-    if (e.target.files[0]) {
+    console.log(opt);
+
+    if (e.target.files[0] && opt) {
       const reader = new FileReader();
-      setFileName(e.target.files[0].name)
+      setFileName(e.target.files[0].name);
       reader.onload = (e) => {
         const result = e.target.result;
         const workbook = read(result, { type: "array" });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
-        if (opt == "Universities") {
+        if (opt === "Universities") {
+          console.log(json);
+
           dispatch(postExcelData(json));
         }
-        if (opt == "Program") {
+        if (opt === "Program") {
           dispatch(postlistData(json));
         }
-      }
+        setMessage("dashboard");
+      };
       reader.readAsArrayBuffer(e.target.files[0]);
+    } else {
+      console.log("select drop down");
     }
   };
 
   const selectOption = (e) => {
-    setopt(e.target.value);
-  };
-
-  const submit = (e) => {
-    e.preventDefault();
-    setMessage("dashboard");
+    setOpt(e.target.value);
   };
 
   return (
     <>
       <NavBar />
       <div className="admin-container">
-        <select onClick={selectOption} className="admin-select">
-          <option>--select any--</option>
-          {options.map((e) => (<option value={e}>{e}</option>))}
+        <select onChange={selectOption} className="admin-select">
+          {options.map((e) => (
+            <option value={e}>{e}</option>
+          ))}
         </select>
-        <form className="upload-form-container">
+        <form className="upload-form-container" onSubmit={readUploadFile}>
           <label className="file-label">
             <input
               type="file"
@@ -74,7 +84,7 @@ const Userdata = () => {
             />
           </label>
           <label>{fileName}</label>
-          <button type="submit" onClick={submit} className="admin-submit">
+          <button type="submit" className="admin-submit">
             submit
           </button>
         </form>

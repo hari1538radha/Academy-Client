@@ -7,7 +7,7 @@ import img3 from "./Img/Vector.svg";
 import img4 from "./Img/Rectangle-14.jpg";
 import img6 from "./Img/BookLogo.svg";
 import img7 from "./Img/NextButton.svg";
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 // import img5 from "./Img/Quiz.jpg"
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
@@ -16,19 +16,16 @@ import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 
 function Landing() {
-
   const navigate = useNavigate();
-
-  const navigateDetail =()=>{
-    navigate('/detail');
-  }
-  const navigateSearch = ()=>{
-    navigate('/search')
-  }
-
-
-
   const dispatch = useDispatch();
+
+  const navigateDetail = () => {
+    navigate("/detail");
+  };
+  const navigateSearch = () => {
+    navigate("/search");
+  };
+
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
@@ -36,8 +33,7 @@ function Landing() {
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
-  const {loginData,loading} = useSelector((state) => state.loginInfo);
-    console.log(loginData)
+  const { loginData, loading } = useSelector((state) => state.loginInfo);
 
   return (
     <div>
@@ -67,7 +63,6 @@ function Landing() {
             <div>
               <img className="top-ryt-img" src={img1}></img>
             </div>
-            
           </div>
         </div>
         <div className="search">
@@ -79,9 +74,8 @@ function Landing() {
           ></input>
           <div className="search-img">
             <button className="but-click" onClick={navigateSearch}>
-            <img  className="search-but" src={img3}></img>
+              <img className="search-but" src={img3}></img>
             </button>
-            
           </div>
         </div>
         <div className="second-contant">
@@ -97,19 +91,18 @@ function Landing() {
                       <p className="sub-contain">{obj.topicDescription}</p>
 
                       <div className="Read-More">
-                      <a href="/detail">
-                        <img src={img6} className="book-logo"></img>
-
-                        Read More
-                      </a>
+                        <a href="/detail">
+                          <img src={img6} className="book-logo"></img>
+                          Read More
+                        </a>
                       </div>
                     </div>
                   );
                 })}
               <div className="next-but">
-                <buttton onClick={navigateDetail} >
+                <button onClick={navigateDetail}>
                   <img className="click-but" src={img7}></img>
-                </buttton>
+                </button>
               </div>
             </div>
           </div>
@@ -129,9 +122,10 @@ function Landing() {
                           <img className="eve-img" src={img4}></img>
                         </div>
                         <div className="third-head">{obj.eventName}</div>
-                        
-                          <p className="details"><p>{obj.eventDescription}</p> </p>
-                     
+
+                        <p className="details">
+                          <p>{obj.eventDescription}</p>{" "}
+                        </p>
                       </div>
                     </div>
                   );
@@ -140,7 +134,7 @@ function Landing() {
           </div>
         </div>
         <div>
-          <Footer/>
+          <Footer />
         </div>
       </>
     </div>

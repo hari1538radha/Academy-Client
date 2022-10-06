@@ -3,7 +3,8 @@ import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const postExcelData = createAsyncThunk("data/excelData", async (data) => {
-  return axio.post(`/authenticate/exceltojson`, data);
+  console.log('---',data);
+  return axio.post(`/api/exceltojson`, data);
 });
 const excelToJsonModel = createSlice({
   name: "exceltojson",
