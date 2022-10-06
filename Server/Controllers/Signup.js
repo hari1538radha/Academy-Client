@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import { userModel } from "../Schema/userSchema.js";
 
 export const signup = async (req, res) => {
+  const { userFirstName, userLastName, userEmail, userPassword } = req.body;
   userModel.findOne({ userEmail: req.body.userEmail }, async (err, data) => {
     if (err) {
       console.log(err);
@@ -13,7 +14,6 @@ export const signup = async (req, res) => {
           response: "Invalid Email",
         });
       } else {
-        const { userFirstName, userLastName, userEmail, userPassword } = req.body;
         if (!(userFirstName && userLastName && userEmail && userPassword)) {
           return res
             .status(429)

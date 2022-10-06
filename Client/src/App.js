@@ -9,6 +9,8 @@ import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
 import UserProfile from "./component/userProfile/UserProfile";
+import Dashboard from "./component/dashboard/dashboard";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
         <Route path="/quiz/start" element={<MainQuiz />}></Route>
         <Route path="/admin" element={<ExcelToJson />}></Route>
         <Route path="/profile" element={<UserProfile/>}></Route>
+        <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
   </Routes>
     </div>
   );

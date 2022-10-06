@@ -45,7 +45,7 @@ const SearchPage = () => {
             </nav>
             <div className='search-container'>
                 <input className='search-input' type="text" placeholder="Search here"></input>
-                <div className='search-logo--container'><img src={Searchlogo}></img></div>
+                <div className='search-logo--container'><img src={Searchlogo} alt="no img found"></img></div>
             </div>
             <div className='search-suggestion--container'>
                 <p>
@@ -77,8 +77,8 @@ const SearchPage = () => {
                                     <h2>{obj.topic}</h2>
                                     <p>{obj.discription}</p>
                                     <div className='learnmore-container'>
-                                        <img src={readmorelogo}></img>
-                                        <a href="#">Learn More</a>
+                                        <img src={readmorelogo} alt="no img found"></img>
+                                        <button>Learn More</button>
                                     </div>
                                 </div>
 

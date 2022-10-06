@@ -1,48 +1,39 @@
 import mongoose from "mongoose";
 
 const excelToJsonSchema = new mongoose.Schema({
-  Address: {
+  "S.No": {
+    type: Number,
+  },
+  State: {
+    type: String,
+  },
+  Type: {
+    type: String,
+  },
+  Yrofestab:{
+    type: Number,
+  },
+  Name: {
+    type: String,
+  },
+  Name_1: {
     type: String,
   },
   City: {
     type: String,
   },
-  State: {
+  District: {
     type: String,
   },
   PIN: {
-    type: Number,
-  },
-  University_Type: {
-    type: String,
-  },
-  Village: {
-    type: String,
-  },
-  Yearof_Establishment: {
-    type: Number,
-  },
-  district: {
-    type: String,
-  },
-  location_coordinates: {
-    type: String,
-  },
-  specialisation: {
-    type: String,
-  },
-  uId: {
-    type: String,
-  },
-  universityName: {
-    type: String,
-  },
-  urbanOrRural: {
-    type: String,
+    type: mongoose.Mixed,
   },
   url: {
     type: String,
   },
+  Phone: {
+    type: String,
+  }
 });
 
 export const excelToJsonModel = new mongoose.model(

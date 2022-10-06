@@ -17,9 +17,8 @@ import './footer.css'
 const footer = () => {
   return (
     <div className="footer">
-      <div className="Linepic">
-        <img src={Linepic}></img>
-      </div>
+
+      <div className="blue-line"></div>
 
       <img className="Logo" src={Logo}></img>
       <div>

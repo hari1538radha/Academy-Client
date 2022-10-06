@@ -9,7 +9,7 @@ const app = Express();
 
 app.use(cors({ origin: true }));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,5 +21,5 @@ mongoose
   .catch((err) => console.log("Database Connection Failed!!!", err.message));
 
 app.listen(PORT, () => {
-  console.log(`server listening at ${PORT}`);
+  console.log(`server listening at http://localhost:${PORT}`);
 });

@@ -32,8 +32,7 @@ const Login = () => {
           <form onSubmit={HandleSubmit}>
             <div className="Login-container">
               <div className="Loginlogo">
-                {" "}
-                <img src={Loginlogo}></img>
+                <img src={Loginlogo} alt="no img found"></img>
               </div>
               <input
                 className="Email-input"

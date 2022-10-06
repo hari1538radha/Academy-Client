@@ -5,7 +5,7 @@ export const getEventInfo = createAsyncThunk("user", async () => {
   return axio.get(`/authenticate/events`);
 });
 
-export const eventsReducers = createSlice({
+const eventsReducers = createSlice({
   name: "events",
   initialState: {
     eventsData: [],
@@ -25,5 +25,5 @@ export const eventsReducers = createSlice({
     },
   },
 });
-export const display = eventsReducers.reducer;
+const display = eventsReducers.reducer;
 export default display;

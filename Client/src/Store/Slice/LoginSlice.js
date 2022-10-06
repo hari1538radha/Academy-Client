@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import { axio } from "../../Config/Config";
 
 export const postLoginUser = createAsyncThunk("User", async (data) => {
@@ -9,7 +10,7 @@ export const loginReducer = createSlice({
   name: "login",
   initialState: {
     loginData: [],
-    loading: false,
+    loading: true,
   },
   reducer: {},
   extraReducers: {

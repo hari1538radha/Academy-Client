@@ -4,7 +4,7 @@ const userprofile = () => {
   return (
     <div>
 <div>
-  <img ></img>
+  <img alt='no img found'></img>
 </div>
 <div>
 

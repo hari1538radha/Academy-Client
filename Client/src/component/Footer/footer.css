@@ -1,19 +1,26 @@
 .footer {
-  height: 543px;
+  height: 40em;
   position: relative;
+  padding: 1em 4.5em;
 }
 
-.Linepic {
+/* .Linepic {
   display: flex;
   justify-content: center;
-  margin-top: 74px;
+  margin-top: 3em;
+  width: 100%;
+} */
+
+.blue-line {
+  width: 100%;
+  background: rgb(9, 126, 228);
+  padding: 0.2em 0;
+  border-radius: 0.8em;
 }
 
 .Logo {
   position: absolute;
-  top: 169px;
-  left: 100px;
-  padding-left: 40px;
+  top: 10em;
 }
 
 .Social p {
@@ -114,8 +121,7 @@
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 449px;
-  margin-left: 100px;
+  top: 30em;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
