@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Table from "rc-table";
 import { Link } from "react-router-dom";
 import { utils, read } from "xlsx";
-import NavBar from "../Navbar/navBar";
+import NavBar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
 import { postExcelData } from "../../Store/Slice/ExcelToJson";

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import Footer from "../Footer/footer";
-import Navbar from "../Navbar/navBar";
+import Navbar from "../Navbar/navbar";
 import MaterialReactTable from 'material-react-table';
 import {
   Box,

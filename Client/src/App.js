@@ -2,8 +2,9 @@ import "./App.css";
 import Login from "./component/Login/Login";
 import ExcelToJson from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
-import SearchPage from "./component/SearchPage/SearchPage";
-import Quiz from "./component/Quiz/quiz";
+import SearchPage from "./component/searchpage/searchpage"
+// import SearchPage from "./component/SearchPage/SearchPage";
+import Quiz from "./component/Quiz/Quiz";
 import MainQuiz from "./component/MainQuiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
