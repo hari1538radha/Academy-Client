@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import NavBar from "../Navbar/navBar";
+import NavBar from "../Navbar/navbar";
 import img1 from "./Img/Frame.svg";
 // import img2 from "./Img/button.svg";
 import img3 from "./Img/Vector.svg";

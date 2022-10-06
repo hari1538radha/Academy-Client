@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import NavBar from "../Navbar/navBar";
+import NavBar from "../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { postSignupData } from "../../Store/Slice/SignupSlice";
 import Footer from "../Footer/footer";
 import Loginlogo from "../Login/Images/Vector.svg";
-import NavBar from "../Navbar/navBar";
+import NavBar from "../Navbar/navbar";
 import "./Signup.css";
 
 const Signup = () => {
@@ -39,7 +39,9 @@ const Signup = () => {
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
-    dispatch(postSignupData({ userFirstName, userLastName, userEmail, userPassword }));
+    dispatch(
+      postSignupData({ userFirstName, userLastName, userEmail, userPassword })
+    );
   };
 
   return (

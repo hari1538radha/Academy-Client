@@ -1,12 +1,12 @@
 import React from 'react'
 import DetailPage from '../DetailPage'
 import Footer from '../../Footer/footer'
-import Navbar from "../../Navbar/navBar";
+import NavBar from '../../Navbar/navbar'
 
 function detailrender() {
   return (
     <div> 
-        <Navbar/>
+        <NavBar/>
         <DetailPage/>
         <Footer/>
     </div>

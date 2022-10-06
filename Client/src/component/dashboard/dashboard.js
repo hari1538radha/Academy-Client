@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Footer from "../Footer/footer";
-import Navbar from "../Navbar/navBar";
+import Navbar from "../Navbar/navbar";
 import MaterialReactTable from "material-react-table";
 import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
 
