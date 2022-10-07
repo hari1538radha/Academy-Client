@@ -1,16 +1,36 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./landingNav.css";
 import AcademyLogo from "../Login/Images/Academy.svg";
+import React, { useEffect} from "react";
+import axios from "axios";
+import {useSelector, useDispatch} from 'react-redux';
+import { loginAction } from "../../Store/Slice/LogoutSlice.js";
+import { fetchuser } from "../../Store/Slice/FindUser.js";
+
 const NavBar = () => {
   const navigate = useNavigate()
-
+  const dispatch = useDispatch()
+  const isLoggedin = useSelector((state) => state.onlineStatus);
+  const sendlogoutRequest = async() => {
+      const res = await axios.post("http://localhost:8001/authenticate/logout", null,{
+          withCredentials: true
+      }); 
+      if(res.status === 200){
+          return res;
+      }
+      return new Error("unable to logout");
+  }
+  const handleLogout = () => {
+      sendlogoutRequest().then(() => dispatch(loginAction.logout()));
+      alert("You will be loged out")
+  };
+  useEffect(() => {
+    dispatch(fetchuser())
+  },[]);
   const onClicking = (e) => {
     navigate("/quiz")
   }
 
-  const logout = (e) => {
-    navigate("/")
-  }
   return (
     <div className="Navbar">
       <Link to="/landing">
@@ -25,8 +45,8 @@ const NavBar = () => {
         <button>Careers</button>
         <button onClick={onClicking}>Quiz</button>
       
-      <div onClick={logout}>
-          <button className='Logout-btn' id="logout-button">Log out</button>
+      <div>
+          {isLoggedin && <Link onClick={handleLogout} to="/"><button className='Logout-btn' id="logout-button">Logout</button></Link> }
         </div>
     </div>
   );

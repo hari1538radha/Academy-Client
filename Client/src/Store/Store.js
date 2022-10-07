@@ -7,6 +7,8 @@ import courseReducer from "./Slice/DetailPageSlice.js";
 import LoginReducer from "./Slice/LoginSlice";
 import ListReducer from "./Slice/listOf";
 import educationDetails from "./Slice/getEducation";
+import status from "./Slice/LogoutSlice";
+import statusLog from "./Slice/Logout";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   loginInfo:LoginReducer,
   listinfo: ListReducer,
   educationInfo: educationDetails,
+  onlineStatus: status,
+  loggedout : statusLog
 });
 
 const store = configureStore({
