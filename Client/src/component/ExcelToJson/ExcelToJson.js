@@ -5,14 +5,14 @@ import { utils, read } from "xlsx";
 import NavBar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
-import { postUniversitiesData } from "../../Store/Slice/ExcelToJson";
-import { postProgrammeData } from "../../Store/Slice/postProgramme";
+import { postUniversities } from "../../Store/Slice/ExcelToJson";
+import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
 import "./exceltojson.css";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const Userdata = () => {
+const PostUniversity = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const Userdata = () => {
   const [fileName, setFileName] = useState("");
   const [selectedOpt, setselectedOpt] = useState();
 
-  const { Userdata, loading } = useSelector((state) => state.excelToJsonInfo);
+  const { postUniversitiesData, loading } = useSelector((state) => state.postUniversitiesInfo);
 
   const options = [
     "Select any",
@@ -33,8 +33,8 @@ const Userdata = () => {
 
   const readUploadFile = (e) => {
     e.preventDefault();
-
-    if (e.target.files[0] && selectedOpt) {
+    console.log(selectedOpt, e.target.files);
+    if (e?.target?.files[0] && selectedOpt) {
       const reader = new FileReader();
       setFileName(e.target.files[0].name);
       reader.onload = (e) => {
@@ -45,11 +45,11 @@ const Userdata = () => {
         const json = utils.sheet_to_json(worksheet);
         if (selectedOpt === "Universities") {
           console.log(json);
-
-          dispatch(postUniversitiesData(json));
+          dispatch(postUniversities(json));
         }
         if (selectedOpt === "Programme") {
-          dispatch(postProgrammeData(json));
+          console.log(json);
+          dispatch(postProgramme(json));
         }
         setMessage("dashboard");
       };
@@ -68,8 +68,8 @@ const Userdata = () => {
       <NavBar />
       <div className="admin-container">
         <select onChange={selectOption} className="admin-select">
-          {options.map((e) => (
-            <option value={e}>{e}</option>
+          {options.map((item, index) => (
+            <option key={index} value={item}>{item}</option>
           ))}
         </select>
         <form className="upload-form-container" onSubmit={readUploadFile}>
@@ -102,4 +102,4 @@ const Userdata = () => {
     </>
   );
 };
-export default Userdata;
+export default PostUniversity;

@@ -2,30 +2,29 @@ import { axio } from "../../Config/Config";
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const postUniversitiesData = createAsyncThunk("data/excelData", async (data) => {
+export const postUniversities = createAsyncThunk("Universities", async (data) => {
   console.log('---',data);
   return axio.post(`/api/exceltojson`, data);
 });
-const excelToJsonModel = createSlice({
-  name: "exceltojson",
+
+const postUniversitiesReducer = createSlice({
+  name: "Universities",
   initialState: {
-    userdata: [],
+    postUniversitiesData: [],
     loading: true,
   },
   extraReducers: {
-    [postUniversitiesData.pending]: (state, action) => {
+    [postUniversities.pending]: (state, action) => {
       state.loading = true;
     },
-    [postUniversitiesData.fulfilled]: (state, action) => {
-      state.userdata = action.payload.data;
+    [postUniversities.fulfilled]: (state, action) => {
+      state.postUniversitiesData = action.payload.data;
       state.loading = false;
     },
-    [postUniversitiesData.rejected]: (state, action) => {
+    [postUniversities.rejected]: (state, action) => {
       state.loading = false;
     },
   },
 });
 
-const userreducer = excelToJsonModel.reducer;
-
-export default userreducer;
+export default postUniversitiesReducer.reducer;

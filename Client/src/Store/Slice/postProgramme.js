@@ -2,29 +2,30 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { axio } from "../../Config/Config";
 
-export const postProgrammeData = createAsyncThunk("programme",
-(data) => {
-    return axio.post(`/api/programme`, data);
-})
+export const postProgramme = createAsyncThunk("programme", (data) => {
+    console.log(data);
+  return axio.post(`/api/programme`, data);
+});
 
-const postProgramme = createSlice({
-    name: "programme",
-    initialState: {
-        programme: [],
-        programmeLoading: true
+const postProgrammeReducer = createSlice({
+  name: "programme",
+  initialState: {
+    programmeData: [],
+    programmeLoading: true,
+  },
+  extraReducers: {
+    [postProgramme.pending]: (state) => {
+      state.programmeLoading = true;
     },
-    extraReducers: {
-        [postProgrammeData.pending]: (state) => {
-            state.programmeLoading = true;
-        },
-        [postProgrammeData.fulfilled]: (state, action) => {
-            state.programme = action.payload.data;
-            state.programmeLoading = false
-        },
-        [postProgrammeData.rejected]: (state, action) => {
-            state.programmeLoading = false
-        }
-    }
-})
+    [postProgramme.fulfilled]: (state, action) => {
+        console.log(action.payload);
+      state.programmeData = action.payload.data;
+      state.programmeLoading = false;
+    },
+    [postProgramme.rejected]: (state, action) => {
+      state.programmeLoading = false;
+    },
+  },
+});
 
-export default postProgramme.reducer;
+export default postProgrammeReducer.reducer;

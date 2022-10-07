@@ -31,17 +31,19 @@ const Dashboard = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const [validationErrors, setValidationErrors] = useState({});
-  // const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
   // setData(universitiesData);
   //   const { programmeData, programmeLoading } = useSelector((state) => state.programmeInfo);
   //   setData(programmeData);
   const appState = useSelector(state => state);
+  const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
+  console.log(appState);
   // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
   // // setData(stateValue);
-  console.log(appState);
+  // console.log(appState);
   // if(appState.universitiesInfo.universitiesData.length) {
   //   setData(appState.universitiesInfo.universitiesData)
-  // } else {
+  // }
+  //  else {
   //   setData(appState.programmeInfo.programme);
   // }
   useEffect(() => {
@@ -52,13 +54,13 @@ const Dashboard = () => {
   }, []);
 
   const handleCreateNewRow = (values) => {
-    data.push(values);
+    universitiesData.push(values);
     // setTableData([...data]);
   };
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      data[row.index] = values;
+      universitiesData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       // setTableData([...tableData]);
       exitEditingMode(); //required to exit editing mode and close modal
@@ -73,10 +75,10 @@ const Dashboard = () => {
         return;
       }
       //send api delete request here, then refetch or update local table data for re-render
-      data.splice(row.index, 1);
+      universitiesData.splice(row.index, 1);
       // setTableData([...tableData]);
     },
-    [data]
+    [universitiesData]
   );
 
   const getCommonEditTextFieldProps = useCallback(
@@ -140,7 +142,7 @@ const Dashboard = () => {
           },
         }}
         columns={columns}
-        data={data}
+        data={universitiesData}
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing
