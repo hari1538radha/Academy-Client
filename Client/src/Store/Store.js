@@ -5,7 +5,8 @@ import DisplayReducer from "./Slice/EventSlice";
 import excelToJsonReducer from "./Slice/ExcelToJson";
 import courseReducer from "./Slice/DetailPageSlice.js";
 import LoginReducer from "./Slice/LoginSlice";
-import ListReducer from "./Slice/listOf";
+import postProgrammeReducer from "./Slice/postProgramme";
+import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
 
 import universitiesReducer from "./Slice/getUniversities";
@@ -17,9 +18,10 @@ const rootReducer = combineReducers({
   excelToJsonInfo: excelToJsonReducer,
   courseInfo: courseReducer,
   loginInfo: LoginReducer,
-  listinfo: ListReducer,
+  postProgrammeInfo: postProgrammeReducer,
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
+  getProgrammeInfo: getProgrammeReducer,
 });
 
 const store = configureStore({

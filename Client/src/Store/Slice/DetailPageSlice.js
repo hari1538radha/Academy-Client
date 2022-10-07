@@ -1,14 +1,14 @@
 import { createAsyncThunk ,createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
-export const  course= createAsyncThunk("list", async () => {
+export const  course= createAsyncThunk("Detail", async () => {
     console.log(course)
   return axio.get(`/api/getcalldetailpage`)
 
 });
 
 export const courseReducer = createSlice({
-  name: "course",
+  name: "Detail",
   initialState: {
     courseDetail: [],
     loading: false,
@@ -20,7 +20,6 @@ export const courseReducer = createSlice({
       state.loading = true;
     },
     [course.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.courseDetail= action.payload.data;
       state.loading = false;
     },

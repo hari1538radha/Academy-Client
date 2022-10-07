@@ -13,6 +13,7 @@ import { listofPrograms } from "../Controllers/listOf.js";
 import { getExcelofEducation } from "../Controllers/readEducation.js";
 
 import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
+import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 
 const Route = express.Router();
 
@@ -24,12 +25,16 @@ Route.get("/topics", topics);
 Route.get("/geteducation", getExcelofEducation);
 Route.get("/events", events);
 Route.post("/upload-images", images);
-Route.post("/exceltojson", postUniversities);
 Route.post("/listofexcel", listofPrograms);
 Route.get("/userProfile", userProfileData);
 Route.post("/detailpage", detailPage);
 Route.get("/detailpage", details);
 
+Route.post("/exceltojson", postUniversities);
 Route.get("/universities", getUniversities);
+
+Route.post("/programme", postProgramme);
+Route.get("/programme", getProgramme);
+
 
 export default Route;

@@ -68,7 +68,7 @@ const Footer = () => {
           <a href="#"> DISCLAIMER</a>
         </div>
         <div className="Copyright-container">
-          <p>Copyright © 2018 • Lift Media Inc.</p>
+          <p>Copyright © 2022</p>
         </div>
       </div>
       <div className="Social-hidden">
@@ -83,7 +83,7 @@ const Footer = () => {
             </div>
             <div className="line-3"></div>
             <div className="hidden-copyright-container">
-              <p>Copyright © 2018 • Lift Media Inc.</p>
+              <p>Copyright © 2022</p>
             </div>
     </div>
   );

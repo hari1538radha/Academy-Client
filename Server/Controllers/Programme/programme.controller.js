@@ -1,14 +1,13 @@
-import { excelToJsonModel } from "../../Schema/excelToJson.js";
+import { programSchemaModel } from "../../Schema/ProgramSchema.js";
 
-const getUniversities = (req, res) => {
-
-    excelToJsonModel.find((err, data) => {
+const getProgramme = (req, res) => {
+  programSchemaModel.find((err, data) => {
     if (err) {
       console.log(err);
     } else {
       return res.send({
         status: 200,
-        message: "Universities details",
+        message: "Programme details",
         data: data,
       });
     }
@@ -16,8 +15,8 @@ const getUniversities = (req, res) => {
 };
 
 
-const postUniversities = (req, res) => {
-  excelToJsonModel
+const postProgramme = (req, res) => {
+  programSchemaModel
     .insertMany(req.body)
     .then(function (response) {
       console.log("Data inserted"); // Success
@@ -30,6 +29,6 @@ const postUniversities = (req, res) => {
 
 
 export {
-    getUniversities,
-    postUniversities
+    getProgramme,
+    postProgramme
 }

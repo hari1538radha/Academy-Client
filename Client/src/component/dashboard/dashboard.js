@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Footer from "../Footer/footer";
+import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import MaterialReactTable from "material-react-table";
-import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
+import {getUniversitiesInfo}  from "../../Store/Slice/getUniversities";
+import {getProgrammeInfo}  from "../../Store/Slice/getProgramme";
 
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Button,
@@ -19,28 +21,44 @@ import {
   Tooltip,
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
-import { keys } from "./makeData";
+import keyTypes from "./makeData";
 
 const Dashboard = () => {
-  // const [tableData, setTableData] = useState([]);
+  const locationState = useLocation().state;
+  const type = keyTypes[useLocation().state] || keyTypes["Universities"];
+  const [keys, setKeys] = useState(type);
   const dispatch = useDispatch();
-
   const [createModalOpen, setCreateModalOpen] = useState(false);
+  const [data, setData] = useState([]);
   const [validationErrors, setValidationErrors] = useState({});
-  const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
-
+  // const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
+  // setData(universitiesData);
+  //   const { programmeData, programmeLoading } = useSelector((state) => state.programmeInfo);
+  //   setData(programmeData);
+  const appState = useSelector(state => state);
+  // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
+  // // setData(stateValue);
+  console.log(appState);
+  // if(appState.universitiesInfo.universitiesData.length) {
+  //   setData(appState.universitiesInfo.universitiesData)
+  // } else {
+  //   setData(appState.programmeInfo.programme);
+  // }
   useEffect(() => {
+  if( locationState === 'Programme') {
+    dispatch(getProgrammeInfo());
+  }
     dispatch(getUniversitiesInfo());
   }, []);
 
   const handleCreateNewRow = (values) => {
-    universitiesData.push(values);
-    // setTableData([...universitiesData]);
+    data.push(values);
+    // setTableData([...data]);
   };
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      universitiesData[row.index] = values;
+      data[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       // setTableData([...tableData]);
       exitEditingMode(); //required to exit editing mode and close modal
@@ -55,10 +73,10 @@ const Dashboard = () => {
         return;
       }
       //send api delete request here, then refetch or update local table data for re-render
-      universitiesData.splice(row.index, 1);
+      data.splice(row.index, 1);
       // setTableData([...tableData]);
     },
-    [universitiesData]
+    [data]
   );
 
   const getCommonEditTextFieldProps = useCallback(
@@ -122,7 +140,7 @@ const Dashboard = () => {
           },
         }}
         columns={columns}
-        data={universitiesData}
+        data={data}
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing

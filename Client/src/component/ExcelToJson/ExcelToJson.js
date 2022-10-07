@@ -5,8 +5,8 @@ import { utils, read } from "xlsx";
 import NavBar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
-import { postExcelData } from "../../Store/Slice/ExcelToJson";
-import { postlistData } from "../../Store/Slice/listOf";
+import { postUniversitiesData } from "../../Store/Slice/ExcelToJson";
+import { postProgrammeData } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
 import "./exceltojson.css";
 
@@ -18,14 +18,14 @@ const Userdata = () => {
 
   const [message, setMessage] = useState();
   const [fileName, setFileName] = useState("");
-  const [opt, setOpt] = useState();
+  const [selectedOpt, setselectedOpt] = useState();
 
   const { Userdata, loading } = useSelector((state) => state.excelToJsonInfo);
 
   const options = [
     "Select any",
     "Universities",
-    "Program",
+    "Programme",
     "Quiz",
     "Topics",
     "Events",
@@ -33,9 +33,8 @@ const Userdata = () => {
 
   const readUploadFile = (e) => {
     e.preventDefault();
-    console.log(opt);
 
-    if (e.target.files[0] && opt) {
+    if (e.target.files[0] && selectedOpt) {
       const reader = new FileReader();
       setFileName(e.target.files[0].name);
       reader.onload = (e) => {
@@ -44,13 +43,13 @@ const Userdata = () => {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
-        if (opt === "Universities") {
+        if (selectedOpt === "Universities") {
           console.log(json);
 
-          dispatch(postExcelData(json));
+          dispatch(postUniversitiesData(json));
         }
-        if (opt === "Program") {
-          dispatch(postlistData(json));
+        if (selectedOpt === "Programme") {
+          dispatch(postProgrammeData(json));
         }
         setMessage("dashboard");
       };
@@ -61,7 +60,7 @@ const Userdata = () => {
   };
 
   const selectOption = (e) => {
-    setOpt(e.target.value);
+    setselectedOpt(e.target.value);
   };
 
   return (
@@ -92,7 +91,7 @@ const Userdata = () => {
           <div className="success-snippets">
             <h2>
               File uploaded successfully, Goto{" "}
-              <Link to="/admin/dashboard" className="success-file-msg">
+              <Link to="/admin/dashboard" className="success-file-msg" state={selectedOpt}>
                 {message}
               </Link>
             </h2>
