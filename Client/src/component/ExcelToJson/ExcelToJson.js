@@ -72,7 +72,7 @@ const PostUniversity = () => {
             <option key={index} value={item}>{item}</option>
           ))}
         </select>
-        <form className="upload-form-container" onSubmit={readUploadFile}>
+        <form className="upload-form-container">
           <label className="file-label">
             <input
               type="file"
@@ -83,9 +83,6 @@ const PostUniversity = () => {
             />
           </label>
           <label>{fileName}</label>
-          <button type="submit" className="admin-submit">
-            submit
-          </button>
         </form>
         {message && (
           <div className="success-snippets">

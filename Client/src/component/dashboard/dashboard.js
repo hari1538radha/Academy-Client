@@ -24,19 +24,20 @@ import { Delete, Edit } from "@mui/icons-material";
 import keyTypes from "./makeData";
 
 const Dashboard = () => {
+  let data = [];
   const locationState = useLocation().state;
   const type = keyTypes[useLocation().state] || keyTypes["Universities"];
   const [keys, setKeys] = useState(type);
   const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [data, setData] = useState([]);
   const [validationErrors, setValidationErrors] = useState({});
   // setData(universitiesData);
   //   const { programmeData, programmeLoading } = useSelector((state) => state.programmeInfo);
   //   setData(programmeData);
   const appState = useSelector(state => state);
   const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
-  console.log(appState);
+  // console.log(appState['universitiesInfo']['universitiesData']);
+  console.log(appState['getProgrammeInfo']['programmeData']);
   // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
   // // setData(stateValue);
   // console.log(appState);
@@ -46,6 +47,11 @@ const Dashboard = () => {
   //  else {
   //   setData(appState.programmeInfo.programme);
   // }
+  if(locationState === 'Programme') {
+    data = appState['getProgrammeInfo']['programmeData']
+  } else {
+    data = appState['universitiesInfo']['universitiesData']
+  }
   useEffect(() => {
   if( locationState === 'Programme') {
     dispatch(getProgrammeInfo());
@@ -54,13 +60,13 @@ const Dashboard = () => {
   }, []);
 
   const handleCreateNewRow = (values) => {
-    universitiesData.push(values);
+    data.push(values);
     // setTableData([...data]);
   };
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      universitiesData[row.index] = values;
+      data[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       // setTableData([...tableData]);
       exitEditingMode(); //required to exit editing mode and close modal
@@ -75,10 +81,10 @@ const Dashboard = () => {
         return;
       }
       //send api delete request here, then refetch or update local table data for re-render
-      universitiesData.splice(row.index, 1);
+      data.splice(row.index, 1);
       // setTableData([...tableData]);
     },
-    [universitiesData]
+    [data]
   );
 
   const getCommonEditTextFieldProps = useCallback(
@@ -142,7 +148,7 @@ const Dashboard = () => {
           },
         }}
         columns={columns}
-        data={universitiesData}
+        data={data}
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing
