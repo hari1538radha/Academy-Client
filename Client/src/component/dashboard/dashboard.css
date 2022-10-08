@@ -1,0 +1,49 @@
+Table {
+    border: solid 2px black;
+    width: 80%;
+    margin: 5em auto;
+    text-align: center;
+  }
+
+  .rc-table-thead {
+    background: rgb(91, 202, 245);
+    font-size: 1.2em;
+  }
+  
+  .rc-table-tbody {
+    background: rgb(228, 248, 255);
+  }
+  
+  .rc-table-cell {
+    border: solid 2px black;
+    border-collapse: collapse;
+  }
+
+  .pagination-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 20%;
+    margin: 1em auto;
+    background: rgb(91, 202, 245);
+  }
+
+  .pagination-btn {
+    padding: 1em 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 1em auto;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .dashboard-select {
+    padding: 1em 2em;
+    width: 50%;
+  }
+

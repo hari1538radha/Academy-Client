@@ -1,48 +1,21 @@
-/* .a{     
-    position: absolute;
-    width: 55px;
-    height: 27px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17.8417px;
-    line-height: 27px;
-    
-    
-    color: #060606;
-
-} */
 .Navbar {
-  height: 73px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 2em 4em;
 }
 
-.Navbar a {
-  text-decoration: none;
-  color: black;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 17.8417px;
+.Navbar button{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25em;
+    border: transparent;
+    background: transparent;
 }
-
-/* .Login-btn {
-  width: 131.58px;
-  height: 33.45px;
-  border: 1px solid #E25353;
-  border-radius: 22.3022px;
-  color: #C00000;
-  background: #FFFFFF;
-  margin-right: 100px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-
-} */
 
 .Login-btn {
   width: 130px;
@@ -51,7 +24,6 @@
   border-radius: 22.3022px;
   color: #C00000;
   background: #FFFFFF;
-  margin-right: 100px;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
@@ -69,7 +41,7 @@
     display: none;
 }
 
-.Logout-btn {
+#logout-button {
     cursor: pointer;
     width: 131.58px;
     height: 33.45px;
@@ -77,13 +49,11 @@
     color: white;
     background: #FB4B4B;
     border-radius: 22.3022px;
-    margin-right: 100px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-
 }
 
 @media screen and (max-width:1100px) {

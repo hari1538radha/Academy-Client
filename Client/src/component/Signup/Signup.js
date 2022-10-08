@@ -39,7 +39,9 @@ const Signup = () => {
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
-    dispatch(postSignupData({ userFirstName, userLastName, userEmail, userPassword }));
+    dispatch(
+      postSignupData({ userFirstName, userLastName, userEmail, userPassword })
+    );
   };
 
   return (
@@ -84,7 +86,7 @@ const Signup = () => {
                 <button className="Signup-btn">SIGN UP</button>
                 <div className="Signup-footer">
                   <p>Already have an account? </p>
-                  <Link to="/login">LOG IN</Link>
+                  <Link to="/landing">LOG IN</Link>
                 </div>
 
                 </div>              </div>

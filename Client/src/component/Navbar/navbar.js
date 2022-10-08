@@ -1,26 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./landingNav.css";
 import AcademyLogo from "../Login/Images/Academy.svg";
 const NavBar = () => {
+  const navigate = useNavigate()
+
+  const onClicking = (e) => {
+    navigate("/quiz")
+  }
+
+  const logout = (e) => {
+    navigate("/")
+  }
   return (
     <div className="Navbar">
       <Link to="/landing">
-        <img className="AcademyLogo" src={AcademyLogo}></img>
+        <img className="AcademyLogo" src={AcademyLogo} alt="no img found"></img>
       </Link>
     
-        <a href="">About</a>
-        <a href="">Contact</a>
-        <a href="">Blog</a>
-        <a href="">Academy</a>
-        <a href="">Events</a>
-        <a href="">Careers</a>
-        <a href="/quiz">Quiz</a>
+        <button>About</button>
+        <button>Contact</button>
+        <button>Blog</button>
+        <button>Academy</button>
+        <button>Events</button>
+        <button>Careers</button>
+        <button onClick={onClicking}>Quiz</button>
       
-
-      {/* <button className="Login-btn">Login</button> */}
-      <Link to="/">
-          <button className='Logout-btn'>Log out</button>
-        </Link>
+      <div onClick={logout}>
+          <button className='Logout-btn' id="logout-button">Log out</button>
+        </div>
     </div>
   );
 };

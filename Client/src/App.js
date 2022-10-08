@@ -1,15 +1,18 @@
 import "./App.css";
 import Login from "./component/Login/Login";
-import ExcelToJson from "./component/ExcelToJson/ExcelToJson";
+import PostUniversity from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
-import SearchPage from "./component/searchpage/searchpage.js";
+// import SearchPage from "./component/searchpage/searchpage"
+import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
 import MainQuiz from "./component/Mainquiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
 import UserProfile from "./component/userProfile/UserProfile";
-
+import Dashboard from "./component/dashboard/dashboard";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Dropdown from "./component/Dropdown/Dropdown";
 function App() {
   return (
     <div>
@@ -22,8 +25,10 @@ function App() {
         <Route path="/search" element={<SearchPage />}></Route>
         <Route path="/detail" element={<DetailPage />}></Route>
         <Route path="/quiz/start" element={<MainQuiz />}></Route>
-        <Route path="/admin" element={<ExcelToJson />}></Route>
+        <Route path="/admin" element={<PostUniversity />}></Route>
         <Route path="/profile" element={<UserProfile/>}></Route>
+        <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/dropdown" element={<Dropdown/>}></Route>
   </Routes>
     </div>
   );

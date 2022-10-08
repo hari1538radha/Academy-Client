@@ -3,8 +3,8 @@ import React from 'react'
 const userprofile = () => {
   return (
     <div>
-<div>hihihi
-  <img ></img>
+<div>
+  <img alt='no img found'></img>
 </div>
 <div>
 

@@ -146,8 +146,10 @@
   margin-bottom: 10px;
 }
 
-.cards a {
+.cards button {
   font-family: "Poppins";
+  background: transparent;
+  border: transparent;
   font-style: normal;
   font-weight: 600;
   font-size: 15px;

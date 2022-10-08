@@ -29,7 +29,7 @@ const MainQuiz = () => {
           <div className="quiz-questions--header">
             <h1 className="Question-number">Question 1</h1>
             <div className="quizhint-logo--container">
-              <img src={quizHintLogo}></img>
+              <img src={quizHintLogo} alt="no img found"></img>
             </div>
           </div>
 

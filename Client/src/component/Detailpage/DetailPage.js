@@ -16,7 +16,6 @@ function DetailPage() {
   //   }
   // }))
   return (
-
     <div>
       <div className="header-container">
         <h1 className="title">Java</h1>
