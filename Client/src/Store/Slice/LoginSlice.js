@@ -19,7 +19,7 @@ export const loginReducer = createSlice({
     [postLoginUser.fulfilled]: (state, action) => {
       state.loading = false;
 
-      state.loginData.push(action.payload.data);
+      state.loginData= action.payload;
     },
     [postLoginUser.rejected]: (state, action) => {
       state.loading = false;
