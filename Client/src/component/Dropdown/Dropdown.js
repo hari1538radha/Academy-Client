@@ -20,7 +20,7 @@ dispatch(postLoginUser());
           <div className="card text-start">
             <div className="card-body px-4 py-4">
               <div id="circle-avatar" className="text-center mx-auto mb-4">
-                <span>K</span>
+                <span>User Profile</span>
               </div>
 
               <h5 className="text-center mb-0">John Doe</h5>

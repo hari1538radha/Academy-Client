@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import React from 'react'
 import Navbar from '../Navbar/navbar'
 import Searchlogo from "../Login/Images/searchlogo.svg"
 import "./search.css"
 import readmorelogo from "../Login/Images/readmorelogo.svg"
 import Footer from '../Footer/footer'
-=======
-import React from "react";
-import Navbar from "../Navbar/navbar";
-import Searchlogo from "../Login/Images/searchlogo.svg";
-import "./search.css";
-import readmorelogo from "../Login/Images/readmorelogo.svg";
-import Footer from "../Footer/footer";
->>>>>>> c1d5b07c097a0269d534c1d620d094416434cd2e
 
 const SearchPage = () => {
   const mockdata = [

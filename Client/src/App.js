@@ -13,6 +13,7 @@ import UserProfile from "./component/userProfile/UserProfile";
 import Dashboard from "./component/dashboard/dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dropdown from "./component/Dropdown/Dropdown";
+import DropdownNavbar from "./component/DropdownNavbar/DropdownNavbar";
 function App() {
   return (
     <div>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/profile" element={<UserProfile/>}></Route>
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route path="/dropdown" element={<Dropdown/>}></Route>
+        <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route>
   </Routes>
     </div>
   );
