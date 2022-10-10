@@ -22,7 +22,7 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    console.log(userEmail, '--------');
+    console.log(userEmail);
     navigate("/landing", {state: {email: userEmail} });
   };
   // const {loginData,loading} =useSelector(state => state.loginInfo)
