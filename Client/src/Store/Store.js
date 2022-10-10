@@ -8,6 +8,7 @@ import LoginReducer from "./Slice/LoginSlice";
 import postProgrammeReducer from "./Slice/postProgramme";
 import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
+import userprofileReducer from "./Slice/UserprofilePageSlice"
 
 import universitiesReducer from "./Slice/getUniversities";
 
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
+  userprofileInfo:userprofileReducer
 });
 
 const store = configureStore({

@@ -14,6 +14,7 @@ import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
+import {userProfileData} from "../../Store/Slice/UserprofilePageSlice";
 
 function Landing() {
   const navigate = useNavigate();
@@ -29,11 +30,13 @@ function Landing() {
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
+    dispatch(userProfileData())
   }, []);
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
-  const { loginData, loading } = useSelector((state) => state.loginInfo);
+  const {userdata,userdataloading} = useSelector(state => state.userprofileInfo)
+  console.log(userdata)
 
   return (
     <div>

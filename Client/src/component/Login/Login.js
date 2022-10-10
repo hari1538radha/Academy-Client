@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import NavBar from "../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
+import {userProfileData} from "../../Store/Slice/UserprofilePageSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer";
@@ -20,10 +21,13 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
+    dispatch(userProfileData({userEmail}))
     navigate("/landing");
   };
   const {logindata,loading} =useSelector(state => state.loginInfo)
  console.log(logindata)
+ const {userdata,userdataloading} =useSelector(state => state.userprofileInfo)
+ console.log(userdata)
   return (
     <>
     <NavBar/>

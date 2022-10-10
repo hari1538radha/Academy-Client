@@ -26,15 +26,12 @@ Route.get("/geteducation", getExcelofEducation);
 Route.get("/events", events);
 Route.post("/upload-images", images);
 Route.post("/listofexcel", listofPrograms);
-Route.get("/userProfile", userProfileData);
+Route.post("/userProfile", userProfileData);
 Route.post("/detailpage", detailPage);
 Route.get("/detailpage", details);
-
 Route.post("/exceltojson", postUniversities);
 Route.get("/universities", getUniversities);
-
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
-
 
 export default Route;
