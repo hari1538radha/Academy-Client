@@ -7,7 +7,7 @@ import cors from "cors";
 
 const app = Express();
 
-app.use(cors({ origin: true }));
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 app.use(bodyParser.json({limit: '5mb'}));
 

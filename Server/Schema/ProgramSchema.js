@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const programSchema = new mongoose.Schema({
   SNo: {
-    type: Number,
+    type: String,
   },
-  ProgrammeType: {
+  ProgrammeType : {
     type: String,
   },
   Programme: {
