@@ -12,7 +12,8 @@ import Signup from './component/Signup/Signup';
 import UserProfile from "./component/userProfile/UserProfile";
 import Dashboard from "./component/dashboard/dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Dropdown from "./component/Navbar/Dropdown/Dropdown";
+// import DropdownNavbar from "./component/DropdownNavbar/DropdownNavbar";
 function App() {
   return (
     <div>
@@ -28,6 +29,8 @@ function App() {
         <Route path="/admin" element={<PostUniversity />}></Route>
         <Route path="/profile" element={<UserProfile/>}></Route>
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/dropdown" element={<Dropdown/>}></Route>
+        {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
   </Routes>
     </div>
   );
