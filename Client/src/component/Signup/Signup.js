@@ -49,8 +49,9 @@ const Signup = () => {
       <NavBar />
       <>
         <div className="image">
-          <div className="Signup-main">
+         
             <form onSubmit={handleSignupData}>
+            <div className="Signup-main">
               <div className="Signup-container">
                 <div className="Loginlogo">
                   {" "}
@@ -87,9 +88,10 @@ const Signup = () => {
                   <p>Already have an account? </p>
                   <Link to="/landing">LOG IN</Link>
                 </div>
-              </div>
+
+                </div>              </div>
             </form>
-          </div>
+          
         </div>
         <div>
           <Footer />

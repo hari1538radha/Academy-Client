@@ -14,11 +14,15 @@ import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
+import {userProfileData} from "../../Store/Slice/UserprofilePageSlice";
+import { postLoginUser } from "../../Store/Slice/LoginSlice";
+import { useLocation } from "react-router-dom";
 
 function Landing() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const locationState = useLocation().state;
+  console.log(locationState);
   const navigateDetail = () => {
     navigate("/detail");
   };
@@ -29,16 +33,16 @@ function Landing() {
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
+    dispatch(userProfileData(locationState?.email))
   }, []);
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
-  const { loginData, loading } = useSelector((state) => state.loginInfo);
-
+  const {userData,loading} =useSelector(state => state.userProfileInfo);
+  console.log(userData);
   return (
     <div>
-      <NavBar />
-      <>
+      <NavBar profileInfo={userData.data}/>
         <div className="first-container">
           <div className="left">
             <div className="fst-con-head">
@@ -136,7 +140,6 @@ function Landing() {
         <div>
           <Footer />
         </div>
-      </>
     </div>
   );
 }

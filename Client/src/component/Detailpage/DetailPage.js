@@ -1,6 +1,6 @@
 import React from "react";
 import courseimage from "../Landing/Img/Rectangle-15.png";
-import "./detailPage.css";
+import "./detailPage.css"
 // import { course } from '../../Store/Slice/DetailpageSlice.js';
 // import {useEffect} from "react"
 // import { useDispatch,useSelector } from 'react-redux';
