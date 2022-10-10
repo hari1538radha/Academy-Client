@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
-  userprofileInfo:userprofileReducer
+  userProfileInfo:userprofileReducer
 });
 
 const store = configureStore({

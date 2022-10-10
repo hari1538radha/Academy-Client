@@ -10,6 +10,7 @@ import Footer from "../Footer/footer";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 const Login = () => {
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,13 +22,12 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    dispatch(userProfileData({userEmail}))
-    navigate("/landing");
+    console.log(userEmail, '--------');
+    navigate("/landing", {state: {email: userEmail} });
   };
-  const {logindata,loading} =useSelector(state => state.loginInfo)
- console.log(logindata)
- const {userdata,userdataloading} =useSelector(state => state.userprofileInfo)
- console.log(userdata)
+  // const {loginData,loading} =useSelector(state => state.loginInfo)
+//  console.log(loginData);
+
   return (
     <>
     <NavBar/>

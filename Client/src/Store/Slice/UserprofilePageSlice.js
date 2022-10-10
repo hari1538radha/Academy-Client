@@ -2,14 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
 export const userProfileData = createAsyncThunk("userdata", async (userEmail) => {
-     return axio.post(`/api/userProfile`,userEmail);
+     return axio.get(`/api/userProfile?userEmail=${userEmail}`);
 
 });
-export const userdataReducer = createSlice({
+export const userDataReducer = createSlice({
     name: "userData",
     initialState: {
-        userdata: [],
-        userdataloading: false
+        userData: [],
+        userDataloading: false
     },
     reducers: {},
     extraReducers:
@@ -20,7 +20,7 @@ export const userdataReducer = createSlice({
         },
         [userProfileData.fulfilled]: (state, action) => {
             state.loading = false
-            state.userdata = action.payload.data
+            state.userData = action.payload.data
         
             
 
@@ -31,6 +31,6 @@ export const userdataReducer = createSlice({
         }
     }
 })
-const userprofiledata = userdataReducer.reducer;
+const userprofiledata = userDataReducer.reducer;
 
 export default userprofiledata;
