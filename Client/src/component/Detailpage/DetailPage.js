@@ -1,20 +1,15 @@
 import React from "react";
 import courseimage from "../Landing/Img/Rectangle-15.png";
 import "./detailPage.css";
-// import { course } from '../../Store/Slice/DetailpageSlice.js';
-// import {useEffect} from "react"
-// import { useDispatch,useSelector } from 'react-redux';
+import { course } from '../../Store/Slice/DetailPageSlice.js';
+import {useEffect} from "react"
+import { useDispatch,useSelector } from 'react-redux';
+import { render } from "react-dom";
 function DetailPage() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(course());
-  // }, []);
-
-  // const {courseDetail,loading}=useSelector((state)=>state.course.map(data=>{
-  //   if(data.title=="value()"){
-  //     return data;
-  //   }
-  // }))
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(course());
+  }, []);
   return (
     <div>
       <div className="navbar-container" >

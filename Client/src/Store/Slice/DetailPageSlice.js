@@ -3,8 +3,7 @@ import { axio } from "../../Config/Config";
 
 export const  course= createAsyncThunk("list", async () => {
     console.log(course)
-  return axio.get(`/authenticate/getcalldetailpage`)
-
+  return axio.get(`/authenticate/detailpage`);
 });
 
 export const courseReducer = createSlice({
