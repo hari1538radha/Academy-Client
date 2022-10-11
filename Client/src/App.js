@@ -14,6 +14,7 @@ import Dashboard from "./component/dashboard/dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import EditProfile from "./component/EditProfile/EditProfile.js"
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
+import AddEvent from "./component/AddEvent/AddEvent";
 // import DropdownNavbar from "./component/DropdownNavbar/DropdownNavbar";
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route path="/dropdown" element={<Dropdown/>}></Route>
         <Route path="/editProfile" element={<EditProfile/>}></Route>
-
+        <Route path="/profile/AddEvent" element={<AddEvent/>}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
   </Routes>
     </div>

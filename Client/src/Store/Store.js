@@ -9,7 +9,7 @@ import postProgrammeReducer from "./Slice/postProgramme";
 import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
 import userprofileReducer from "./Slice/UserprofilePageSlice"
-
+import addEventReducer from "./Slice/AddEventSlice"
 import universitiesReducer from "./Slice/getUniversities";
 
 const rootReducer = combineReducers({
@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
-  userProfileInfo:userprofileReducer
+  userProfileInfo:userprofileReducer,
+  postEventInfo:addEventReducer
 });
 
 const store = configureStore({

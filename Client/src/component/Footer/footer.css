@@ -70,6 +70,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 55%;
+  gap: 13px;
   /* background-color: rgb(129, 129, 131); */
 }
 

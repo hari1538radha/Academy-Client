@@ -43,7 +43,7 @@ const Dropdown = ({profileInfo}) =>  {
                   <a href="/admin/dashboard" id="link">Dashboard</a>
                 </button>
                 <button className="list-group-item list-group-item-action px-4" >
-                  <a href="/editProfile" id="link">Edit Profile</a>
+                  <a href="/profile" id="link">Edit Profile</a>
                 </button>
               </div>
 
