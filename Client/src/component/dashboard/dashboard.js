@@ -1,7 +1,12 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Footer from "../Footer/footer";
+import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
-import MaterialReactTable from 'material-react-table';
+import MaterialReactTable from "material-react-table";
+import {getUniversitiesInfo}  from "../../Store/Slice/getUniversities";
+import {getProgrammeInfo}  from "../../Store/Slice/getProgramme";
+
+import { useDispatch, useSelector } from "react-redux";
 import {
   Box,
   Button,
@@ -14,25 +19,56 @@ import {
   Stack,
   TextField,
   Tooltip,
-} from '@mui/material';
-import { Delete, Edit } from '@mui/icons-material';
-import { data, keys } from './makeData';
+} from "@mui/material";
+import { Delete, Edit } from "@mui/icons-material";
+import keyTypes from "./makeData";
 
-const Example = () => {
+const Dashboard = () => {
+  let data = [];
+  const locationState = useLocation().state;
+  const type = keyTypes[useLocation().state] || keyTypes["Universities"];
+  const [keys, setKeys] = useState(type);
+  const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState(() => data);
   const [validationErrors, setValidationErrors] = useState({});
+  // setData(universitiesData);
+  //   const { programmeData, programmeLoading } = useSelector((state) => state.programmeInfo);
+  //   setData(programmeData);
+  const appState = useSelector(state => state);
+  const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
+  // console.log(appState['universitiesInfo']['universitiesData']);
+  console.log(appState['getProgrammeInfo']['programmeData']);
+  // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
+  // // setData(stateValue);
+  // console.log(appState);
+  // if(appState.universitiesInfo.universitiesData.length) {
+  //   setData(appState.universitiesInfo.universitiesData)
+  // }
+  //  else {
+  //   setData(appState.programmeInfo.programme);
+  // }
+  if(locationState === 'Programme') {
+    data = appState['getProgrammeInfo']['programmeData']
+  } else {
+    data = appState['universitiesInfo']['universitiesData']
+  }
+  useEffect(() => {
+  if( locationState === 'Programme') {
+    dispatch(getProgrammeInfo());
+  }
+    dispatch(getUniversitiesInfo());
+  }, []);
 
   const handleCreateNewRow = (values) => {
-    tableData.push(values);
-    setTableData([...tableData]);
+    data.push(values);
+    // setTableData([...data]);
   };
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      tableData[row.index] = values;
+      data[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
-      setTableData([...tableData]);
+      // setTableData([...tableData]);
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -40,15 +76,15 @@ const Example = () => {
   const handleDeleteRow = useCallback(
     (row) => {
       if (
-        !alert(`Are you sure you want to delete ${row.getValue('firstName')}`)
+        !alert(`Are you sure you want to delete ${row.getValue("firstName")}`)
       ) {
         return;
       }
       //send api delete request here, then refetch or update local table data for re-render
-      tableData.splice(row.index, 1);
-      setTableData([...tableData]);
+      data.splice(row.index, 1);
+      // setTableData([...tableData]);
     },
-    [tableData],
+    [data]
   );
 
   const getCommonEditTextFieldProps = useCallback(
@@ -58,9 +94,9 @@ const Example = () => {
         helperText: validationErrors[cell.id],
         onBlur: (event) => {
           const isValid =
-            cell.column.id === 'email'
+            cell.column.id === "email"
               ? validateEmail(event.target.value)
-              : cell.column.id === 'age'
+              : cell.column.id === "age"
               ? validateAge(+event.target.value)
               : validateRequired(event.target.value);
           if (!isValid) {
@@ -79,103 +115,46 @@ const Example = () => {
         },
       };
     },
-    [validationErrors],
+    [validationErrors]
   );
 
-//   const columns = useMemo(
-//     () => [
-//       {
-//         accessorKey: 'id',
-//         header: 'ID',
-//         enableColumnOrdering: false,
-//         enableEditing: false, //disable editing on this column
-//         enableSorting: false,
-//         size: 80,
-//       },
-//       {
-//         accessorKey: 'firstName',
-//         header: 'First Name',
-//         size: 140,
-//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-//           ...getCommonEditTextFieldProps(cell),
-//         }),
-//       },
-//       {
-//         accessorKey: 'lastName',
-//         header: 'Last Name',
-//         size: 140,
-//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-//           ...getCommonEditTextFieldProps(cell),
-//         }),
-//       },
-//       {
-//         accessorKey: 'email',
-//         header: 'Email',
-//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-//           ...getCommonEditTextFieldProps(cell),
-//           type: 'email',
-//         }),
-//       },
-//       {
-//         accessorKey: 'age',
-//         header: 'Age',
-//         size: 80,
-//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-//           ...getCommonEditTextFieldProps(cell),
-//           type: 'number',
-//         }),
-//       },
-//     ],
-//     [getCommonEditTextFieldProps],
-//   );
-// const aaa = () => keys.map((key) => {
-//     return {
-//         accessorKey: key,
-//         header: key,
-//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-//         ...getCommonEditTextFieldProps(cell),
-//         type: key,
-//         }),
-//     }
-
-// });
-// console.log(aaa());
   const columns = useMemo(
-    () => keys.map((key) => {
+    () =>
+      keys.map((key) => {
         return {
-            accessorKey: key,
-            header: key,
-            muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          accessorKey: key,
+          header: key,
+          muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
             ...getCommonEditTextFieldProps(cell),
             type: key,
-            }),
-        }
-    }),
-    [getCommonEditTextFieldProps],
+          }),
+        };
+      }),
+    [getCommonEditTextFieldProps]
   );
 
   return (
     <>
-    <nav>
+      <nav>
         <Navbar />
       </nav>
       <MaterialReactTable
         displayColumnDefOptions={{
-          'mrt-row-actions': {
+          "mrt-row-actions": {
             muiTableHeadCellProps: {
-              align: 'center',
+              align: "center",
             },
             size: 120,
           },
         }}
         columns={columns}
-        data={tableData}
+        data={data}
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         renderRowActions={({ row, table }) => (
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
+          <Box sx={{ display: "flex", gap: "1rem" }}>
             <Tooltip arrow placement="left" title="Edit">
               <IconButton onClick={() => table.setEditingRow(row)}>
                 <Edit />
@@ -189,7 +168,7 @@ const Example = () => {
           </Box>
         )}
       />
-       <footer>
+      <footer>
         <Footer />
       </footer>
     </>
@@ -200,9 +179,9 @@ const Example = () => {
 export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
-      acc[column.accessorKey ?? ''] = '';
+      acc[column.accessorKey ?? ""] = "";
       return acc;
-    }, {}),
+    }, {})
   );
 
   const handleSubmit = () => {
@@ -213,14 +192,13 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
 
   return (
     <Dialog open={open}>
-      <DialogTitle textAlign="center">Create New Account</DialogTitle>
       <DialogContent>
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
             sx={{
-              width: '100%',
-              minWidth: { xs: '300px', sm: '360px', md: '400px' },
-              gap: '1.5rem',
+              width: "100%",
+              minWidth: { xs: "300px", sm: "360px", md: "400px" },
+              gap: "1.5rem",
             }}
           >
             {columns.map((column) => (
@@ -236,12 +214,6 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
           </Stack>
         </form>
       </DialogContent>
-      <DialogActions sx={{ p: '1.25rem' }}>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button color="secondary" onClick={handleSubmit} variant="contained">
-          Create New Account
-        </Button>
-      </DialogActions>
     </Dialog>
   );
 };
@@ -252,8 +224,8 @@ const validateEmail = (email) =>
   email
     .toLowerCase()
     .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 const validateAge = (age) => age >= 18 && age <= 50;
 
-export default Example;
+export default Dashboard;

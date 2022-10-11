@@ -1,0 +1,28 @@
+#info-box {
+    width: 400px;
+    background: #ffffff;
+    top: 65px;
+}
+a#link {
+    text-decoration: none;
+    color: black;
+}
+div#link-but {
+    padding-left: 40px;
+}
+h5#name {
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 23px;
+    
+}
+p#email {
+   
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 18px;
+}
+a:hover#link {
+   
+    color: blue;
+}

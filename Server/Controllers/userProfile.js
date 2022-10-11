@@ -3,6 +3,7 @@ import { userModel } from "../Schema/userSchema.js"
 
 export const userProfileData = (req, res) => {
     const data = req.query
+    console.log(data);
     userModel.findOne({ userEmail: data.userEmail }, (err, data) => {
         if (err) {
             res.send(err)

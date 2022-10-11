@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config.js";
 
 export const getEventInfo = createAsyncThunk("user", async () => {
-  return axio.get(`/authenticate/events`);
+  return axio.get(`/api/events`);
 });
 
 const eventsReducers = createSlice({

@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 import NavBar from "../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
+import {userProfileData} from "../../Store/Slice/UserprofilePageSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 const Login = () => {
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -20,9 +22,11 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    navigate("/landing");
+    console.log(userEmail);
+    navigate("/landing", {state: {email: userEmail} });
   };
-  
+  // const {loginData,loading} =useSelector(state => state.loginInfo)
+//  console.log(loginData);
 
   return (
     <>

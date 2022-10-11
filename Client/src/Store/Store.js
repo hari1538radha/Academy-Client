@@ -2,21 +2,28 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import signupReducer from "./Slice/SignupSlice";
 import TopicReducer from "./Slice/TopicSlice";
 import DisplayReducer from "./Slice/EventSlice";
-import excelToJsonReducer from "./Slice/ExcelToJson";
+import postUniversitiesReducer from "./Slice/ExcelToJson";
 import courseReducer from "./Slice/DetailPageSlice.js";
 import LoginReducer from "./Slice/LoginSlice";
-import ListReducer from "./Slice/listOf";
+import postProgrammeReducer from "./Slice/postProgramme";
+import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
+import userprofileReducer from "./Slice/UserprofilePageSlice"
+
+import universitiesReducer from "./Slice/getUniversities";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
   topicInfo: TopicReducer,
   eventsInfo: DisplayReducer,
-  excelToJsonInfo: excelToJsonReducer,
-  courseInfo:courseReducer,
-  loginInfo:LoginReducer,
-  listinfo: ListReducer,
+  postUniversitiesInfo: postUniversitiesReducer,
+  courseInfo: courseReducer,
+  loginInfo: LoginReducer,
+  postProgrammeInfo: postProgrammeReducer,
   educationInfo: educationDetails,
+  universitiesInfo: universitiesReducer,
+  getProgrammeInfo: getProgrammeReducer,
+  userProfileInfo:userprofileReducer
 });
 
 const store = configureStore({

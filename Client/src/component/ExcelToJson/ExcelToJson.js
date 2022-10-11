@@ -5,63 +5,72 @@ import { utils, read } from "xlsx";
 import NavBar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
-import { postExcelData } from "../../Store/Slice/ExcelToJson";
-import { postlistData } from "../../Store/Slice/listOf";
+import { postUniversities } from "../../Store/Slice/ExcelToJson";
+import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
 import "./exceltojson.css";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const Userdata = () => {
+const PostUniversity = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [message, setMessage] = useState();
-  const [fileName, setFileName] = useState('');
-  const [opt, setopt] = useState();
+  const [fileName, setFileName] = useState("");
+  const [selectedOpt, setselectedOpt] = useState();
 
-  const { Userdata, loading } = useSelector((state) => state.excelToJsonInfo);
+  const { postUniversitiesData, loading } = useSelector((state) => state.postUniversitiesInfo);
 
-  const options = ["Universities", "Program", "Quiz", "Details"];
+  const options = [
+    "Select any",
+    "Universities",
+    "Programme",
+    "Quiz",
+    "Topics",
+    "Events",
+  ];
 
   const readUploadFile = (e) => {
     e.preventDefault();
-    if (e.target.files[0]) {
+    console.log(selectedOpt, e.target.files);
+    if (e?.target?.files[0] && selectedOpt) {
       const reader = new FileReader();
-      setFileName(e.target.files[0].name)
+      setFileName(e.target.files[0].name);
       reader.onload = (e) => {
         const result = e.target.result;
         const workbook = read(result, { type: "array" });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
-        if (opt == "Universities") {
-          dispatch(postExcelData(json));
+        if (selectedOpt === "Universities") {
+          console.log(json);
+          dispatch(postUniversities(json));
         }
-        if (opt == "Program") {
-          dispatch(postlistData(json));
+        if (selectedOpt === "Programme") {
+          console.log(json);
+          dispatch(postProgramme(json));
         }
-      }
+        setMessage("dashboard");
+      };
       reader.readAsArrayBuffer(e.target.files[0]);
+    } else {
+      console.log("select drop down");
     }
   };
 
   const selectOption = (e) => {
-    setopt(e.target.value);
-  };
-
-  const submit = (e) => {
-    e.preventDefault();
-    setMessage("dashboard");
+    setselectedOpt(e.target.value);
   };
 
   return (
     <>
       <NavBar />
       <div className="admin-container">
-        <select onClick={selectOption} className="admin-select">
-          <option>--select any--</option>
-          {options.map((e) => (<option value={e}>{e}</option>))}
+        <select onChange={selectOption} className="admin-select">
+          {options.map((item, index) => (
+            <option key={index} value={item}>{item}</option>
+          ))}
         </select>
         <form className="upload-form-container">
           <label className="file-label">
@@ -74,15 +83,12 @@ const Userdata = () => {
             />
           </label>
           <label>{fileName}</label>
-          <button type="submit" onClick={submit} className="admin-submit">
-            submit
-          </button>
         </form>
         {message && (
           <div className="success-snippets">
             <h2>
               File uploaded successfully, Goto{" "}
-              <Link to="/admin/dashboard" className="success-file-msg">
+              <Link to="/admin/dashboard" className="success-file-msg" state={selectedOpt}>
                 {message}
               </Link>
             </h2>
@@ -93,4 +99,4 @@ const Userdata = () => {
     </>
   );
 };
-export default Userdata;
+export default PostUniversity;

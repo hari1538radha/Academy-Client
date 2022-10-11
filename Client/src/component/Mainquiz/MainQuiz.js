@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer/footer";
 import "./mainquiz.css";
+import { useSelector } from "react-redux";
 import Navbar from "../Navbar/navbar";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +9,7 @@ import quizHintLogo from "../Login/Images/quizhintlogo.svg";
 
 const MainQuiz = () => {
   const navigate = useNavigate();
-
+    
   const handleQuestionPage = (data) => {
     console.log(data.selected);
   };
@@ -16,6 +17,8 @@ const MainQuiz = () => {
     alert("You are going to end the Test");
     navigate("/quiz");
   };
+  const {loginData,loading} = useSelector((state) => state.loginInfo);
+  console.log(loginData)
   return (
     <div>
       <nav>
