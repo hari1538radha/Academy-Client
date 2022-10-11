@@ -8,6 +8,8 @@ import LoginReducer from "./Slice/LoginSlice";
 import postProgrammeReducer from "./Slice/postProgramme";
 import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
+import status from "./Slice/LogoutSlice";
+import statusLog from "./Slice/Logout";
 
 import universitiesReducer from "./Slice/getUniversities";
 
@@ -22,6 +24,8 @@ const rootReducer = combineReducers({
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
+  onlineStatus: status,
+  loggedout : statusLog
 });
 
 const store = configureStore({

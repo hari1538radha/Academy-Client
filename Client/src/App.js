@@ -2,24 +2,26 @@ import "./App.css";
 import Login from "./component/Login/Login";
 import ExcelToJson from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
-// import SearchPage from "./component/searchpage/searchpage"
-import SearchPage from "./component/SearchPage/searchpage";
+import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/MainQuiz/MainQuiz";
+import MainQuiz from "./component/Mainquiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Signup from './component/Signup/Signup';
 import UserProfile from "./component/userProfile/UserProfile";
 import Dashboard from "./component/dashboard/dashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const {isLoggedIn} = useSelector((state) => state.onlineStatus)
   return (
     <div>
       <Routes>
         <Route path="/" element={<Login />} exact></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        {/* {isLoggedIn && <Route path="/landing" element={<Landing />}></Route>} */}
         <Route path="/landing" element={<Landing />}></Route>
         <Route path="/quiz" element={<Quiz />}></Route>
         <Route path="/search" element={<SearchPage />}></Route>

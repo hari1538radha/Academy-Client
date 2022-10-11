@@ -11,7 +11,7 @@ import { detailPage } from "../Controllers/Detail.js";
 import { details } from "../Controllers/DetailPage.js";
 import { listofPrograms } from "../Controllers/listOf.js";
 import { getExcelofEducation } from "../Controllers/readEducation.js";
-
+import { VerifyToken, logout, findUser } from "../Controllers/Logout.js";
 import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
 import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 
@@ -29,12 +29,11 @@ Route.post("/listofexcel", listofPrograms);
 Route.get("/userProfile", userProfileData);
 Route.post("/detailpage", detailPage);
 Route.get("/detailpage", details);
-
 Route.post("/exceltojson", postUniversities);
 Route.get("/universities", getUniversities);
-
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
-
+Route.post("/logout", VerifyToken, logout);
+Route.get("/finduser", VerifyToken, findUser);
 
 export default Route;

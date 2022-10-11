@@ -19,7 +19,13 @@ export const signup = async (req, res) => {
             .status(429)
             .send({ message: "Inefficient data", response: "Inefficient" });
         }
-        const user = new userModel(req.body);
+        const user = new userModel({
+          userFirstName : req.body.userFirstName,
+          userLastName : req.body.userLastName,
+          userEmail : req.body.userEmail,
+          userPassword : req.body.userPassword,
+          userID : Math.floor(1000 + Math.random() * 9000)
+        });
         const salt = await bcrypt.genSalt(10);
         user.userPassword = await bcrypt.hash(user.userPassword, salt);
         user.save((err, data) => {

@@ -23,7 +23,7 @@ export const eventData = (req, res) => {
         eventImage: {
           data: req.file.filename,
         },
-        cardId: Math.floor(1000 + Math.random() * 9000),
+        eventId: Math.floor(1000 + Math.random() * 9000),
       });
       addImage.save((err, data) => {
         if (err) {

@@ -14,7 +14,7 @@ const topEventSchema = new mongoose.Schema(
       data: Buffer,
       contentType: String
     },
-    cardId: {
+    eventId: {
       type: String
     }
   },
