@@ -9,7 +9,7 @@ export const uploadData = (req, res) => {
     const topicDetails = new topicModel({
       topicTitle: req.body.topicTitle,
       topicDescription: req.body.topicDescription,
-      cardId: Math.floor(1000 + Math.random() * 9000),
+      eventId: Math.floor(1000 + Math.random() * 9000),
     });
     topicDetails.save((err, data) => {
       if (err) {

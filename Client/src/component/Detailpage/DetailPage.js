@@ -32,7 +32,6 @@ function DetailPage() {
             Robothandel pevis: och al.lorem ipsum dipse ulti lorem iupsum Sos
             pipoda bärar. Spegt pseudon dorade. Töngar podyda potinat. Ove Holm
           </p>
-          <a className="see-more">See more</a>
         </div>
 
         <div className="course-container">

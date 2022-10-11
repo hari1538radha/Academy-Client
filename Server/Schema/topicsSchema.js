@@ -8,9 +8,9 @@ const topicsSchema = new mongoose.Schema(
     },
     topicDescription: {
       type: String,
-      requried: true,
+      required: true,
     },
-    cardId: {
+    eventId: {
       type: String,
     },
   },
