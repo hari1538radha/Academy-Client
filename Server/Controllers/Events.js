@@ -1,5 +1,5 @@
 import multer from "multer";
-import { eventModel } from "../Schema/topEventsSchema.js";
+import { eventModel } from "../Schema/EventsSchema.js";
 import Moment from "moment";
 
 const storage = multer.diskStorage({

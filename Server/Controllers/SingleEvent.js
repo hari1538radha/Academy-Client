@@ -1,21 +1,21 @@
-import { eventModel } from "../Schema/topEventsSchema.js";
+import { eventModel } from "../Schema/EventsSchema.js";
 
-export const SingleEvent = (req,res)=>{
-    eventModel.find({eventId : req.query.eventId},(err, data) => {
+export const SingleEvent = (req, res) => {
+    eventModel.find({ eventId: req.query.eventId }, (err, data) => {
         if (err) {
             console.log(err);
         } else {
-            if(data.length){
+            if (data.length) {
                 return res.send({
                     status: 200,
                     message: "Event found",
                     data: data,
                 });
             }
-            else{
+            else {
                 return res.send({
-                    status:404,
-                    message:"Id not fount"
+                    status: 404,
+                    message: "Id not fount"
                 });
             }
         }
