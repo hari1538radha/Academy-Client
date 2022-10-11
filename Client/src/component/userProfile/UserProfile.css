@@ -57,7 +57,7 @@
   align-items: center;
   justify-content: center;
 }
-.left-container-dsahboard--contact a {
+.left-container-dashboard--contact a {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
@@ -70,6 +70,7 @@
 
   color: #ffffff;
 }
+
 
 .dashboard-content-container
 {

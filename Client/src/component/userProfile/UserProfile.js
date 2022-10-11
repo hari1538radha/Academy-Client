@@ -25,6 +25,12 @@ const Userprofile = () => {
   
   const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
   console.log(topicData)
+
+ const AddEvents = () =>
+ {
+  
+ }
+
   return (
     <>
       <nav>
@@ -65,6 +71,9 @@ const Userprofile = () => {
                 <div className="left-container--dashboard--content">
                 <img className="quiz-img" src={editProfileImg} ></img>
                   <a href="#">Update Profile</a>
+                </div>
+                <div className="left-container--dashboard--content">
+                  <button onClick={AddEvents}>Add Event</button>
                 </div>
                 <div className="left-container--dashboard--content">
                 <img className="quiz-img" src={logoutImg} ></img>
@@ -133,11 +142,7 @@ const Userprofile = () => {
                       </div>
                     </div>
       
-              <div className="next-but">
-           
-                  <img className="click-but"></img>
-
-              </div>
+              
             </div>
           </div>
         </div>

@@ -30,8 +30,7 @@ const Dropdown = ({profileInfo}) =>  {
 
               <hr />
 
-              <hr className="mb-0" style={{ margin: "0 -24px 0" }} />
-
+              
               <div
                 className="list-group list-group-flush"
                 style={{ margin: "0 -24px 0" }}

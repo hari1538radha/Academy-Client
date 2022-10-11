@@ -1,6 +1,7 @@
 #info-box {
     width: 400px;
-    background: #f4fafe;
+    background: #ffffff;
+    top: 65px;
 }
 a#link {
     text-decoration: none;
