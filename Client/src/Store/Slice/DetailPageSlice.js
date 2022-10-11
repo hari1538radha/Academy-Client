@@ -2,9 +2,7 @@ import { createAsyncThunk ,createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
 export const  course= createAsyncThunk("Detail", async () => {
-    console.log(course)
-  return axio.get(`/api/getcalldetailpage`)
-
+  return axio.get(`/authenticate/detailpage`);
 });
 
 export const courseReducer = createSlice({
