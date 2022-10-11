@@ -25,7 +25,7 @@ export const eventData = (req, res) => {
         eventName: req.body.eventName,
         eventDescription: req.body.eventDescription,
         eventImage: {
-          data: req.file.filename,
+          data: req.file.filename
           
         },
         eventId: Math.floor(1000 + Math.random() * 9000),

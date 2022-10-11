@@ -16,15 +16,15 @@ const AddEvent = () => {
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const filename = element[4].value;
+    const eventImage = element[4].value;
 
-    console.log(eventName, eventDescription, eventDate, eventTime, filename);
+    console.log(eventName, eventDescription, eventDate, eventTime, eventImage);
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
     element[3].value = "";
     element[4].value = "";
-    dispatch(PostEventData(eventTitle, eventDiscription, eventDate, eventTime, eventImage))
+    dispatch(PostEventData(eventName,eventDescription , eventDate, eventTime, eventImage))
   };
    
 
