@@ -16,7 +16,11 @@ const topEventSchema = new mongoose.Schema(
     },
     eventId: {
       type: String
-    }
+    },
+    time: {
+      type: String,
+      required: true
+    },
   },
   { timestamps: true }
 );
