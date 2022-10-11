@@ -1,6 +1,6 @@
 import { eventModel } from "../Schema/EventsSchema.js";
 
-export const SingleEvent = (req, res) => {
+export const EventById = (req, res) => {
     eventModel.find({ eventId: req.query.eventId }, (err, data) => {
         if (err) {
             console.log(err);
