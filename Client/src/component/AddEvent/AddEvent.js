@@ -12,13 +12,13 @@ const AddEvent = () => {
     e.preventDefault();
     console.log(e);
     const element = e.target.elements;
-    const eventTitle = element[0].value;
-    const eventDiscription = element[1].value;
+    const eventName = element[0].value;
+    const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const eventImage = element[4].value;
+    const filename = element[4].value;
 
-    console.log(eventTitle, eventDiscription, eventDate, eventTime, eventImage);
+    console.log(eventName, eventDescription, eventDate, eventTime, filename);
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
@@ -27,7 +27,7 @@ const AddEvent = () => {
     dispatch(PostEventData(eventTitle, eventDiscription, eventDate, eventTime, eventImage))
   };
    
-  
+
 
   return (
     <div>

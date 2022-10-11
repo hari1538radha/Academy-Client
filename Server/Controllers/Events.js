@@ -16,6 +16,7 @@ const upload = multer({
 const myDate = Moment().format('YYYY-MM-DD HH:mm')
 
 export const eventData = (req, res) => {
+ 
   upload(req, res, (err) => {
     if (err) {
       console.log(err);
@@ -25,6 +26,7 @@ export const eventData = (req, res) => {
         eventDescription: req.body.eventDescription,
         eventImage: {
           data: req.file.filename,
+          
         },
         eventId: Math.floor(1000 + Math.random() * 9000),
         time: myDate,
