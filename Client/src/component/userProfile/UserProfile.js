@@ -31,9 +31,7 @@ const Userprofile = () => {
 
   return (
     <>
-      <nav>
-        <NavBar />
-      </nav>
+      <NavBar />
       <div>
         <div className="profilepage-container">
           <div className="left-container--profilepage">
@@ -71,12 +69,10 @@ const Userprofile = () => {
                     <a href="#">Update Profile</a>
                   </div>
                   <div className="left-container--dashboard--content">
-                  <img className="quiz-img" src={eventImg}></img>
+                    <img className="quiz-img" src={eventImg}></img>
                     <a href="/profile/AddEvent">Add Event</a>
                   </div>
-                  
                 </div>
-               
               </div>
             </div>
           </div>
@@ -86,9 +82,7 @@ const Userprofile = () => {
               <h2>John Doe</h2>
               <p>Student</p>
             </div>
-            <div className="eve-top">
-              Events
-            </div>
+            <div className="eve-top">Events</div>
             <div>
               <div className="second-contant">
                 <div className="sub-container-pro">

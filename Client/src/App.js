@@ -3,9 +3,9 @@ import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
 // import SearchPage from "./component/searchpage/searchpage"
-import SearchPage from "./component/searchpage/searchpage";
+import SearchPage from "./component/SearchPage/searchpage";
 import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/Mainquiz/MainQuiz";
+import MainQuiz from "./component/MainQuiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
@@ -15,7 +15,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import EditProfile from "./component/EditProfile/EditProfile.js"
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
-// import DropdownNavbar from "./component/DropdownNavbar/DropdownNavbar";
 function App() {
   return (
     <div>
@@ -34,7 +33,6 @@ function App() {
         <Route path="/dropdown" element={<Dropdown/>}></Route>
         <Route path="/editProfile" element={<EditProfile/>}></Route>
         <Route path="/profile/AddEvent" element={<AddEvent/>}></Route>
-        {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
   </Routes>
     </div>
   );

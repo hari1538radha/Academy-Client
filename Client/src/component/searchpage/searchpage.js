@@ -40,9 +40,7 @@ const SearchPage = () => {
   ];
   return (
     <div>
-      <nav>
-        <Navbar></Navbar>
-      </nav>
+        <Navbar/>
       <div className="search-container">
         <input
           className="search-input"

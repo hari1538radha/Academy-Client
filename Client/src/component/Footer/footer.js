@@ -1,5 +1,4 @@
 import React from "react";
-import Linepic from "../Login/Images/Linepic.svg";
 import Logo from "../Login/Images/Academy.svg";
 import Location from "../Login/Images/Locationlogo.svg";
 import callerlogo from "../Login/Images/CallerLogo.svg";
@@ -22,22 +21,22 @@ const Footer = () => {
 
       <div className="footer-divider">
 
-        <img className="Logo" src={Logo}></img>
+        <img className="Logo" src={Logo} alt="no img found"></img>
 
         <div className="right-footer">
 
           <div className="Location-footer">
-            <img src={Location}></img>
+            <img src={Location} alt="no img found"></img>
             <p>345 Faulconer Drive, Suite 4 • Charlottesville</p>
           </div>
 
           <div className="contact-info">
             <div className="Caller-container">
-              <img src={callerlogo}></img>
+              <img src={callerlogo} alt="no img found"></img>
               <p>(123) 456-7</p>
             </div>
             <div className="printer-container">
-              <img src={printerlogo}></img>
+              <img src={printerlogo} alt="no img found"></img>
               <p>(123) 456-7</p>
             </div>
           </div>
@@ -50,9 +49,6 @@ const Footer = () => {
               <img src={Linkedin} alt="Linkedin"></img>
               <img src={youtube} alt="Youtube"></img>
               <img src={instagram} alt="Instagram"></img>
-              <img src={google} alt="Google"></img>
-              <img src={pinster} alt="Pinster"></img>
-              <img src={Wifilogo} alt="wifilogo"></img>
             </div>
           </div>
         </div>
@@ -61,14 +57,14 @@ const Footer = () => {
       <div className="Line2"></div>
       <div className="footer-link-container">
         <div className="Footer-link">
-          <a href="#">ABOUT US</a>
-          <a href="#"> CONTACT US </a>
-          <a href="#">HELP</a>
-          <a href="#">PRIVACY POLICY</a>
-          <a href="#"> DISCLAIMER</a>
+          <a href="#/">ABOUT US</a>
+          <a href="#/"> CONTACT US </a>
+          <a href="#/">HELP</a>
+          <a href="#/">PRIVACY POLICY</a>
+          <a href="#/"> DISCLAIMER</a>
         </div>
         <div className="Copyright-container">
-          <p>Copyright © 2022</p>
+          <p>Copyright © 2018 • Lift Media Inc.</p>
         </div>
       </div>
       <div className="Social-hidden">
@@ -77,13 +73,10 @@ const Footer = () => {
               <img src={Linkedin} alt="Linkedin"></img>
               <img src={youtube} alt="Youtube"></img>
               <img src={instagram} alt="Instagram"></img>
-              <img src={google} alt="Google"></img>
-              <img src={pinster} alt="Pinster"></img>
-              <img src={Wifilogo} alt="wifilogo"></img>
             </div>
             <div className="line-3"></div>
             <div className="hidden-copyright-container">
-              <p>Copyright © 2022</p>
+              <p>Copyright © 2018 • Lift Media Inc.</p>
             </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom";
 import { postSignupData } from "../../Store/Slice/SignupSlice";
 import Footer from "../Footer/footer";
 import Loginlogo from "../Login/Images/Vector.svg";
@@ -9,8 +9,7 @@ import "./Signup.css";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { signupData, loading } = useSelector((state) => state.signupInfo);
+  const { signupData} = useSelector((state) => state.signupInfo);
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
 
   useEffect(() => {
@@ -39,23 +38,22 @@ const Signup = () => {
     ele[1].value = "";
     ele[2].value = "";
     ele[3].value = "";
-    dispatch(
-      postSignupData({ userFirstName, userLastName, userEmail, userPassword })
-    );
+    dispatch(postSignupData({ userFirstName, userLastName, userEmail, userPassword }));
   };
 
   return (
-    <div>
+    <div className="all-login-container">
       <NavBar />
-      <>
+      <div className="hidden-container">
+      <div className="hidden"></div>
+      <h1 className="hidden-pagename">sign up</h1>
+    </div>
         <div className="image">
-         
-            <form onSubmit={handleSignupData}>
-            <div className="Signup-main">
+          <div className="Signup-main">
+            <form onSubmit={handleSignupData} className="form-signup">
               <div className="Signup-container">
                 <div className="Loginlogo">
-                  {" "}
-                  <img src={Loginlogo}></img>
+                  <img src={Loginlogo} alt="no img found"></img>
                 </div>
                 <div className="Name-input-container">
                   <input
@@ -88,15 +86,13 @@ const Signup = () => {
                   <p>Already have an account? </p>
                   <Link to="/landing">LOG IN</Link>
                 </div>
-
-                </div>              </div>
+              </div>
             </form>
-          
+          </div>
         </div>
         <div>
           <Footer />
         </div>
-      </>
       <div />
     </div>
   );
