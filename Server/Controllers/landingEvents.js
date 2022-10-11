@@ -7,7 +7,7 @@ export const events = (req, res) => {
         } else {
             return res.send({
                 status: 200,
-                message: "places found",
+                message: "events found",
                 data: data,
             });
         }

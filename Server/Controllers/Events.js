@@ -1,5 +1,6 @@
 import multer from "multer";
 import { eventModel } from "../Schema/topEventsSchema.js";
+import Moment from "moment";
 
 const storage = multer.diskStorage({
   destination: "uploadImage",
@@ -11,6 +12,8 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
 }).single("eventImage");
+
+const myDate = Moment().format('YYYY-MM-DD HH:mm')
 
 export const eventData = (req, res) => {
   upload(req, res, (err) => {
@@ -24,6 +27,7 @@ export const eventData = (req, res) => {
           data: req.file.filename,
         },
         eventId: Math.floor(1000 + Math.random() * 9000),
+        time: myDate,
       });
       addImage.save((err, data) => {
         if (err) {
