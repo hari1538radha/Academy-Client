@@ -11,9 +11,11 @@ import { detailPage } from "../Controllers/Detail.js";
 import { details } from "../Controllers/DetailPage.js";
 import { listofPrograms } from "../Controllers/listOf.js";
 import { getExcelofEducation } from "../Controllers/readEducation.js";
+import { VerifyToken, logout, findUser } from "../Controllers/Logout.js";
 import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
 import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 import { EventById } from "../Controllers/SingleEvent.js";
+import { editevent } from "../Controllers/EditEvents.js";
 
 const Route = express.Router();
 
@@ -33,6 +35,9 @@ Route.post("/exceltojson", postUniversities);
 Route.get("/universities", getUniversities);
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
-Route.get("/event/:id", EventById);
+Route.get("/event", EventById);
+Route.post("/logout", VerifyToken, logout);
+Route.get("/finduser", VerifyToken, findUser);
+Route.put("/editevent", editevent);
 
 export default Route;

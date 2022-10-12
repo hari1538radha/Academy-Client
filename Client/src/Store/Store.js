@@ -9,6 +9,8 @@ import postProgrammeReducer from "./Slice/postProgramme";
 import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
 import userprofileReducer from "./Slice/UserprofilePageSlice"
+import status from "./Slice/LogoutSlice";
+import statusLog from "./Slice/Logout";
 
 import universitiesReducer from "./Slice/getUniversities";
 
@@ -23,7 +25,9 @@ const rootReducer = combineReducers({
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
-  userProfileInfo:userprofileReducer
+  userProfileInfo:userprofileReducer,
+  onlineStatus: status,
+  loggedout : statusLog
 });
 
 const store = configureStore({

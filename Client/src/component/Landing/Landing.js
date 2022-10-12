@@ -119,11 +119,12 @@ function Landing() {
             <div className="third-full-con">
               {eventsData.length > 0 &&
                 eventsData.map((obj) => {
+                  const base64String = btoa(String.fromCharCode(...new Uint8Array(obj.image.data.data)));
                   return (
                     <div key={obj.eve}>
                       <div className="third-sub-con">
                         <div className="img">
-                          <img className="eve-img" src={img4}></img>
+                          <img className="eve-img" src={`data:image/png;base64,${base64String}`}></img>
                         </div>
                         <div className="third-head">{obj.eventName}</div>
 
