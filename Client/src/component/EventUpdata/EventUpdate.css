@@ -1,0 +1,7 @@
+.update-content {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 400px;
+    padding-top: 300px;
+}

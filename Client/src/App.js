@@ -15,6 +15,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import EditProfile from "./component/EditProfile/EditProfile.js"
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
+import EventUpdate from "./component/EventUpdata/EventUpdate.js"
+// import DropdownNavbar from "./component/DropdownNavbar/DropdownNavbar";
+
 function App() {
   return (
     <div>
@@ -33,6 +36,8 @@ function App() {
         <Route path="/dropdown" element={<Dropdown/>}></Route>
         <Route path="/editProfile" element={<EditProfile/>}></Route>
         <Route path="/profile/AddEvent" element={<AddEvent/>}></Route>
+        <Route path="/EventUpdate" element={<EventUpdate/>}></Route>
+        {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
   </Routes>
     </div>
   );
