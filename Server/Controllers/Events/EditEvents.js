@@ -1,4 +1,4 @@
-import { eventModel } from "../Schema/EventsSchema.js";
+import { eventModel } from "../../Schema/EventsSchema.js";
 
 export const editevent = (req, res) => {
     eventModel.updateOne(

@@ -2,10 +2,10 @@ import "./App.css";
 import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
-// import SearchPage from "./component/searchpage/searchpage"
-import SearchPage from "./component/SearchPage/searchpage";
+import SearchPage from "./component/searchpage/searchpage"
+// import SearchPage from "./component/SearchPage/searchpage";
 import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/MainQuiz/MainQuiz";
+import MainQuiz from "./component/Mainquiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
