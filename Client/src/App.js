@@ -3,9 +3,9 @@ import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing.js";
 // import SearchPage from "./component/searchpage/searchpage"
-import SearchPage from "./component/SearchPage/searchpage";
+import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/MainQuiz/MainQuiz";
+import MainQuiz from "./component/Mainquiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
 import Signup from './component/Signup/Signup';
@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import EditProfile from "./component/EditProfile/EditProfile.js"
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
+import Navbar from "./component/Navbar/navbar";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js"
 // import DropdownNavbar from "./component/DropdownNavbar/DropdownNavbar";
 
@@ -23,6 +24,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Login />} exact></Route>
+        <Route path="/nav" element={<Navbar/>}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/landing" element={<Landing />}></Route>

@@ -9,16 +9,22 @@ const app = Express();
 
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
-app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", routes);
 
-mongoose
-  .connect(mongoUrl)
-  .then(() => console.log("Database Connection successfully!!!"))
-  .catch((err) => console.log("Database Connection Failed!!!", err.message));
+mongoose.connect(mongoUrl, {
+    useNewUrlParser: true,
+    useUnifiedtopology: true
+  }, (err) => {
+    if (!err) {
+      console.log("connected to db")
+    } else {
+      console.log("error")
+    }
+  });
 
 app.listen(PORT, () => {
   console.log(`server listening at http://localhost:${PORT}`);
