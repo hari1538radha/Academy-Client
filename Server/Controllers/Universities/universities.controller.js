@@ -1,7 +1,7 @@
 import { excelToJsonModel } from "../../Schema/excelToJson.js";
 
 const getUniversities = (req, res) => {
-
+    const { page=1, limit=25 } = req.query;
     excelToJsonModel.find((err, data) => {
     if (err) {
       console.log(err);
@@ -12,7 +12,8 @@ const getUniversities = (req, res) => {
         data: data,
       });
     }
-  }).limit(25);
+  }).limit(limit * 1)
+  .skip((page - 1) * limit);
 };
 
 

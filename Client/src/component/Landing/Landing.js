@@ -118,7 +118,7 @@ function Landing() {
             </div>
             <div className="third-full-con">
               {eventsData.length > 0 &&
-                eventsData.map((obj) => {
+                eventsData.slice(0,3).map((obj) => {
                   return (
                     <div key={obj.eve}>
                       <div className="third-sub-con">
@@ -130,6 +130,7 @@ function Landing() {
                         <p className="details">
                           <p>{obj.eventDescription}</p>{" "}
                         </p>
+                       <a href="/EventUpdate"> update</a>
                       </div>
                     </div>
                   );

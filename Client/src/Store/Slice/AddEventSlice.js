@@ -26,5 +26,7 @@ export const EventDataReducer = createSlice({
   },
 });
 
+
+
 const addEventReducer = EventDataReducer.reducer;
 export default addEventReducer;

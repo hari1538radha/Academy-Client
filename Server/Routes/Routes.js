@@ -27,6 +27,7 @@ const Storages = multer.diskStorage({
   });
 
 const Upload = multer({storage: Storages}).single("testImage")
+import { editevent } from "../Controllers/EditEvents.js";
 
 const Route = express.Router();
 
@@ -47,5 +48,6 @@ Route.get("/universities", getUniversities);
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
+Route.put("/editevent", editevent);
 
 export default Route;

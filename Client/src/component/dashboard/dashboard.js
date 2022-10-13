@@ -3,8 +3,8 @@ import Footer from "../Footer/footer";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import MaterialReactTable from "material-react-table";
-import {getUniversitiesInfo}  from "../../Store/Slice/getUniversities";
-import {getProgrammeInfo}  from "../../Store/Slice/getProgramme";
+import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
+import { getProgrammeInfo } from "../../Store/Slice/getProgramme";
 import "./dashboard.css";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -29,7 +29,7 @@ import keyTypes from "./makeData";
 
 const Dashboard = () => {
   let data = [];
-  const [dataState, setDataState] = useState("Universities")//pressing compare value
+  const [dataState, setDataState] = useState("Universities");
   // const locationState = useLocation().state;
   // const [val, setval] = useState(keyTypes.Programme);
   // const [univ, setuniv] = useState(keyTypes.Universities)
@@ -39,12 +39,12 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
-  const print = useLocation()
-  console.log(print, "print")
-  console.log(dataState, "datastate")
-  const appState = useSelector(state => state);
-  const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
-  const {programmeData} = useSelector((state) => state.getProgrammeInfo)
+  const print = useLocation();
+  const appState = useSelector((state) => state);
+  const { universitiesData, universitiesLoading } = useSelector(
+    (state) => state.universitiesInfo
+  );
+  const { programmeData } = useSelector((state) => state.getProgrammeInfo);
 
   // console.log(programmeData)
   // const sample = useSelector((state) => state)
@@ -60,6 +60,7 @@ const Dashboard = () => {
   //   setData(appState.programmeInfo.programme);
   // }
 
+
   if(dataState === 'Programme') {
     data = appState['getProgrammeInfo']['programmeData']
     console.log(programmeData)
@@ -70,11 +71,11 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-  if( dataState === 'Programme') {
-    dispatch(getProgrammeInfo());
-  }if (dataState === 'Universities'){
+  if(dataState === 'Universities'){
     dispatch(getUniversitiesInfo());
-  }
+  }if (dataState === "Programme") {
+      dispatch(getProgrammeInfo());
+    }
   }, [dataState]);
 
   const handleCreateNewRow = (values) => {
@@ -169,6 +170,7 @@ const getState = (stateName) => {
   setDataState(stateName)
 }
 
+
   return (
     <>
       <Navbar />
@@ -176,62 +178,72 @@ const getState = (stateName) => {
         <div className="option-toggle">
           <p className="toggle-heading">Dashboard</p>
           <hr className="group-divider"></hr>
-          <button onClick={() => getState("Universities")}>Universities</button>
-          <button onClick={() => getState("Programme")}>Programme</button>
+          <button
+            value="Universities"
+            onClick={(e) => setDataState(e.target.value)}
+          >
+            Universities
+          </button>
+          <button
+            value="Programme"
+            onClick={(e) => setDataState(e.target.value)}
+          >
+            Programme
+          </button>
           <hr className="group-divider"></hr>
           <button>Table</button>
           <button>Services</button>
           <div class="dropdown">
             <button class="dropbtn">Files</button>
             <div class="dropdown-content">
-            <a href="#/">Link 1</a>
-            <a href="#/">Link 2</a>
-            <a href="#/">Link 3</a>
+              <a href="#/">Link 1</a>
+              <a href="#/">Link 2</a>
+              <a href="#/">Link 3</a>
             </div>
           </div>
           <button>Our Services</button>
           <button>Our Services</button>
           <hr className="group-divider"></hr>
           <label>Group - 1</label>
-            <button>Our Services</button>
-            <button>Our Services</button>
-            <button>Our Services</button>
-            <hr className="group-divider"></hr>
+          <button>Our Services</button>
+          <button>Our Services</button>
+          <button>Our Services</button>
+          <hr className="group-divider"></hr>
           <button>Our Services</button>
           <button>Our Services</button>
         </div>
         <MaterialReactTable
-        displayColumnDefOptions={{
-          "mrt-row-actions": {
-            muiTableHeadCellProps: {
-              align: "center",
+          displayColumnDefOptions={{
+            "mrt-row-actions": {
+              muiTableHeadCellProps: {
+                align: "center",
+              },
+              size: 120,
             },
-            size: 120,
-          },
-        }}
-        columns={columns}
-        data={data}
-        editingMode="modal" //default
-        enableColumnOrdering
-        enableEditing
-        onEditingRowSave={handleSaveRowEdits}
-        renderRowActions={({ row, table }) => (
-          <Box sx={{ display: "flex", gap: "1rem" }}>
-            <Tooltip arrow placement="left" title="Edit">
-              <IconButton onClick={() => table.setEditingRow(row)}>
-                <Edit />
-              </IconButton>
-            </Tooltip>
-            <Tooltip arrow placement="right" title="Delete">
-              <IconButton color="error" onClick={() => handleDeleteRow(row)}>
-                <Delete />
-              </IconButton>
-            </Tooltip>
-          </Box>
-        )}
-      />
+          }}
+          columns={columns}
+          data={data}
+          editingMode="modal" //default
+          enableColumnOrdering
+          enableEditing
+          onEditingRowSave={handleSaveRowEdits}
+          renderRowActions={({ row, table }) => (
+            <Box sx={{ display: "flex", gap: "1rem" }}>
+              <Tooltip arrow placement="left" title="Edit">
+                <IconButton onClick={() => table.setEditingRow(row)}>
+                  <Edit />
+                </IconButton>
+              </Tooltip>
+              <Tooltip arrow placement="right" title="Delete">
+                <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+                  <Delete />
+                </IconButton>
+              </Tooltip>
+            </Box>
+          )}
+        />
       </div>
-        <Footer />
+      <Footer />
     </>
   );
 };

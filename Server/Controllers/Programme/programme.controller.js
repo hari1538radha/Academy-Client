@@ -1,6 +1,7 @@
 import { programSchemaModel } from "../../Schema/ProgramSchema.js";
 
 const getProgramme = (req, res) => {
+  const { page=1, limit=25 } = req.query;
   programSchemaModel.find((err, data) => {
     if (err) {
       console.log(err);
@@ -11,7 +12,8 @@ const getProgramme = (req, res) => {
         data: data,
       });
     }
-  }).limit(25);
+  }).limit(limit * 1)
+  .skip((page - 1) * limit);
 };
 
 
