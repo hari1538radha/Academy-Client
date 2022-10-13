@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
-const imageSchema = new mongoose.Schema({
-  Images: {
-    type: String,
-  },
+const ImageSchema = new mongoose.Schema({
+  profilePic: {
+    data: Buffer,
+    contentType: String
+  }
 });
 
-export const ImageModel = new mongoose.model("imageData", imageSchema);
+export const ImgSchema = mongoose.model("profileimages", ImageSchema);

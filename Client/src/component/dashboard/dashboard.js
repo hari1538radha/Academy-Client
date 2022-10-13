@@ -29,10 +29,12 @@ import keyTypes from "./makeData";
 
 const Dashboard = () => {
   let data = [];
-  const [dataState, setDataState] = useState("Universities")
+  const [dataState, setDataState] = useState("Universities")//pressing compare value
   // const locationState = useLocation().state;
-  const [val, setval] = useState(keyTypes.Programme);
-  const [keys, setKeys] = useState(keyTypes.Universities);
+  // const [val, setval] = useState(keyTypes.Programme);
+  // const [univ, setuniv] = useState(keyTypes.Universities)
+  // const [keys, setKeys] = useState(keyTypes.Universities);
+  let keys = keyTypes.Universities
   // const [flow, setflow] = useState();
   const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -60,19 +62,19 @@ const Dashboard = () => {
 
   if(dataState === 'Programme') {
     data = appState['getProgrammeInfo']['programmeData']
-    // setKeys(val)
     console.log(programmeData)
   } 
   if(dataState === 'Universities') {
     data = appState['universitiesInfo']['universitiesData']
-    // setKeys(univ)
     console.log(universitiesData)
   }
+
   useEffect(() => {
   if( dataState === 'Programme') {
     dispatch(getProgrammeInfo());
-  }
+  }if (dataState === 'Universities'){
     dispatch(getUniversitiesInfo());
+  }
   }, [dataState]);
 
   const handleCreateNewRow = (values) => {
@@ -80,11 +82,17 @@ const Dashboard = () => {
     // setTableData([...data]);
   };
 
+  // useEffect(() => {
+  //   if( dataState === 'Programme') {
+  //     setKeys(keyTypes.Programme)
+  //   }if (dataState === 'Universities') {
+  //     setKeys(keyTypes.Universities)
+  //   }
+  // },[dataState])
+
   // const onClicking = (e) => {
   //   setDataState(e.target.value)
   // }
-
-  console.log(dataState, "state of data")
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
@@ -140,22 +148,6 @@ const Dashboard = () => {
     [validationErrors]
   );
 
-// console.log(keys)
-// const columnforProgramme = useMemo(
-//   () =>
-//     val.map((key) => {
-//       return {
-//         accessorKey: key,
-//         header: key,
-//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-//           ...getCommonEditTextFieldProps(cell),
-//           type: key,
-//         }),
-//       };
-//     }),
-//   [getCommonEditTextFieldProps]
-// );
-
   const columns = useMemo(
   () =>
     keys.map((key) => {
@@ -171,11 +163,11 @@ const Dashboard = () => {
   [getCommonEditTextFieldProps]
 );
 
-// if (dataState === "Universities"){
-//   setflow(columns)
-// } if (dataState === "Programme") {
-//   setflow(columnforProgramme)
-// }
+const getState = (stateName) => {
+  keys = keyTypes[stateName]
+  console.log(keys, "getting setState")
+  setDataState(stateName)
+}
 
   return (
     <>
@@ -184,8 +176,8 @@ const Dashboard = () => {
         <div className="option-toggle">
           <p className="toggle-heading">Dashboard</p>
           <hr className="group-divider"></hr>
-          <button value="Universities" onClick={((e) => setDataState(e.target.value))}>Universities</button>
-          <button value="Programme" onClick={((e) => setDataState(e.target.value))}>Programme</button>
+          <button onClick={() => getState("Universities")}>Universities</button>
+          <button onClick={() => getState("Programme")}>Programme</button>
           <hr className="group-divider"></hr>
           <button>Table</button>
           <button>Services</button>

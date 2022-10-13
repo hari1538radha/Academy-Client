@@ -211,6 +211,8 @@ img.click-but {
   display: flex;
   margin-left: 50px;
   gap: 20px;
+  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .img {

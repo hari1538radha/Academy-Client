@@ -17,9 +17,13 @@ import img4 from "../Landing/Img/Rectangle-14.jpg";
 import profilequiz from "../Login/Images/profilequiz.svg";
 import dashIconImg from "../Login/Images/dash-icon.png";
 import eventImg from "../Login/Images/event-icon.png";
+import AddEvent from "../AddEvent/AddEvent";
+
 const Userprofile = () => {
   const [data, setdata] = useState();
+  const [content, setcontent] = useState("user-profile")
   const dispatch = useDispatch();
+  console.log(content)
   useEffect(() => {
     dispatch(getTopicInfo());
   }, []);
@@ -27,7 +31,10 @@ const Userprofile = () => {
   const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
   console.log(topicData);
 
-  const AddEvents = () => {};
+  const AddEvents = (e) => {
+    e.preventDefault()
+    setcontent(e.target.value)
+  };
 
   return (
     <>
@@ -38,7 +45,7 @@ const Userprofile = () => {
             <div className="main-dashboard--container">
               <div className="user-Info">
                 <div className="Loginlogo-pro">
-                  <img src={ProfileImg}></img>
+                  <img src={ProfileImg} alt="no img found"></img>
                 </div>
                 <div className="user-data-container">
                   <h3>John Doe </h3>
@@ -48,41 +55,51 @@ const Userprofile = () => {
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
                   <div className="left-container--dashboard--content">
-                    <img className="quiz-img" src={dashIconImg}></img>
+                    <img className="quiz-img" src={dashIconImg} alt="no img found"></img>
                     <a href="/admin/dashboard">Dashboard</a>
                   </div>
 
                   <div className="left-container--dashboard--content">
-                    <img className="quiz-img" src={quizImg}></img>
+                    <img className="quiz-img" src={quizImg} alt="no img found"></img>
                     <a href="/quiz">Quiz</a>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img className="quiz-img" src={enrolledImg}></img>
-                    <a href="#">Enrolled Course</a>
+                    <img className="quiz-img" src={enrolledImg} alt="no img found"></img>
+                    <a href="/#">Enrolled Course</a>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img className="quiz-img" src={quizImg}></img>
-                    <a href="#">Saved Items</a>
+                    <img className="quiz-img" src={quizImg} alt="no img found"></img>
+                    <a href="/#">Saved Items</a>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img className="quiz-img" src={editProfileImg}></img>
-                    <a href="#">Update Profile</a>
+                    <img className="quiz-img" src={editProfileImg} alt="no img found"></img>
+                    <a onClick={() => setcontent("user-profile")}>Update Profile</a>
                   </div>
                   <div className="left-container--dashboard--content">
-                    <img className="quiz-img" src={eventImg}></img>
-                    <a href="/profile/AddEvent">Add Event</a>
+                    <img className="quiz-img" src={eventImg} alt="no img found"></img>
+                    <a onClick={() => setcontent("add-event")}>Add Event</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          {content === "user-profile" && <div>
             <div className="profilepic-container">
-              <img src={profilepic}></img>
+              <label className="img-label">
+                <img src={profilepic} className="img-indicator" alt="no img found">
+                </img>
+                <input
+                type="file"
+                name="upload"
+                id="upload-image"
+                className="userprofile-upload"/>
+              </label>
               <h2>John Doe</h2>
               <p>Student</p>
             </div>
-            <div className="eve-top">Events</div>
+            <div className="eve-top">
+              <h1 className="eve-top-header">Events</h1>
+            </div>
             <div>
               <div className="second-contant">
                 <div className="sub-container-pro">
@@ -144,7 +161,8 @@ const Userprofile = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>}
+          {content === "add-event" && <AddEvent/>}
         </div>
       </div>
     </>

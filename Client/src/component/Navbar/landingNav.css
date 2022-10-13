@@ -6,13 +6,43 @@ body{
 
 .navbars {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    height: 6em;
+    height: 12.9em;
     justify-items: center;
-    justify-content: space-between;
-    padding: 0 3em;
     box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
+}
+
+.mid-navmenus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2em 3em;
+}
+
+.top-navmenus, .bot-navmenus {
+  background: rgb(47, 130, 255);
+  width: 100%;
+  padding: 0.5em;
+}
+
+.visible-nav-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.visible-nav-option a, .top-navmenus a {
+  font-size: 1em;
+}
+
+.visible-nav-option a:hover, .top-navmenus a:hover {
+  color: white;
 }
 
 nav a {
@@ -36,7 +66,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 1em;
   width: 100%;
 }
 
@@ -55,14 +84,36 @@ nav {
   line-height: 1.5em;
 }
 
+.hidden-navbar-options {
+  display: none;
+}
+.hidden-divider {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) {
 	header .nav-btn {
 		visibility: visible;
 		opacity: 1;
 	}
 
+  .visible-nav-option a, .top-navmenus a {
+    font-size: 1.5em;
+  }
+
   .logo-img-contain {
     object-fit: contain;
+  }
+
+  .hidden-divider {
+    padding: 0.1em;
+    display: block;
+    background: rgb(144, 144, 249);
+    height: 70%;
+  }
+
+  .top-navmenus, .bot-navmenus {
+    background: transparent;
   }
 
   .navbars {
@@ -95,18 +146,29 @@ nav {
 	header .responsive_nav {
 		transform: none;
     /* position: absolute; */
-    height: 70vh;
-    background: rgb(3, 131, 153);
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: rgb(223, 236, 238);
+    overflow: hidden;
+    gap: 3em;
 	}
 
+  .inside-nav-option {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8em;
+    width: 100%;
+  }
+
   header .responsive_nav a:hover {
-    background: rgb(36, 96, 124);
+    background: rgb(201, 228, 241);
   }
 
 	nav .nav-close-btn {
 		position: absolute;
-		top: 2rem;
-		right: 4rem;
+		top: 1rem;
+		right: 2rem;
 	}
 
 	nav a {
@@ -131,8 +193,27 @@ nav {
     display: flex;
     flex-direction: row;
   }
-  header .responsive_nav{
-    height: 90vh;
+  header .responsive_nav {
+    padding: 1em;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+    gap: 2em;
+}
+.inside-nav-option {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  width: 100%;
+}
+.inside-nav-option a {
+  font-size: 0.8em;
+  padding: 0.1em;
+}
+  .hidden-divider {
+    display: none;
   }
   header nav{
     gap: 0;
@@ -148,9 +229,9 @@ nav {
 	}
   nav a {
 		font-size: 1.5rem;
-    padding: 0.7em ;
     text-align: center;
 	}
+
 }
 
 /* .Login-btn {
@@ -171,6 +252,21 @@ nav {
   text-decoration: none;
 } */
 
+@media only screen and (max-width: 770px){
+  .inside-nav-option a {
+    font-size: 0.8em;
+    padding: 0.1em;
+    text-align: justify;
+  }
+  nav .nav-close-btn {
+		position: absolute;
+		top: 1rem;
+		right: 2rem;
+    width: 0.6em;
+	}
+
+}
+
 @media only screen and (max-width: 500px){
   header {
     display: flex;
@@ -188,4 +284,8 @@ nav {
 		transform: none;
     height: 90vh;
 	}
+  .inside-nav-option a {
+    font-size: 0.6em;
+    padding: 0;
+  }
 }
