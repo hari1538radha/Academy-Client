@@ -1,24 +1,159 @@
-.Navbar {
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+body{
+  margin: 0;
+}
+
+.navbars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 6em;
+    justify-items: center;
+    justify-content: space-between;
+    padding: 0 3em;
+    box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
+}
+
+nav a {
+	text-decoration: none;
+  color: black;
+  font-size: 1.4em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+header .nav-btn {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2em 4em;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25)
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1em;
+  width: 100%;
 }
 
-.Navbar button{
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
+#logout-button {
+  cursor: pointer;
+  width: 8em;
+  height: 2.5em;
+  border: 1px solid #E25353;
+  color: white;
+  background: #FB4B4B;
+  border-radius: 1.5em;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+@media only screen and (max-width: 1200px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+	}
+
+  .logo-img-contain {
+    object-fit: contain;
+  }
+
+  .navbars {
+    box-shadow: 0 0 1em rgb(95, 95, 95);
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5em;
+    align-items: center;
+    height: 6em;
+  }
+
+	header nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+    height: 90vh;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+    gap: 1.5em;
+		justify-content: center;
+		transition: 1s;
+		transform: translatex(-200vh);
+	}
+
+	header .responsive_nav {
+		transform: none;
+    /* position: absolute; */
+    height: 70vh;
+    background: rgb(3, 131, 153);
+	}
+
+  header .responsive_nav a:hover {
+    background: rgb(36, 96, 124);
+  }
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 4rem;
+	}
+
+	nav a {
+    font-size: 1.5rem;
+    width: 90%;
+    padding:0 0.5em ;
     font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.25em;
-    border: transparent;
+    text-align: center;
+	}
+
+  #logout-button {
+    border: 2px solid #E25353;
     background: transparent;
+    color: #E25353;
+    font-weight: 700;
+  }
+  
 }
 
-.Login-btn {
+@media only screen and (max-width: 900px){
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+  header .responsive_nav{
+    height: 90vh;
+  }
+  header nav{
+    gap: 0;
+  }
+  header .responsive_nav {
+    padding: 1em;
+    height: 40em;
+	}
+  nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 5rem;
+	}
+  nav a {
+		font-size: 1.5rem;
+    padding: 0.7em ;
+    text-align: center;
+	}
+}
+
+/* .Login-btn {
   width: 130px;
   height: 32px;
   border: 1px solid #E25353;
@@ -34,49 +169,23 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+} */
 
+@media only screen and (max-width: 500px){
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
-.navlinklogo {
-    margin-right: 10px;
-    display: none;
-}
+@media only screen and (max-width: 440px) {
+  header {
+    width: 100%;
+  }
 
-#logout-button {
-    cursor: pointer;
-    width: 131.58px;
-    height: 33.45px;
-    border: 1px solid #E25353;
-    color: white;
-    background: #FB4B4B;
-    border-radius: 22.3022px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-@media screen and (max-width:1100px) {
-    .Logout-btn {
-        margin-right: 20px;
-
-    }
-
-    .navlinks {
-        margin-left: 50px;
-    }
-
-}
-
-@media screen and (max-width:900px) {
-    .navlinks {
-        display: none;
-
-    }
-
-    .navlinklogo {
-        display: block;
-    }
-
+  header .responsive_nav {
+		transform: none;
+    height: 90vh;
+	}
 }

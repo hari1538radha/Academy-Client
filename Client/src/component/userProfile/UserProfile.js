@@ -42,9 +42,7 @@ const Userprofile = () => {
 
   return (
     <>
-      <nav>
-        <NavBar />
-      </nav>
+      <NavBar />
       <div>
         <div className="profilepage-container">
           <div className="left-container--profilepage">
@@ -120,6 +118,7 @@ const Userprofile = () => {
                         <p className="details">
                           <p>{obj.eventDescription}</p>{" "}
                         </p>
+
                       </div>
                     </div>
                   );

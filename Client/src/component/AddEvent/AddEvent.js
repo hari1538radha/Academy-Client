@@ -4,9 +4,7 @@ import NavBar from "../Navbar/navbar";
 import { useDispatch } from "react-redux";
 import { PostEventData } from "../../Store/Slice/AddEventSlice";
 const AddEvent = () => {
-
-    const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
 
   const HandelEventData = (e) => {
     e.preventDefault();
@@ -24,16 +22,20 @@ const AddEvent = () => {
     element[2].value = "";
     element[3].value = "";
     element[4].value = "";
-    dispatch(PostEventData(eventName,eventDescription , eventDate, eventTime, eventImage))
+    dispatch(
+      PostEventData(
+        eventName,
+        eventDescription,
+        eventDate,
+        eventTime,
+        eventImage
+      )
+    );
   };
-   
-
 
   return (
     <div>
-      <nav>
-        <NavBar />
-      </nav>
+      <NavBar />
       <div className="form-container">
         <form onSubmit={HandelEventData}>
           <div className="form-content">

@@ -4,7 +4,6 @@
   margin-top: 10em;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 
 .Linepic {
@@ -16,7 +15,7 @@
 
 .footer-divider {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 30% 70%;
   align-items: center;
 }
 
@@ -36,42 +35,60 @@
 .Location-footer {
   display: flex;
   flex-direction: row;
-  gap: 1em
+  gap: 1em;
+  align-items: center;
+}
+
+.Location-footer p {
+  margin: 1em 0;
 }
 
 .contact-info {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  width: 80%;
-}
-
-.Caller-container {
   display: flex;
   flex-direction: row;
-  gap: 1em
+  justify-content: space-between;
+  gap: 1em;
+  justify-items: center;
+  align-items: center;
+  font-size: 1em;
+  text-align: center;
 }
 
-.printer-container {
+.Caller-container, .printer-container {
   display: flex;
   flex-direction: row;
-  gap: 1em
+  gap: 1em;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.printer-container p, .Caller-container p {
+  margin: 1em 0;
 }
 
 .Social {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 50%;
   gap: 1em;
-  margin-top: 1em;
+  justify-items: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Social p{
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  margin: 1em 0;
 }
 
 .Social-logos {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 55%;
-  gap: 13px;
-  /* background-color: rgb(129, 129, 131); */
+  gap: 1em;
+  height: 1.6em;
 }
 
 .right-footer {
@@ -79,26 +96,8 @@
   flex-direction: column;
   height: 14em;
   justify-content: space-evenly;
+  align-items: flex-end;
 }
-
-/* .Login-btn-footer {
-  width: 67px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background: #0081fe;
-  border-radius: 5px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16.15px;
-  line-height: 24px;
-  position: absolute;
-  top: 387px;
-  right: 127px;
-} */
 
 .Line2 {
   padding: 0.04em 0em;
@@ -148,16 +147,26 @@
   display: none;
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1100px) {
   .footer{
-    padding: 0 2em;
-    margin-top: 2em;
+    margin-top: 1em;
+    width: 100%;
   }
+
+  .Social {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
   .Social-logos {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 65%;
+    justify-content: space-evenly;
+  }
+
+  .Social-logos img {
+    width: 1.7em;
   }
 
   .Footer-link a {
@@ -175,14 +184,33 @@
 @media only screen and (max-width: 920px) {
   .footer{
     align-items: center;
+    margin: 3em 0;
+  }
+
+  .Logo {
+    margin: 2em 0;
+  }
+
+  .Linepic{
+    width: 120%;
   }
 
   .Footer-link {
     display: flex;
     flex-direction: column;
+    justify-items: center;
     align-items: center;
     font-family: "Poppins";
     gap: 0.5em;
+    height: 12em;
+    margin: 2em auto;
+  }
+
+  .Footer-link a {
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   .right-footer {
@@ -194,17 +222,16 @@
   }
 
   .Social-hidden{
-    display: block;
-    width: 90%;
-    height: 2em;
-    padding: 0em 1em;
+    display: flex;
+    flex-direction: row;
     margin: 1em auto;
-    align-items: center;
+    justify-content: space-evenly;
+    gap: 0.5em;
   }
 
   .Social-hidden img {
-    padding: 0.5em 1em;
-    width: 1.6em;
+    width: 1.2em;
+    height: 1.6em;
   }
 
   .footer-divider {
@@ -217,7 +244,7 @@
     background: rgb(57, 156, 255);
     padding: 0.08em 0;
     border-radius: 0.1em;
-    width: 100%;
+    width: 120%;
   }
 
   .Copyright-container {
@@ -229,20 +256,20 @@
     text-align: center;
     color: rgb(129, 129, 131);
     font-weight: 600;
+    margin: 2em 0;
   }
 
   .footer-link-container{
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     display: block;
   }
 }
 
-@media only screen and (max-width: 580px) {
+/* @media only screen and (max-width: 580px) {
   .Social-hidden{
     display: flex;
     flex-direction: row;
-    width: 90%;
     margin: 1em auto;
     align-items: center;
     justify-content: space-evenly;
@@ -252,7 +279,7 @@
     padding: 0.5em;
     width: 1.4em;
   }
-}
+} */
 
 @media only screen and (max-width: 320px){
   .footer-link-container{

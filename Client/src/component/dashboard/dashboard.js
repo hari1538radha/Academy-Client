@@ -5,8 +5,10 @@ import Navbar from "../Navbar/navbar";
 import MaterialReactTable from "material-react-table";
 import {getUniversitiesInfo}  from "../../Store/Slice/getUniversities";
 import {getProgrammeInfo}  from "../../Store/Slice/getProgramme";
+import "./dashboard.css";
 
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   Box,
   Button,
@@ -20,24 +22,32 @@ import {
   TextField,
   Tooltip,
 } from "@mui/material";
+
 import { Delete, Edit } from "@mui/icons-material";
+
 import keyTypes from "./makeData";
 
 const Dashboard = () => {
   let data = [];
-  const locationState = useLocation().state;
-  const type = keyTypes[useLocation().state] || keyTypes["Universities"];
-  const [keys, setKeys] = useState(type);
+  const [dataState, setDataState] = useState("Universities")
+  // const locationState = useLocation().state;
+  const [val, setval] = useState(keyTypes.Programme);
+  const [keys, setKeys] = useState(keyTypes.Universities);
+  // const [flow, setflow] = useState();
   const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
-  // setData(universitiesData);
-  //   const { programmeData, programmeLoading } = useSelector((state) => state.programmeInfo);
-  //   setData(programmeData);
+  const print = useLocation()
+  console.log(print, "print")
+  console.log(dataState, "datastate")
   const appState = useSelector(state => state);
   const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
+  const {programmeData} = useSelector((state) => state.getProgrammeInfo)
+
+  // console.log(programmeData)
+  // const sample = useSelector((state) => state)
   // console.log(appState['universitiesInfo']['universitiesData']);
-  console.log(appState['getProgrammeInfo']['programmeData']);
+  // console.log(appState['getProgrammeInfo']['programmeData']);
   // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
   // // setData(stateValue);
   // console.log(appState);
@@ -47,22 +57,34 @@ const Dashboard = () => {
   //  else {
   //   setData(appState.programmeInfo.programme);
   // }
-  if(locationState === 'Programme') {
+
+  if(dataState === 'Programme') {
     data = appState['getProgrammeInfo']['programmeData']
-  } else {
+    // setKeys(val)
+    console.log(programmeData)
+  } 
+  if(dataState === 'Universities') {
     data = appState['universitiesInfo']['universitiesData']
+    // setKeys(univ)
+    console.log(universitiesData)
   }
   useEffect(() => {
-  if( locationState === 'Programme') {
+  if( dataState === 'Programme') {
     dispatch(getProgrammeInfo());
   }
     dispatch(getUniversitiesInfo());
-  }, []);
+  }, [dataState]);
 
   const handleCreateNewRow = (values) => {
     data.push(values);
     // setTableData([...data]);
   };
+
+  // const onClicking = (e) => {
+  //   setDataState(e.target.value)
+  // }
+
+  console.log(dataState, "state of data")
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
@@ -118,27 +140,75 @@ const Dashboard = () => {
     [validationErrors]
   );
 
+// console.log(keys)
+// const columnforProgramme = useMemo(
+//   () =>
+//     val.map((key) => {
+//       return {
+//         accessorKey: key,
+//         header: key,
+//         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+//           ...getCommonEditTextFieldProps(cell),
+//           type: key,
+//         }),
+//       };
+//     }),
+//   [getCommonEditTextFieldProps]
+// );
+
   const columns = useMemo(
-    () =>
-      keys.map((key) => {
-        return {
-          accessorKey: key,
-          header: key,
-          muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-            ...getCommonEditTextFieldProps(cell),
-            type: key,
-          }),
-        };
-      }),
-    [getCommonEditTextFieldProps]
-  );
+  () =>
+    keys.map((key) => {
+      return {
+        accessorKey: key,
+        header: key,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: key,
+        }),
+      };
+    }),
+  [getCommonEditTextFieldProps]
+);
+
+// if (dataState === "Universities"){
+//   setflow(columns)
+// } if (dataState === "Programme") {
+//   setflow(columnforProgramme)
+// }
 
   return (
     <>
-      <nav>
-        <Navbar />
-      </nav>
-      <MaterialReactTable
+      <Navbar />
+      <div className="dashboard-divider">
+        <div className="option-toggle">
+          <p className="toggle-heading">Dashboard</p>
+          <hr className="group-divider"></hr>
+          <button value="Universities" onClick={((e) => setDataState(e.target.value))}>Universities</button>
+          <button value="Programme" onClick={((e) => setDataState(e.target.value))}>Programme</button>
+          <hr className="group-divider"></hr>
+          <button>Table</button>
+          <button>Services</button>
+          <div class="dropdown">
+            <button class="dropbtn">Files</button>
+            <div class="dropdown-content">
+            <a href="#/">Link 1</a>
+            <a href="#/">Link 2</a>
+            <a href="#/">Link 3</a>
+            </div>
+          </div>
+          <button>Our Services</button>
+          <button>Our Services</button>
+          <hr className="group-divider"></hr>
+          <label>Group - 1</label>
+            <button>Our Services</button>
+            <button>Our Services</button>
+            <button>Our Services</button>
+            <hr className="group-divider"></hr>
+          <button>Our Services</button>
+          <button>Our Services</button>
+        </div>
+        <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
             muiTableHeadCellProps: {
@@ -168,9 +238,8 @@ const Dashboard = () => {
           </Box>
         )}
       />
-      <footer>
+      </div>
         <Footer />
-      </footer>
     </>
   );
 };

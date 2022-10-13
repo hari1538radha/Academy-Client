@@ -1,16 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import NavBar from "../Navbar/navbar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
-import {userProfileData} from "../../Store/Slice/UserprofilePageSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
-import Footer from "../Footer/footer";
+import Footer from "../Footer/footer.js";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 const Login = () => {
-  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -22,15 +20,18 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    console.log(userEmail);
     navigate("/landing", {state: {email: userEmail} });
   };
-  // const {loginData,loading} =useSelector(state => state.loginInfo)
-//  console.log(loginData);
+  
 
   return (
     <>
+    <div className="all-login-container">
     <NavBar/>
+    <div className="hidden-container">
+      <div className="hidden"></div>
+      <h1 className="hidden-pagename">log in</h1>
+    </div>
       <div className="image">
         <div className="Login-main">
           <form onSubmit={HandleSubmit}>
@@ -39,16 +40,14 @@ const Login = () => {
                 <img src={Loginlogo} alt="no img found"></img>
               </div>
               <input
-                className="Email-input"
+                className="Emails-input"
                 placeholder="Email Address *"
                 type="text"
-                required
               ></input>
               <input
-                className="password-input"
+                className="passwords-input"
                 type="password"
                 placeholder="Password *"
-                required
               ></input>
               <button className="login-btn">LOGIN</button>
               <div className="login-footer">
@@ -62,6 +61,8 @@ const Login = () => {
       <div>
         <Footer />
       </div>
+    </div>
+
     </>
   );
 };

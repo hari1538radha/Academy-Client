@@ -21,9 +21,7 @@ const MainQuiz = () => {
   console.log(loginData)
   return (
     <div>
-      <nav>
         <Navbar />
-      </nav>
       <div className="main-quiz--conatiner">
         <div className="quiz-questions">
           <div className="quiz-questions--header">
