@@ -1,16 +1,18 @@
 import React from "react";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "../Navbar/navbar";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer.js";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showFailur, setShowFailur] = useState(false);
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -20,49 +22,71 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    navigate("/landing", {state: {email: userEmail} });
+    navigate("", { state: { email: userEmail } });
   };
-  
+  const { loginData, loading } = useSelector((state) => state.loginInfo);
+  useEffect(() => {
+    if (loginData) {
+      if (loginData.data) {
+        if (loginData.data.message === "Login success") {
+          navigate("/landing");
+        } else {
+          console.log("no user find");
+        }
+        setShowFailur(true);
+      } else {
+        // window.alert("no user find");
+      }
+    }
+  }, [loginData]);
 
   return (
     <>
-    <div className="all-login-container">
-    <NavBar/>
-    <div className="hidden-container">
-      <div className="hidden"></div>
-      <h1 className="hidden-pagename">log in</h1>
-    </div>
-      <div className="image">
-        <div className="Login-main">
-          <form onSubmit={HandleSubmit}>
-            <div className="Login-container">
-              <div className="Loginlogo">
-                <img src={Loginlogo} alt="no img found"></img>
+      <div className="all-login-container">
+        <NavBar />
+        <div className="hidden-container">
+          <div className="hidden"></div>
+          <h1 className="hidden-pagename">log in</h1>
+        </div>
+        <div className="image">
+          <div className="Login-main">
+            <form onSubmit={HandleSubmit}>
+              <div className="Login-container">
+                <div className="Loginlogo">
+                  <img src={Loginlogo} alt="no img found"></img>
+                </div>
+                <input
+                  className="Emails-input"
+                  placeholder="Email Address *"
+                  type="text"
+                  required
+                ></input>
+                <input
+                  className="passwords-input"
+                  type="password"
+                  placeholder="Password *"
+                  required
+                ></input>
+                <button className="login-btn">LOGIN</button>
+                {showFailur ? (
+                  <div className="sign-failur">
+                    {loginData.data}
+
+                    <span>User Exist Already !!!</span>
+                  </div>
+                ) : null}
+                <div className="login-footer">
+                  <p>Don't have an account?</p>
+                  <Link to="/Signup">SIGN UP</Link>
+                </div>
               </div>
-              <input
-                className="Emails-input"
-                placeholder="Email Address *"
-                type="text"
-              ></input>
-              <input
-                className="passwords-input"
-                type="password"
-                placeholder="Password *"
-              ></input>
-              <button className="login-btn">LOGIN</button>
-              <div className="login-footer">
-                <p>Don't have an account?</p>
-                <Link to="/Signup">SIGN UP</Link>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
-
     </>
   );
 };

@@ -11,7 +11,7 @@ export const signup = async (req, res) => {
         res.send({
           message:
             "The Email has been taken already!!! Please enter a new Email ID",
-          response: "Invalid Email",
+          response: "Email Exits",
         });
       } else {
         if (!(userFirstName && userLastName && userEmail && userPassword)) {
@@ -19,6 +19,7 @@ export const signup = async (req, res) => {
             .status(429)
             .send({ message: "Inefficient data", response: "Inefficient" });
         }
+
         req.body.userID = Math.floor(1000 + Math.random() * 9000);
         const user = new userModel(req.body);
         const salt = await bcrypt.genSalt(10);
