@@ -17,16 +17,27 @@ import img4 from "../Landing/Img/Rectangle-14.jpg";
 import profilequiz from "../Login/Images/profilequiz.svg";
 import dashIconImg from "../Login/Images/dash-icon.png";
 import eventImg from "../Login/Images/event-icon.png";
+import { getEventInfo } from "../../Store/Slice/EventSlice";
+import editImg from "../Login/Images/edit.svg";
+import { Link } from "react-router-dom";
+
 const Userprofile = () => {
   const [data, setdata] = useState();
   const dispatch = useDispatch();
+  
+
+  
   useEffect(() => {
     dispatch(getTopicInfo());
+    dispatch(getEventInfo());
   }, []);
 
-  const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
-  console.log(topicData);
+  // const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
+  const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
 
+  // console.log(topicData);
+  
+ 
   const AddEvents = () => {};
 
   return (
@@ -71,12 +82,10 @@ const Userprofile = () => {
                     <a href="#">Update Profile</a>
                   </div>
                   <div className="left-container--dashboard--content">
-                  <img className="quiz-img" src={eventImg}></img>
+                    <img className="quiz-img" src={eventImg}></img>
                     <a href="/profile/AddEvent">Add Event</a>
                   </div>
-                  
                 </div>
-               
               </div>
             </div>
           </div>
@@ -86,69 +95,35 @@ const Userprofile = () => {
               <h2>John Doe</h2>
               <p>Student</p>
             </div>
-            <div className="eve-top">
-              Events
-            </div>
-            <div>
-              <div className="second-contant">
-                <div className="sub-container-pro">
-                  {/* <h1 className="topic"> Topics</h1> */}
-
-                  <div className="sub-top">
-                    <div className="sub-top-1">
-                      <h2 className="topic1">Education</h2>
-                      <p className="sub-contain-pro">
-                        Lörem ipsum kvasitropi svemester. Anaitet lall. Gåsade
-                        döloning. Syll bebel till kvasisens. Tres kos masade
-                        robotdräkt. Heteropp. Vönäna teraskap. Vande legga
-                        kadinera makrohet reatologi. Por hybridkrig och hypobun.
-                        Evöligt färade, därför att påns tilig.
-                      </p>
-
-                      <div className="Read-More">
-                        <a href="/detail">
-                          <img className="book-logo"></img>
-                          Read More
-                        </a>
+            <div className="eve-top">Events</div>
+            <div className="third-full-con-pro">
+              {eventsData.length > 0 &&
+                eventsData.slice(0, 3).map((obj) => {
+                  return (
+                    <div key={obj.eve}>
+                      <div className="third-sub-con">
+                        <div className="img">
+                          <img className="eve-img" src={img4}></img>
+                        </div>
+                        <div className="center-pro">
+                          <div className="third-head">{obj.eventName}</div>
+                          <div className="button-pro">
+                            {" "}
+                            <Link to="/EventUpdate" state={{ blockDetails:obj}}> 
+                            <button className="edit-info"
+                             >
+                              <img src={editImg}></img>
+                            </button>
+                            </Link>
+                          </div>
+                        </div>
+                        <p className="details">
+                          <p>{obj.eventDescription}</p>{" "}
+                        </p>
                       </div>
                     </div>
-                    <div className="sub-top-1">
-                      <h2 className="topic1">Quiz</h2>
-                      <p className="sub-contain-pro">
-                        Lörem ipsum kvasitropi svemester. Anaitet lall. Gåsade
-                        döloning. Syll bebel till kvasisens. Tres kos masade
-                        robotdräkt. Heteropp. Vönäna teraskap. Vande legga
-                        kadinera makrohet reatologi. Por hybridkrig och hypobun.
-                        Evöligt färade, därför att påns tilig.
-                      </p>
-
-                      <div className="Read-More">
-                        <a href="/detail">
-                          <img className="book-logo"></img>
-                          Read More
-                        </a>
-                      </div>
-                    </div>
-                    <div className="sub-top-1">
-                      <h2 className="topic1">Game</h2>
-                      <p className="sub-contain-pro">
-                        Lörem ipsum kvasitropi svemester. Anaitet lall. Gåsade
-                        döloning. Syll bebel till kvasisens. Tres kos masade
-                        robotdräkt. Heteropp. Vönäna teraskap. Vande legga
-                        kadinera makrohet reatologi. Por hybridkrig och hypobun.
-                        Evöligt färade, därför att påns tilig.
-                      </p>
-
-                      <div className="Read-More">
-                        <a href="/detail">
-                          <img className="book-logo"></img>
-                          Read More
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  );
+                })}
             </div>
           </div>
         </div>
