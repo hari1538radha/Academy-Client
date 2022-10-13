@@ -15,7 +15,7 @@ export const EventById = (req, res) => {
             else {
                 return res.send({
                     status: 404,
-                    message: "Id not fount"
+                    message: "Id not fount",
                 });
             }
         }
