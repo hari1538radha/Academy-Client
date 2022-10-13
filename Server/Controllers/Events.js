@@ -13,7 +13,7 @@ const upload = multer({
   storage: storage,
 }).single("eventImage");
 
-const myDate = Moment().format('YYYY-MM-DD HH:mm')
+// const myDate = Moment().format('YYYY-MM-DD HH:mm')
 
 export const eventData = (req, res) => {
  
@@ -24,19 +24,17 @@ export const eventData = (req, res) => {
       const addImage = new eventModel({
         eventName: req.body.eventName,
         eventDescription: req.body.eventDescription,
-        eventImage: {
-          data: req.file.filename
-          
-        },
+        eventImage: req.eventImage,
         eventId: Math.floor(1000 + Math.random() * 9000),
-        time: myDate,
+        eventData: req.eventDate,
+        eventTime: req.eventTime
       });
       addImage.save((err, data) => {
         if (err) {
           res.send(err);
         }
         res.status(200).send({
-          message: "Posted sucessfully!!!",
+          message: "Posted successfully!!!",
         });
       });
     }

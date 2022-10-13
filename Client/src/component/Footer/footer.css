@@ -1,5 +1,4 @@
 .footer {
-  height: 50vh;
   padding: 0 4em;
   margin-top: 10em;
   display: flex;
@@ -140,7 +139,7 @@
   color: rgb(129, 129, 131);
   width: 100%;
   justify-content: flex-end;
-  padding: 3em 0;
+  padding: 1em 0;
 }
 
 .Social-hidden {

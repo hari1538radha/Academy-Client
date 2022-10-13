@@ -16,19 +16,18 @@ const AddEvent = () => {
     const eventTime = element[3].value;
     const eventImage = element[4].value;
 
-    console.log(eventName, eventDescription, eventDate, eventTime, eventImage);
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
     element[3].value = "";
     element[4].value = "";
     dispatch(
-      PostEventData(
+      PostEventData({
         eventName,
         eventDescription,
         eventDate,
         eventTime,
-        eventImage
+        eventImage}
       )
     );
   };
