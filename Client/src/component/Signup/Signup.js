@@ -13,18 +13,42 @@ const Signup = () => {
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
 
   useEffect(() => {
-    if (signupData.response === "success") {
-      setLoginStatus({
-        status: 1,
-        message: "success",
-      });
-      // navigate('/landing');
-    } else if (signupData.response === "failure") {
-      setLoginStatus({
-        status: 1,
-        message: "failure",
-      });
+    console.log(signupData)
+    if(signupData){
+      if(signupData.data)
+      {
+        if (signupData.data.response=== "success") {
+          setLoginStatus({
+            status: 1,
+            message: "Your details is registerd successfully !! please login now",
+          });
+          // navigate('/landing');
+        } else if (signupData.data.response === "Invalid Email") {
+          setLoginStatus({
+            status: 1,
+            message: "The Email is already registered please login now",
+          });
+        }
+        else if(signupData.data.response === "Inefficient")
+       {
+        setLoginStatus({
+          status: 2,
+          message: "The details is not efficient",
+        });
+       }
+      }
+      else
+      {
+       setLoginStatus({
+         status: 0,
+         message: "",
+       });
+      
     }
+  }
+   
+    
+
   }, [signupData]);
 
   const handleSignupData = (e) => {
@@ -47,6 +71,9 @@ const Signup = () => {
       <div className="hidden-container">
       <div className="hidden"></div>
       <h1 className="hidden-pagename">sign up</h1>
+      <p>
+        {loginStatus.message}
+      </p>
     </div>
         <div className="image">
           <div className="Signup-main">

@@ -35,9 +35,10 @@ const Login = () => {
       {
         console.log(loginData)
         console.log("logindata.data")
-        if(loginData.data.message)
+        if(loginData.data.message === "Login success")
         {
           navigate("/landing")
+        
           console.log(loginData.data.message)
           
           console.log("logindata.data.message")
