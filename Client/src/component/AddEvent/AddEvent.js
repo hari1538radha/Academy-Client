@@ -16,7 +16,7 @@ const AddEvent = () => {
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const eventImage = element[4].value;
+    const eventImage = element[4].file;
 
     element[0].value = "";
     element[1].value = "";
