@@ -1,27 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 import "./EventUpdate.css";
-import { PostEventData } from "../../Store/Slice/AddEventSlice";
-import { axio } from "../../Config/Config";
-import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { UpdateEvent } from "../../Store/Slice/EditEventSlice.js";
+import { useDispatch } from "react-redux";
+import NavBar from "../Navbar/navbar";
 
 function EventUpdate() {
-  const [NewTitle, setNewTitle] = useState("");
-  const [NewDiscription, setNewDiscription] = useState("");
-  const [NewDate, setNewDate] = useState("");
-  const [NewTime, setNewTime] = useState("");
+  const dispatch = useDispatch();
   const location = useLocation();
-  console.log(location.state.blockDetails._id);
-  console.log(NewTitle, NewDiscription, NewDate, NewTime);
+  console.log(location.state);
 
-  const UpdateEventData = () => {
-    axios.put(`api/update-event`, {
-      eventId: location.state.blockDetails._id,
-      NewTitle: NewTitle,
-      NewDiscription: NewDiscription,
-      NewDate: NewDate,
-      NewTime: NewTime,
-    });
+  const UpdateEventData = (e) => {
+    e.preventDefault();
+    const component = e.target.elements;
+    const eventId = component[0].value;
+    const eventName = component[1].value;
+    const eventDescription = component[2].value;
+    const eventImage = component[3].value;
+    const date = component[4].value;
+
+    component[0].value = "";
+    component[1].value = "";
+    component[2].value = "";
+    component[3].value = "";
+    component[4].value = "";
+    dispatch(
+      UpdateEvent({
+        eventId,
+        eventName,
+        eventDescription,
+        eventImage,
+        date,
+      })
+    );
   };
 
   return (
@@ -33,35 +44,23 @@ function EventUpdate() {
               className="update-title"
               type="text"
               placeholder="Enter the Title "
-              onSubmit={(event) => {
-                setNewTitle(event.target.value);
-              }}
             ></input>
 
             <input
               className="update-discription"
               type="text"
               placeholder="Enter the Discription"
-              onSubmit={(event) => {
-                setNewDiscription(event.target.value);
-              }}
             ></input>
 
             <input
               className="update-date"
               type="date"
               placeholder="Enter the Date"
-              onSubmit={(event) => {
-                setNewDate(event.target.value);
-              }}
             ></input>
             <input
               className="update-time"
               type="time"
               placeholder="Enter the Time"
-              onSubmit={(event) => {
-                setNewTime(event.target.value);
-              }}
             ></input>
             <input
               className="update-img"

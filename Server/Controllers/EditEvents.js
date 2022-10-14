@@ -1,9 +1,9 @@
-import { eventModel } from "../Schema/EventsSchema.js";
+import { updateEventModel } from "../Schema/UpdateSchema.js";
 
 export const editevent = (req, res) => {
-    eventModel.updateOne(
+    updateEventModel.updateOne(
         { "eventId": req.body.eventId },
-        { $set: { "eventName": req.body.eventName ,"eventDescription" :req.body.eventDescription ,"evntImage" :req.body.evntImage, "date" : req.body.date} },
+        { $set: { "eventName": req.body.eventName ,"eventDescription" :req.body.eventDescription ,"eventImage" :req.body.evntImage, "date" : req.body.date} },
         { upsert: true }, (err, data) => {
         if (err) {
             console.log(err);
