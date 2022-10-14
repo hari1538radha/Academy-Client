@@ -1,6 +1,6 @@
-import { detailPageModel } from "../Schema/detailpageSchema.js";
+import { detailPageModel } from "../../Schema/detailpageSchema.js";
 
-export const detailPage = (req, res) => {
+export const detail = (req, res) => {
     if (req.body.title && req.body.titleDescription && req.body.subDescription == 0) {
         res.status(200).send({
             message: "Please enter all details",

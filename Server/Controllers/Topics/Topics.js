@@ -1,6 +1,6 @@
-import { topicModel } from "../Schema/topicsSchema.js";
+import { topicModel } from "../../Schema/topicsSchema.js";
 
-export const uploadData = (req, res) => {
+export const uploadTopics = (req, res) => {
   if (req.body.topicTitle && req.body.topicDescription == 0) {
     res.status(200).send({
       message: "Enter both the fields",

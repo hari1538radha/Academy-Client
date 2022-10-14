@@ -17,10 +17,14 @@ const topEventSchema = new mongoose.Schema(
     eventId: {
       type: String
     },
-    time: {
+    eventDate: {
       type: String,
       required: true
     },
+    eventTime: {
+      type: String,
+      require: true
+    }
   },
   { timestamps: true }
 );
