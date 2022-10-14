@@ -4,5 +4,5 @@ export const axio = axios.create({
   headers: { 
   "X-Custom-Header": "foobar",
   "Accept": "application/json",
-  "Content-Type": "multipart/form-data"},
+  "Content-Type": undefined},
 });

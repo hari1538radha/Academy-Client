@@ -5,7 +5,7 @@ import { uploadTopics } from "../Controllers/Topics/Topics.js";
 import { uploadEvents } from "../Controllers/Events/Events.js";
 import { topics } from "../Controllers/Topics/landingTopic.js";
 import { events } from "../Controllers/Events/landingEvents.js";
-import { images } from "../Controllers/images.js";
+import { AddImages } from "../Controllers/images.js";
 import { userProfileData } from "../Controllers/userProfile.js";
 import { detailpage } from "../Controllers/DetailPage/DetailPage.js";
 import { detail } from "../Controllers/DetailPage/Detail.js";
@@ -14,10 +14,9 @@ import { getExcelofEducation } from "../Controllers/readEducation.js";
 import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
 import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 import { EventById } from "../Controllers/Events/SingleEvent.js";
-import { editevent } from "../Controllers/Events/EditEvents.js";
+import { editEvent } from "../Controllers/Events/EditEvents.js";
 import multer from "multer";
 import { createUser } from "../Controllers/userSignup.js";
-import { editevent } from "../Controllers/EditEvents.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
 
 const Storages = multer.diskStorage({
@@ -75,6 +74,6 @@ Route.get("/universities", getUniversities);
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
-Route.put("/editevent", editevent);
+Route.put("/edit-event", editEvent);
 
 export default Route;

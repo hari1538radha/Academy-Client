@@ -12,7 +12,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [showFailur, setShowFailur] = useState(false);
+  const [showFailure, setShowFailure] = useState(false);
+  const { loginData, loading } = useSelector((state) => state.loginInfo);
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -22,23 +23,20 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    navigate("", { state: { email: userEmail } });
+    navigate("/landing", { state: { email: userEmail } });
   };
-  const { loginData, loading } = useSelector((state) => state.loginInfo);
-  useEffect(() => {
-    if (loginData) {
-      if (loginData.data) {
-        if (loginData.data.message === "Login success") {
-          navigate("/landing");
-        } else {
-          console.log("no user find");
-        }
-        setShowFailur(true);
-      } else {
-        // window.alert("no user find");
-      }
-    }
-  }, [loginData]);
+
+  // useEffect(() => {
+  //   if (
+  //     loginData &&
+  //     loginData.message === "Login success"
+  //   ) {
+  //     navigate("/landing");
+  //   } else {
+  //     console.log("No user found");
+  //   }
+  //   // setShowFailure(true);
+  // }, [loginData]);
 
   return (
     <>
@@ -68,10 +66,9 @@ const Login = () => {
                   required
                 ></input>
                 <button className="login-btn">LOGIN</button>
-                {showFailur ? (
-                  <div className="sign-failur">
+                {showFailure ? (
+                  <div className="sign-failure">
                     {loginData.data}
-
                     <span>User Exist Already !!!</span>
                   </div>
                 ) : null}

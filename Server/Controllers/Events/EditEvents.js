@@ -1,6 +1,6 @@
 import { eventModel } from "../../Schema/EventsSchema.js";
 
-export const editevent = (req, res) => {
+export const editEvent = (req, res) => {
     eventModel.updateOne(
         { "eventId": req.body.eventId },
         { $set: { "eventName": req.body.eventName ,"eventDescription" :req.body.eventDescription ,"evntImage" :req.body.evntImage, "date" : req.body.date} },

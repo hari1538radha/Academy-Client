@@ -39,7 +39,7 @@ function Landing() {
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   const {userData,loading} =useSelector(state => state.userProfileInfo);
-  console.log(userData);
+  console.log(topicData, eventsData, userData);
   return (
     <div>
       <NavBar profileInfo={userData.data}/>
