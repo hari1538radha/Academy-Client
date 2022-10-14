@@ -27,8 +27,8 @@ const AddEvent = () => {
         eventDescription,
         eventDate,
         eventTime,
-        eventImage}
-      )
+        eventImage,
+      })
     );
   };
 

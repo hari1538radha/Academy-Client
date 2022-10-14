@@ -54,7 +54,6 @@ function EventUpdate() {
               onSubmit={(event) => {
                 setNewDate(event.target.value);
               }}
-            
             ></input>
             <input
               className="update-time"
@@ -63,7 +62,6 @@ function EventUpdate() {
               onSubmit={(event) => {
                 setNewTime(event.target.value);
               }}
-             
             ></input>
             <input
               className="update-img"

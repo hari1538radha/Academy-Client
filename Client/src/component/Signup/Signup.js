@@ -12,9 +12,10 @@ const Signup = () => {
   const { signupData } = useSelector((state) => state.signupInfo);
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showFailur, setShowFailur] = useState(false);
+  const [showFailure, setShowFailure] = useState(false);
   useEffect(() => {
     console.log(signupData);
+
     if (signupData) {
       if (signupData.data) {
         if (signupData.data.response === "success") {
@@ -30,7 +31,7 @@ const Signup = () => {
             message:
               "The Email has been taken already!!! Please enter a new Email ID",
           });
-          setShowFailur(true);
+          setShowFailure(true);
         } else if (signupData.data.response === "Inefficient") {
           setLoginStatus({
             status: 2,
@@ -109,18 +110,18 @@ const Signup = () => {
                   {setLoginStatus.message}
 
                   <span>
-                    SignIn success!!{" "}
+                    SignUp Success!!{" "}
                     <Link to="/login" className="sign-success-link">
                       LOG IN
                     </Link>
                   </span>
                 </div>
               ) : null}
-              {showFailur ? (
+              {showFailure ? (
                 <div className="sign-failur">
                   {setLoginStatus.message}
 
-                  <span>User Exist Already !!!</span>
+                  <span>This Email Already Exist !!!</span>
                 </div>
               ) : null}
               <div className="Signup-footer">
