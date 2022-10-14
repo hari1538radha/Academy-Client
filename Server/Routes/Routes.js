@@ -5,7 +5,7 @@ import { uploadTopics } from "../Controllers/Topics/Topics.js";
 import { uploadEvents } from "../Controllers/Events/Events.js";
 import { topics } from "../Controllers/Topics/landingTopic.js";
 import { events } from "../Controllers/Events/landingEvents.js";
-import { images } from "../Controllers/images.js";
+import { AddImages } from "../Controllers/images.js";
 import { userProfileData } from "../Controllers/userProfile.js";
 import { detailpage } from "../Controllers/DetailPage/DetailPage.js";
 import { detail } from "../Controllers/DetailPage/Detail.js";
