@@ -1,14 +1,14 @@
 import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const PostProfilepic = createAsyncThunk("Pic/ProfilePic", async (data) => {
-  return axio.post("/api/profilepicture", data);
+export const PostProfilepic = createAsyncThunk("Pic/ProfilePic", async(data) => {
+  return axio.post(`/api/profilepicture`, {testImage:data});
 });
 
 const EventProfilepicture = createSlice({
     name: "Profileimg",
     initialState: {
-        picData: [],
+        PicData: [],
         picLoading: true
     },
     extraReducers: {
@@ -16,7 +16,7 @@ const EventProfilepicture = createSlice({
             state.picLoading = true
         },
         [PostProfilepic.fulfilled]: (state, action) => {
-            state.picData = action.payload.data;
+            state.PicData = action.payload.data;
             state.picLoading = false
         },
         [PostProfilepic.rejected]: (state, action) => {
