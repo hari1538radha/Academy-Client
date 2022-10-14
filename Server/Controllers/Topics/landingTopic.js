@@ -1,4 +1,4 @@
-import { topicModel } from "../Schema/topicsSchema.js";
+import { topicModel } from "../../Schema/topicsSchema.js";
 
 export const topics = (req, res) => {
   topicModel.find((err, data) => {

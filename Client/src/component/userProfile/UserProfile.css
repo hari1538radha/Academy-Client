@@ -112,11 +112,11 @@
   font-style: normal;
   font-weight: 600;
   font-size: 1em;
-  color: #2E1F27;
-  }
+  color: #2e1f27;
+}
 
-  .user-data-container p{
-  font-family: 'Poppins';
+.user-data-container p {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 1em;
@@ -194,4 +194,9 @@
 }
 .button-pro {
   margin-top: 25px;
+}
+.edit-info {
+  padding: 0;
+  border: none;
+  background: none;
 }

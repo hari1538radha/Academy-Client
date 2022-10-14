@@ -6,6 +6,7 @@ const getUniversities = (req, res) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(data);
       return res.send({
         status: 200,
         message: "Universities details",

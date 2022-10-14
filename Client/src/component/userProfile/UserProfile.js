@@ -156,7 +156,7 @@ const Userprofile = () => {
                         </div>
                         <div className="center-pro">
                           <div className="third-head">{obj.eventName}</div>
-                          <div className="button-pro">
+                          <div className="button-pro" >
                             {" "}
                             <Link to="/EventUpdate" state={{ blockDetails:obj}}> 
                             <button className="edit-info"
