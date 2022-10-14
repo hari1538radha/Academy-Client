@@ -16,18 +16,13 @@ export const userDataReducer = createSlice({
     {
         [userProfileData.pending]: (state, action) => {
             state.loading = true
-
         },
         [userProfileData.fulfilled]: (state, action) => {
             state.loading = false
             state.userData = action.payload.data
-        
-            
-
         },
         [userProfileData.rejected]: (state, action) => {
             state.loading = false
-
         }
     }
 })

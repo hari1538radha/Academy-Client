@@ -16,6 +16,9 @@ import { getProgramme, postProgramme } from "../Controllers/Programme/programme.
 import { EventById } from "../Controllers/Events/SingleEvent.js";
 import { editevent } from "../Controllers/Events/EditEvents.js";
 import multer from "multer";
+import { createUser } from "../Controllers/userSignup.js";
+import { editevent } from "../Controllers/EditEvents.js";
+import { getuserimg } from "../Controllers/getuserimg.js";
 
 const Storages = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -27,19 +30,42 @@ const Storages = multer.diskStorage({
     }
   });
 
-const Upload = multer({storage: Storages}).single("testImage")
-import { editevent } from "../Controllers/EditEvents.js";
+const Upload = multer({
+  storage: Storages,
+  limits: {
+    fileSize: 90000000,
+  },
+})
+
+const users = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'profilepic')
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, `${file.originalname}`)
+  }
+});
+
+const uploadPic = multer({
+  storage: users,
+  limits: {
+    fileSize: 90000000,
+  },
+});
 
 const Route = express.Router();
 
 Route.post("/signup", signup);
+Route.post("/studentsignup", uploadPic.single("userimage"),createUser)
 Route.post("/login", login);
+Route.get("/userimage", getuserimg);
 Route.post("/post-topic", uploadTopics);
 Route.post("/post-event", uploadEvents);
 Route.get("/topics", topics);
 Route.get("/geteducation", getExcelofEducation);
 Route.get("/events", events);
-Route.post("/profilepicture", Upload, AddImages);
+Route.post("/profilepicture", Upload.single("testImage"), AddImages);
 Route.post("/listofexcel", listofPrograms);
 Route.get("/userProfile", userProfileData);
 Route.get("/detailpage", detailpage);
