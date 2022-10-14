@@ -31,8 +31,10 @@ const Dashboard = () => {
   let data = [];
   const [dataState, setDataState] = useState("Universities");
   // const locationState = useLocation().state;
-  const [val, setval] = useState(keyTypes.Programme);
-  const [keys, setKeys] = useState(keyTypes.Universities);
+  // const [val, setval] = useState(keyTypes.Programme);
+  // const [univ, setuniv] = useState(keyTypes.Universities)
+  // const [keys, setKeys] = useState(keyTypes.Universities);
+  let keys = keyTypes.Universities
   // const [flow, setflow] = useState();
   const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -58,21 +60,22 @@ const Dashboard = () => {
   //   setData(appState.programmeInfo.programme);
   // }
 
-  if (dataState === "Programme") {
-    data = appState["getProgrammeInfo"]["programmeData"];
-    // setKeys(val)
-    console.log(programmeData);
+
+  if(dataState === 'Programme') {
+    data = appState['getProgrammeInfo']['programmeData']
+    console.log(programmeData)
+  } 
+  if(dataState === 'Universities') {
+    data = appState['universitiesInfo']['universitiesData']
+    console.log(universitiesData)
   }
-  if (dataState === "Universities") {
-    data = appState["universitiesInfo"]["universitiesData"];
-    // setKeys(univ)
-    console.log(universitiesData);
-  }
+
   useEffect(() => {
-    if (dataState === "Programme") {
+  if(dataState === 'Universities'){
+    dispatch(getUniversitiesInfo());
+  }if (dataState === "Programme") {
       dispatch(getProgrammeInfo());
     }
-    dispatch(getUniversitiesInfo());
   }, [dataState]);
 
   const handleCreateNewRow = (values) => {
@@ -80,8 +83,17 @@ const Dashboard = () => {
     // setTableData([...data]);
   };
 
+  // useEffect(() => {
+  //   if( dataState === 'Programme') {
+  //     setKeys(keyTypes.Programme)
+  //   }if (dataState === 'Universities') {
+  //     setKeys(keyTypes.Universities)
+  //   }
+  // },[dataState])
 
-  console.log(dataState, "state of data");
+  // const onClicking = (e) => {
+  //   setDataState(e.target.value)
+  // }
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
@@ -138,19 +150,26 @@ const Dashboard = () => {
   );
 
   const columns = useMemo(
-    () =>
-      keys.map((key) => {
-        return {
-          accessorKey: key,
-          header: key,
-          muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-            ...getCommonEditTextFieldProps(cell),
-            type: key,
-          }),
-        };
-      }),
-    [getCommonEditTextFieldProps]
-  );
+  () =>
+    keys.map((key) => {
+      return {
+        accessorKey: key,
+        header: key,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: key,
+        }),
+      };
+    }),
+  [getCommonEditTextFieldProps]
+);
+
+const getState = (stateName) => {
+  keys = keyTypes[stateName]
+  console.log(keys, "getting setState")
+  setDataState(stateName)
+}
+
 
   return (
     <>

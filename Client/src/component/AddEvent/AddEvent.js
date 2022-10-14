@@ -34,7 +34,6 @@ const AddEvent = () => {
 
   return (
     <div>
-      <NavBar />
       <div className="form-container">
         <form onSubmit={HandelEventData}>
           <div className="form-content">

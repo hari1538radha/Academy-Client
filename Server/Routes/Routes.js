@@ -15,8 +15,20 @@ import { getUniversities, postUniversities } from "../Controllers/Universities/u
 import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 import { EventById } from "../Controllers/Events/SingleEvent.js";
 import { editevent } from "../Controllers/Events/EditEvents.js";
+import multer from "multer";
 
+const Storages = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'profile')
+    },
+  
+    filename: (req, file, cb) => {
+      cb(null, file.originalname)
+    }
+  });
 
+const Upload = multer({storage: Storages}).single("testImage")
+import { editevent } from "../Controllers/EditEvents.js";
 
 const Route = express.Router();
 
@@ -27,7 +39,7 @@ Route.post("/post-event", uploadEvents);
 Route.get("/topics", topics);
 Route.get("/geteducation", getExcelofEducation);
 Route.get("/events", events);
-Route.post("/upload-images", images);
+Route.post("/profilepicture", Upload, AddImages);
 Route.post("/listofexcel", listofPrograms);
 Route.get("/userProfile", userProfileData);
 Route.get("/detailpage", detailpage);
