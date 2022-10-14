@@ -11,6 +11,8 @@ import educationDetails from "./Slice/getEducation";
 import userprofileReducer from "./Slice/UserprofilePageSlice"
 import addEventReducer from "./Slice/AddEventSlice"
 import universitiesReducer from "./Slice/getUniversities";
+import addProfilepic from "./Slice/profilepicpost";
+import UserProfilepic from "./Slice/getProfilepic";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -24,11 +26,17 @@ const rootReducer = combineReducers({
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
   userProfileInfo:userprofileReducer,
-  postEventInfo:addEventReducer
+  postEventInfo:addEventReducer,
+  profilepicInfo:addProfilepic,
+  newprofilepicInfo: UserProfilepic
 });
 
 const store = configureStore({
   reducer: rootReducer,
-});
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    })
+})
 
 export default store;
