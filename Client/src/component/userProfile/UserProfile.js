@@ -133,7 +133,6 @@ const Userprofile = () => {
                     </img>
                 })}
                 
-                {}
                 <input
                 type="file"
                 name="upload"

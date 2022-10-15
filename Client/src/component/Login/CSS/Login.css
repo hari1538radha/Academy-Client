@@ -93,6 +93,7 @@
 .login-footer a {
   text-decoration: none;
   color: #0081fe;
+  /* text-shadow: 1px 1px 2px white; */
 }
 
 @media only screen and (max-width: 1200px) {

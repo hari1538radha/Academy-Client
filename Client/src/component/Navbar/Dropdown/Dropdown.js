@@ -28,29 +28,25 @@ const Dropdown = ({profileInfo}) =>  {
               <h5 className="text-center mb-2" id="name">{profileInfo.userFirstName}</h5>
               <p className="text-center mb-2" id="email">{profileInfo.userEmail}</p>
 
-              <hr />
+              <hr className="user-fn-divider"/>
 
               
-              <div
-                className="list-group list-group-flush"
-                style={{ margin: "0 -24px 0" }}
-                id="link-but"
-              >
-                <button className="list-group-item list-group-item-action px-4" >
+              <div className="list-group list-group-flush" id="link-but">
+                <button className="user-avatar-btns" >
                   <a href="/admin" id="link">Admin</a>
                 </button>
-                <button className="list-group-item list-group-item-action px-4" >
+                <button className="user-avatar-btns" >
                   <a href="/admin/dashboard" id="link">Dashboard</a>
                 </button>
-                <button className="list-group-item list-group-item-action px-4" >
+                <button className="user-avatar-btns" >
                   <a href="/profile" id="link">Edit Profile</a>
                 </button>
               </div>
 
-              <hr style={{ margin: "0 -24px 24px" }} />
+              <hr className="user-fn-divider"/>
 
               <div className="d-grid">
-                <button className="btn btn-secondary"  onClick={logout}>
+                <button className="btn btn-primary"  onClick={logout}>
                   <small>Logout</small>
                 </button>
               </div> 
