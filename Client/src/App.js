@@ -5,6 +5,7 @@ import Landing from "../src/component/Landing/Landing.js";
 // import SearchPage from "./component/searchpage/searchpage"
 import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
+import AddQuix from "./component/AddQuiz/AddQuiz"
 import MainQuiz from "./component/Mainquiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import { Route, Routes } from "react-router-dom";
@@ -39,6 +40,7 @@ function App() {
         <Route path="/editProfile" element={<EditProfile/>}></Route>
         <Route path="/profile/AddEvent" element={<AddEvent/>}></Route>
         <Route path="/EventUpdate" element={<EventUpdate/>}></Route>
+        <Route path="/addquiz" element={<AddQuix/>}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
   </Routes>
     </div>

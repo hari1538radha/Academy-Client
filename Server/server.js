@@ -22,7 +22,8 @@ mongoose.connect(mongoUrl, {
     if (!err) {
       console.log("connected to db")
     } else {
-      console.log("error")
+     
+      console.log("error",err)
     }
   });
 
