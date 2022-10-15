@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import { userModel } from "../Schema/userSchema.js";
 
 export const signup = async (req, res) => {
+  console.log(req.body);
   const { userFirstName, userLastName, userEmail, userPassword } = req.body;
   userModel.findOne({ userEmail: req.body.userEmail }, async (err, data) => {
     if (err) {
@@ -16,7 +17,7 @@ export const signup = async (req, res) => {
       } else {
         if (!(userFirstName && userLastName && userEmail && userPassword)) {
           return res
-            .status(429)
+            .status(422)
             .send({ message: "Inefficient data", response: "Inefficient" });
         }
 

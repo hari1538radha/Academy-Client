@@ -20,7 +20,6 @@ const Login = () => {
 
   console.log(IsSuperUser, "access for checking weather the user is super user or not")
 
-
   const HandleSubmit = (e) => {
     e.preventDefault();
     const element = e.target.elements;
@@ -37,6 +36,7 @@ const Login = () => {
     dispatch(postLoginUser({ userEmail, userPassword }));
     navigate("/landing", { state: { email: userEmail } });
   };
+
   // useEffect(() => {
   //   if (loginData) {
   //     if (loginData.data) {
@@ -50,6 +50,18 @@ const Login = () => {
   //       // window.alert("no user find");
   //     }
   //   }
+
+  // useEffect(() => {
+  //   if (
+  //     loginData &&
+  //     loginData.message === "Login success"
+  //   ) {
+  //     navigate("/landing");
+  //   } else {
+  //     console.log("No user found");
+  //   }
+  //   // setShowFailure(true);
+
   // }, [loginData]);
 
   return (
@@ -81,9 +93,8 @@ const Login = () => {
                 ></input>
                 <button className="login-btn">LOGIN</button>
                 {showFailure ? (
-                  <div className="sign-failur">
+                  <div className="sign-failure">
                     {loginData.data}
-
                     <span>User Exist Already !!!</span>
                   </div>
                 ) : null}

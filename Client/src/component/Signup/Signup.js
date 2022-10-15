@@ -13,38 +13,34 @@ const Signup = () => {
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFailure, setShowFailure] = useState(false);
-  useEffect(() => {
-    console.log(signupData);
 
-    if (signupData) {
-      if (signupData.data) {
-        if (signupData.data.response === "success") {
-          setLoginStatus({
-            status: 1,
-            message:
-              "Your details is registerd successfully !! please login now",
-          });
-          setShowSuccess(true);
-        } else if (signupData.data.response === "Invalid Email") {
-          setLoginStatus({
-            status: 1,
-            message:
-              "The Email has been taken already!!! Please enter a new Email ID",
-          });
-          setShowFailure(true);
-        } else if (signupData.data.response === "Inefficient") {
-          setLoginStatus({
-            status: 2,
-            message: "The details is not efficient",
-          });
-          window.alert("please fill the details");
-        }
-      } else {
-        setLoginStatus({
-          status: 0,
-          message: "",
-        });
-      }
+  useEffect(() => {
+    if (
+      signupData &&
+      signupData.data &&
+      signupData.data.response === "success"
+    ) {
+      setLoginStatus({
+        status: 1,
+        message: "Registered Successfully!!",
+      });
+      setShowSuccess(true);
+    } else if (signupData?.data?.response === "Email Exits") {
+      setLoginStatus({
+        status: 1,
+        message: "The email has been already taken!!",
+      });
+      setShowFailure(true);
+    } else if (signupData?.data?.response === "Inefficient") {
+      setLoginStatus({
+        status: 2,
+        message: "The check the details entered",
+      });
+    } else {
+      setLoginStatus({
+        status: 0,
+        message: "",
+      });
     }
   }, [signupData]);
 
@@ -69,7 +65,7 @@ const Signup = () => {
       <NavBar />
       <div className="hidden-container">
         <div className="hidden"></div>
-        <h1 className="hidden-pagename">sign up</h1>
+        <h1 className="hidden-pagename">signup</h1>
       </div>
       <div className="image">
         <div className="Signup-main">
@@ -104,29 +100,21 @@ const Signup = () => {
                 placeholder="Password *"
                 required
               ></input>
-              <button className="Signup-btn">SIGN UP</button>
+              <button className="Signup-btn">SIGNUP</button>
               {showSuccess ? (
                 <div className="sign-success">
-                  {setLoginStatus.message}
-
-                  <span>
-                    SignUp Success!!{" "}
-                    <Link to="/login" className="sign-success-link">
-                      LOG IN
-                    </Link>
-                  </span>
+                  <span>{loginStatus.message}</span>
+                  <Link to="/login" className="sign-success-link">
+                    LOGIN
+                  </Link>
                 </div>
               ) : null}
               {showFailure ? (
-                <div className="sign-failur">
-                  {setLoginStatus.message}
-
-                  <span>This Email Already Exist !!!</span>
-                </div>
+                <div className="sign-failure">{loginStatus.message}</div>
               ) : null}
               <div className="Signup-footer">
                 <p>Already have an account? </p>
-                <Link to="/login">LOG IN</Link>
+                <Link to="/login">LOGIN</Link>
               </div>
             </div>
           </form>

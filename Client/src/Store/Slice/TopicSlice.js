@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
-export const getTopicInfo = createAsyncThunk("User", async () => {
+export const getTopicInfo = createAsyncThunk("Topics", async () => {
   return axio.get(`/api/topics`);
 });
 
 export const topicReducer = createSlice({
-  name: "topic",
+  name: "topics",
   initialState: {
     topicData: [],
     topicLoading: false,
@@ -26,6 +26,4 @@ export const topicReducer = createSlice({
   },
 });
 
-const topic = topicReducer.reducer;
-
-export default topic;
+export default topicReducer.reducer;

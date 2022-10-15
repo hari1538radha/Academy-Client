@@ -14,7 +14,7 @@ import { getExcelofEducation } from "../Controllers/readEducation.js";
 import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
 import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 import { EventById } from "../Controllers/Events/SingleEvent.js";
-import { editevent } from "../Controllers/Events/EditEvents.js";
+import { editEvent } from "../Controllers/Events/EditEvents.js";
 import multer from "multer";
 import { createUser } from "../Controllers/userSignup.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
@@ -74,6 +74,6 @@ Route.get("/universities", getUniversities);
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
-Route.put("/editevent", editevent);
+Route.put("/edit-event", editEvent);
 
 export default Route;
