@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const addEvent =new mongoose.Schema(
+const addQuizSchema =new mongoose.Schema(
     {
        quizQuestion:{
         type:String,
@@ -15,17 +15,17 @@ const addEvent =new mongoose.Schema(
        },
        quizOption3:{
         type:String,
-        required: true
+        
        },
        quizOption4:{
         type:String,
-        required: true
+   
        },
        quizAnswer:{
         type:String,
-        required: true
+    
        }
     },
     { timestamps: true }
 )
- export const AddEventModel = new mongoose.model("addEvent",addEvent);
+ export const addQuizModel = new mongoose.model("addEvent",addQuizSchema);

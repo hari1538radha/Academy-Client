@@ -14,6 +14,7 @@ import { getExcelofEducation } from "../Controllers/readEducation.js";
 import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
 import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
 import { EventById } from "../Controllers/SingleEvent.js";
+import { addQuiz } from "../Controllers/quizupload.js";
 import multer from "multer";
 
 const Storages = multer.diskStorage({
@@ -49,5 +50,6 @@ Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
 Route.put("/editevent", editevent);
+Route.post("/addquiz",addQuiz)
 
 export default Route;
