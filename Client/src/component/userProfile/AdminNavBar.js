@@ -4,7 +4,6 @@ import AcademyLogo from "../Login/Images/Academy.svg";
 import Dropdown from "../Navbar/Dropdown/Dropdown";
 
 const AdminNavBar = ({ profileInfo }) => {
-  console.log(profileInfo);
   return (
     <header className="navbars admin-navbar">
       <div className="mid-navmenus">
