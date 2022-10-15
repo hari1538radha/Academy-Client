@@ -126,7 +126,7 @@ const Dashboard = () => {
       }),
     };
   });
-  console.log(columns);
+
   return (
     <>
       <AdminNavBar profileInfo={userData.data} />

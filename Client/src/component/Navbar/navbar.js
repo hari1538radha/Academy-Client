@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./landingNav.css";
@@ -6,11 +6,6 @@ import AcademyLogo from "../Login/Images/Academy.svg";
 import Dropdown from "./Dropdown/Dropdown";
 
 const Navbar = ({ profileInfo }) => {
-  const navigate = useNavigate();
-
-  const logout = (e) => {
-    navigate("/");
-  };
 
   const navRef = useRef();
 
@@ -27,7 +22,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Announcement</a>
           <a href="/#">Forum</a>
           <a href="/#">Ask a Question</a>
-          <a href="/">Login</a>
+          <a href="/login">Login</a>
           <a href="/signup">Register</a>
         </nav>
       </div>

@@ -1,8 +1,5 @@
-import "./App.css";
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
@@ -19,13 +16,16 @@ import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
 import Navbar from "./component/Navbar/navbar";
 import EventUpdate from "./component/EventUpdata/EventUpdate";
+
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Login />} exact></Route>
+        <Route path="/" element={<Landing />} exact></Route>
         {/* <Route path="/nav" element={<Navbar />}></Route> */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
