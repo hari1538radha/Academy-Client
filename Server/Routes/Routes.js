@@ -19,16 +19,16 @@ import { quizData } from "../Controllers/quizData.js";
 import multer from "multer";
 
 const Storages = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'profile')
-    },
-  
-    filename: (req, file, cb) => {
-      cb(null, file.originalname)
-    }
-  });
+  destination: function (req, file, cb) {
+    cb(null, 'profile')
+  },
 
-const Upload = multer({storage: Storages}).single("testImage")
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+});
+
+const Upload = multer({ storage: Storages }).single("testImage")
 import { editevent } from "../Controllers/EditEvents.js";
 
 const Route = express.Router();
@@ -51,7 +51,7 @@ Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
 Route.put("/editevent", editevent);
-Route.post("/addquiz",addQuiz)
-Route.get("/quizdata",quizData)
+Route.post("/addquiz", addQuiz);
+Route.get("/quizdata", quizData);
 
 export default Route;
