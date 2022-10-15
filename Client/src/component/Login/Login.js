@@ -7,38 +7,50 @@ import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer.js";
 import { useNavigate } from "react-router-dom";
+import { SuperuserStatus } from "../../Store/Slice/confirmAdmin";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [showFailur, setShowFailur] = useState(false);
+  const [showFailure, setShowFailur] = useState(false);
+  const [allaccess, setallaccess] = useState(false)
+  const { loginData, loading } = useSelector((state) => state.loginInfo);
+  const {IsSuperUser} = useSelector((state) => state.userStatus)
+
+  console.log(IsSuperUser, "access for checking weather the user is super user or not")
+
 
   const HandleSubmit = (e) => {
     e.preventDefault();
     const element = e.target.elements;
     const userEmail = element[0].value;
     const userPassword = element[1].value;
+    const superuser = "allpass@gmail.com"
+    const superuserPassword = "zxcvbnm"
     element[0].value = "";
     element[1].value = "";
-    dispatch(postLoginUser({ userEmail, userPassword }));
-    navigate("", { state: { email: userEmail } });
-  };
-  const { loginData, loading } = useSelector((state) => state.loginInfo);
-  useEffect(() => {
-    if (loginData) {
-      if (loginData.data) {
-        if (loginData.data.message === "Login success") {
-          navigate("/landing");
-        } else {
-          console.log("no user find");
-        }
-        setShowFailur(true);
-      } else {
-        // window.alert("no user find");
-      }
+    if (userEmail === superuser){
+      dispatch(SuperuserStatus.Superuser())
+      // setallaccess(true)
     }
-  }, [loginData]);
+    dispatch(postLoginUser({ userEmail, userPassword }));
+    navigate("/landing", { state: { email: userEmail } });
+  };
+  // useEffect(() => {
+  //   if (loginData) {
+  //     if (loginData.data) {
+  //       if (loginData.data.message === "Login success") {
+  //         navigate("/landing");
+  //       } else {
+  //         console.log("no user find");
+  //       }
+  //       setShowFailur(true);
+  //     } else {
+  //       // window.alert("no user find");
+  //     }
+  //   }
+  // }, [loginData]);
 
   return (
     <>
@@ -68,7 +80,7 @@ const Login = () => {
                   required
                 ></input>
                 <button className="login-btn">LOGIN</button>
-                {showFailur ? (
+                {showFailure ? (
                   <div className="sign-failur">
                     {loginData.data}
 

@@ -17,7 +17,6 @@ import { EventById } from "../Controllers/Events/SingleEvent.js";
 import { editevent } from "../Controllers/Events/EditEvents.js";
 import multer from "multer";
 import { createUser } from "../Controllers/userSignup.js";
-import { editevent } from "../Controllers/EditEvents.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
 
 const Storages = multer.diskStorage({

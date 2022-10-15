@@ -3,13 +3,12 @@
     background: #ffffff;
     margin-top: 5em;
 }
+
 a#link {
     text-decoration: none;
     color: black;
 }
-div#link-but {
-    padding-left: 40px;
-}
+
 h5#name {
     font-family: "Poppins";
     font-style: normal;
@@ -25,4 +24,15 @@ p#email {
 a:hover#link {
    
     color: blue;
+}
+
+.list-group-flush {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.user-avatar-btns {
+    border: none;
+    background: transparent;
 }

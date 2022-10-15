@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUniversities } from "../../Store/Slice/ExcelToJson";
 import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
+import { SuperuserStatus } from "../../Store/Slice/confirmAdmin";
 import "./exceltojson.css";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
@@ -30,6 +31,8 @@ const PostUniversity = () => {
     "Topics",
     "Events",
   ];
+
+  // dispatch(SuperuserStatus.Superuser())
 
   const readUploadFile = (e) => {
     e.preventDefault();
