@@ -34,7 +34,7 @@ const Dashboard = () => {
   // const [val, setval] = useState(keyTypes.Programme);
   // const [univ, setuniv] = useState(keyTypes.Universities)
   // const [keys, setKeys] = useState(keyTypes.Universities);
-  let keys = keyTypes.Universities
+  let keys = keyTypes.Universities;
   // const [flow, setflow] = useState();
   const dispatch = useDispatch();
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -46,13 +46,9 @@ const Dashboard = () => {
   );
   const { programmeData } = useSelector((state) => state.getProgrammeInfo);
 
-  // console.log(programmeData)
   // const sample = useSelector((state) => state)
-  // console.log(appState['universitiesInfo']['universitiesData']);
-  // console.log(appState['getProgrammeInfo']['programmeData']);
   // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
   // // setData(stateValue);
-  // console.log(appState);
   // if(appState.universitiesInfo.universitiesData.length) {
   //   setData(appState.universitiesInfo.universitiesData)
   // }
@@ -60,20 +56,16 @@ const Dashboard = () => {
   //   setData(appState.programmeInfo.programme);
   // }
 
-
-  if(dataState === 'Programme') {
-    data = appState['getProgrammeInfo']['programmeData']
-    console.log(programmeData)
-  } 
-  if(dataState === 'Universities') {
-    data = appState['universitiesInfo']['universitiesData']
-    console.log(universitiesData)
+  data = appState["universitiesInfo"]["universitiesData"];
+  if (dataState === "Programme") {
+    data = appState["getProgrammeInfo"]["programmeData"];
   }
 
   useEffect(() => {
-  if(dataState === 'Universities'){
-    dispatch(getUniversitiesInfo());
-  }if (dataState === "Programme") {
+    if (dataState === "Universities") {
+      dispatch(getUniversitiesInfo());
+    }
+    if (dataState === "Programme") {
       dispatch(getProgrammeInfo());
     }
   }, [dataState]);
@@ -150,26 +142,24 @@ const Dashboard = () => {
   );
 
   const columns = useMemo(
-  () =>
-    keys.map((key) => {
-      return {
-        accessorKey: key,
-        header: key,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: key,
-        }),
-      };
-    }),
-  [getCommonEditTextFieldProps]
-);
+    () =>
+      keys.map((key) => {
+        return {
+          accessorKey: key,
+          header: key,
+          muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+            ...getCommonEditTextFieldProps(cell),
+            type: key,
+          }),
+        };
+      }),
+    [getCommonEditTextFieldProps]
+  );
 
-const getState = (stateName) => {
-  keys = keyTypes[stateName]
-  console.log(keys, "getting setState")
-  setDataState(stateName)
-}
-
+  const getState = (stateName) => {
+    keys = keyTypes[stateName];
+    setDataState(stateName);
+  };
 
   return (
     <>

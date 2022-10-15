@@ -13,7 +13,6 @@ const upload = multer({
 }).single("eventImage");
 
 export const uploadEvents = (req, res) => {
- 
   upload(req, res, (err) => {
     if (err) {
       console.log(err);
@@ -22,11 +21,11 @@ export const uploadEvents = (req, res) => {
         eventName: req.body.eventName,
         eventDescription: req.body.eventDescription,
         eventImage: {
-          data: req.file
+          data: req.file,
         },
         eventId: Math.floor(1000 + Math.random() * 9000),
         eventDate: req.body.eventDate,
-        eventTime: req.body.eventTime
+        eventTime: req.body.eventTime,
       });
       addImage.save((err, data) => {
         if (err) {

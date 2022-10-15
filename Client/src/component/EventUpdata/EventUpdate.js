@@ -3,7 +3,7 @@ import "./EventUpdate.css";
 import { PostEventData } from "../../Store/Slice/AddEventSlice";
 import { axio } from "../../Config/Config";
 import axios from "axios";
-import file from "./img/pngtree.jpg"
+import file from "./img/pngtree.jpg";
 import { useLocation } from "react-router-dom";
 
 function EventUpdate() {
@@ -12,8 +12,6 @@ function EventUpdate() {
   const [NewDate, setNewDate] = useState("");
   const [NewTime, setNewTime] = useState("");
   const location = useLocation();
-  // console.log(location.state.blockDetails._id);
-  console.log(NewTitle, NewDiscription, NewDate, NewTime);
 
   const UpdateEventData = () => {
     axios.put(`api/update-event`, {
@@ -56,7 +54,7 @@ function EventUpdate() {
                 setNewDate(event.target.value);
               }}
             ></input>
-            
+
             <input
               className="update-time"
               type="time"
@@ -67,11 +65,21 @@ function EventUpdate() {
             ></input>
 
             <label className="add-new-profile-pic">
-            <img src={file} alt="no img found" className="profile-file-img"></img>
-            <label className="upload-pic-txt">Upload only PNG,JPEG,JPG,SVG type only</label>
-            <input type="file" className="select-new-pic" required={true}
-              accept=".png,.svg,.jpeg,.jpg"></input>
-          </label>
+              <img
+                src={file}
+                alt="no img found"
+                className="profile-file-img"
+              ></img>
+              <label className="upload-pic-txt">
+                Upload only PNG,JPEG,JPG,SVG type only
+              </label>
+              <input
+                type="file"
+                className="select-new-pic"
+                required={true}
+                accept=".png,.svg,.jpeg,.jpg"
+              ></input>
+            </label>
 
             <button className="update-submit">Submit</button>
           </div>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Table from "rc-table";
 import { Link } from "react-router-dom";
 import { utils, read } from "xlsx";
 import NavBar from "../Navbar/navbar";
@@ -8,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { postUniversities } from "../../Store/Slice/ExcelToJson";
 import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
-import { SuperuserStatus } from "../../Store/Slice/confirmAdmin";
 import "./exceltojson.css";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
@@ -21,7 +19,9 @@ const PostUniversity = () => {
   const [fileName, setFileName] = useState("");
   const [selectedOpt, setselectedOpt] = useState();
 
-  const { postUniversitiesData, loading } = useSelector((state) => state.postUniversitiesInfo);
+  const { postUniversitiesData, loading } = useSelector(
+    (state) => state.postUniversitiesInfo
+  );
 
   const options = [
     "Select any",
@@ -32,11 +32,8 @@ const PostUniversity = () => {
     "Events",
   ];
 
-  // dispatch(SuperuserStatus.Superuser())
-
   const readUploadFile = (e) => {
     e.preventDefault();
-    console.log(selectedOpt, e.target.files);
     if (e?.target?.files[0] && selectedOpt) {
       const reader = new FileReader();
       setFileName(e.target.files[0].name);
@@ -47,11 +44,9 @@ const PostUniversity = () => {
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
         if (selectedOpt === "Universities") {
-          console.log(json);
           dispatch(postUniversities(json));
         }
         if (selectedOpt === "Programme") {
-          console.log(json);
           dispatch(postProgramme(json));
         }
         setMessage("dashboard");
@@ -72,7 +67,9 @@ const PostUniversity = () => {
       <div className="admin-container">
         <select onChange={selectOption} className="admin-select">
           {options.map((item, index) => (
-            <option key={index} value={item}>{item}</option>
+            <option key={index} value={item}>
+              {item}
+            </option>
           ))}
         </select>
         <form className="upload-form-container">
@@ -91,7 +88,11 @@ const PostUniversity = () => {
           <div className="success-snippets">
             <h2>
               File uploaded successfully, Goto{" "}
-              <Link to="/admin/dashboard" className="success-file-msg" state={selectedOpt}>
+              <Link
+                to="/admin/dashboard"
+                className="success-file-msg"
+                state={selectedOpt}
+              >
                 {message}
               </Link>
             </h2>

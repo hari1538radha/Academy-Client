@@ -11,14 +11,12 @@ const MainQuiz = () => {
   const navigate = useNavigate();
     
   const handleQuestionPage = (data) => {
-    console.log(data.selected);
   };
   const endTest = () => {
     alert("You are going to end the Test");
     navigate("/quiz");
   };
   const {loginData,loading} = useSelector((state) => state.loginInfo);
-  console.log(loginData)
   return (
     <div>
         <Navbar />

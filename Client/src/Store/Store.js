@@ -13,7 +13,6 @@ import addEventReducer from "./Slice/AddEventSlice"
 import universitiesReducer from "./Slice/getUniversities";
 import addProfilepic from "./Slice/profilepicpost";
 import UserProfilepic from "./Slice/getProfilepic";
-import Authority from "./Slice/confirmAdmin";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -29,8 +28,7 @@ const rootReducer = combineReducers({
   userProfileInfo:userprofileReducer,
   postEventInfo:addEventReducer,
   profilepicInfo:addProfilepic,
-  newprofilepicInfo: UserProfilepic,
-  userStatus: Authority
+  newprofilepicInfo: UserProfilepic
 });
 
 const store = configureStore({
