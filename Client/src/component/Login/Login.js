@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [showFailure, setShowFailure] = useState(false);
   const { loginData, loading } = useSelector((state) => state.loginInfo);
 
   const HandleSubmit = (e) => {
@@ -23,35 +22,27 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-    navigate("/landing", { state: { email: userEmail } });
   };
 
-  // useEffect(() => {
-  //   if (loginData) {
-  //     if (loginData.data) {
-  //       if (loginData.data.message === "Login success") {
-  //         navigate("/landing");
-  //       } else {
-  //         console.log("no user find");
-  //       }
-  //       setShowFailur(true);
-  //     } else {
-  //       // window.alert("no user find");
-  //     }
-  //   }
-
-  // useEffect(() => {
-  //   if (
-  //     loginData &&
-  //     loginData.message === "Login success"
-  //   ) {
-  //     navigate("/landing");
-  //   } else {
-  //     console.log("No user found");
-  //   }
-  //   // setShowFailure(true);
-
-  // }, [loginData]);
+  useEffect(() => {
+    if (
+      loginData &&
+      loginData.message === "Login success" &&
+      loginData.data.superAdminStatus
+    ) {
+      navigate("/admin/dashboard", {
+        state: loginData.data.userEmail,
+      });
+    } else if (
+      loginData &&
+      loginData.message === "Login success" &&
+      !loginData.data.superAdminStatus
+    ) {
+      navigate("/profile", { state: loginData.data.userEmail });
+    } else if (loginData.error) {
+      console.log("No user found");
+    }
+  }, [loginData]);
 
   return (
     <>
@@ -81,11 +72,8 @@ const Login = () => {
                   required
                 ></input>
                 <button className="login-btn">LOGIN</button>
-                {showFailure ? (
-                  <div className="sign-failure">
-                    {loginData.data}
-                    <span>User Exist Already !!!</span>
-                  </div>
+                {loginData.error ? (
+                  <div className="sign-failure">{loginData.error}</div>
                 ) : null}
                 <div className="login-footer">
                   <p>Don't have an account?</p>

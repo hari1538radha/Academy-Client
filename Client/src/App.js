@@ -22,9 +22,6 @@ import EventUpdate from "./component/EventUpdata/EventUpdate";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const { userData, loading } = useSelector((state) => state.userProfileInfo);
-  const locationState = useLocation().state || [];
-  console.log(userData);
   return (
     <div>
       <Routes>
@@ -39,15 +36,11 @@ function App() {
         <Route path="/quiz/start" element={<MainQuiz />}></Route>
         <Route path="/profile" element={<UserProfile />}></Route>
         <Route path="/dropdown" element={<Dropdown />}></Route>
-        <Route path="/editProfile" element={<EditProfile />}></Route>
+        <Route path="/profile" element={<EditProfile />}></Route>
         <Route path="/profile/AddEvent" element={<AddEvent />}></Route>
         <Route path="/EventUpdate" element={<EventUpdate />}></Route>
-        {userData?.data?.superAdminStatus === true && (
-          <Route path="/admin" element={<PostUniversity />}></Route>
-        )}
-        {userData?.data?.superAdminStatus === true && (
-          <Route path="/admin/dashboard" element={<Dashboard />}></Route>
-        )}
+        <Route path="/admin" element={<PostUniversity />}></Route>
+        <Route path="/admin/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </div>
   );

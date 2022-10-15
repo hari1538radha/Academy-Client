@@ -38,7 +38,7 @@ const AddEvent = () => {
       <div className="form-container">
         <form onSubmit={HandelEventData}>
           <div className="form-content">
-            <h1>Add Events</h1>
+            <h1>Add Event</h1>
             <input
               className="input-title"
               type="text"
@@ -71,7 +71,7 @@ const AddEvent = () => {
                 className="profile-file-img"
               ></img>
               <label className="upload-pic-txt">
-                Upload only PNG,JPEG,JPG,SVG type only
+                Upload PNG,JPEG,JPG,SVG only
               </label>
               <input
                 type="file"

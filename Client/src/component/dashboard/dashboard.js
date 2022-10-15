@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Footer from "../Footer/footer";
 import { useLocation } from "react-router-dom";
-import Navbar from "../Navbar/navbar";
+import AdminNavBar from "../userProfile/AdminNavBar";
 import MaterialReactTable from "material-react-table";
 import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
 import { getProgrammeInfo } from "../../Store/Slice/getProgramme";
+import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import "./dashboard.css";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -30,7 +30,7 @@ import keyTypes from "./makeData";
 const Dashboard = () => {
   let data = [];
   const [dataState, setDataState] = useState("Universities");
-  // const locationState = useLocation().state;
+  const locationState = useLocation().state;
   // const [val, setval] = useState(keyTypes.Programme);
   // const [univ, setuniv] = useState(keyTypes.Universities)
   // const [keys, setKeys] = useState(keyTypes.Universities);
@@ -45,6 +45,7 @@ const Dashboard = () => {
     (state) => state.universitiesInfo
   );
   const { programmeData } = useSelector((state) => state.getProgrammeInfo);
+  const { userData, loading } = useSelector((state) => state.userProfileInfo);
 
   // const sample = useSelector((state) => state)
   // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
@@ -68,6 +69,7 @@ const Dashboard = () => {
     if (dataState === "Programme") {
       dispatch(getProgrammeInfo());
     }
+    dispatch(userProfileData(locationState));
   }, [dataState]);
 
   const handleCreateNewRow = (values) => {
@@ -163,7 +165,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navbar />
+      <AdminNavBar profileInfo={userData.data} />
       <div className="dashboard-divider">
         <div className="option-toggle">
           <p className="toggle-heading">Dashboard</p>
@@ -183,9 +185,9 @@ const Dashboard = () => {
           <hr className="group-divider"></hr>
           <button>Table</button>
           <button>Services</button>
-          <div class="dropdown">
-            <button class="dropbtn">Files</button>
-            <div class="dropdown-content">
+          <div className="dropdown">
+            <button className="dropbtn">Files</button>
+            <div className="dropdown-content">
               <a href="#/">Link 1</a>
               <a href="#/">Link 2</a>
               <a href="#/">Link 3</a>

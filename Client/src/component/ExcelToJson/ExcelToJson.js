@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { utils, read } from "xlsx";
-import NavBar from "../Navbar/navbar";
+import AdminNavBar from "../userProfile/AdminNavBar";
 import Footer from "../Footer/footer";
 import { useDispatch, useSelector } from "react-redux";
 import { postUniversities } from "../../Store/Slice/ExcelToJson";
+import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
 import "./exceltojson.css";
@@ -14,15 +15,17 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
 const PostUniversity = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const locationState = useLocation().state;
   const [message, setMessage] = useState();
   const [fileName, setFileName] = useState("");
   const [selectedOpt, setselectedOpt] = useState();
-
-  const { postUniversitiesData, loading } = useSelector(
+  const { userData, loading } = useSelector((state) => state.userProfileInfo);
+  const { postUniversitiesData } = useSelector(
     (state) => state.postUniversitiesInfo
   );
-
+  useEffect(() => {
+    dispatch(userProfileData(locationState));
+  }, []);
   const options = [
     "Select any",
     "Universities",
@@ -63,7 +66,7 @@ const PostUniversity = () => {
 
   return (
     <>
-      <NavBar />
+      <AdminNavBar profileInfo={userData.data} />
       <div className="admin-container">
         <select onChange={selectOption} className="admin-select">
           {options.map((item, index) => (

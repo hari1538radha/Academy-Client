@@ -71,7 +71,7 @@ function EventUpdate() {
                 className="profile-file-img"
               ></img>
               <label className="upload-pic-txt">
-                Upload only PNG,JPEG,JPG,SVG type only
+                Upload PNG,JPEG,JPG,SVG only
               </label>
               <input
                 type="file"

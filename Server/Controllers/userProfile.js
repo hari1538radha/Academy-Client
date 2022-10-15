@@ -8,7 +8,7 @@ export const userProfileData = (req, res) => {
     } else {
       res.send({
         status: 200,
-        message: "User found",
+        message: "Login success",
         data: data,
       });
     }

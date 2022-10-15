@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
-import NavBar from "../Navbar/navbar";
+import AdminNavBar from "./AdminNavBar";
 import EditProfile from "../EditProfile/EditProfile";
 import profilepic from "../Login/Images/PROFILEPIC.svg";
 import ProfileImg from "../../component/Login/Images/Vector.svg";
@@ -28,7 +28,7 @@ import { Link, useLocation } from "react-router-dom";
 
 //normal login - addevent
 
-const Userprofile = () => {
+const UserProfile = () => {
   const [data, setdata] = useState();
   const [img, setimg] = useState();
   const locationState = useLocation().state;
@@ -38,11 +38,10 @@ const Userprofile = () => {
     (state) => state.newprofilepicInfo
   );
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
-
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
-    dispatch(userProfileData(locationState?.email));
+    dispatch(userProfileData(locationState));
   }, []);
 
   useEffect(() => {
@@ -66,7 +65,7 @@ const Userprofile = () => {
 
   return (
     <>
-      <NavBar />
+      <AdminNavBar profileInfo={userData.data} />
       <div>
         <div className="profilepage-container">
           <div className="left-container--profilepage">
@@ -76,7 +75,7 @@ const Userprofile = () => {
                   <img src={ProfileImg} alt="no img found"></img>
                 </div>
                 <div className="user-data-container">
-                  <h3>John Doe </h3>
+                  <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
                   <p>Student</p>
                 </div>
                 <div className="edit-profile-btn">
@@ -87,14 +86,14 @@ const Userprofile = () => {
               </div>
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
-                  <div className="left-container--dashboard--content">
+                  {/* <div className="left-container--dashboard--content">
                     <img
                       className="quiz-img"
                       src={dashIconImg}
                       alt="no img found"
                     ></img>
                     <a href="/admin/dashboard">Dashboard</a>
-                  </div>
+                  </div> */}
 
                   <div className="left-container--dashboard--content">
                     <img
@@ -167,7 +166,7 @@ const Userprofile = () => {
                     className="userprofile-upload"
                   />
                 </label>
-                <h2>John Doe</h2>
+                <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>
                 <p>Student</p>
               </div>
               <div className="eve-top">Events</div>
@@ -212,4 +211,4 @@ const Userprofile = () => {
   );
 };
 
-export default Userprofile;
+export default UserProfile;

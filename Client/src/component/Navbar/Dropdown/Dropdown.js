@@ -34,19 +34,22 @@ const Dropdown = ({ profileInfo }) => {
 
               <div className="list-group list-group-flush" id="link-but">
                 {profileInfo.superAdminStatus && <button className="user-avatar-btns">
-                  <a href="/admin" id="link">
-                    Admin
-                  </a>
+                  <Link
+                    to="/admin"
+                    state={profileInfo.userEmail}
+                  >Excel Upload</Link>
                 </button>}
                 {profileInfo.superAdminStatus && <button className="user-avatar-btns">
-                  <a href="/admin/dashboard" id="link">
-                    Dashboard
-                  </a>
+                  <Link
+                    to="/admin/dashboard"
+                    state={profileInfo.userEmail}
+                  >Dashboard</Link>
                 </button>}
                 <button className="user-avatar-btns">
-                  <a href="/profile" id="link">
-                    Edit Profile
-                  </a>
+                  <Link
+                    to="/profile"
+                    state={profileInfo.userEmail}
+                  >Edit Profile</Link>
                 </button>
               </div>
 
