@@ -20,6 +20,7 @@ import EventUpdate from "./component/EventUpdata/EventUpdate.js";
 import TopUniversity from "./component/TopUniversity/TopUniversity";
 import Catagory from "./component/NavComponents/catagory++/catagory";
 import Specialization from "./component/NavComponents/specialization++/specialization";
+import UniversityCardDetails from "./component/TopUniversity/UniversityCardDetails/UniversityCardDetails";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -48,8 +49,8 @@ function App() {
         <Route path="/EventUpdate" element={<EventUpdate />}></Route>
         <Route path="/addquiz" element={<AddQuiz />}></Route>
         <Route path="/universities" element={<TopUniversity />}></Route>
+        <Route path="/universities/details" element={<UniversityCardDetails />}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
-       
       </Routes>
     </div>
   );
