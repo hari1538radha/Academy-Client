@@ -4,7 +4,31 @@ import Footer from "../../Footer/footer"
 import "./css/specialization.css"
 
 const Specialization = () => {
-    const options = ["option1","option2","option3","option4","option5","option6","option7","option8","option9"]
+    const options = [
+        "Agriculture",
+
+        "Architecture",
+
+        "Arts & Science",
+
+        "Commerce",
+
+        "Education",
+
+        "Engineering",
+
+        "Hospitality",
+
+        "Journalism & Media",
+
+        "Law",
+
+        "Management",
+
+        "Medical",
+
+        "Paramedical"
+    ]
     
     const [state, setState] = useState()
 

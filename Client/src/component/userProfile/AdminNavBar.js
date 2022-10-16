@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import "../Navbar/landingNav.css";
+import "./adminNav.css";
 import AcademyLogo from "../Login/Images/Academy.svg";
 import Dropdown from "../Navbar/Dropdown/Dropdown";
 
 const AdminNavBar = ({ profileInfo }) => {
   return (
-    <header className="navbars admin-navbar">
-      <div className="mid-navmenus">
+    <header className="admin-navs">
+      <div className="mid-navs">
         <Link to="/landing" className="logo-img-contain">
           <img
             className="AcademyLogo"
@@ -14,9 +14,9 @@ const AdminNavBar = ({ profileInfo }) => {
             alt="Logo"
           ></img>
         </Link>
-        <nav>
+        <div>
           {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>}
-        </nav>
+        </div>
       </div>
     </header>
   );

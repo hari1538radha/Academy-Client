@@ -59,6 +59,7 @@ const UserProfile = () => {
 
   // const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
+  // console.log(eventsData)
 
   const AddEvents = (e) => {
     const imagefile = e.target.files[0];
@@ -82,7 +83,8 @@ const UserProfile = () => {
                   <p>Student</p>
                 </div>
                 <div className="edit-profile-btn">
-                  <button onClick={() => setcontent("edit-profile")}>
+                {/* onClick={() => setcontent("edit-profile")} */}
+                  <button >
                     Edit
                   </button>
                 </div>
@@ -153,7 +155,6 @@ const UserProfile = () => {
                     );
                     return (
                       <img
-                        // src={profilepic}
                         src={`data:image/png;base64,${base64String}`}
                         className="img-indicator"
                         alt="no img found"
@@ -172,12 +173,12 @@ const UserProfile = () => {
                 <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>
                 <p>Student</p>
               </div>
-              <div className="eve-top">Events</div>
+              {<div className="eve-top">Events</div>}
               <ListEvent eventsData = {eventsData} editImg={editImg}/>
             </div>
           )}
           {content === "add-event" && <AddEvent />}
-          {content === "edit-profile" && <EditProfile reqValues={data}/>}
+          {/* {content === "edit-profile" && <EditProfile reqValues={eventsData}/>} */}
         </div>
       </div>
     </>

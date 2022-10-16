@@ -36,3 +36,9 @@ a:hover#link {
     border: none;
     background: transparent;
 }
+
+.user-avatar-btns a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+}
