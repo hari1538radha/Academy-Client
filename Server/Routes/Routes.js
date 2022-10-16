@@ -62,6 +62,19 @@ const uploadPic = multer({
   },
 });
 
+const eventStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploadimage')
+  },
+  filename: (req, file, callback) => {
+    callback(null, `${file.originalname}`);
+  },
+});
+
+const eventImgUpload = multer({
+  storage: eventStorage
+});
+
 const Route = express.Router();
 
 Route.post("/signup", signup);
@@ -69,7 +82,7 @@ Route.post("/studentsignup", uploadPic.single("userimage"), createUser);
 Route.post("/login", login);
 Route.get("/userimage", getuserimg);
 Route.post("/post-topic", uploadTopics);
-Route.post("/post-event", uploadEvents);
+Route.post("/post-event",eventImgUpload.single("eventImage"), uploadEvents);
 Route.get("/topics", topics);
 Route.get("/geteducation", getExcelofEducation);
 Route.get("/events", events);

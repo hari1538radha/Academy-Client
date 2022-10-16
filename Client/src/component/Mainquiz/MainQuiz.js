@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Footer/footer";
 import "./mainquiz.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,16 +11,39 @@ import { getQuizData } from "../../Store/Slice/QuizDataSlice";
 const MainQuiz = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [index, setIndex] = useState(0);
+  const [indexTo, setIndexTo] = useState(1);
+  const [noOfPages, setNoOfPages] = useState(5);
+  const [quizData, setQuizData] = useState();
   const handleQuestionPage = (data) => {
-    const page = data.selected;
-    dispatch(getQuizData({ page }));
+    setIndex(data.selected);
+    setIndexTo(data.selected + 1);
+   
   };
+  const handelQuizResponse = (e) =>
+  {e.preventDefault();
+     const element = e.target.elements
+
+  }
+  console.log(index);
+  console.log(indexTo);
+
+  useEffect(() => {
+    dispatch(getQuizData());
+  }, []);
 
   const { quizInfo, getQuizDataLoading } = useSelector(
     (state) => state.getQuizInfo
   );
-  console.log(quizInfo.data);
+  useEffect(() => {
+    if (quizInfo.data && quizInfo.data.data) {
+      setQuizData(quizInfo.data.data);
+      setNoOfPages(quizInfo.data.data.length);
+    }
+
+    console.log(quizData);
+    console.log(noOfPages);
+  }, [quizInfo]);
 
   const endTest = () => {
     alert("You are going to end the Test");
@@ -41,29 +64,33 @@ const MainQuiz = () => {
           <div>
             {
               <div>
-                {/* {quizInfo.length > 0 &&
-                  quizInfo.data[0].map((obj) => (
-                    <p className="question">{obj.quizQuestion}</p>
-                  ))} */}
-                <p className="question">Question asdfghjk</p>
-                <div className="option--container">
-                  <div className="question-option--1">
-                    <input type="radio"></input>
-                    <p>Option 1</p>
-                  </div>
-                  <div className="question-option--2">
-                    <input type="radio"></input>
-                    <p>Option 2</p>
-                  </div>
-                  <div className="question-option--3">
-                    <input type="radio"></input>
-                    <p>Option 3</p>
-                  </div>
-                  <div className="question-option--4">
-                    <input type="radio"></input>
-                    <p>Option 4</p>
-                  </div>
-                </div>
+                {quizData &&
+                  quizData.slice(index, indexTo).map((obj) => (
+                    <div>
+                      <p className="question">{obj.quizQuestion}</p>
+                      <form onSubmit={handelQuizResponse}>
+                      <div className="option--container">
+                        <div className="question-option--1">
+                          <input type="radio"></input>
+                          <p>{obj.quizOption1}</p>
+                        </div>
+                        <div className="question-option--2">
+                          <input type="radio"></input>
+                          <p>{obj.quizOption2}</p>
+                        </div>
+                        <div className="question-option--3">
+                          <input type="radio"></input>
+                          <p>{obj.quizOption3}</p>
+                        </div>
+                        <div className="question-option--4">
+                          <input type="radio"></input>
+                          <p>{obj.quizOption4}</p>
+                        </div>
+                      </div>
+                      </form>
+                   
+                    </div>
+                  ))}
               </div>
             }
           </div>
@@ -75,7 +102,7 @@ const MainQuiz = () => {
               previousClassName={"previous-class"}
               pageClassName={"page-class"}
               onPageChange={handleQuestionPage}
-              pageCount={"4"}
+              pageCount={noOfPages}
               breakClassName={"break-class"}
               breakLabel={""}
               nextLabel={"Next"}

@@ -26,7 +26,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(locationState?.logout);
     if (!locationState?.logout) {
       if (
         loginData &&

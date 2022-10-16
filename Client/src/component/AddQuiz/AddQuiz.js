@@ -77,8 +77,7 @@ const AddQuiz = () => {
                 ></input>
               </div>
               <label className="title-add-quiz">
-                Enter the options (if true or false enter first two options
-                alone):
+                If options are true or false leave last two fields empty
               </label>
               <input
                 required={true}

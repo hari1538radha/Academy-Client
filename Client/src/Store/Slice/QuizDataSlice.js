@@ -1,8 +1,8 @@
 import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const getQuizData = createAsyncThunk("Quiz", async (data) => {
-  return axio.get("/api/quizdata", data);
+export const getQuizData = createAsyncThunk("Quiz", async () => {
+  return axio.get("/api/quizdata");
 });
 export const getQuizDataReducer = createSlice({
   name: "Quiz",

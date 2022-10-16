@@ -20,7 +20,11 @@ const userSchema = new mongoose.Schema(
     },
     userID: {
       type: String,
-    }
+    },
+    superAdminStatus: {
+      type: Boolean,
+      default: false
+    },
   },
   { timestamps: true }
 );
