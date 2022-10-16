@@ -14,6 +14,5 @@ export const quizData = (req, res) => {
         });
       }
     })
-    .limit(limit * 1)
-    .skip(page * limit);
+
 };
