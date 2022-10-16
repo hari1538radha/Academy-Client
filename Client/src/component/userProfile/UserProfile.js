@@ -31,7 +31,7 @@ import { Link, useLocation } from "react-router-dom";
 const UserProfile = () => {
   const [data, setdata] = useState();
   const [img, setimg] = useState();
-  const locationState = useLocation().state;
+  const locationState = useLocation()?.state;
   const [content, setcontent] = useState("user-profile");
   const dispatch = useDispatch();
   const { userImage, userImageloading } = useSelector(
@@ -41,7 +41,9 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
-    dispatch(userProfileData(locationState));
+    if(locationState){
+      dispatch(userProfileData(locationState));
+    }
   }, []);
 
   useEffect(() => {
@@ -171,30 +173,29 @@ const UserProfile = () => {
               </div>
               <div className="eve-top">Events</div>
               <div className="third-full-con-pro">
-                {eventsData.length > 0 &&
-                  eventsData.slice(0, 3).map((obj) => {
+                {eventsData.length > 0 && eventsData.map((obj) => {
+                    const base64String = btoa(
+                      String.fromCharCode(...new Uint8Array(obj.eventImage.data.data))
+                    );
                     return (
                       <div key={obj.eve}>
                         <div className="third-sub-con">
                           <div className="img">
-                            <img className="eve-img" src={img4}></img>
+                            <img className="eve-img" src={`data:image/png;base64,${base64String}`}>
+                            </img>
                           </div>
                           <div className="center-pro">
                             <div className="third-head">{obj.eventName}</div>
                             <div className="button-pro">
-                              {" "}
-                              <Link
-                                to="/EventUpdate"
-                                state={{ blockDetails: obj }}
-                              >
-                                <button className="edit-info">
+                                <button className="edit-info" onClick={() => setcontent("edit-profile") && setdata(obj)}>
                                   <img src={editImg}></img>
                                 </button>
-                              </Link>
                             </div>
                           </div>
-                          <p className="details">
+                          <p className="event-details">
                             <p>{obj.eventDescription}</p>{" "}
+                            <p>{obj.eventDate}</p>
+                            <p>{obj.eventTime}</p>
                           </p>
                         </div>
                       </div>
@@ -204,7 +205,7 @@ const UserProfile = () => {
             </div>
           )}
           {content === "add-event" && <AddEvent />}
-          {content === "edit-profile" && <EditProfile />}
+          {content === "edit-profile" && <EditProfile reqValues={data}/>}
         </div>
       </div>
     </>

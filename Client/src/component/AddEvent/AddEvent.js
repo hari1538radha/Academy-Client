@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AddEvent.css";
 import NavBar from "../Navbar/navbar";
 import { useDispatch } from "react-redux";
@@ -8,6 +8,15 @@ import file from "./img/pngtree.jpg";
 const AddEvent = () => {
   const dispatch = useDispatch();
 
+  const [name, setname] = useState()
+  const [files, setFile] = useState("")
+
+  console.log(files)
+
+  const onFileChange = (e) => {
+    setFile(e.target.files[0])
+  }
+
   const HandelEventData = (e) => {
     e.preventDefault();
     const element = e.target.elements;
@@ -15,23 +24,12 @@ const AddEvent = () => {
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const eventImage = element[4].file;
-
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
     element[3].value = "";
-    element[4].value = "";
-    dispatch(
-      PostEventData({
-        eventName,
-        eventDescription,
-        eventDate,
-        eventTime,
-        eventImage,
-      })
-    );
-  };
+    // element[4].value = "";
+    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files}));};
 
   return (
     <div>
@@ -77,7 +75,8 @@ const AddEvent = () => {
                 type="file"
                 className="select-new-pic"
                 required={true}
-                accept=".png,.svg,.jpeg,.jpg"
+                onChange={onFileChange}
+                // accept=".png,.svg,.jpeg,.jpg"
               ></input>
             </label>
 

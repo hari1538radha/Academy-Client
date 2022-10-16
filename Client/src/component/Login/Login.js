@@ -38,7 +38,7 @@ const Login = () => {
       loginData.message === "Login success" &&
       !loginData.data.superAdminStatus
     ) {
-      navigate("/profile", { state: loginData.data.userEmail });
+      navigate("/profile");
     } else if (loginData.error) {
       console.log("No user found");
     }

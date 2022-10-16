@@ -3,6 +3,7 @@ import fs from "fs";
 // import { eventData } from "./Events.js";
 
 export const AddImages = async(req, res) => {
+  console.log(req.file,"profile")
   const UploadingImage = new ImgSchema({
     profilePic: {
       data: fs.readFileSync("profile/" + req.file.filename),

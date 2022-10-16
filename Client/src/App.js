@@ -7,9 +7,9 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing";
-import SearchPage from "./component/SearchPage/searchpage";
+import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
-import MainQuiz from "./component/MainQuiz/MainQuiz";
+import MainQuiz from "./component/Mainquiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import Signup from "./component/Signup/Signup";
 import UserProfile from "./component/userProfile/UserProfile";
@@ -20,13 +20,17 @@ import AddEvent from "./component/AddEvent/AddEvent";
 import Navbar from "./component/Navbar/navbar";
 import EventUpdate from "./component/EventUpdata/EventUpdate";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Catagory from "./component/NavComponents/catagory++/catagory";
+import Specialization from "./component/NavComponents/specialization++/specialization";
 
 function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Login />} exact></Route>
-        {/* <Route path="/nav" element={<Navbar />}></Route> */}
+        <Route path="/nav" element={<Navbar/>}></Route>
+        <Route path="/catagories" element={<Catagory/>}></Route>
+        <Route path="/specialization" element={<Specialization/>}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/landing" element={<Landing />}></Route>

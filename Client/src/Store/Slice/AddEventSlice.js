@@ -2,17 +2,21 @@ import { axio } from "../../Config/Config";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const PostEventData = createAsyncThunk("EventData", async (data) => {
-  return axio.post("/api/post-event",  {
-    method: "post",
-    headers: { "Content-Type": "multipart/form-data; boundary=------WebKitFormBoundary2lZSUsxEA3X5jpYD" },
-    body: JSON.stringify({
-        "eventName": data.eventName,
-        "eventDescription": data.eventDescription,
-        "eventDate": data.eventDate,
-        "eventTime": data.eventTime,
-        "eventImage": data.eventImage
-    })
-  });
+  console.log(data.files)
+  const formdata = new FormData()
+        formdata.append("eventName", data.eventName);
+        formdata.append("eventDescription", data.eventDescription);
+        formdata.append("eventDate", data.eventDate);
+        formdata.append("eventTime", data.eventTime);
+        formdata.append( "eventImage", data.files);
+
+        const config = {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          }
+
+  await axio.post("/api/post-event",formdata, config);
 });
 
 export const EventDataReducer = createSlice({

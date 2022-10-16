@@ -29,6 +29,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Ask a Question</a>
           <a href="/">Login</a>
           <a href="/signup">Register</a>
+          <a href="/signup">+91-xxxx xxxx xx</a>
         </nav>
       </div>
       <div className="mid-navmenus">
@@ -76,8 +77,8 @@ const Navbar = ({ profileInfo }) => {
           </div>
           <hr className="hidden-divider"></hr>
           <div className="inside-nav-option visible-nav-option">
-            <a href="/#">Catagory++</a>
-            <a href="/#">Specialization++</a>
+            <a href="/catagories">Catagory++</a>
+            <a href="/specialization">Specialization++</a>
             <a href="/#">Top Universities</a>
             <a href="/#">Top Colleges</a>
             <a href="/#">Top Schools</a>
