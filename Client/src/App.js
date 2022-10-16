@@ -38,7 +38,7 @@ function App() {
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route path="/dropdown" element={<Dropdown/>}></Route>
         <Route path="/editProfile" element={<EditProfile/>}></Route>
-        <Route path="/profile/AddEvent" element={<AddEvent/>}></Route>
+        <Route path="/profile/addevent" element={<AddEvent/>}></Route>
         <Route path="/EventUpdate" element={<EventUpdate/>}></Route>
         <Route path="/addquiz" element={<AddQuix/>}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}

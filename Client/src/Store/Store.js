@@ -11,7 +11,8 @@ import educationDetails from "./Slice/getEducation";
 import userprofileReducer from "./Slice/UserprofilePageSlice"
 import addEventReducer from "./Slice/AddEventSlice"
 import universitiesReducer from "./Slice/getUniversities";
-
+import quizuploadReducer from "./Slice/uploadQuizSlice";
+import  getQuizDataReducer  from "./Slice/QuizDataSlice";
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
   topicInfo: TopicReducer,
@@ -24,7 +25,9 @@ const rootReducer = combineReducers({
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
   userProfileInfo:userprofileReducer,
-  postEventInfo:addEventReducer
+  postEventInfo:addEventReducer,
+  quizUploadInfo:quizuploadReducer,
+  getQuizInfo:getQuizDataReducer
 });
 
 const store = configureStore({

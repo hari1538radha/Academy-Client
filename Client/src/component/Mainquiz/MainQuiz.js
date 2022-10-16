@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../Footer/footer";
 import "./mainquiz.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/navbar";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 import quizHintLogo from "../Login/Images/quizhintlogo.svg";
-
+import { getQuizData } from "../../Store/Slice/QuizDataSlice";
 const MainQuiz = () => {
   const navigate = useNavigate();
+    const dispatch = useDispatch();
+    let page = 1;
+  const HandleQuestionPage = (data) => {
     
-  const handleQuestionPage = (data) => {
-    console.log(data.selected);
+     page = data.selected
+  dispatch(getQuizData({page}));
+
   };
+  useEffect(()=>
+  {
+    dispatch(getQuizData({page}));
+  },[])
+  
+
+  const{getQuizDatas,getQuizDataLoading} = useSelector(state => state.getQuizInfo);
+  console.log(getQuizDatas)
+
+
   const endTest = () => {
     alert("You are going to end the Test");
     navigate("/quiz");
@@ -31,7 +45,11 @@ const MainQuiz = () => {
             </div>
           </div>
 
-          <p className="question">Lörem ipsum sasor någon krosk sosade far? </p>
+          <div>
+            { 
+            
+             <div>
+              <p className="question">Lörem ipsum sasor någon krosk sosade far? </p>
           <div className="option--container">
             <div className="question-option--1">
               <input type="radio"></input>
@@ -50,13 +68,19 @@ const MainQuiz = () => {
               <p>Option 4</p>
             </div>
           </div>
+              </div>
+              
+            }
+          </div>
+
+          
           <div className="react-paginate--container">
             <ReactPaginate
               className="react-paginate"
               previousLabel={"Previous"}
               previousClassName={"previous-class"}
               pageClassName={"page-class"}
-              onPageChange={handleQuestionPage}
+              onPageChange={HandleQuestionPage}
               pageCount={"4"}
               breakClassName={"break-class"}
               breakLabel={""}
