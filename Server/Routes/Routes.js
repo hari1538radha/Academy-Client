@@ -1,4 +1,6 @@
 import express from "express";
+import multer from "multer";
+
 import { login } from "../Controllers/Login.js";
 import { signup } from "../Controllers/Signup.js";
 import { uploadTopics } from "../Controllers/Topics/Topics.js";
@@ -11,39 +13,46 @@ import { detailpage } from "../Controllers/DetailPage/DetailPage.js";
 import { detail } from "../Controllers/DetailPage/Detail.js";
 import { listofPrograms } from "../Controllers/listOf.js";
 import { getExcelofEducation } from "../Controllers/readEducation.js";
-import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
-import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
-import { EventById } from "../Controllers/Events/SingleEvent.js";
+import {
+  getUniversities,
+  postUniversities,
+} from "../Controllers/Universities/universities.controller.js";
+import {
+  getProgramme,
+  postProgramme,
+} from "../Controllers/Programme/programme.controller.js";
+import { EventById } from "../Controllers/Events/getEventById.js";
 import { editEvent } from "../Controllers/Events/EditEvents.js";
-import multer from "multer";
+import { addQuiz } from "../Controllers/quizupload.js";
+import { quizData } from "../Controllers/quizData.js";
 import { createUser } from "../Controllers/userSignup.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
 
 const Storages = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'profile')
-    },
-  
-    filename: (req, file, cb) => {
-      cb(null, file.originalname)
-    }
-  });
+  destination: function (req, file, cb) {
+    cb(null, "profile");
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
 
 const Upload = multer({
   storage: Storages,
   limits: {
     fileSize: 90000000,
   },
-})
+});
 
 const users = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'profilepic')
+    cb(null, "profilepic");
   },
 
   filename: (req, file, cb) => {
-    cb(null, `${file.originalname}`)
-  }
+    cb(null, `${file.originalname}`);
+  },
 });
 
 const uploadPic = multer({
@@ -56,7 +65,7 @@ const uploadPic = multer({
 const Route = express.Router();
 
 Route.post("/signup", signup);
-Route.post("/studentsignup", uploadPic.single("userimage"),createUser)
+Route.post("/studentsignup", uploadPic.single("userimage"), createUser);
 Route.post("/login", login);
 Route.get("/userimage", getuserimg);
 Route.post("/post-topic", uploadTopics);
@@ -74,6 +83,9 @@ Route.get("/universities", getUniversities);
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
+Route.put("/editevent", editEvent);
+Route.post("/addquiz", addQuiz);
+Route.get("/quizdata", quizData);
 Route.put("/edit-event", editEvent);
 
 export default Route;

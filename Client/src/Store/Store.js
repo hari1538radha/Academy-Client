@@ -8,9 +8,11 @@ import LoginReducer from "./Slice/LoginSlice";
 import postProgrammeReducer from "./Slice/postProgramme";
 import getProgrammeReducer from "./Slice/getProgramme";
 import educationDetails from "./Slice/getEducation";
-import userprofileReducer from "./Slice/UserprofilePageSlice"
-import addEventReducer from "./Slice/AddEventSlice"
+import userprofileReducer from "./Slice/UserprofilePageSlice";
+import addEventReducer from "./Slice/AddEventSlice";
 import universitiesReducer from "./Slice/getUniversities";
+import quizUploadReducer from "./Slice/uploadQuizSlice";
+import getQuizDataReducer from "./Slice/QuizDataSlice";
 import addProfilepic from "./Slice/profilepicpost";
 import UserProfilepic from "./Slice/getProfilepic";
 
@@ -25,18 +27,21 @@ const rootReducer = combineReducers({
   educationInfo: educationDetails,
   universitiesInfo: universitiesReducer,
   getProgrammeInfo: getProgrammeReducer,
-  userProfileInfo:userprofileReducer,
-  postEventInfo:addEventReducer,
-  profilepicInfo:addProfilepic,
-  newprofilepicInfo: UserProfilepic
+  userProfileInfo: userprofileReducer,
+  postEventInfo: addEventReducer,
+  quizUploadInfo: quizUploadReducer,
+  getQuizInfo: getQuizDataReducer,
+  profilepicInfo: addProfilepic,
+  newprofilepicInfo: UserProfilepic,
 });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
       immutableCheck: false,
       serializableCheck: false,
-    })
-})
+    }),
+});
 
 export default store;

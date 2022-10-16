@@ -8,6 +8,7 @@ import "./CSS/Login.css";
 import Footer from "../Footer/footer.js";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Login = () => {
 
   useEffect(() => {
     console.log(locationState?.logout);
-    if(!locationState?.logout) {
+    if (!locationState?.logout) {
       if (
         loginData &&
         loginData.message === "Login success" &&
@@ -45,7 +46,6 @@ const Login = () => {
         console.log("No user found");
       }
     }
-    
   }, [loginData]);
 
   return (

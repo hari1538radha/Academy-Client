@@ -25,7 +25,7 @@ mongoose.connect(
     if (!err) {
       console.log("connected to db");
     } else {
-      console.log(err);
+      console.log("error", err);
     }
   }
 );
