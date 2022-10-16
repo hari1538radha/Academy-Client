@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Footer from "../Footer/footer";
 import { useLocation } from "react-router-dom";
 import AdminNavBar from "../userProfile/AdminNavBar";
@@ -11,13 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   Box,
-  Button,
   Dialog,
-  DialogActions,
   DialogContent,
-  DialogTitle,
   IconButton,
-  MenuItem,
   Stack,
   TextField,
   Tooltip,
@@ -29,33 +25,20 @@ import keyTypes from "./makeData";
 
 const Dashboard = () => {
   let data = [];
-  const [dataState, setDataState] = useState("Universities");
+
   const locationState = useLocation().state;
-  // const [val, setval] = useState(keyTypes.Programme);
-  // const [univ, setuniv] = useState(keyTypes.Universities)
-  // const [keys, setKeys] = useState(keyTypes.Universities);
-  let keys = keyTypes.Universities;
-  // const [flow, setflow] = useState();
   const dispatch = useDispatch();
-  const [createModalOpen, setCreateModalOpen] = useState(false);
+
+  const [dataState, setDataState] = useState("Universities");
+  const [keys, setKeys] = useState(keyTypes.Universities);
   const [validationErrors, setValidationErrors] = useState({});
-  const print = useLocation();
+
   const appState = useSelector((state) => state);
   const { universitiesData, universitiesLoading } = useSelector(
     (state) => state.universitiesInfo
   );
   const { programmeData } = useSelector((state) => state.getProgrammeInfo);
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
-
-  // const sample = useSelector((state) => state)
-  // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
-  // // setData(stateValue);
-  // if(appState.universitiesInfo.universitiesData.length) {
-  //   setData(appState.universitiesInfo.universitiesData)
-  // }
-  //  else {
-  //   setData(appState.programmeInfo.programme);
-  // }
 
   data = appState["universitiesInfo"]["universitiesData"];
   if (dataState === "Programme") {
@@ -68,6 +51,8 @@ const Dashboard = () => {
     }
     if (dataState === "Programme") {
       dispatch(getProgrammeInfo());
+      data = appState["getProgrammeInfo"]["programmeData"];
+      setKeys(keyTypes[dataState]);
     }
     dispatch(userProfileData(locationState));
   }, [dataState]);
@@ -76,18 +61,6 @@ const Dashboard = () => {
     data.push(values);
     // setTableData([...data]);
   };
-
-  // useEffect(() => {
-  //   if( dataState === 'Programme') {
-  //     setKeys(keyTypes.Programme)
-  //   }if (dataState === 'Universities') {
-  //     setKeys(keyTypes.Universities)
-  //   }
-  // },[dataState])
-
-  // const onClicking = (e) => {
-  //   setDataState(e.target.value)
-  // }
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
@@ -143,25 +116,16 @@ const Dashboard = () => {
     [validationErrors]
   );
 
-  const columns = useMemo(
-    () =>
-      keys.map((key) => {
-        return {
-          accessorKey: key,
-          header: key,
-          muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-            ...getCommonEditTextFieldProps(cell),
-            type: key,
-          }),
-        };
+  const columns = keys.map((key) => {
+    return {
+      accessorKey: key,
+      header: key,
+      muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+        ...getCommonEditTextFieldProps(cell),
+        type: key,
       }),
-    [getCommonEditTextFieldProps]
-  );
-
-  const getState = (stateName) => {
-    keys = keyTypes[stateName];
-    setDataState(stateName);
-  };
+    };
+  });
 
   return (
     <>

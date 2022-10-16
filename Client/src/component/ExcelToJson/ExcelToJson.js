@@ -94,7 +94,7 @@ const PostUniversity = () => {
               <Link
                 to="/admin/dashboard"
                 className="success-file-msg"
-                state={selectedOpt}
+                state={userData.data.userEmail}
               >
                 {message}
               </Link>

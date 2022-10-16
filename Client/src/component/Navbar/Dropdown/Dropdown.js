@@ -7,7 +7,9 @@ import "../Dropdown/Dropdown.css";
 const Dropdown = ({ profileInfo }) => {
   const navigate = useNavigate();
   const logout = (e) => {
-    navigate("/");
+    navigate("/", {
+      state: {logout: true},
+    });
   };
   return (
     <div id="app">
@@ -33,23 +35,24 @@ const Dropdown = ({ profileInfo }) => {
               <hr className="user-fn-divider" />
 
               <div className="list-group list-group-flush" id="link-but">
-                {profileInfo.superAdminStatus && <button className="user-avatar-btns">
-                  <Link
-                    to="/admin"
-                    state={profileInfo.userEmail}
-                  >Excel Upload</Link>
-                </button>}
-                {profileInfo.superAdminStatus && <button className="user-avatar-btns">
-                  <Link
-                    to="/admin/dashboard"
-                    state={profileInfo.userEmail}
-                  >Dashboard</Link>
-                </button>}
+                {profileInfo.superAdminStatus && (
+                  <button className="user-avatar-btns">
+                    <Link to="/admin" state={profileInfo.userEmail}>
+                      Excel Upload
+                    </Link>
+                  </button>
+                )}
+                {profileInfo.superAdminStatus && (
+                  <button className="user-avatar-btns">
+                    <Link to="/admin/dashboard" state={profileInfo.userEmail}>
+                      Dashboard
+                    </Link>
+                  </button>
+                )}
                 <button className="user-avatar-btns">
-                  <Link
-                    to="/profile"
-                    state={profileInfo.userEmail}
-                  >Edit Profile</Link>
+                  <Link to="/profile" state={profileInfo.userEmail}>
+                    Edit Profile
+                  </Link>
                 </button>
               </div>
 
