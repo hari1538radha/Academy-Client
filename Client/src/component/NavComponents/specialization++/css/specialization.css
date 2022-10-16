@@ -1,0 +1,44 @@
+.specialization-page-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 95%;
+    margin: 1em auto;
+}
+
+.specialization-options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(91, 192, 247);
+}
+
+.specialization-details {
+    background: rgb(255, 255, 255);
+}
+
+.specialization-options {
+    border-left: 0.1em;
+    border-right: 0.1em;
+    border-top: 0.1em;
+    background: transparent;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 1.5em 2.5em;
+}
+
+.specialization-options:hover {
+    background: rgb(94, 166, 220);
+    color: white;
+}
+
+.specialization-details-card {
+    background: rgb(215, 215, 255);
+    border-radius: 1em;
+    box-shadow: 1em 1em 1em gray;
+    width: 60%;
+    margin: 15em auto;
+    height: 30vh;
+    padding: 2em;
+}

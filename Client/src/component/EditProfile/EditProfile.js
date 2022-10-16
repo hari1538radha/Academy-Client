@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import "./EditProfile.css"
 import file from "./img/pngtree.jpg"
 
-function EditProfile() {
+function EditProfile({reqValues}) {
+  // const [name, setname] = useState("")
+  console.log(reqValues)
   return (
     <>
       <div className="edit-profile-container">

@@ -28,7 +28,10 @@ body {
 .bot-navmenus {
   background: rgb(83, 117, 226);
   width: 100%;
-  padding: 0.5em;
+  padding: 0.5em 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .visible-nav-option {
