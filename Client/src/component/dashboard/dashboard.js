@@ -1,23 +1,19 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Footer from "../Footer/footer";
 import { useLocation } from "react-router-dom";
-import Navbar from "../Navbar/navbar";
+import AdminNavBar from "../userProfile/AdminNavBar";
 import MaterialReactTable from "material-react-table";
 import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
 import { getProgrammeInfo } from "../../Store/Slice/getProgramme";
+import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import "./dashboard.css";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   Box,
-  Button,
   Dialog,
-  DialogActions,
   DialogContent,
-  DialogTitle,
   IconButton,
-  MenuItem,
   Stack,
   TextField,
   Tooltip,
@@ -29,71 +25,42 @@ import keyTypes from "./makeData";
 
 const Dashboard = () => {
   let data = [];
-  const [dataState, setDataState] = useState("Universities");
-  // const locationState = useLocation().state;
-  // const [val, setval] = useState(keyTypes.Programme);
-  // const [univ, setuniv] = useState(keyTypes.Universities)
-  // const [keys, setKeys] = useState(keyTypes.Universities);
-  let keys = keyTypes.Universities
-  // const [flow, setflow] = useState();
+
+  const locationState = useLocation().state;
   const dispatch = useDispatch();
-  const [createModalOpen, setCreateModalOpen] = useState(false);
+
+  const [dataState, setDataState] = useState("Universities");
+  const [keys, setKeys] = useState(keyTypes.Universities);
   const [validationErrors, setValidationErrors] = useState({});
-  const print = useLocation();
+
   const appState = useSelector((state) => state);
   const { universitiesData, universitiesLoading } = useSelector(
     (state) => state.universitiesInfo
   );
   const { programmeData } = useSelector((state) => state.getProgrammeInfo);
+  const { userData, loading } = useSelector((state) => state.userProfileInfo);
 
-  // console.log(programmeData)
-  // const sample = useSelector((state) => state)
-  // console.log(appState['universitiesInfo']['universitiesData']);
-  // console.log(appState['getProgrammeInfo']['programmeData']);
-  // const stateValue = appState.universitiesInfo.universitiesData.length ? appState.universitiesInfo.universitiesData : appState.programmeInfo.programme;
-  // // setData(stateValue);
-  // console.log(appState);
-  // if(appState.universitiesInfo.universitiesData.length) {
-  //   setData(appState.universitiesInfo.universitiesData)
-  // }
-  //  else {
-  //   setData(appState.programmeInfo.programme);
-  // }
-
-
-  if(dataState === 'Programme') {
-    data = appState['getProgrammeInfo']['programmeData']
-    console.log(programmeData)
-  } 
-  if(dataState === 'Universities') {
-    data = appState['universitiesInfo']['universitiesData']
-    console.log(universitiesData)
+  data = appState["universitiesInfo"]["universitiesData"];
+  if (dataState === "Programme") {
+    data = appState["getProgrammeInfo"]["programmeData"];
   }
 
   useEffect(() => {
-  if(dataState === 'Universities'){
-    dispatch(getUniversitiesInfo());
-  }if (dataState === "Programme") {
-      dispatch(getProgrammeInfo());
+    if (dataState === "Universities") {
+      dispatch(getUniversitiesInfo());
     }
+    if (dataState === "Programme") {
+      dispatch(getProgrammeInfo());
+      data = appState["getProgrammeInfo"]["programmeData"];
+      setKeys(keyTypes[dataState]);
+    }
+    dispatch(userProfileData(locationState));
   }, [dataState]);
 
   const handleCreateNewRow = (values) => {
     data.push(values);
     // setTableData([...data]);
   };
-
-  // useEffect(() => {
-  //   if( dataState === 'Programme') {
-  //     setKeys(keyTypes.Programme)
-  //   }if (dataState === 'Universities') {
-  //     setKeys(keyTypes.Universities)
-  //   }
-  // },[dataState])
-
-  // const onClicking = (e) => {
-  //   setDataState(e.target.value)
-  // }
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
@@ -149,31 +116,20 @@ const Dashboard = () => {
     [validationErrors]
   );
 
-  const columns = useMemo(
-  () =>
-    keys.map((key) => {
-      return {
-        accessorKey: key,
-        header: key,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: key,
-        }),
-      };
-    }),
-  [getCommonEditTextFieldProps]
-);
-
-const getState = (stateName) => {
-  keys = keyTypes[stateName]
-  console.log(keys, "getting setState")
-  setDataState(stateName)
-}
-
+  const columns = keys.map((key) => {
+    return {
+      accessorKey: key,
+      header: key,
+      muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+        ...getCommonEditTextFieldProps(cell),
+        type: key,
+      }),
+    };
+  });
 
   return (
     <>
-      <Navbar />
+      <AdminNavBar profileInfo={userData.data} />
       <div className="dashboard-divider">
         <div className="option-toggle">
           <p className="toggle-heading">Dashboard</p>
@@ -193,9 +149,9 @@ const getState = (stateName) => {
           <hr className="group-divider"></hr>
           <button>Table</button>
           <button>Services</button>
-          <div class="dropdown">
-            <button class="dropbtn">Files</button>
-            <div class="dropdown-content">
+          <div className="dropdown">
+            <button className="dropbtn">Files</button>
+            <div className="dropdown-content">
               <a href="#/">Link 1</a>
               <a href="#/">Link 2</a>
               <a href="#/">Link 3</a>

@@ -7,22 +7,20 @@ import img3 from "./Img/Vector.svg";
 import img4 from "./Img/Rectangle-14.jpg";
 import img6 from "./Img/BookLogo.svg";
 import img7 from "./Img/NextButton.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 // import img5 from "./Img/Quiz.jpg"
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
-import {userProfileData} from "../../Store/Slice/UserprofilePageSlice";
+import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
-import { useLocation } from "react-router-dom";
 
 function Landing() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const locationState = useLocation().state;
-  console.log(locationState);
   const navigateDetail = () => {
     navigate("/detail");
   };
@@ -33,56 +31,55 @@ function Landing() {
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
-    dispatch(userProfileData(locationState?.email))
+    dispatch(userProfileData(locationState?.email));
   }, []);
 
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
-  const {userData,loading} =useSelector(state => state.userProfileInfo);
-  console.log(userData);
+  const { userData, loading } = useSelector((state) => state.userProfileInfo);
   return (
     <div>
-      <NavBar profileInfo={userData.data}/>
-        <div className="first-container">
-          <div className="left">
-            <div className="fst-con-head">
-              <h1>
-                Be led by the <span className="dreams-color">dreams</span> in
-              </h1>
+      <NavBar profileInfo={userData.data} />
+      <div className="first-container">
+        <div className="left">
+          <div className="fst-con-head">
+            <h1>
+              Be led by the <span className="dreams-color">dreams</span> in
+            </h1>
 
-              <h1>
-                your <span className="heart-color">heart</span>
-              </h1>
-            </div>
-
-            <p className="first-con">
-              Success is not how high you have climbed, but how <br></br>you
-              make a positive difference to the world
-            </p>
-            <button className="know button">
-              <span className="but-text">Know More</span>
-            </button>
+            <h1>
+              your <span className="heart-color">heart</span>
+            </h1>
           </div>
-          <div className="right">
-            <div>
-              <img className="top-ryt-img" src={img1}></img>
-            </div>
+
+          <p className="first-con">
+            Success is not how high you have climbed, but how <br></br>you make
+            a positive difference to the world
+          </p>
+          <button className="know-button">
+            <span className="but-text">Know More</span>
+          </button>
+        </div>
+        <div className="right">
+          <div>
+            <img className="top-ryt-img" src={img1}></img>
           </div>
         </div>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="  Search  a words you prefer"
-            className="search-box"
-            required={true}
-          ></input>
-          <div className="search-img">
-            <button className="but-click" onClick={navigateSearch}>
-              <img className="search-but" src={img3}></img>
-            </button>
-          </div>
+      </div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="  Search  a words you prefer"
+          className="search-box"
+          required={true}
+        ></input>
+        <div className="search-img">
+          <button className="but-click" onClick={navigateSearch}>
+            <img className="search-but" src={img3}></img>
+          </button>
         </div>
-        <div className="second-contant">
+      </div>
+      {/* <div className="second-contant">
           <div className="sub-con">
             <h1 className="topic"> Topics</h1>
 
@@ -110,37 +107,34 @@ function Landing() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="third-container">
-          <div className="third-content">
-            <div className="third-top">
-              <h1>Top Events</h1>
-            </div>
-            <div className="third-full-con">
-              {eventsData.length > 0 &&
-                eventsData.slice(0,3).map((obj) => {
-                  return (
-                    <div key={obj.eve}>
-                      <div className="third-sub-con">
-                        <div className="img">
-                          <img className="eve-img" src={img4}></img>
-                        </div>
+        </div> */}
+      <div className="third-container">
+        <div className="third-content">
+          <div className="third-top">
+            <h1>Top Events</h1>
+          </div>
+          <div className="third-full-con">
+            {eventsData.length > 0 &&
+              eventsData.slice(0, 3).map((obj) => {
+                return (
+                  <div key={obj.eve} className="events-card-container">
+                    <div className="third-sub-con">
+                      <img className="eve-img" src={img4}></img>
+                      <div className="event-card-details">
                         <div className="third-head">{obj.eventName}</div>
-
-                        <p className="details">
-                          <p>{obj.eventDescription}</p>{" "}
-                        </p>
-                       <a href="/EventUpdate"> update</a>
+                        <p className="details">{obj.eventDescription}</p>{" "}
+                        <a href="/EventUpdate">update</a>
                       </div>
                     </div>
-                  );
-                })}
-            </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
-        <div>
-          <Footer />
-        </div>
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -10,5 +10,4 @@ const logger = morgan("combined");
 
 const mongoUrl = `mongodb+srv://${process.env.DB_userName}:${process.env.DB_password}@academy.ilmon77.mongodb.net/${process.env.DB_name}?retryWrites=true&w=majority`;
 
-
 export { PORT, logger, mongoUrl };

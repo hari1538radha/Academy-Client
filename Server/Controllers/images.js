@@ -2,11 +2,11 @@ import { ImgSchema } from "../Schema/images.js";
 import fs from "fs";
 // import { eventData } from "./Events.js";
 
-export const AddImages = (req, res) => {
+export const AddImages = async(req, res) => {
   const UploadingImage = new ImgSchema({
     profilePic: {
       data: fs.readFileSync("profile/" + req.file.filename),
-      contentType: "image/jpg"
+      contentType: "image/png"
     }
   })
   UploadingImage.save((err, data) => {

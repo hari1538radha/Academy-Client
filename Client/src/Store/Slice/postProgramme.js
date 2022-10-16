@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axio } from "../../Config/Config";
 
 export const postProgramme = createAsyncThunk("programme", (data) => {
-    console.log(data);
   return axio.post(`/api/programme`, data);
 });
 
@@ -18,7 +17,6 @@ const postProgrammeReducer = createSlice({
       state.programmeLoading = true;
     },
     [postProgramme.fulfilled]: (state, action) => {
-        console.log(action.payload);
       state.programmeData = action.payload.data;
       state.programmeLoading = false;
     },

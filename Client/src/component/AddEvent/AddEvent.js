@@ -3,18 +3,19 @@ import "./AddEvent.css";
 import NavBar from "../Navbar/navbar";
 import { useDispatch } from "react-redux";
 import { PostEventData } from "../../Store/Slice/AddEventSlice";
+import file from "./img/pngtree.jpg";
+
 const AddEvent = () => {
   const dispatch = useDispatch();
 
   const HandelEventData = (e) => {
     e.preventDefault();
-    console.log(e);
     const element = e.target.elements;
     const eventName = element[0].value;
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const eventImage = element[4].value;
+    const eventImage = element[4].file;
 
     element[0].value = "";
     element[1].value = "";
@@ -27,8 +28,8 @@ const AddEvent = () => {
         eventDescription,
         eventDate,
         eventTime,
-        eventImage}
-      )
+        eventImage,
+      })
     );
   };
 
@@ -37,6 +38,7 @@ const AddEvent = () => {
       <div className="form-container">
         <form onSubmit={HandelEventData}>
           <div className="form-content">
+            <h1>Add Event</h1>
             <input
               className="input-title"
               type="text"
@@ -61,7 +63,25 @@ const AddEvent = () => {
               required={true}
               placeholder="Enter the Time"
             ></input>
-            <input
+
+            <label className="add-new-profile-pic">
+              <img
+                src={file}
+                alt="no img found"
+                className="profile-file-img"
+              ></img>
+              <label className="upload-pic-txt">
+                Upload PNG,JPEG,JPG,SVG only
+              </label>
+              <input
+                type="file"
+                className="select-new-pic"
+                required={true}
+                accept=".png,.svg,.jpeg,.jpg"
+              ></input>
+            </label>
+
+            {/* <input
               className="input-img"
               type="file"
               required={true}
@@ -69,7 +89,7 @@ const AddEvent = () => {
             ></input>
             <label className="input-img-label">
               Upload only PNG,JPEG,JPG,SVG type only
-            </label>
+            </label> */}
             <button className="btn-submit">Submit</button>
           </div>
         </form>

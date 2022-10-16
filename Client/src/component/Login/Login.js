@@ -6,12 +6,14 @@ import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import Loginlogo from "../Login/Images/Vector.svg";
 import "./CSS/Login.css";
 import Footer from "../Footer/footer.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { loginData, loading } = useSelector((state) => state.loginInfo);
+  const locationState = useLocation().state;
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -21,19 +23,27 @@ const Login = () => {
     element[0].value = "";
     element[1].value = "";
     dispatch(postLoginUser({ userEmail, userPassword }));
-
-    navigate("/", { state: { email: userEmail } });
   };
-  const { loginData, loading } = useSelector((state) => state.loginInfo);
 
   useEffect(() => {
-    if (loginData) {
-      if (loginData.data) {
-        console.log(loginData);
-        console.log("logindata.data");
-        if (loginData.data.message === "Login success") {
-          navigate("/landing");
-        }
+    console.log(locationState?.logout);
+    if (!locationState?.logout) {
+      if (
+        loginData &&
+        loginData.message === "Login success" &&
+        loginData.data.superAdminStatus
+      ) {
+        navigate("/admin/dashboard", {
+          state: loginData.data.userEmail,
+        });
+      } else if (
+        loginData &&
+        loginData.message === "Login success" &&
+        !loginData.data.superAdminStatus
+      ) {
+        navigate("/profile", { state: loginData.data.userEmail });
+      } else if (loginData.error) {
+        console.log("No user found");
       }
     }
   }, [loginData]);
@@ -53,18 +63,22 @@ const Login = () => {
                 <div className="Loginlogo">
                   <img src={Loginlogo} alt="no img found"></img>
                 </div>
-                <div>{data}</div>
                 <input
                   className="Emails-input"
                   placeholder="Email Address *"
                   type="text"
+                  required
                 ></input>
                 <input
                   className="passwords-input"
                   type="password"
                   placeholder="Password *"
+                  required
                 ></input>
                 <button className="login-btn">LOGIN</button>
+                {loginData.error ? (
+                  <div className="sign-failure">{loginData.error}</div>
+                ) : null}
                 <div className="login-footer">
                   <p>Don't have an account?</p>
                   <Link to="/Signup">SIGN UP</Link>

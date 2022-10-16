@@ -8,23 +8,25 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 12.9em;
+  height: 10.9em;
   justify-items: center;
   box-shadow: 0.2em 0.2em 0.4em rgb(140, 140, 140);
 }
-
+.admin-navbar {
+  height: 5.9em;
+}
 .mid-navmenus {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2em 3em;
+  padding: 1em 3em;
 }
 
 .top-navmenus,
 .bot-navmenus {
-  background: rgb(47, 130, 255);
+  background: rgb(83, 117, 226);
   width: 100%;
   padding: 0.5em;
 }
@@ -54,6 +56,7 @@ nav a {
   font-size: 1.4em;
   text-align: center;
   margin: 0 auto;
+  align-self: center;
 }
 
 header .nav-btn {

@@ -1,7 +1,7 @@
 .dashboard-divider {
   display: grid;
   grid-template-columns: 20% 80%;
-  margin: 4em 0;
+  margin: 0.4em 0;
 }
 
 .option-toggle{

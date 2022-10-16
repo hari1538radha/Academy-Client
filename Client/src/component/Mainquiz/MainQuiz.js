@@ -12,7 +12,7 @@ const MainQuiz = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const HandleQuestionPage = (data) => {
+  const handleQuestionPage = (data) => {
     const page = data.selected;
     dispatch(getQuizData({ page }));
   };
@@ -74,7 +74,7 @@ const MainQuiz = () => {
               previousLabel={"Previous"}
               previousClassName={"previous-class"}
               pageClassName={"page-class"}
-              onPageChange={HandleQuestionPage}
+              onPageChange={handleQuestionPage}
               pageCount={"4"}
               breakClassName={"break-class"}
               breakLabel={""}
