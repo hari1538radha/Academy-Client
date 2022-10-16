@@ -3,9 +3,35 @@ import Navbar from "../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
 import UniversityCard from "./UniversityCard/UniversityCard";
+import RightSideBar from "../NavComponents/RightSideBar";
 import "./TopUniversity.css";
 
 function TopUniversity() {
+  const options = [
+    "Agriculture",
+
+    "Architecture",
+
+    "Arts & Science",
+
+    "Commerce",
+
+    "Education",
+
+    "Engineering",
+
+    "Hospitality",
+
+    "Journalism & Media",
+
+    "Law",
+
+    "Management",
+
+    "Medical",
+
+    "Paramedical",
+  ];
   const dispatch = useDispatch();
   const { universitiesData, universitiesLoading } = useSelector(
     (state) => state.universitiesInfo
@@ -19,9 +45,7 @@ function TopUniversity() {
       <div className="university-main-heading">Top Universities</div>
       <div className="selecting-preferences">
         <div className="guide-selection">
-          <span>
-            select your preferences
-          </span>
+          <span>select your preferences</span>
         </div>
         <select className="guide-selector">
           <option>Specialization</option>
@@ -39,10 +63,17 @@ function TopUniversity() {
           <option>preferences</option>
         </select>
       </div>
-      {universitiesData.length &&
-        universitiesData.map((obj, index) => (
-          <UniversityCard key={index} uniInfo={obj}></UniversityCard>
-        ))}
+      <div className="uni-main-container">
+        <div className="uni-list-main-container">
+        {universitiesData.length &&
+          universitiesData.map((obj, index) => (
+            <UniversityCard key={index} uniInfo={obj}></UniversityCard>
+          ))}
+        </div>
+        <div class="uni-right-sidebar">
+          <RightSideBar options={options} />
+        </div>
+      </div>
     </>
   );
 }

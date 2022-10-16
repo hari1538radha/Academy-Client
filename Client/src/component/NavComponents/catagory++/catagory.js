@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./css/catagory.css"
 import Navbar from "../../Navbar/navbar"
 import Footer from "../../Footer/footer"
+import RightSideBar from "../RightSideBar"
 
 const Catagory = () => {
     const options = [
@@ -50,11 +51,7 @@ const Catagory = () => {
                     <p><strong>Catagory : </strong>{state}</p>
                 </div> : <h1>select the required catagory from the right dashboard</h1>}
             </div>
-            <div className="catagory-options-container">
-                {options.map((item) => {
-                    return <button value={item} onClick={settingState} className="catagory-options">{item}</button>
-                })}
-            </div>
+            <RightSideBar options={options}/>
         </div>
         <Footer/>
         </>

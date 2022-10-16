@@ -2,6 +2,7 @@ import { useState } from "react"
 import Navbar from "../../Navbar/navbar"
 import Footer from "../../Footer/footer"
 import "./css/specialization.css"
+import RightSideBar from "../RightSideBar"
 
 const Specialization = () => {
     const options = [
@@ -44,11 +45,7 @@ const Specialization = () => {
                     <p><strong>Specialization : </strong>{state}</p>
                 </div> : <h1>select the required specialization from the right dashboard</h1>}
             </div>
-            <div className="specialization-options-container">
-                {options.map((item) => {
-                    return <button value={item} onClick={settingState} className="specialization-options">{item}</button>
-                })}
-            </div>
+            <RightSideBar options={options}/>
         </div>
         <Footer/>
         </>
