@@ -17,6 +17,7 @@ import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
 import Navbar from "./component/Navbar/navbar";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js";
+import TopUniversity from "./component/TopUniversity/TopUniversity";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/profile/addevent" element={<AddEvent />}></Route>
         <Route path="/EventUpdate" element={<EventUpdate />}></Route>
         <Route path="/addquiz" element={<AddQuiz />}></Route>
+        <Route path="/universities" element={<TopUniversity />}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
        
       </Routes>
