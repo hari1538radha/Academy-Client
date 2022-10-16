@@ -9,7 +9,7 @@ import ProfileImg from "../../component/Login/Images/Vector.svg";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import "./UserProfile.css";
 import enrolledImg from "../Login/Images/enrollImg.svg";
-import editProfileImg from "../Login/Images/edit.svg";
+// import editProfileImg from "../Login/Images/edit.svg";
 import logoutImg from "../Login/Images/log-img.svg";
 import quizImg from "../Login/Images/quizImg.svg";
 import dashImg from "../Login/Images/dashboard-img.svg";
@@ -22,8 +22,9 @@ import AddEvent from "../AddEvent/AddEvent";
 import { GetProfilepic } from "../../Store/Slice/getProfilepic";
 import { getEventInfo } from "../../Store/Slice/EventSlice";
 import { PostProfilepic } from "../../Store/Slice/profilepicpost";
-import editImg from "../Login/Images/edit.svg";
+import editImg from "../AddEvent/img/edit.svg";
 import { Link, useLocation } from "react-router-dom";
+import ListEvent from "../AddEvent/ListEvent/ListEvent";
 //dashboard, program, fileupload, addevent-(superadmin) superadmin@gmail.com superadmin
 
 //normal login - addevent
@@ -31,7 +32,7 @@ import { Link, useLocation } from "react-router-dom";
 const UserProfile = () => {
   const [data, setdata] = useState();
   const [img, setimg] = useState();
-  const locationState = useLocation().state;
+  const locationState = useLocation()?.state;
   const [content, setcontent] = useState("user-profile");
   const dispatch = useDispatch();
   const { userImage, userImageloading } = useSelector(
@@ -41,7 +42,9 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
-    dispatch(userProfileData(locationState));
+    if(locationState){
+      dispatch(userProfileData(locationState));
+    }
   }, []);
 
   useEffect(() => {
@@ -122,7 +125,7 @@ const UserProfile = () => {
                   <div className="left-container--dashboard--content">
                     <img
                       className="quiz-img"
-                      src={editProfileImg}
+                      src={editImg}
                       alt="no img found"
                     ></img>
                     <a onClick={() => setcontent("user-profile")}>Profile</a>
@@ -170,41 +173,11 @@ const UserProfile = () => {
                 <p>Student</p>
               </div>
               <div className="eve-top">Events</div>
-              <div className="third-full-con-pro">
-                {eventsData.length > 0 &&
-                  eventsData.slice(0, 3).map((obj) => {
-                    return (
-                      <div key={obj.eve}>
-                        <div className="third-sub-con">
-                          <div className="img">
-                            <img className="eve-img" src={img4}></img>
-                          </div>
-                          <div className="center-pro">
-                            <div className="third-head">{obj.eventName}</div>
-                            <div className="button-pro">
-                              {" "}
-                              <Link
-                                to="/EventUpdate"
-                                state={{ blockDetails: obj }}
-                              >
-                                <button className="edit-info">
-                                  <img src={editImg}></img>
-                                </button>
-                              </Link>
-                            </div>
-                          </div>
-                          <p className="details">
-                            <p>{obj.eventDescription}</p>{" "}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
+              <ListEvent eventsData = {eventsData} editImg={editImg}/>
             </div>
           )}
           {content === "add-event" && <AddEvent />}
-          {content === "edit-profile" && <EditProfile />}
+          {content === "edit-profile" && <EditProfile reqValues={data}/>}
         </div>
       </div>
     </>

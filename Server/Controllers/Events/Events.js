@@ -1,40 +1,28 @@
-import multer from "multer";
 import { eventModel } from "../../Schema/EventsSchema.js";
-
-const storage = multer.diskStorage({
-  destination: "uploadImage",
-  filename: (req, file, callback) => {
-    callback(null, file.originalname);
-  },
-});
-
-const upload = multer({
-  storage: storage,
-}).single("eventImage");
+import fs from "fs";
 
 export const uploadEvents = (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
+  const {eventName, eventDescription, eventDate, eventTime} = req.body
+  console.log(req.file)
       const addImage = new eventModel({
-        eventName: req.body.eventName,
-        eventDescription: req.body.eventDescription,
-        eventImage: {
-          data: req.file,
-        },
+        eventName: eventName,
+        eventDescription: eventDescription,
         eventId: Math.floor(1000 + Math.random() * 9000),
-        eventDate: req.body.eventDate,
-        eventTime: req.body.eventTime,
+        eventDate: eventDate,
+        eventTime: eventTime,
+        eventImage: {
+          data: fs.readFileSync("uploadimage/" + req.file.filename),
+          contentType: "image/png"
+        },
       });
       addImage.save((err, data) => {
         if (err) {
           res.send(err);
         }
-        res.status(200).send({
-          message: "Posted successfully!!!",
-        });
+        res.send({
+          status: 200,
+          message: "Posted successfully",
+          data: data
+        })
       });
     }
-  });
-};

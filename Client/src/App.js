@@ -17,17 +17,20 @@ import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
 import Navbar from "./component/Navbar/navbar";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js";
+import Catagory from "./component/NavComponents/catagory++/catagory";
+import Specialization from "./component/NavComponents/specialization++/specialization";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Landing />} exact></Route>
         {/* <Route path="/nav" element={<Navbar />}></Route> */}
+        <Route path="/catagories" element={<Catagory/>}></Route>
+        <Route path="/specialization" element={<Specialization/>}></Route>
+        <Route path="/" element={<Landing />} exact></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/landing" element={<Landing />}></Route>
