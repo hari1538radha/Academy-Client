@@ -31,7 +31,7 @@ const AddQuiz = () => {
               className="input-box-1"
             ></input>
             </div>
-            <label className="title-add-quiz">Enter the options:</label>
+            <label className="title-add-quiz">Enter the options (if true or false enter first two options alone):</label>
             <input required={true} type="text" placeholder="Option 1"  className="input-box"></input>
             <input required={true} type="text" placeholder="Option 2" className="input-box"></input>
             <input required={true} type="text" placeholder="Option 3" className="input-box"></input>
