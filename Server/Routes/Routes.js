@@ -11,8 +11,14 @@ import { detailPage } from "../Controllers/Detail.js";
 import { details } from "../Controllers/DetailPage.js";
 import { listofPrograms } from "../Controllers/listOf.js";
 import { getExcelofEducation } from "../Controllers/readEducation.js";
-import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
-import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
+import {
+  getUniversities,
+  postUniversities,
+} from "../Controllers/Universities/universities.controller.js";
+import {
+  getProgramme,
+  postProgramme,
+} from "../Controllers/Programme/programme.controller.js";
 import { EventById } from "../Controllers/SingleEvent.js";
 import { addQuiz } from "../Controllers/quizupload.js";
 import { quizData } from "../Controllers/quizData.js";
@@ -20,15 +26,15 @@ import multer from "multer";
 
 const Storages = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'profile')
+    cb(null, "profile");
   },
 
   filename: (req, file, cb) => {
-    cb(null, file.originalname)
-  }
+    cb(null, file.originalname);
+  },
 });
 
-const Upload = multer({ storage: Storages }).single("testImage")
+const Upload = multer({ storage: Storages }).single("testImage");
 import { editevent } from "../Controllers/EditEvents.js";
 
 const Route = express.Router();
@@ -55,3 +61,4 @@ Route.post("/addquiz", addQuiz);
 Route.get("/quizdata", quizData);
 
 export default Route;
+

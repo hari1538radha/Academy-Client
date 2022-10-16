@@ -7,35 +7,28 @@ import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 import quizHintLogo from "../Login/Images/quizhintlogo.svg";
 import { getQuizData } from "../../Store/Slice/QuizDataSlice";
+
 const MainQuiz = () => {
   const navigate = useNavigate();
-    const dispatch = useDispatch();
-    let page = 1;
+  const dispatch = useDispatch();
+
   const HandleQuestionPage = (data) => {
-    
-     page = data.selected
-  dispatch(getQuizData({page}));
-
+    const page = data.selected;
+    dispatch(getQuizData({ page }));
   };
-  useEffect(()=>
-  {
-    dispatch(getQuizData({page}));
-  },[])
-  
 
-  const{getQuizDatas,getQuizDataLoading} = useSelector(state => state.getQuizInfo);
-  console.log(getQuizDatas)
-
+  const { quizInfo, getQuizDataLoading } = useSelector(
+    (state) => state.getQuizInfo
+  );
+  console.log(quizInfo.data);
 
   const endTest = () => {
     alert("You are going to end the Test");
     navigate("/quiz");
   };
-  const {loginData,loading} = useSelector((state) => state.loginInfo);
-  console.log(loginData)
   return (
     <div>
-        <Navbar />
+      <Navbar />
       <div className="main-quiz--conatiner">
         <div className="quiz-questions">
           <div className="quiz-questions--header">
@@ -46,34 +39,35 @@ const MainQuiz = () => {
           </div>
 
           <div>
-            { 
-            
-             <div>
-              <p className="question">Lörem ipsum sasor någon krosk sosade far? </p>
-          <div className="option--container">
-            <div className="question-option--1">
-              <input type="radio"></input>
-              <p>Option 1</p>
-            </div>
-            <div className="question-option--2">
-              <input type="radio"></input>
-              <p>Option 2</p>
-            </div>
-            <div className="question-option--3">
-              <input type="radio"></input>
-              <p>Option 3</p>
-            </div>
-            <div className="question-option--4">
-              <input type="radio"></input>
-              <p>Option 4</p>
-            </div>
-          </div>
+            {
+              <div>
+                {/* {quizInfo.length > 0 &&
+                  quizInfo.data[0].map((obj) => (
+                    <p className="question">{obj.quizQuestion}</p>
+                  ))} */}
+                <p className="question">Question asdfghjk</p>
+                <div className="option--container">
+                  <div className="question-option--1">
+                    <input type="radio"></input>
+                    <p>Option 1</p>
+                  </div>
+                  <div className="question-option--2">
+                    <input type="radio"></input>
+                    <p>Option 2</p>
+                  </div>
+                  <div className="question-option--3">
+                    <input type="radio"></input>
+                    <p>Option 3</p>
+                  </div>
+                  <div className="question-option--4">
+                    <input type="radio"></input>
+                    <p>Option 4</p>
+                  </div>
+                </div>
               </div>
-              
             }
           </div>
 
-          
           <div className="react-paginate--container">
             <ReactPaginate
               className="react-paginate"
