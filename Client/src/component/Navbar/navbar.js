@@ -74,7 +74,7 @@ const Navbar = ({ profileInfo }) => {
           <div className="inside-nav-option visible-nav-option">
             <a href="/catagories">Catagory++</a>
             <a href="/specialization">Specialization++</a>
-            <a href="/#">Top Universities</a>
+            <a href="/universities">Top Universities</a>
             <a href="/#">Top Colleges</a>
             <a href="/#">Top Schools</a>
             <a href="/#">Top Placements</a>
