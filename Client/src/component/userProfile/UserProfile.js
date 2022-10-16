@@ -9,7 +9,7 @@ import ProfileImg from "../../component/Login/Images/Vector.svg";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import "./UserProfile.css";
 import enrolledImg from "../Login/Images/enrollImg.svg";
-import editProfileImg from "../Login/Images/edit.svg";
+// import editProfileImg from "../Login/Images/edit.svg";
 import logoutImg from "../Login/Images/log-img.svg";
 import quizImg from "../Login/Images/quizImg.svg";
 import dashImg from "../Login/Images/dashboard-img.svg";
@@ -22,8 +22,9 @@ import AddEvent from "../AddEvent/AddEvent";
 import { GetProfilepic } from "../../Store/Slice/getProfilepic";
 import { getEventInfo } from "../../Store/Slice/EventSlice";
 import { PostProfilepic } from "../../Store/Slice/profilepicpost";
-import editImg from "../Login/Images/edit.svg";
+import editImg from "../AddEvent/img/edit.svg";
 import { Link, useLocation } from "react-router-dom";
+import ListEvent from "../AddEvent/ListEvent/ListEvent";
 //dashboard, program, fileupload, addevent-(superadmin) superadmin@gmail.com superadmin
 
 //normal login - addevent
@@ -124,7 +125,7 @@ const UserProfile = () => {
                   <div className="left-container--dashboard--content">
                     <img
                       className="quiz-img"
-                      src={editProfileImg}
+                      src={editImg}
                       alt="no img found"
                     ></img>
                     <a onClick={() => setcontent("user-profile")}>Profile</a>
@@ -172,36 +173,7 @@ const UserProfile = () => {
                 <p>Student</p>
               </div>
               <div className="eve-top">Events</div>
-              <div className="third-full-con-pro">
-                {eventsData.length > 0 && eventsData.map((obj) => {
-                    const base64String = btoa(
-                      String.fromCharCode(...new Uint8Array(obj.eventImage.data.data))
-                    );
-                    return (
-                      <div key={obj.eve}>
-                        <div className="third-sub-con">
-                          <div className="img">
-                            <img className="eve-img" src={`data:image/png;base64,${base64String}`}>
-                            </img>
-                          </div>
-                          <div className="center-pro">
-                            <div className="third-head">{obj.eventName}</div>
-                            <div className="button-pro">
-                                <button className="edit-info" onClick={() => setcontent("edit-profile") && setdata(obj)}>
-                                  <img src={editImg}></img>
-                                </button>
-                            </div>
-                          </div>
-                          <p className="event-details">
-                            <p>{obj.eventDescription}</p>{" "}
-                            <p>{obj.eventDate}</p>
-                            <p>{obj.eventTime}</p>
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
+              <ListEvent eventsData = {eventsData} editImg={editImg}/>
             </div>
           )}
           {content === "add-event" && <AddEvent />}
