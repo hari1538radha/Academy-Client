@@ -11,8 +11,6 @@ const Signup = () => {
   const dispatch = useDispatch();
   const { signupData } = useSelector((state) => state.signupInfo);
   const [loginStatus, setLoginStatus] = useState({ status: 0, message: "" });
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showFailure, setShowFailure] = useState(false);
 
   useEffect(() => {
     if (
@@ -24,24 +22,19 @@ const Signup = () => {
         status: 1,
         message: "Registered Successfully!!",
       });
-      setShowSuccess(true);
+  
     } else if (signupData?.data?.response === "Email Exits") {
       setLoginStatus({
-        status: 1,
-        message: "The email has been already taken!!",
+        status: 2,
+        message: "This email has been already taken!!",
       });
-      setShowFailure(true);
+    
     } else if (signupData?.data?.response === "Inefficient") {
       setLoginStatus({
-        status: 2,
-        message: "The check the details entered",
+        status: 3,
+        message: " Please check the details entered",
       });
-    } else {
-      setLoginStatus({
-        status: 0,
-        message: "",
-      });
-    }
+    } 
   }, [signupData]);
 
   const handleSignupData = (e) => {
@@ -101,7 +94,7 @@ const Signup = () => {
                 required
               ></input>
               <button className="Signup-btn">SIGNUP</button>
-              {showSuccess ? (
+              {loginStatus.status === 1 ? (
                 <div className="sign-success">
                   <span>{loginStatus.message}</span>
                   <Link to="/login" className="sign-success-link">
@@ -109,7 +102,7 @@ const Signup = () => {
                   </Link>
                 </div>
               ) : null}
-              {showFailure ? (
+              {loginStatus.status === 2 ? (
                 <div className="sign-failure">{loginStatus.message}</div>
               ) : null}
               <div className="Signup-footer">

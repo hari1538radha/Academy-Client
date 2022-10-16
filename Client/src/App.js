@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./component/Login/Login";
 import PostUniversity from "./component/ExcelToJson/ExcelToJson";
 import Landing from "../src/component/Landing/Landing";
-import SearchPage from "./component/SearchPage/searchpage";
+import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
 import AddQuiz from "./component/AddQuiz/AddQuiz";
 import MainQuiz from "./component/Mainquiz/MainQuiz";

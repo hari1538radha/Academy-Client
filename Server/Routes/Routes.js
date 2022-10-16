@@ -21,7 +21,7 @@ import {
   getProgramme,
   postProgramme,
 } from "../Controllers/Programme/programme.controller.js";
-import { EventById } from "../Controllers/SingleEvent.js";
+import { EventById } from "../Controllers/Events/getEventById.js";
 import { editEvent } from "../Controllers/Events/EditEvents.js";
 import { addQuiz } from "../Controllers/quizupload.js";
 import { quizData } from "../Controllers/quizData.js";
