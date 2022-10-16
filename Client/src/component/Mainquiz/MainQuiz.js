@@ -15,16 +15,55 @@ const MainQuiz = () => {
   const [indexTo, setIndexTo] = useState(1);
   const [noOfPages, setNoOfPages] = useState(5);
   const [quizData, setQuizData] = useState();
+  const respondedAnswer =  []
+  const anserByUser = localStorage.setItem("answered-data" ,JSON.stringify(respondedAnswer))
+  
   const handleQuestionPage = (data) => {
     setIndex(data.selected);
     setIndexTo(data.selected + 1);
-   
   };
-  const handelQuizResponse = (e) =>
-  {e.preventDefault();
-     const element = e.target.elements
+  const handelQuizResponse = (e) => {
+    e.preventDefault();
 
-  }
+    const element = e.target.elements;
+    const answer1value = element[0].value;
+    const answer2value = element[1].value;
+    const answer3value = element[2].value;
+    const answer4value = element[3].value;
+    const answer1 = element[0].checked;
+    const answer2 = element[1].checked;
+    const answer3 = element[2].checked;
+    const answer4 = element[3].checked;
+    setIndex(index + 1);
+    setIndexTo(indexTo + 1);
+    console.log(answer1, answer2, answer3, answer4);
+    if (answer1 === true) {
+      console.log(answer1value);
+      respondedAnswer=answer1value;
+    }
+    if (answer2 === true) {
+      console.log(answer2value);
+      respondedAnswer=answer2value;
+    }
+    if (answer3 === true) {
+      console.log(answer3value);
+      respondedAnswer=answer3value;
+    }
+    if (answer4 === true) {
+      console.log(answer4value);
+      respondedAnswer=answer4value;
+    }
+    console.log(respondedAnswer);
+    element[0].checked = false;
+    element[1].checked = false;
+    element[2].checked = false;
+    element[3].checked = false;
+  };
+  const handelSkipPage = (e) => {
+    e.preventDefault();
+    setIndex(index + 1);
+    setIndexTo(indexTo + 1);
+  };
   console.log(index);
   console.log(indexTo);
 
@@ -69,26 +108,26 @@ const MainQuiz = () => {
                     <div>
                       <p className="question">{obj.quizQuestion}</p>
                       <form onSubmit={handelQuizResponse}>
-                      <div className="option--container">
-                        <div className="question-option--1">
-                          <input type="radio"></input>
-                          <p>{obj.quizOption1}</p>
+                        <div className="option--container">
+                          <div className="question-option--1">
+                            <input type="radio" value={obj.quizOption1}></input>
+                            <p>{obj.quizOption1}</p>
+                          </div>
+                          <div className="question-option--2">
+                            <input type="radio" value={obj.quizOption2}></input>
+                            <p>{obj.quizOption2}</p>
+                          </div>
+                          <div className="question-option--3">
+                            <input type="radio" value={obj.quizOption3}></input>
+                            <p>{obj.quizOption3}</p>
+                          </div>
+                          <div className="question-option--4">
+                            <input type="radio" value={obj.quizOption4}></input>
+                            <p>{obj.quizOption4}</p>
+                          </div>
+                          <button>Submit</button>
                         </div>
-                        <div className="question-option--2">
-                          <input type="radio"></input>
-                          <p>{obj.quizOption2}</p>
-                        </div>
-                        <div className="question-option--3">
-                          <input type="radio"></input>
-                          <p>{obj.quizOption3}</p>
-                        </div>
-                        <div className="question-option--4">
-                          <input type="radio"></input>
-                          <p>{obj.quizOption4}</p>
-                        </div>
-                      </div>
                       </form>
-                   
                     </div>
                   ))}
               </div>
@@ -109,7 +148,9 @@ const MainQuiz = () => {
               nextClassName={"previous-class"}
             />
             <div>
-              <button className="Skip-btn">Skip</button>
+              <button onClick={handelSkipPage} className="Skip-btn">
+                Skip
+              </button>
             </div>
           </div>
           <div className="endtest-block">
