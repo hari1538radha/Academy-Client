@@ -1,3 +1,4 @@
+
 import React from 'react'
 import "./AddQuiz.css"
 import { useEffect } from 'react'
@@ -34,27 +35,53 @@ const AddQuiz = () => {
   }, [quizData])
 
 
+ 
+
   return (
-    <div>
-      <nav><Navbar /></nav>
-      <form onSubmit={HandelAddEvent}>
-        <div className='add-quiz-container'>
-          <label>Enter the Quiz Questions</label>
-          <input required={true} type="text" placeholder='enter the quiz questions'></input>
-          <label>Enter the options</label>
-          <input required={true} type="text" placeholder='Option 1'></input>
-          <input required={true} type="text" placeholder='Option 2'></input>
-          <input type="text" placeholder='Option 3'></input>
+    <div className="total-page">
+      {/* <nav>
+        <Navbar />
+      </nav> */}
+      <div className="form">
+      <div className="form-add">
+       
+          <form onSubmit={HandelAddEvent} className="form-data">
+          <div className="add-quiz-container">
+            <label  className="title-add-quiz">Enter the Quiz Questions:</label>
+            <div className="first-box">
+            <input
+              required={true}
+              type="number"
+              placeholder="S/No"
+              className="input-que-box"
+            ></input>
+            <input
+              required={true}
+              type="text"
+              placeholder="Enter The Quiz Questions"
+              className="input-box-1"
+            ></input>
+            </div>
+            <label className="title-add-quiz">Enter the options (if true or false enter first two options alone):</label>
+            <input required={true} type="text" placeholder="Option 1"  className="input-box"></input>
+            <input required={true} type="text" placeholder="Option 2" className="input-box"></input>
+            <input  type="text" placeholder="Option 3" className="input-box"></input>
 
-          <input type="text" placeholder='Option 4'></input>
-          <label>Correct Answer</label>
-          <input required={true} type="text" placeholder='Correct answer'></input>
-          <button>Add Quiz</button>
-        </div>
-      </form>
+            <input  type="text" placeholder="Option 4" className="input-box"></input>
+            <label className="title-add-quiz">Correct Answer:</label>
+            <input
+              required={true}
+              type="text"
+              placeholder="Correct answer"
+              className="input-box"
+            ></input>
+            <button className="add-button">Add Quiz</button>
+            </div>
+          </form>
+      
+      </div>
+      </div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default AddQuiz
+export default AddQuiz;
