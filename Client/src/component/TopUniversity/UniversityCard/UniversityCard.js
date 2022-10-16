@@ -1,15 +1,26 @@
 import React from "react";
-import './UniversityCard.css'
+import "./UniversityCard.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function UniversityCard({uniInfo}) {
+function UniversityCard({ uniInfo }) {
+  console.log(uniInfo);
+  const navigate = useNavigate();
+  const location = useLocation().state;
+
+  const handelDetail = (e) => {
+    navigate("/universities/details", { state: { state: uniInfo } });
+  };
   return (
-    <div className="uni-card-container">
+    <div className="uni-card-container" onClick={handelDetail}>
       <div className="uni-img-container">
         <img src={uniInfo.Image}></img>
       </div>
       <div className="uni-content-container">
         <div className="uni-title">
-            <a href={uniInfo.url} target="_blank">{uniInfo.Name_1}</a>
+          <a href={uniInfo.url} target="_blank">
+            {uniInfo.Name_1}
+          </a>
         </div>
         <div className="uni-place-container">
           <span className="uni-district">{uniInfo.District}</span>
