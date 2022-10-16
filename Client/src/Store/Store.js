@@ -32,7 +32,7 @@ const rootReducer = combineReducers({
   quizUploadInfo: quizUploadReducer,
   getQuizInfo: getQuizDataReducer,
   profilepicInfo: addProfilepic,
-  newprofilepicInfo: UserProfilepic,
+  newprofilepicInfo: UserProfilepic
 });
 
 const store = configureStore({

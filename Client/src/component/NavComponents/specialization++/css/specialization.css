@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgb(91, 192, 247);
+    background: rgb(83, 117, 226);
 }
 
 .specialization-details {
@@ -17,9 +17,10 @@
 }
 
 .specialization-options {
-    border-left: 0.1em;
-    border-right: 0.1em;
-    border-top: 0.1em;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: solid 0.15em rgb(121, 121, 121);
     background: transparent;
     width: 100%;
     color: rgb(0, 0, 0);

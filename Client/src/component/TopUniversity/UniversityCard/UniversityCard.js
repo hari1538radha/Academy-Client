@@ -23,12 +23,15 @@ function UniversityCard({ uniInfo }) {
           </a>
         </div>
         <div className="uni-place-container">
-          <span className="uni-district">{uniInfo.District}</span>
-          <span className="uni-state">{uniInfo.State}</span>
+          <p className="uni-place">
+            <span className="uni-district">{uniInfo.District}</span>
+            -
+            <span className="uni-state">{uniInfo.State}</span>
+          </p>
         </div>
-        <div className="uni-rank-container">
-          <span className="uni-rank-1"></span>
-          <span className="uni-rant-2"></span>
+        <div className="uni-other-container">
+          <span className="uni-Yrofestab">{uniInfo.Yrofestab}</span>
+          <span className="uni-type">{uniInfo.Type}</span>
         </div>
         <div className="uni-description"></div>
       </div>

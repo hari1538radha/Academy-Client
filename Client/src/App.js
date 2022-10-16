@@ -12,7 +12,7 @@ import DetailPage from "./component/Detailpage/Main/DetailPage";
 import Signup from "./component/Signup/Signup";
 import UserProfile from "./component/userProfile/UserProfile";
 import Dashboard from "./component/dashboard/dashboard";
-import EditProfile from "./component/EditProfile/EditProfile.js";
+import EditEvents from "./component/EditProfile/EditProfile.js";
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
 import AddEvent from "./component/AddEvent/AddEvent";
 import Navbar from "./component/Navbar/navbar";
@@ -44,7 +44,7 @@ function App() {
         <Route path="/dropdown" element={<Dropdown />}></Route>
         <Route path="/admin" element={<PostUniversity />}></Route>
         <Route path="/admin/dashboard" element={<Dashboard />}></Route>
-        <Route path="/editProfile" element={<EditProfile />}></Route>
+        <Route path="/editevents" element={<EditEvents />}></Route>
         <Route path="/profile/addevent" element={<AddEvent />}></Route>
         <Route path="/EventUpdate" element={<EventUpdate />}></Route>
         <Route path="/addquiz" element={<AddQuiz />}></Route>

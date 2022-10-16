@@ -4,7 +4,37 @@ import Navbar from "../../Navbar/navbar"
 import Footer from "../../Footer/footer"
 
 const Catagory = () => {
-    const options = ["option1","option2","option3","option4","option5","option6","option7","option8","option9"]
+    const options = [
+        "Agriculture and Allied Disciplines",
+
+        "Architecture, Planning and Design",
+
+        "Arts, Humanities and Social Sciences",
+
+        "Business Administration, Commerce, Management and Finance",
+
+        "Education",
+
+        "Engineering and Technology",
+
+        "Fine Arts, Performing Arts, Visual Arts and Applied Arts",
+
+        "Hotel Management, Hospitality, Tourism and Travel",
+
+        "Journalism, Mass Communication and Media",
+
+        "Law",
+
+        "Library and Information Sciences",
+
+        "Medical and Surgery",
+
+        "Rehabilitation Sciences",
+
+        "Sciences",
+
+        "Vocational Education",
+    ]
     
     const [state, setState] = useState()
 
