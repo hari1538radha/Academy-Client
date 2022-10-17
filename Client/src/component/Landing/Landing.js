@@ -16,7 +16,7 @@ import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
-import ListEvent from "../AddEvent/ListEvent/ListEvent";
+import ListEvent from "../Event/ListEvent/ListEvent";
 
 function Landing() {
   const navigate = useNavigate();

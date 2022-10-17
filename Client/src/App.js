@@ -14,7 +14,7 @@ import UserProfile from "./component/userProfile/UserProfile";
 import Dashboard from "./component/dashboard/dashboard";
 import EditEvents from "./component/EditProfile/EditProfile.js";
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
-import AddEvent from "./component/AddEvent/AddEvent";
+import AddEvent from "./component/Event/AddEvent";
 import Navbar from "./component/Navbar/navbar";
 import About from "./component/About/About";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js";
