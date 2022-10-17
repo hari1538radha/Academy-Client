@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import "./EditProfile.css";
+import "./EditProfile.css"
 import file from "./img/pngtree.jpg";
 import Navbar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 
 function EditEvents({ eventObj }) {
-  // const [name, setname] = useState("")
+  const [name, setname] = useState("")
   // const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
-  console.log(eventObj);
   return (
     <>
       {eventObj && (
@@ -41,16 +40,12 @@ function EditEvents({ eventObj }) {
             ></input>
 
             <label className="add-new-profile-pic">
-              <img
-                src={file}
-                alt="no img found"
-                className="profile-file-img"
-              ></img>
-              <label className="upload-pic-txt">
+            <img src={file} alt="no img found" className="profile-file-img"></img>
+            {name && <label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
-              </label>
-              <input type="file" className="select-new-pic"></input>
-            </label>
+            </label>}
+            <input type="file" className="select-new-pic"></input>
+          </label>
 
             <button className="login-btn">Save Changes</button>
           </form>

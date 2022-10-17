@@ -30,7 +30,7 @@ import ListEvent from "../Event/ListEvent/ListEvent";
 //normal login - addevent
 
 const UserProfile = () => {
-  const [data, setdata] = useState();
+  const [name, setname] = useState();
   const [img, setimg] = useState();
   const locationState = useLocation()?.state;
   const [content, setcontent] = useState("user-profile");
@@ -76,18 +76,40 @@ const UserProfile = () => {
             <div className="main-dashboard--container">
               <div className="user-Info">
                 <div className="Loginlogo-pro">
-                  <img src={ProfileImg} alt="no img found"></img>
+                <label className="img-label">
+                  {lastimg.map((item) => {
+                    const collectingpic = item.profilePic.data.data;
+                    const base64String = btoa(
+                      String.fromCharCode(...new Uint8Array(collectingpic))
+                    );
+                    return (
+                      <img
+                        src={`data:image/png;base64,${base64String}`}
+                        className="img-indicator"
+                        alt="no img found"
+                      ></img>
+                    );
+                  })}
+
+                  <input
+                    type="file"
+                    name="upload"
+                    id="upload-image"
+                    onChange={AddEvents}
+                    className="userprofile-upload"
+                  />
+                </label>
                 </div>
                 <div className="user-data-container">
                   <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
                   <p>Student</p>
                 </div>
-                <div className="edit-profile-btn">
-                {/* onClick={() => setcontent("edit-profile")} */}
+                {/* <div className="edit-profile-btn">
+                onClick={() => setcontent("edit-profile")}
                   <button >
                     Edit
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
@@ -147,29 +169,6 @@ const UserProfile = () => {
           {content === "user-profile" && (
             <div>
               <div className="profilepic-container">
-                <label className="img-label">
-                  {lastimg.map((item) => {
-                    const collectingpic = item.profilePic.data.data;
-                    const base64String = btoa(
-                      String.fromCharCode(...new Uint8Array(collectingpic))
-                    );
-                    return (
-                      <img
-                        src={`data:image/png;base64,${base64String}`}
-                        className="img-indicator"
-                        alt="no img found"
-                      ></img>
-                    );
-                  })}
-
-                  <input
-                    type="file"
-                    name="upload"
-                    id="upload-image"
-                    onChange={AddEvents}
-                    className="userprofile-upload"
-                  />
-                </label>
                 <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>
                 <p>Student</p>
               </div>
