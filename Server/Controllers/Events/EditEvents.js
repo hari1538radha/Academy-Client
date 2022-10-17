@@ -7,8 +7,9 @@ export const editEvent = (req, res) => {
       $set: {
         eventName: req.body.eventName,
         eventDescription: req.body.eventDescription,
-        evntImage: req.body.evntImage,
-        date: req.body.date,
+        eventImage: req.body.eventImage,
+        eventDate: req.body.eventDate,
+        eventTime: req.body.eventTime
       },
     },
     { upsert: true },
