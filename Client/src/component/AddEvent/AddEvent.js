@@ -9,12 +9,11 @@ const AddEvent = () => {
   const dispatch = useDispatch();
 
   const [name, setname] = useState()
-  const [files, setFile] = useState("")
-
-  console.log(files)
+  const [files, setFile] = useState()
 
   const onFileChange = (e) => {
     setFile(e.target.files[0])
+    setname(e.target.files[0].name)
   }
 
   const HandelEventData = (e) => {
@@ -68,9 +67,9 @@ const AddEvent = () => {
                 alt="no img found"
                 className="profile-file-img"
               ></img>
-              <label className="upload-pic-txt">
+              {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
-              </label>
+              </label>}
               <input
                 type="file"
                 className="select-new-pic"

@@ -6,14 +6,14 @@ import Navbar from "../Navbar/navbar";
 import Footer from "../Footer/footer";
 
 function EditEvents({datas}) {
-  // const [name, setname] = useState("")
+  const [name, setname] = useState("")
   // const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
-  console.log(datas)
+  // console.log(datas)
   return (
     <>
       {datas && <div className="edit-profile-container">
         <form className="edit-profile-form">
-        <h1 className="edit-profile-container-heading">Edit Events</h1>
+        <h1 className="edit-profile-container-heading">Edit Event</h1>
           
           <input type="text" value={datas.eventName} className="edit-profile-inputs"></input>
           
@@ -25,9 +25,9 @@ function EditEvents({datas}) {
           
           <label className="add-new-profile-pic">
             <img src={file} alt="no img found" className="profile-file-img"></img>
-            <label className="upload-pic-txt">
+            {name && <label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
-            </label>
+            </label>}
             <input type="file" className="select-new-pic"></input>
           </label>
 

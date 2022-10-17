@@ -8,29 +8,13 @@ import "./TopUniversity.css";
 
 function TopUniversity() {
   const options = [
-    "Agriculture",
-
-    "Architecture",
-
-    "Arts & Science",
-
-    "Commerce",
-
-    "Education",
-
-    "Engineering",
-
-    "Hospitality",
-
-    "Journalism & Media",
-
-    "Law",
-
-    "Management",
-
-    "Medical",
-
-    "Paramedical",
+    "Top Arts, Science & Commerce Colleges",
+    "Top Engineering Colleges",
+    "Top Pharmacy Colleges",
+    "Top Medical Colleges",
+    "Top G Dental Colleges",
+    "Top Law Colleges",
+    "Top Agriculture Colleges",
   ];
   const dispatch = useDispatch();
   const { universitiesData, universitiesLoading } = useSelector(
