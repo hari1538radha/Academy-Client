@@ -27,6 +27,7 @@ import { addQuiz } from "../Controllers/quizupload.js";
 import { quizData } from "../Controllers/quizData.js";
 import { createUser } from "../Controllers/userSignup.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
+import { editUniversities } from "../Controllers/EditUniversities.js";
 
 const Storages = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -100,5 +101,6 @@ Route.put("/editevent", editEvent);
 Route.post("/addquiz", addQuiz);
 Route.get("/quizdata", quizData);
 Route.put("/edit-event", editEvent);
+Route.put("/edit-universities", editUniversities);
 
 export default Route;
