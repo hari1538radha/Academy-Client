@@ -14,23 +14,25 @@ import UserProfile from "./component/userProfile/UserProfile";
 import Dashboard from "./component/dashboard/dashboard";
 import EditEvents from "./component/EditProfile/EditProfile.js";
 import Dropdown from "./component/Navbar/Dropdown/Dropdown";
-import AddEvent from "./component/AddEvent/AddEvent";
+import AddEvent from "./component/Event/AddEvent";
 import Navbar from "./component/Navbar/navbar";
+import About from "./component/About/About";
 import EventUpdate from "./component/EventUpdata/EventUpdate.js";
-import TopUniversity from "./component/TopUniversity/TopUniversity";
-import Catagory from "./component/NavComponents/catagory++/catagory";
+import TopUniversity from "./component/NavComponents/TopUniversity/TopUniversity";
+import Category from "./component/NavComponents/category++/Category";
 import Specialization from "./component/NavComponents/specialization++/specialization";
-import UniversityCardDetails from "./component/TopUniversity/UniversityCardDetails/UniversityCardDetails";
+import UniversityCardDetails from "./component/NavComponents/TopUniversity/UniversityCardDetails/UniversityCardDetails";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import TopColleges from "./component/NavComponents/TopColleges/TopColleges";
 
 function App() {
   return (
     <div>
       <Routes>
         {/* <Route path="/nav" element={<Navbar />}></Route> */}
-        <Route path="/catagories" element={<Catagory/>}></Route>
+        <Route path="/categories" element={<Category/>}></Route>
         <Route path="/specialization" element={<Specialization/>}></Route>
         <Route path="/" element={<Landing />} exact></Route>
         <Route path="/login" element={<Login />}></Route>
@@ -48,7 +50,9 @@ function App() {
         <Route path="/profile/addevent" element={<AddEvent />}></Route>
         <Route path="/EventUpdate" element={<EventUpdate />}></Route>
         <Route path="/addquiz" element={<AddQuiz />}></Route>
+        <Route path="/about" element={<About />}></Route>
         <Route path="/universities" element={<TopUniversity />}></Route>
+        <Route path="/colleges" element={<TopColleges />}></Route>
         <Route path="/universities/details" element={<UniversityCardDetails />}></Route>
         {/* <Route path="/dropdownnavbar" element={<DropdownNavbar/>}></Route> */}
       </Routes>

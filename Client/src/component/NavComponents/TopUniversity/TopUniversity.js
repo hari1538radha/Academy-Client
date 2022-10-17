@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/navbar";
+import Navbar from "../../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
+import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
 import UniversityCard from "./UniversityCard/UniversityCard";
-import RightSideBar from "../NavComponents/RightSideBar";
+import RightSideBar from "../../NavComponents/RightSideBar";
 import "./TopUniversity.css";
 
 function TopUniversity() {
@@ -14,7 +14,7 @@ function TopUniversity() {
     "Top Medical Colleges",
     "Top G Dental Colleges",
     "Top Law Colleges",
-    "Top Agriculture Colleges",
+    "Top Architecture Colleges",
   ];
   const dispatch = useDispatch();
   const { universitiesData, universitiesLoading } = useSelector(

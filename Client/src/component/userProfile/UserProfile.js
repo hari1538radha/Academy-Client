@@ -18,13 +18,13 @@ import img4 from "../Landing/Img/Rectangle-14.jpg";
 import profilequiz from "../Login/Images/profilequiz.svg";
 import dashIconImg from "../Login/Images/dash-icon.png";
 import eventImg from "../Login/Images/event-icon.png";
-import AddEvent from "../AddEvent/AddEvent";
+import AddEvent from "../Event/AddEvent";
 import { GetProfilepic } from "../../Store/Slice/getProfilepic";
 import { getEventInfo } from "../../Store/Slice/EventSlice";
 import { PostProfilepic } from "../../Store/Slice/profilepicpost";
-import editImg from "../AddEvent/img/edit.svg";
+import editImg from "../Event/img/edit.svg";
 import { Link, useLocation } from "react-router-dom";
-import ListEvent from "../AddEvent/ListEvent/ListEvent";
+import ListEvent from "../Event/ListEvent/ListEvent";
 //dashboard, program, fileupload, addevent-(superadmin) superadmin@gmail.com superadmin
 
 //normal login - addevent

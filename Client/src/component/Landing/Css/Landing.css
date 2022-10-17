@@ -225,6 +225,10 @@ h2.topic1 {
   box-shadow: 2px 2px 12px #e5d9db;
   border-radius: 1em;
 }
+.third-sub-con:hover {
+  transform: translateY(-8px);
+  transition: 0.5s;
+}
 
 .third-top {
   font-family: "Poppins";
