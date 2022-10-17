@@ -1,6 +1,6 @@
 .quiz-questions {
   width: 924px;
-  height: 521.14px;
+  
   left: 0px;
   top: 0px;
 
@@ -114,7 +114,7 @@
   gap: 30px;
 }
 .react-paginate--container {
-  display: flex;
+ 
   height: 60px;
   justify-content: space-evenly;
   gap: 100px;
@@ -133,22 +133,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+
 
   /* text */
 
   color: rgba(70, 70, 70, 0.64);
 }
 .page-class {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: #e7e7e7;
-  border-radius: 8px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 21px;
   display: flex;
   align-items: center;
@@ -194,7 +193,31 @@
   background-color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
 }
-
+.previous-class a
+{
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(70, 70, 70, 0.64);
+}
+.previous-class a{
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(70, 70, 70, 0.64);
+}
 .Skip-btn {
   font-family: "Poppins";
   font-style: normal;
@@ -208,12 +231,19 @@
   width: 128px;
   height: 34px;
   /* text */
-  background: #ffffff;
   border: none;
   border-radius: 8px;
-  color: rgba(70, 70, 70, 0.64);
+  margin-left:20px;
+  color:  #fb4b4b;
+  border: 1.58025px solid #fb4b4b;
 }
 .Skip-btn:hover {
   color: rgba(0, 129, 254, 0.9);
   cursor: pointer;
+}
+.endtest-block
+{
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
