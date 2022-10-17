@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import "./css/catagory.css"
+import "./css/category.css"
 import Navbar from "../../Navbar/navbar"
 import Footer from "../../Footer/footer"
 import RightSideBar from "../RightSideBar"
 
-const Catagory = () => {
+const Category = () => {
     const options = [
         "Agriculture and Allied Disciplines",
 
@@ -45,11 +45,11 @@ const Catagory = () => {
     return (
         <>
         <Navbar/>
-        <div className="catagory-page-container">
-            <div className="catagory-details">
-                {state ? <div className="catagory-details-card">
-                    <p><strong>Catagory : </strong>{state}</p>
-                </div> : <h1>select the required catagory from the right dashboard</h1>}
+        <div className="category-page-container">
+            <div className="category-details">
+                {state ? <div className="category-details-card">
+                    <p><strong>category : </strong>{state}</p>
+                </div> : <h1>select the required category from the right dashboard</h1>}
             </div>
             <RightSideBar options={options}/>
         </div>
@@ -58,4 +58,4 @@ const Catagory = () => {
     )
 }
 
-export default Catagory
+export default Category

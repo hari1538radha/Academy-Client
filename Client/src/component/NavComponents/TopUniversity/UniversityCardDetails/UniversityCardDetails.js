@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Navbar from "../../Navbar/navbar";
+import Navbar from "../../../Navbar/navbar";
 import "../UniversityCardDetails/UniversityCardDetails.css";
 import UniLogo from "../UniversityCardDetails/Img/logo.png";
 import eduLogo from "../UniversityCardDetails/Img/educationlogo.png";
