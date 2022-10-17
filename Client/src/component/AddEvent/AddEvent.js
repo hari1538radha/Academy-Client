@@ -10,10 +10,12 @@ const AddEvent = () => {
 
   const [name, setname] = useState()
   const [files, setFile] = useState()
+  const [message, setmessage] = useState()
 
   const onFileChange = (e) => {
     setFile(e.target.files[0])
     setname(e.target.files[0].name)
+    console.log(name)
   }
 
   const HandelEventData = (e) => {
@@ -28,7 +30,11 @@ const AddEvent = () => {
     element[2].value = "";
     element[3].value = "";
     // element[4].value = "";
-    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files}));};
+    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files}));
+    if (name.length > 0){
+      setmessage("Event uploaded successfully")
+    }
+  };
 
   return (
     <div>
@@ -79,15 +85,9 @@ const AddEvent = () => {
               ></input>
             </label>
 
-            {/* <input
-              className="input-img"
-              type="file"
-              required={true}
-              accept=".png,.svg,.jpeg,.jpg"
-            ></input>
-            <label className="input-img-label">
-              Upload only PNG,JPEG,JPG,SVG type only
-            </label> */}
+            {message && <div className="addEvent-success-msg">{message}</div>}
+            {/* {<div>Event is not added</div>} */}
+
             <button className="btn-submit">Submit</button>
           </div>
         </form>

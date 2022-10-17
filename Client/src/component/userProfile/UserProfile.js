@@ -104,12 +104,12 @@ const UserProfile = () => {
                   <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
                   <p>Student</p>
                 </div>
-                <div className="edit-profile-btn">
-                {/* onClick={() => setcontent("edit-profile")} */}
+                {/* <div className="edit-profile-btn">
+                onClick={() => setcontent("edit-profile")}
                   <button >
                     Edit
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
