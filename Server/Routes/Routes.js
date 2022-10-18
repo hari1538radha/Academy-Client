@@ -41,9 +41,9 @@ const Storages = multer.diskStorage({
 
 const Upload = multer({
   storage: Storages,
-  limits: {
-    fileSize: 90000000,
-  },
+  // limits: {
+    // fileSize: 90000000,
+  // },
 });
 
 const users = multer.diskStorage({
