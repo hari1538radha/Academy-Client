@@ -16,8 +16,8 @@
   }
 
   .img-indicator {
-    width: 8em;
-    height: 8em;
+    width: 5em;
+    height: 5em;
     border-radius: 50%;
   }
 
@@ -151,6 +151,9 @@
     font-family: 'Poppins';
     font-style: normal;
     text-align: justify;
+    font-size: 1.5em;
+    padding: 1em;
+    font-weight: 600;
   }
 
   .eve-top-header {
@@ -182,21 +185,47 @@
     justify-content: center;
     border-radius: 50%;
 }
+
 .third-full-con-pro {
   display: flex;
-  margin-left: 15px;
-  margin-right: 15px;
-  gap: 20px;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  height: 30em;
+  background: rgb(231, 231, 231);
+  gap: 1em;
+  padding: 1em;
 }
 .center-pro {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1em;
 }
-.button-pro {
-  margin-top: 25px;
-}
+
 .edit-info {
   padding: 0;
   border: none;
   background: none;
+}
+
+.event-details {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.third-sub-con {
+  display: flex;
+  flex-direction: column;
+  margin: auto 1em;
+  height: 26em;
+  width: 18em;
+  background: #ffffff;
+  color: #4c4c4d;
+  box-shadow: 2px 2px 12px #e5d9db;
+  border-radius: 1em;
 }

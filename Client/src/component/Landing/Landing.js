@@ -16,6 +16,7 @@ import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
+import ListEvent from "../Event/ListEvent/ListEvent";
 
 function Landing() {
   const navigate = useNavigate();
@@ -114,21 +115,7 @@ function Landing() {
             <h1>Top Events</h1>
           </div>
           <div className="third-full-con">
-            {eventsData.length > 0 &&
-              eventsData.slice(0, 3).map((obj) => {
-                return (
-                  <div key={obj.eve} className="events-card-container">
-                    <div className="third-sub-con">
-                      <img className="eve-img" src={img4}></img>
-                      <div className="event-card-details">
-                        <div className="third-head">{obj.eventName}</div>
-                        <p className="details">{obj.eventDescription}</p>{" "}
-                        <a href="/EventUpdate">update</a>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+          <ListEvent eventsData = {eventsData}/>
           </div>
         </div>
       </div>

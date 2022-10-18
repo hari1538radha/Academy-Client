@@ -6,7 +6,6 @@ import AcademyLogo from "../Login/Images/Academy.svg";
 import Dropdown from "./Dropdown/Dropdown";
 
 const Navbar = ({ profileInfo }) => {
-
   const navRef = useRef();
 
   const showNavbar = () => {
@@ -17,13 +16,14 @@ const Navbar = ({ profileInfo }) => {
     <header className="navbars">
       <div className="top-navmenus">
         <nav ref={navRef}>
-          <a href="/#">About us</a>
+          <a href="/about">About us</a>
           <a href="/#">Study Abroad</a>
           <a href="/#">Announcement</a>
           <a href="/#">Forum</a>
           <a href="/#">Ask a Question</a>
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
+          <a href="#">WhatsApp: +91-94421 10920</a>
         </nav>
       </div>
       <div className="mid-navmenus">
@@ -35,12 +35,13 @@ const Navbar = ({ profileInfo }) => {
           ></img>
         </Link>
         <nav ref={navRef}>
-          <a href="/#">About</a>
-          <a href="/#">Contact</a>
-          <a href="/#">Blog</a>
-          <a href="/#">Academy</a>
-          <a href="/#">Events</a>
-          <a href="/#">Careers</a>
+          <a href="/#">Home</a>
+          <a href="/#">Skills++</a>
+          <a href="/#">Concepts++</a>
+          <a href="/#">Career++</a>
+          <a href="/#">Entrance++</a>
+          <a href="/#">Perceptions++</a>
+          <a href="/#">Competition++</a>
           <a href="/quiz">Quiz</a>
           {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>}
 
@@ -52,7 +53,7 @@ const Navbar = ({ profileInfo }) => {
       <div className="bot-navmenus">
         <nav ref={navRef}>
           <div className="inside-nav-option hidden-navbar-options ">
-            <a href="/#">About us</a>
+            <a href="/about">About us</a>
             <a href="/#">Study Abroad</a>
             <a href="/#">Announcement</a>
             <a href="/#">Forum</a>
@@ -62,19 +63,21 @@ const Navbar = ({ profileInfo }) => {
           </div>
           <hr className="hidden-divider"></hr>
           <div className="inside-nav-option hidden-navbar-options">
-            <a href="/#">About</a>
-            <a href="/#">Contact</a>
-            <a href="/#">Blog</a>
-            <a href="/#">Academy</a>
-            <a href="/#">Events</a>
-            <a href="/#">Careers</a>
+            <a href="/#">Home</a>
+            <a href="/#">Skills++</a>
+            <a href="/#">Concepts++</a>
+            <a href="/#">Career++</a>
+            <a href="/#">Entrance++</a>
+            <a href="/#">Perceptions++</a>
+            <a href="/#">Competition++</a>
+            <a href="/quiz">Quiz</a>
           </div>
           <hr className="hidden-divider"></hr>
           <div className="inside-nav-option visible-nav-option">
-            <a href="/#">Catagory++</a>
-            <a href="/#">Specialization++</a>
-            <a href="/#">Top Universities</a>
-            <a href="/#">Top Colleges</a>
+            <a href="/categories">category++</a>
+            <a href="/specialization">Specialization++</a>
+            <a href="/universities">Top Universities</a>
+            <a href="/colleges">Top Colleges</a>
             <a href="/#">Top Schools</a>
             <a href="/#">Top Placements</a>
             <a href="/#">Top Events</a>

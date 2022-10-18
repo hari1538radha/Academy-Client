@@ -9,7 +9,7 @@ import ProfileImg from "../../component/Login/Images/Vector.svg";
 import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import "./UserProfile.css";
 import enrolledImg from "../Login/Images/enrollImg.svg";
-import editProfileImg from "../Login/Images/edit.svg";
+// import editProfileImg from "../Login/Images/edit.svg";
 import logoutImg from "../Login/Images/log-img.svg";
 import quizImg from "../Login/Images/quizImg.svg";
 import dashImg from "../Login/Images/dashboard-img.svg";
@@ -18,20 +18,21 @@ import img4 from "../Landing/Img/Rectangle-14.jpg";
 import profilequiz from "../Login/Images/profilequiz.svg";
 import dashIconImg from "../Login/Images/dash-icon.png";
 import eventImg from "../Login/Images/event-icon.png";
-import AddEvent from "../AddEvent/AddEvent";
+import AddEvent from "../Event/AddEvent";
 import { GetProfilepic } from "../../Store/Slice/getProfilepic";
 import { getEventInfo } from "../../Store/Slice/EventSlice";
 import { PostProfilepic } from "../../Store/Slice/profilepicpost";
-import editImg from "../Login/Images/edit.svg";
+import editImg from "../Event/img/edit.svg";
 import { Link, useLocation } from "react-router-dom";
+import ListEvent from "../Event/ListEvent/ListEvent";
 //dashboard, program, fileupload, addevent-(superadmin) superadmin@gmail.com superadmin
 
 //normal login - addevent
 
 const UserProfile = () => {
-  const [data, setdata] = useState();
+  const [name, setname] = useState();
   const [img, setimg] = useState();
-  const locationState = useLocation().state;
+  const locationState = useLocation()?.state;
   const [content, setcontent] = useState("user-profile");
   const dispatch = useDispatch();
   const { userImage, userImageloading } = useSelector(
@@ -41,7 +42,9 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
-    dispatch(userProfileData(locationState));
+    if(locationState){
+      dispatch(userProfileData(locationState));
+    }
   }, []);
 
   useEffect(() => {
@@ -56,6 +59,7 @@ const UserProfile = () => {
 
   // const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
+  // console.log(eventsData)
 
   const AddEvents = (e) => {
     const imagefile = e.target.files[0];
@@ -72,17 +76,40 @@ const UserProfile = () => {
             <div className="main-dashboard--container">
               <div className="user-Info">
                 <div className="Loginlogo-pro">
-                  <img src={ProfileImg} alt="no img found"></img>
+                <label className="img-label">
+                  {lastimg.map((item) => {
+                    const collectingpic = item.profilePic.data.data;
+                    const base64String = btoa(
+                      String.fromCharCode(...new Uint8Array(collectingpic))
+                    );
+                    return (
+                      <img
+                        src={`data:image/png;base64,${base64String}`}
+                        className="img-indicator"
+                        alt="no img found"
+                      ></img>
+                    );
+                  })}
+
+                  <input
+                    type="file"
+                    name="upload"
+                    id="upload-image"
+                    onChange={AddEvents}
+                    className="userprofile-upload"
+                  />
+                </label>
                 </div>
                 <div className="user-data-container">
                   <h3>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h3>
                   <p>Student</p>
                 </div>
-                <div className="edit-profile-btn">
-                  <button onClick={() => setcontent("edit-profile")}>
+                {/* <div className="edit-profile-btn">
+                onClick={() => setcontent("edit-profile")}
+                  <button >
                     Edit
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="left-container--dashboard">
                 <div className="dashboard-content-container">
@@ -122,7 +149,7 @@ const UserProfile = () => {
                   <div className="left-container--dashboard--content">
                     <img
                       className="quiz-img"
-                      src={editProfileImg}
+                      src={editImg}
                       alt="no img found"
                     ></img>
                     <a onClick={() => setcontent("user-profile")}>Profile</a>
@@ -142,69 +169,15 @@ const UserProfile = () => {
           {content === "user-profile" && (
             <div>
               <div className="profilepic-container">
-                <label className="img-label">
-                  {lastimg.map((item) => {
-                    const collectingpic = item.profilePic.data.data;
-                    const base64String = btoa(
-                      String.fromCharCode(...new Uint8Array(collectingpic))
-                    );
-                    return (
-                      <img
-                        // src={profilepic}
-                        src={`data:image/png;base64,${base64String}`}
-                        className="img-indicator"
-                        alt="no img found"
-                      ></img>
-                    );
-                  })}
-
-                  <input
-                    type="file"
-                    name="upload"
-                    id="upload-image"
-                    onChange={AddEvents}
-                    className="userprofile-upload"
-                  />
-                </label>
                 <h2>{userData?.data?.userFirstName}&nbsp; {userData?.data?.userLastName}</h2>
                 <p>Student</p>
               </div>
-              <div className="eve-top">Events</div>
-              <div className="third-full-con-pro">
-                {eventsData.length > 0 &&
-                  eventsData.slice(0, 3).map((obj) => {
-                    return (
-                      <div key={obj.eve}>
-                        <div className="third-sub-con">
-                          <div className="img">
-                            <img className="eve-img" src={img4}></img>
-                          </div>
-                          <div className="center-pro">
-                            <div className="third-head">{obj.eventName}</div>
-                            <div className="button-pro">
-                              {" "}
-                              <Link
-                                to="/EventUpdate"
-                                state={{ blockDetails: obj }}
-                              >
-                                <button className="edit-info">
-                                  <img src={editImg}></img>
-                                </button>
-                              </Link>
-                            </div>
-                          </div>
-                          <p className="details">
-                            <p>{obj.eventDescription}</p>{" "}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
+              {<div className="eve-top">Events</div>}
+              <ListEvent eventsData = {eventsData} editImg={editImg}/>
             </div>
           )}
           {content === "add-event" && <AddEvent />}
-          {content === "edit-profile" && <EditProfile />}
+          {/* {content === "edit-profile" && <EditProfile reqValues={eventsData}/>} */}
         </div>
       </div>
     </>
