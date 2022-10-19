@@ -8,6 +8,7 @@ import "./CSS/Login.css";
 import Footer from "../Footer/footer.js";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -74,10 +75,22 @@ const Login = () => {
                   placeholder="Password *"
                   required
                 ></input>
+                <div>
+                  <ClipLoader
+                    color="white"
+                    loading={loading}
+                    // cssOverride={override}
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                  />
+                </div>
+
                 <button className="login-btn">LOGIN</button>
                 {loginData.error ? (
                   <div className="sign-failure">{loginData.error}</div>
                 ) : null}
+
                 <div className="login-footer">
                   <p>Don't have an account?</p>
                   <Link to="/Signup">SIGN UP</Link>

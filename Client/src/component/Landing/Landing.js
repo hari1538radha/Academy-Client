@@ -17,6 +17,7 @@ import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
 import ListEvent from "../AddEvent/ListEvent/ListEvent";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Landing() {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ function Landing() {
   const { topicData, topicLoading } = useSelector((state) => state.topicInfo);
   const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
+  console.log(eventLoading);
   return (
     <div>
       <NavBar profileInfo={userData.data} />
@@ -74,6 +76,7 @@ function Landing() {
           className="search-box"
           required={true}
         ></input>
+
         <div className="search-img">
           <button className="but-click" onClick={navigateSearch}>
             <img className="search-but" src={img3}></img>
@@ -114,8 +117,19 @@ function Landing() {
           <div className="third-top">
             <h1>Top Events</h1>
           </div>
+
           <div className="third-full-con">
-          <ListEvent eventsData = {eventsData}/>
+            <ListEvent eventsData={eventsData} />
+            <div>
+              <ClipLoader
+                // color={color}
+                loading={eventLoading}
+                // cssOverride={override}
+                size={100}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import Footer from "../Footer/footer";
 import Loginlogo from "../Login/Images/Vector.svg";
 import NavBar from "../Navbar/navbar";
 import "./Signup.css";
+// import ClipLoader from "react-spinners/ClipLoader";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -22,19 +23,17 @@ const Signup = () => {
         status: 1,
         message: "Registered Successfully!!",
       });
-  
     } else if (signupData?.data?.response === "Email Exits") {
       setLoginStatus({
         status: 2,
         message: "This email has been already taken!!",
       });
-    
     } else if (signupData?.data?.response === "Inefficient") {
       setLoginStatus({
         status: 3,
         message: " Please check the details entered",
       });
-    } 
+    }
   }, [signupData]);
 
   const handleSignupData = (e) => {
@@ -93,6 +92,16 @@ const Signup = () => {
                 placeholder="Password *"
                 required
               ></input>
+              {/* <div>
+              <ClipLoader
+            // color={color}
+            loading={setLoginStatus}
+            // cssOverride={override}
+            size={100}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+              </div> */}
               <button className="Signup-btn">SIGNUP</button>
               {loginStatus.status === 1 ? (
                 <div className="sign-success">

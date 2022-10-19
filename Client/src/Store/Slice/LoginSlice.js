@@ -12,7 +12,7 @@ const loginReducer = createSlice({
   name: "login",
   initialState: {
     loginData: [],
-    loading: true,
+    loading: false,
   },
   reducer: {},
   extraReducers: {
