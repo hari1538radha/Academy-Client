@@ -1,6 +1,5 @@
 import express from "express";
 import multer from "multer";
-
 import { login } from "../Controllers/Login.js";
 import { signup } from "../Controllers/Signup.js";
 import { uploadTopics } from "../Controllers/Topics/Topics.js";
