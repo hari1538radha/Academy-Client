@@ -11,7 +11,7 @@ const app = Express();
 
 const PORT = process.env.PORT || 8001;
 
-app.use(cors({ credentials: true, origin:"https://learnplusplus.vercel.app"}));
+app.use(cors({ credentials: true, origin:"http://localhost:3000"}));
 
 // "http://localhost:3000"
 
