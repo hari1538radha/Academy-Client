@@ -16,7 +16,7 @@ function UniversityCardDetail() {
       <Navbar />
       <div className="clg-heading">
         <div className="clg-head-top">
-          <button
+          {/* <button
             className="button-menu"
             onClick={() => {
               const show = document.getElementById("details-div");
@@ -25,7 +25,7 @@ function UniversityCardDetail() {
             }}
           >
             <img className="menu-icon" src={menu}></img>
-          </button>
+          </button> */}
 
           <div className="clg-name-head">
             <img className="clg-name-logo" src={details.Logo}></img>
@@ -89,4 +89,3 @@ function UniversityCardDetail() {
 }
 
 export default UniversityCardDetail;
-
