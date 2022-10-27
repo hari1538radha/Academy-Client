@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8001;
 
 app.use(cors({ credentials: true, origin:"http://localhost:3000"}));
 
-// "http://localhost:3000"
+// "https://learnplusplus.vercel.app"
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));

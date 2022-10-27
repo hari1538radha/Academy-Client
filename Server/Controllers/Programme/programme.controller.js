@@ -1,4 +1,21 @@
 import { programSchemaModel } from "../../Schema/ProgramSchema.js";
+import GenerateSchema from 'generate-schema';
+import mongoose from "mongoose" ;
+
+const postProgramme = (req, res) => {
+  const schema = GenerateSchema.json("programs", req.body[0])
+  console.log(schema)
+  const ProgramSchemaModel = mongoose.model("programs", schema.properties);
+
+   ProgramSchemaModel.insertMany(req.body)
+    .then(function (response) {
+        console.log("Data inserted"); // Success
+        return res.send("Data inserted");
+    })
+    .catch(function (error) {
+        console.log(error); // Failure
+    });
+};
 
 const getProgramme = (req, res) => {
   const { page = 1, limit = 300 } = req.query;
@@ -18,15 +35,5 @@ const getProgramme = (req, res) => {
     .skip((page - 1) * limit);
 };
 
-const postProgramme = (req, res) => {
-  programSchemaModel
-    .insertMany(req.body)
-    .then(function (response) {
-      return res.send("Data inserted");
-    })
-    .catch(function (error) {
-      console.log(error); // Failure
-    });
-};
 
 export { getProgramme, postProgramme };

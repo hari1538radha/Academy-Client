@@ -1,24 +1,43 @@
 import { excelToJsonModel } from "../Schema/excelToJson.js";
 
 export const editUniversities = (req, res) => {
+  let {S_No, 
+    State, 
+    Type, 
+    Yrofestab, 
+    Location_Coordinates, 
+    Name,
+    City,
+    District,
+    PIN,
+    url,
+    Phone,
+    Village,
+    Email,
+    Image,
+    Logo} = req.body.values;
+    console.log(req.body)
+    console.log(S_No, "before")
+    S_No = parseInt(S_No,10)
+    console.log(S_No, "after")
     excelToJsonModel.updateOne(
-    { S_No: req.body.S_No },
+    { S_No: S_No },
     {
       $set: {
-        State: req.body.State,
-        Type: req.body.Type,
-        Yrofestab: req.body.Yrofestab,
-        Location_Coordinates: req.body.Location_Coordinates,
-        Name: req.body.Name,
-        City: req.body.City,
-        District: req.body.District,
-        PIN: req.body.PIN,
-        url: req.body.url,
-        Phone: req.body.Phone,
-        Village: req.body.Village,
-        Email: req.body.Email,
-        Image: req.body.Image,
-        Logo: req.body.Logo,
+        State: State,
+        Type: Type,
+        Yrofestab: Yrofestab,
+        Location_Coordinates: Location_Coordinates,
+        Name: Name,
+        City: City,
+        District: District,
+        PIN: PIN,
+        url: url,
+        Phone: Phone,
+        Village: Village,
+        Email: Email,
+        Image: Image,
+        Logo: Logo,
       },
     },
     { upsert: true },
