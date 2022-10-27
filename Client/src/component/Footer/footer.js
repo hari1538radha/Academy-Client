@@ -11,6 +11,7 @@ import instagram from "../Login/Images/Instagram.svg";
 import google from "../Login/Images/GooglePlus.svg";
 import pinster from "../Login/Images/Pinterest.svg";
 import Wifilogo from "../Login/Images/wifilogo.svg";
+import logo from "../About/img/Learn.svg";
 import './footer.css'
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
 
       <div className="footer-divider">
 
-        <img className="Logo" src={Logo} alt="no img found"></img>
+        <img className="Logo" src={logo} alt="no img found"></img>
 
         <div className="right-footer">
 
@@ -64,7 +65,7 @@ const Footer = () => {
           <a href="#/"> DISCLAIMER</a>
         </div>
         <div className="Copyright-container">
-          <p>Copyright © 2022•</p>
+          <p>Copyright © 2022 Learnplusplus•</p>
         </div>
       </div>
       <div className="Social-hidden">
@@ -76,7 +77,7 @@ const Footer = () => {
             </div>
             <div className="line-3"></div>
             <div className="hidden-copyright-container">
-              <p>Copyright © 2022•</p>
+              <p>Copyright © 2022 Learnplusplus•</p>
             </div>
     </div>
   );

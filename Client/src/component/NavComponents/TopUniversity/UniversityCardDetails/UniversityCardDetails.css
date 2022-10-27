@@ -1,0 +1,127 @@
+.clg-head-top {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  /* background: aliceblue; */
+}
+.clg-name-head {
+  width: 100px;
+  margin-left: 15px;
+}
+.clg-name {
+  font-family: "Poppins";
+  font-size: 35px;
+  font-weight: 600;
+}
+.clg-city {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 50px;
+}
+.clg-district {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+.clg-state {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+.clg-head-second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: white;
+  align-items: center;
+  margin-top: 20px;
+}
+img.clg-img {
+  /* border-radius: 135px; */
+  border-radius: 10px;
+  width: 9%;
+  margin-left: -4px;
+}
+button.button-menu {
+  width: 40px;
+  height: 36px;
+  background: #ffffff;
+  border: #ffffff;
+}
+img.menu-icon {
+  width: 23px;
+}
+
+.clg-name-logo {
+  border-radius: 80px;
+  /* border-radius: 10px; */
+  width: 80%;
+}
+h3.clg-topic {
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.clg-year {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img.uni-logo {
+  width: 40px;
+}
+.edu-logo {
+  width: 100px;
+}
+.clg-co-education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+}
+
+.clg-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+}
+.clg-sec-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.clg-campus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.clg-faculty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.clg-student {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button.clg-detail-button {
+  width: 20%;
+  border: white;
+  height: 40px;
+  background: #90c1f8;
+}
+button.clg-detail-button:hover {
+  background: #0281fe;
+  transition: all 0.6s ease-in-out;
+  color: white;
+}

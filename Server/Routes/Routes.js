@@ -1,4 +1,5 @@
 import express from "express";
+import multer from "multer";
 import { login } from "../Controllers/Login.js";
 import { signup } from "../Controllers/Signup.js";
 import { uploadTopics } from "../Controllers/Topics/Topics.js";
@@ -11,39 +12,48 @@ import { detailpage } from "../Controllers/DetailPage/DetailPage.js";
 import { detail } from "../Controllers/DetailPage/Detail.js";
 import { listofPrograms } from "../Controllers/listOf.js";
 import { getExcelofEducation } from "../Controllers/readEducation.js";
-import { getUniversities, postUniversities } from "../Controllers/Universities/universities.controller.js";
-import { getProgramme, postProgramme } from "../Controllers/Programme/programme.controller.js";
-import { EventById } from "../Controllers/Events/SingleEvent.js";
+import {
+  getUniversities,
+  postUniversities,
+} from "../Controllers/Universities/universities.controller.js";
+import {
+  getProgramme,
+  postProgramme,
+} from "../Controllers/Programme/programme.controller.js";
+import { EventById } from "../Controllers/Events/getEventById.js";
 import { editEvent } from "../Controllers/Events/EditEvents.js";
-import multer from "multer";
+import { addQuiz } from "../Controllers/quizupload.js";
+import { quizData } from "../Controllers/quizData.js";
 import { createUser } from "../Controllers/userSignup.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
+import { editUniversities } from "../Controllers/EditUniversities.js";
+import { DeleteUniversity } from "../Controllers/deleteUniversity.js";
 
 const Storages = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'profile')
-    },
-  
-    filename: (req, file, cb) => {
-      cb(null, file.originalname)
-    }
-  });
-
-const Upload = multer({
-  storage: Storages,
-  limits: {
-    fileSize: 90000000,
-  },
-})
-
-const users = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'profilepic')
+    cb(null, "profile");
   },
 
   filename: (req, file, cb) => {
-    cb(null, `${file.originalname}`)
-  }
+    cb(null, file.originalname);
+  },
+});
+
+const Upload = multer({
+  storage: Storages,
+  // limits: {
+    // fileSize: 90000000,
+  // },
+});
+
+const users = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "profilepic");
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, `${file.originalname}`);
+  },
 });
 
 const uploadPic = multer({
@@ -53,14 +63,27 @@ const uploadPic = multer({
   },
 });
 
+const eventStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploadimage')
+  },
+  filename: (req, file, callback) => {
+    callback(null, `${file.originalname}`);
+  },
+});
+
+const eventImgUpload = multer({
+  storage: eventStorage
+});
+
 const Route = express.Router();
 
 Route.post("/signup", signup);
-Route.post("/studentsignup", uploadPic.single("userimage"),createUser)
+Route.post("/studentsignup", uploadPic.single("userimage"), createUser);
 Route.post("/login", login);
 Route.get("/userimage", getuserimg);
 Route.post("/post-topic", uploadTopics);
-Route.post("/post-event", uploadEvents);
+Route.post("/post-event",eventImgUpload.single("eventImage"), uploadEvents);
 Route.get("/topics", topics);
 Route.get("/geteducation", getExcelofEducation);
 Route.get("/events", events);
@@ -74,6 +97,11 @@ Route.get("/universities", getUniversities);
 Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
+Route.put("/editevent",eventImgUpload.single("eventImage"), editEvent);
+Route.post("/addquiz", addQuiz);
+Route.get("/quizdata", quizData);
 Route.put("/edit-event", editEvent);
+Route.put("/edit-universities", editUniversities);
+Route.delete("/delete-universities/:S_No", DeleteUniversity);
 
 export default Route;

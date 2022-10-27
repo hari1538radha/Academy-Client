@@ -16,6 +16,7 @@ import { getTopicInfo } from "../../Store/Slice/TopicSlice.js";
 import { getEventInfo } from "../../Store/Slice/EventSlice.js";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postLoginUser } from "../../Store/Slice/LoginSlice";
+import ListEvent from "../Event/ListEvent/ListEvent";
 
 function Landing() {
   const navigate = useNavigate();
@@ -79,56 +80,14 @@ function Landing() {
           </button>
         </div>
       </div>
-      {/* <div className="second-contant">
-          <div className="sub-con">
-            <h1 className="topic"> Topics</h1>
-
-            <div className="sub-top">
-              {topicData.length > 0 &&
-                topicData.map((obj) => {
-                  return (
-                    <div className="sub-top-1" key={obj.id}>
-                      <h2 className="topic1">{obj.topicTitle}</h2>
-                      <p className="sub-contain">{obj.topicDescription}</p>
-
-                      <div className="Read-More">
-                        <a href="/detail">
-                          <img src={img6} className="book-logo"></img>
-                          Read More
-                        </a>
-                      </div>
-                    </div>
-                  );
-                })}
-              <div className="next-but">
-                <button onClick={navigateDetail}>
-                  <img className="click-but" src={img7}></img>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
+      
       <div className="third-container">
         <div className="third-content">
           <div className="third-top">
             <h1>Top Events</h1>
           </div>
           <div className="third-full-con">
-            {eventsData.length > 0 &&
-              eventsData.slice(0, 3).map((obj) => {
-                return (
-                  <div key={obj.eve} className="events-card-container">
-                    <div className="third-sub-con">
-                      <img className="eve-img" src={img4}></img>
-                      <div className="event-card-details">
-                        <div className="third-head">{obj.eventName}</div>
-                        <p className="details">{obj.eventDescription}</p>{" "}
-                        <a href="/EventUpdate">update</a>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+          <ListEvent eventsData = {eventsData}/>
           </div>
         </div>
       </div>

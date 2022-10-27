@@ -1,18 +1,22 @@
 import Express from "express";
-import { PORT, mongoUrl } from "./Config/config.js";
+import { mongoUrl } from "./Config/config.js";
 import mongoose from "mongoose";
 import routes from "./Routes/Routes.js";
 import bodyParser from "body-parser";
 import cors from "cors";
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const app = Express();
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+const PORT = process.env.PORT || 8001;
 
-app.use(bodyParser.json());
+app.use(cors({ credentials: true, origin:"http://localhost:3000"}));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// "https://learnplusplus.vercel.app"
 
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use("/api", routes);
 
 mongoose.connect(
@@ -25,7 +29,7 @@ mongoose.connect(
     if (!err) {
       console.log("connected to db");
     } else {
-      console.log(err);
+      console.log("error", err);
     }
   }
 );

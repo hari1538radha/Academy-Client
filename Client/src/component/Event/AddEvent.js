@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AddEvent.css";
 import NavBar from "../Navbar/navbar";
 import { useDispatch } from "react-redux";
@@ -8,6 +8,16 @@ import file from "./img/pngtree.jpg";
 const AddEvent = () => {
   const dispatch = useDispatch();
 
+  const [name, setname] = useState()
+  const [files, setFile] = useState()
+  const [message, setmessage] = useState()
+
+  const onFileChange = (e) => {
+    setFile(e.target.files[0])
+    setname(e.target.files[0].name)
+    console.log(name)
+  }
+
   const HandelEventData = (e) => {
     e.preventDefault();
     const element = e.target.elements;
@@ -15,22 +25,15 @@ const AddEvent = () => {
     const eventDescription = element[1].value;
     const eventDate = element[2].value;
     const eventTime = element[3].value;
-    const eventImage = element[4].file;
-
     element[0].value = "";
     element[1].value = "";
     element[2].value = "";
     element[3].value = "";
-    element[4].value = "";
-    dispatch(
-      PostEventData({
-        eventName,
-        eventDescription,
-        eventDate,
-        eventTime,
-        eventImage,
-      })
-    );
+    // element[4].value = "";
+    dispatch(PostEventData({ eventName, eventDescription, eventDate, eventTime, files}));
+    if (name.length > 0){
+      setmessage("Event uploaded successfully")
+    }
   };
 
   return (
@@ -70,26 +73,21 @@ const AddEvent = () => {
                 alt="no img found"
                 className="profile-file-img"
               ></img>
-              <label className="upload-pic-txt">
+              {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
-              </label>
+              </label>}
               <input
                 type="file"
                 className="select-new-pic"
                 required={true}
-                accept=".png,.svg,.jpeg,.jpg"
+                onChange={onFileChange}
+                // accept=".png,.svg,.jpeg,.jpg"
               ></input>
             </label>
 
-            {/* <input
-              className="input-img"
-              type="file"
-              required={true}
-              accept=".png,.svg,.jpeg,.jpg"
-            ></input>
-            <label className="input-img-label">
-              Upload only PNG,JPEG,JPG,SVG type only
-            </label> */}
+            {message && <div className="addEvent-success-msg">{message}</div>}
+            {/* {<div>Event is not added</div>} */}
+
             <button className="btn-submit">Submit</button>
           </div>
         </form>

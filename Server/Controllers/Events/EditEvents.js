@@ -1,14 +1,20 @@
 import { eventModel } from "../../Schema/EventsSchema.js";
+import fs from "fs"
 
 export const editEvent = (req, res) => {
+  const {eventId, eventName, eventDescription, eventDate, eventTime} = req.body
   eventModel.updateOne(
-    { eventId: req.body.eventId },
+    { eventId: eventId },
     {
       $set: {
-        eventName: req.body.eventName,
-        eventDescription: req.body.eventDescription,
-        evntImage: req.body.evntImage,
-        date: req.body.date,
+        eventName: eventName,
+        eventDescription: eventDescription,
+        eventImage: {
+          data: fs.readFileSync("uploadimage/" + req.file.filename),
+          contentType: "image/png"
+        },
+        eventDate: eventDate,
+        eventTime: eventTime
       },
     },
     { upsert: true },

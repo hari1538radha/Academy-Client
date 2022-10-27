@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Footer from "../Footer/footer";
+import { axio } from "../../Config/Config";
 import { useLocation } from "react-router-dom";
 import AdminNavBar from "../userProfile/AdminNavBar";
 import MaterialReactTable from "material-react-table";
@@ -8,6 +9,8 @@ import { getProgrammeInfo } from "../../Store/Slice/getProgramme";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
+import editUniversities from "../../Store/Slice/EditUniversities";
+import { deleteSelectedUniversity } from "../../Store/Slice/deleteUniversity";
 
 import {
   Box,
@@ -40,6 +43,8 @@ const Dashboard = () => {
   const { programmeData } = useSelector((state) => state.getProgrammeInfo);
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
 
+  const {deleteLoading} = useSelector((state) => state.selectDeletingUniversity)
+
   data = appState["universitiesInfo"]["universitiesData"];
   if (dataState === "Programme") {
     data = appState["getProgrammeInfo"]["programmeData"];
@@ -55,32 +60,31 @@ const Dashboard = () => {
       setKeys(keyTypes[dataState]);
     }
     dispatch(userProfileData(locationState));
-  }, [dataState]);
+  }, [dataState, data, universitiesData, programmeData]);
 
   const handleCreateNewRow = (values) => {
     data.push(values);
     // setTableData([...data]);
   };
 
-  const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
+  const changedValues = async(values) => {
+    const res = axio.put(`/api/edit-universities`, {
+      values
+    }).catch((err) => console.log(err,"editing error"))
+    return await res.data
+  }
+
+  const handleSaveRowEdits = async ({exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
-      data[row.index] = values;
-      //send/receive api updates here, then refetch or update local table data for re-render
-      // setTableData([...tableData]);
-      exitEditingMode(); //required to exit editing mode and close modal
+      changedValues(values);
+      exitEditingMode();
     }
   };
 
-  const handleDeleteRow = useCallback(
-    (row) => {
-      if (
-        !alert(`Are you sure you want to delete ${row.getValue("firstName")}`)
-      ) {
-        return;
-      }
-      //send api delete request here, then refetch or update local table data for re-render
-      data.splice(row.index, 1);
-      // setTableData([...tableData]);
+  const handleDeleteRow = useCallback((row) => {
+    alert(`Do you really want to delete this data`)
+    const serialNumber = (row._valuesCache.S_No)
+    dispatch(deleteSelectedUniversity(serialNumber))
     },
     [data]
   );
@@ -235,9 +239,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
                 key={column.accessorKey}
                 label={column.header}
                 name={column.accessorKey}
-                onChange={(e) =>
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }
+                onSubmit={(e) =>setValues({ ...values, [e.target.name]: e.target.value })}
               />
             ))}
           </Stack>
@@ -258,3 +260,5 @@ const validateEmail = (email) =>
 const validateAge = (age) => age >= 18 && age <= 50;
 
 export default Dashboard;
+
+
