@@ -1,16 +1,8 @@
-// import { excelToJsonModel } from "../../Schema/excelToJson.js";
+import { excelToJsonModel } from "../../Schema/excelToJson.js";
 import GenerateSchema from 'generate-schema';
 import mongoose from "mongoose" ;
 
 const postUniversities = (req, res) => {
-  // excelToJsonModel
-  //   .insertMany(req.body)
-  //   .then(function (response) {
-  //     return res.send("Data inserted");
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error); // Failure
-  //   });
 
     let schema = GenerateSchema.json("universities", req.body[0])
     const universitiesModel = mongoose.model("universities", schema.properties);
