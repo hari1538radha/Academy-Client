@@ -1,6 +1,4 @@
 .specialization-page-container {
-    display: grid;
-    grid-template-columns: 70% 30%;
     width: 95%;
     margin: 1em auto;
 }

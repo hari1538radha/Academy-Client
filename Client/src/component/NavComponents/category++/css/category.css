@@ -1,45 +1,56 @@
 .category-page-container {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    width: 95%;
-    margin: 1em auto;
+ 
+  width: 95%;
+  margin: 1em auto;
 }
 
 .category-options-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #F4FAFF;
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+  align-items: center;
 }
 
 .category-details {
-    background: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
 }
 
-.category-options {
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: solid 0.15em rgb(242 242 242);
-    background: transparent;
-    width: 100%;
-    color: rgb(0, 0, 0);
-    font-size: 1.2em;
-    font-weight: 500;
-    padding: 1.5em 2.5em;
+.category-options-tile {
+  border-left: 0;
+  border-right: 0;
+  display: flex;
+  border-top: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  min-width: 250px;
+  max-width: 100%;
+  border-bottom: solid 0.15em rgb(242 242 242);
+  background: transparent;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+  font-weight: 500;
+  padding: 20px;
+  background: #f4faff;
+  border: 2px rgba(197, 193, 193, 0.379) solid;
+  margin-right: 2rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .category-options:hover {
-    background: rgb(83, 117, 226);
-    color: white;
+  background: rgb(83, 117, 226);
+  color: white;
 }
 
 .category-details-card {
-    background: rgb(215, 215, 255);
-    border-radius: 1em;
-    box-shadow: 1em 1em 1em gray;
-    width: 60%;
-    margin: 15em auto;
-    height: 30vh;
-    padding: 2em;
+  background: rgb(243, 243, 246);
+  border-radius: 1em;
+  box-shadow: 1em 1em 1em gray;
+  width: 60%;
+  margin: 15em auto;
+  height: 30vh;
+  padding: 2em;
 }

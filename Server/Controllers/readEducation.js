@@ -16,5 +16,3 @@ export const getExcelofEducation = async(req, res) => {
         data: data.slice(startIndex, endIndex)
     })
 };
-
-

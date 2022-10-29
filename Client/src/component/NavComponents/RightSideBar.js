@@ -13,7 +13,7 @@ function RightSideBar({ options }) {
           <button
             value={item}
             onClick={settingState}
-            className="category-options"
+            className="category-options-tile"
           >
             {item}
           </button>
