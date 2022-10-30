@@ -3,7 +3,7 @@ import Navbar from "../../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
 import UniversityCard from "./UniversityCard/UniversityCard";
-import RightSideBarTopcollege from "../RightSideBarTopCollege"
+import RightSideBar from "../RightSideBar";
 import "./TopUniversity.css";
 
 function TopUniversity() {
@@ -26,6 +26,9 @@ function TopUniversity() {
   return (
     <>
       <Navbar />
+      <div class="uni-right-sidebar">
+          <RightSideBar options={options} />
+        </div>
       <div className="university-main-heading">Top Universities</div>
       <div className="selecting-preferences">
         <div className="guide-selection">
@@ -54,9 +57,7 @@ function TopUniversity() {
             <UniversityCard key={index} uniInfo={obj}></UniversityCard>
           ))}
         </div>
-        <div class="uni-right-sidebar">
-          <RightSideBarTopcollege options={options} />
-        </div>
+        
       </div>
     </>
   );
