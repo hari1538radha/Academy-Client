@@ -3,7 +3,7 @@ import Navbar from "../../Navbar/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
 import UniversityCard from "./UniversityCard/UniversityCard";
-import RightSideBar from "../../NavComponents/RightSideBar";
+import RightSideBarTopcollege from "../RightSideBarTopCollege"
 import "./TopUniversity.css";
 
 function TopUniversity() {
@@ -55,7 +55,7 @@ function TopUniversity() {
           ))}
         </div>
         <div class="uni-right-sidebar">
-          <RightSideBar options={options} />
+          <RightSideBarTopcollege options={options} />
         </div>
       </div>
     </>

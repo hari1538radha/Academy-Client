@@ -24,11 +24,12 @@ const TopColleges = () => {
         <Navbar/>
         <div className="category-page-container">
             <div className="category-details">
+            <RightSideBar options={options}/>
+
                 {state ? <div className="category-details-card">
                     <p><strong>category : </strong>{state}</p>
                 </div> : <h1>select the required category from the right dashboard</h1>}
             </div>
-            <RightSideBar options={options}/>
         </div>
         <Footer/>
         </>
