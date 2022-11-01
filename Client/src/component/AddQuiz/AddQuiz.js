@@ -1,50 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./AddQuiz.css";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/navbar";
 import { postQuizData } from "../../Store/Slice/uploadQuizSlice";
 
 const AddQuiz = () => {
   const dispatch = useDispatch();
+
+  const [status, setStatus] = useState(false)
+
+  const [error, setError] = useState({})
+
+  const [buttonText, setButtonText] = useState("Add-Quiz")
+
+  const [state, setState] = useState({
+    quizQuestionNo: "",
+    quizQuestion: "",
+    quizOption1: "",
+    quizOption2: "",
+    quizOption3: "",
+    quizOption4: "",
+    quizAnswer: ""
+  })
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setState({...state, [name]: value})
+  }
+
+  const validate = (e) => {
+    const errors={}
+    if (!e.quizQuestionNo){
+      errors.quizQuestionNo = "enter the serial number"
+    }
+    if(!e.quizQuestion){
+      errors.quizQuestion = "enter the question"
+    }
+    if(!e.quizOption1){
+      errors.quizOption1 = "enter the option"
+    }
+    if(!e.quizOption2){
+      errors.quizOption2 = "enter the option"
+    }
+    // if(!e.quizOption3){
+    //   errors.quizOption3 = "enter the option"
+    // }
+    // if(!e.quizOption4){
+    //   errors.quizOption4 = "enter the option"
+    // }
+    if(!e.quizAnswer){
+      errors.quizAnswer = "enter the correct answer"
+    }
+    return errors
+  }
+
   const handelAddQuiz = (e) => {
     e.preventDefault();
-    const element = e.target.elements;
-    const quizQuestionNo = element[0].value;
-    const quizQuestion = element[1].value;
-    const quizOption1 = element[2].value;
-    const quizOption2 = element[3].value;
-    const quizOption3 = element[4].value;
-    const quizOption4 = element[5].value;
-    const quizAnswer = element[6].value;
-    element[0].value = "";
-    element[1].value = "";
-    element[2].value = "";
-    element[3].value = "";
-    element[4].value = "";
-    element[5].value = "";
-    element[6].value = "";
-
-    console.log(
-      quizQuestion,
-      quizOption1,
-      quizOption2,
-      quizOption3,
-      quizOption4,
-      quizAnswer
-    );
-    dispatch(
-      postQuizData({
-        quizQuestionNo,
-        quizQuestion,
-        quizOption1,
-        quizOption2,
-        quizOption3,
-        quizOption4,
-        quizAnswer,
-      })
-    );
+    setError(validate(state))
+    setStatus(true)
   };
+
+  useEffect(() => {
+    if(Object.values(error).length === 0 && status){
+      setButtonText("Added-Quiz")
+      dispatch(postQuizData(state))
+    }
+  }, [status])
+
   const { quizData, quizLoading } = useSelector(
     (state) => state.quizUploadInfo
   );
@@ -69,12 +91,14 @@ const AddQuiz = () => {
                   placeholder="S/No"
                   className="input-que-box"
                   min="1" max="100"
+                  onChange={handleChange}
                 ></input>
                 <textarea
                   required={true}
                   type="text"
                   placeholder="Enter The Quiz Questions"
                   className="input-box-1"
+                  onChange={handleChange}
                 ></textarea>
               </div>
               <label className="title-add-quiz">
@@ -85,23 +109,29 @@ const AddQuiz = () => {
                 type="text"
                 placeholder="Option 1"
                 className="input-box"
+                onChange={handleChange}
               ></input>
+              <p>{error.quizOption1}</p>
               <input
                 required={true}
                 type="text"
                 placeholder="Option 2"
                 className="input-box"
+                onChange={handleChange}
               ></input>
+              <p>{error.quizOption2}</p>
               <input
                 type="text"
                 placeholder="Option 3"
                 className="input-box"
+                onChange={handleChange}
               ></input>
 
               <input
                 type="text"
                 placeholder="Option 4"
                 className="input-box"
+                onChange={handleChange}
               ></input>
               <label className="title-add-quiz">Correct Answer:</label>
               <input
@@ -109,8 +139,10 @@ const AddQuiz = () => {
                 type="text"
                 placeholder="Correct answer"
                 className="input-box"
+                onChange={handleChange}
               ></input>
-              <button className="add-button">Add Quiz</button>
+              <p>{error.quizAnswer}</p>
+              <button className={`add-button-${buttonText}`}>{buttonText}</button>
             </div>
           </form>
         </div>

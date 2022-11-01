@@ -3,9 +3,9 @@ import GenerateSchema from 'generate-schema';
 import mongoose from "mongoose" ;
 
 const postProgramme = (req, res) => {
-  const schema = GenerateSchema.json("programs", req.body[0])
+  const schema = GenerateSchema.json("program", req.body[0])
   console.log(schema)
-  const ProgramSchemaModel = mongoose.model("programs", schema.properties);
+  const ProgramSchemaModel = mongoose.model("program", schema.properties);
 
    ProgramSchemaModel.insertMany(req.body)
     .then(function (response) {
