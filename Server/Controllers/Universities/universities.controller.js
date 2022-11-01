@@ -31,8 +31,26 @@ const getUniversities = (req, res) => {
         });
       }
     })
-    .limit(limit * 1)
-    .skip((page - 1) * limit);
+    
 };
+
+const getUniversitiesByPage = (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  excelToJsonModel
+    .find((err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        return res.send({
+          status: 200,
+          message: "Universities details",
+          data: data,
+        });
+      }
+    }).limit(limit * 1)
+    .skip((page) * limit);
+    
+};
+
 
 export { getUniversities, postUniversities };

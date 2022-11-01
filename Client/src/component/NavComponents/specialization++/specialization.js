@@ -5,7 +5,7 @@ import "./css/specialization.css"
 import RightSideBar from "../RightSideBar"
 
 const Specialization = () => {
-    const options = [
+     const options = [
         "Agriculture",
 
         "Architecture",

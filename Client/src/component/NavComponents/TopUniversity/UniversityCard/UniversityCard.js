@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function UniversityCard({ uniInfo }) {
   const navigate = useNavigate();
   const location = useLocation().state;
-
+  // const UniversityCardData = uni
   const handelDetail = (e) => {
     navigate("/universities/details", { state: { state: uniInfo } });
   };
