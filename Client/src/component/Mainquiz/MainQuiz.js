@@ -22,10 +22,9 @@ const MainQuiz = () => {
   const [quizScoreStatus, setScoreStatus] = useState();
   const [errorbtnstatus, setbtnstatus] = useState();
   const [quizMarks, setQuizMarks] = useState();
-
-  const [buttonText, setButtonText] = useState("next")
-  const [mark, setMark] = useState(0)
-  const [popup, setPopup] = useState(false)
+  const [buttonText, setButtonText] = useState("next");
+  const [mark, setMark] = useState(0);
+  const [popup, setPopup] = useState(false);
 
   const handleQuestionPage = (data) => {
     setIndex(data.selected);
@@ -69,7 +68,7 @@ const MainQuiz = () => {
     }
 
     if (buttonText === "submit") {
-      setPopup(true)
+      setPopup(true);
     }
   };
 
@@ -94,7 +93,6 @@ const MainQuiz = () => {
         quizAnswer.push(element.quizAnswer);
       }, []);
     }
-
   }, [quizInfo]);
 
   useEffect(() => {
@@ -105,18 +103,18 @@ const MainQuiz = () => {
   }, [indexTo, index]);
 
   const endTest = () => {
-      console.log(respondedAnswer, "responded answer")
-      console.log(finalQuizAnswer, "final quiz answer")
+    console.log(respondedAnswer, "responded answer");
+    console.log(finalQuizAnswer, "final quiz answer");
     const a = window.confirm("Do you want to close your test");
     if (a === true) {
       const correctAnswer = respondedAnswer.filter((element1) =>
         finalQuizAnswer.some((element2) => element1 === element2)
       );
-      console.log(correctAnswer, "correct answer")
+      console.log(correctAnswer, "correct answer");
       const quizMarkss = correctAnswer.length;
       setQuizMarks(quizMarkss);
       setScoreStatus(1);
-      setButtonText("submitted")
+      setButtonText("submitted");
     }
   };
 
@@ -127,11 +125,10 @@ const MainQuiz = () => {
   useEffect(() => {
     setTimeout(() => {
       if (errorbtnstatus === 1) {
-        setButtonText("submit")
+        setButtonText("submit");
       }
-    }, "10000")
-  }, [errorbtnstatus, buttonText])
-
+    }, "10000");
+  }, [errorbtnstatus, buttonText]);
 
   return (
     <div>
@@ -142,11 +139,13 @@ const MainQuiz = () => {
             {
               <div className="quiz-question-container">
                 {quizData &&
-                  quizData.slice(index, indexTo).map((obj) => (
-                    <h1 className="Question-number">
-                      Question {obj.quizQuestionNo}
-                    </h1>
-                  ))}
+                  quizData
+                    .slice(index, indexTo)
+                    .map((obj) => (
+                      <h1 className="Question-number">
+                        Question {obj.quizQuestionNo}
+                      </h1>
+                    ))}
               </div>
             }
 
@@ -158,11 +157,18 @@ const MainQuiz = () => {
           <div className="quiz-Choose_testPage">
             <div>
               {popup === true ? (
-                <p className="after-quiz-questions">Quiz Completed please end test to view your scores</p>
+                <p className="after-quiz-questions">
+                  Quiz Completed please end test to view your scores
+                </p>
               ) : null}
             </div>
 
-            <meter min="0" max={noOfPages} value={index + 0.5} className="meter-scale"></meter>
+            <meter
+              min="0"
+              max={noOfPages}
+              value={index + 0.5}
+              className="meter-scale"
+            ></meter>
 
             {
               <div>
@@ -209,8 +215,10 @@ const MainQuiz = () => {
                             ></input>
                             <p>{obj.quizOption4}</p>
                           </label>
-                          <button className={buttonText}
-                            onClick={buttonText === "submit" && (endTest)}>
+                          <button
+                            className={buttonText}
+                            onClick={buttonText === "submit" && endTest}
+                          >
                             {buttonText}
                           </button>
                         </div>

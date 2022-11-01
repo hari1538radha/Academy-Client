@@ -41,11 +41,12 @@ const Specialization = () => {
         <Navbar/>
         <div className="specialization-page-container">
             <div className="specialization-details">
+            <RightSideBar options={options}/>
                 {state ? <div className="specialization-details-card">
                     <p><strong>Specialization : </strong>{state}</p>
                 </div> : <h1>select the required specialization from the right dashboard</h1>}
             </div>
-            <RightSideBar options={options}/>
+          
         </div>
         <Footer/>
         </>
