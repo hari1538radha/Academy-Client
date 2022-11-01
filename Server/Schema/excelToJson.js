@@ -48,6 +48,9 @@ const excelToJsonSchema = new mongoose.Schema({
   },
   Logo: {
     type: String
+  },
+  AboutCollege: {
+    type: String
   }
 });
 
