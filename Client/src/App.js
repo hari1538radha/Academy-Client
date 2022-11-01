@@ -7,7 +7,7 @@ import Landing from "../src/component/Landing/Landing";
 import SearchPage from "./component/searchpage/searchpage";
 import Quiz from "./component/Quiz/quiz";
 import AddQuiz from "./component/AddQuiz/AddQuiz";
-import MainQuiz from "./component/Mainquiz/MainQuiz";
+import MainQuiz from "./component/MainQuiz/MainQuiz";
 import DetailPage from "./component/Detailpage/Main/DetailPage";
 import Signup from "./component/Signup/Signup";
 import UserProfile from "./component/userProfile/UserProfile";
@@ -62,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;  
