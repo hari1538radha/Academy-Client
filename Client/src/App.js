@@ -33,8 +33,8 @@ function App() {
     <div>
       <Routes>
         {/* <Route path="/nav" element={<Navbar />}></Route> */}
-        <Route path="/categories" element={<Category/>}></Route>
-        <Route path="/specialization" element={<Specialization/>}></Route>
+        <Route path="/categories" element={<Category />}></Route>
+        <Route path="/specialization" element={<Specialization />}></Route>
         <Route path="/" element={<Landing />} exact></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
