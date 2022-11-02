@@ -4,8 +4,8 @@ import mongoose from "mongoose" ;
 
 const postUniversities = (req, res) => {
 
-    let schema = GenerateSchema.json("universities", req.body[0])
-    const universitiesModel = mongoose.model("universities", schema.properties);
+    let schema = GenerateSchema.json("excelToJson", req.body[0])
+    const universitiesModel = mongoose.model("excelToJson", schema.properties);
 
     universitiesModel.insertMany(req.body)
     .then(function (response) {
@@ -16,9 +16,16 @@ const postUniversities = (req, res) => {
         console.log(error); // Failure
     });
 }
-
 const getUniversities = (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
+  const page = req.query.page || 1
+  const limit = req.query.limit || 10
+
+  // const page = req.query.page || 1
+  // const limit = req.query.limit || 10
+
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit
+
   excelToJsonModel
     .find((err, data) => {
       if (err) {
@@ -27,30 +34,46 @@ const getUniversities = (req, res) => {
         return res.send({
           status: 200,
           message: "Universities details",
-          data: data,
+          data: data.slice(startIndex, endIndex)
         });
       }
     })
-    
 };
+// const getUniversities = (req, res) => {
+//   const { page = 1, limit = 10 } = req.query;
+//   excelToJsonModel
+//     .find((err, data) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         return res.send({
+//           status: 200,
+//           message: "Universities details",
+//           data: data,
+//         });
+//       }
+//     }).limit(limit * 1)
+//     .skip((page) * limit);
+    
+// };
 
-const getUniversitiesByPage = (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
-  excelToJsonModel
-    .find((err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        return res.send({
-          status: 200,
-          message: "Universities details",
-          data: data,
-        });
-      }
-    }).limit(limit * 1)
-    .skip((page) * limit);
+// const getUniversitiesByPage = (req, res) => {
+//   const { page = 1, limit = 10 } = req.query;
+//   excelToJsonModel
+//     .find((err, data) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         return res.send({
+//           status: 200,
+//           message: "Universities details",
+//           data: data,
+//         });
+//       }
+//     }).limit(limit * 1)
+//     .skip((page) * limit);
     
-};
+// };
 
 
 export { getUniversities, postUniversities };

@@ -7,6 +7,7 @@ import MaterialReactTable from "material-react-table";
 import { getUniversitiesInfo } from "../../Store/Slice/getUniversities";
 import { getProgrammeInfo } from "../../Store/Slice/getProgramme";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
+import { TablePagination } from '@mui/material'
 import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import editUniversities from "../../Store/Slice/EditUniversities";
@@ -35,6 +36,15 @@ const Dashboard = () => {
   const [dataState, setDataState] = useState("Universities");
   const [keys, setKeys] = useState(keyTypes.Universities);
   const [validationErrors, setValidationErrors] = useState({});
+  const [page, setPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rows, setRows] = useState([]);
+  const [totalRows, setTotalRows] = useState(0);
+
+  const [pagination, setPagination] = useState({
+    pageIndex: 1,
+    pageSize: 2000
+  })
 
   const appState = useSelector((state) => state);
   const { universitiesData, universitiesLoading } = useSelector(
@@ -45,14 +55,28 @@ const Dashboard = () => {
 
   const {deleteLoading} = useSelector((state) => state.selectDeletingUniversity)
 
-  data = appState["universitiesInfo"]["universitiesData"];
+  useEffect(() => {
+    axio.get(`/api/universities/`, {
+      params: {page: pagination.pageIndex, limit: pagination.pageSize}
+    })
+    .then((res) => {
+      setRows(res?.data?.data)
+      setTotalRows(res?.data?.data?.length)
+    })
+  }, [page, rowsPerPage])
+
+  if(dataState === "Universities") {
+    data = rows;
+  }
   if (dataState === "Programme") {
     data = appState["getProgrammeInfo"]["programmeData"];
   }
 
   useEffect(() => {
     if (dataState === "Universities") {
-      dispatch(getUniversitiesInfo());
+      dispatch(getUniversitiesInfo(pagination));
+      data = rows;
+      setKeys(keyTypes[dataState]);
     }
     if (dataState === "Programme") {
       dispatch(getProgrammeInfo());
@@ -60,11 +84,10 @@ const Dashboard = () => {
       setKeys(keyTypes[dataState]);
     }
     dispatch(userProfileData(locationState));
-  }, [dataState, data, universitiesData, programmeData]);
+  }, [dataState]);
 
   const handleCreateNewRow = (values) => {
     data.push(values);
-    // setTableData([...data]);
   };
 
   const changedValues = async(values) => {
@@ -186,6 +209,7 @@ const Dashboard = () => {
           editingMode="modal" //default
           enableColumnOrdering
           enableEditing
+          // enablePagination={false}
           onEditingRowSave={handleSaveRowEdits}
           renderRowActions={({ row, table }) => (
             <Box sx={{ display: "flex", gap: "1rem" }}>
