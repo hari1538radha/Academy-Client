@@ -24,7 +24,6 @@
 
 .search-container {
   margin-top: 62px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +69,8 @@
   letter-spacing: -0.411987px;
   color: rgba(70, 70, 70, 0.64);
 }
-.search-suggestion--container p:hover{
+
+.search-suggestion--container p:hover {
   background: #0281fe;
 }
 
@@ -96,10 +96,12 @@
   color: rgba(70, 70, 70, 0.64);
   border: none;
 }
-.search-seeall-btn:hover{
+
+.search-seeall-btn:hover {
   background: #0281fe;
   color: #ffffff;
 }
+
 .search-results--container {
   display: flex;
   flex-wrap: wrap;
@@ -174,7 +176,8 @@
   display: flex;
   gap: 11px;
 }
-.learnmore-container a{
+
+.learnmore-container a {
   text-decoration: none;
   margin-bottom: 5px;
 }

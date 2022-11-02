@@ -48,10 +48,10 @@ const SearchPage = () => {
         "Lörem ipsum kvasitropi svemester. Anaitet lall. Gåsade döloning. Syll bebel till kvasisens. Tres kos masade robotdräkt. Heteropp. Vönäna teraskap. Vande legga kadinera makrohet reatologi. Por hybridkrig och hypobun. Evöligt färade, därför att påns tilig. ",
     },
   ];
-    
+
   return (
     <div>
-        <Navbar/>
+      <Navbar />
       <div className="search-container">
         <input
           className="search-input"
