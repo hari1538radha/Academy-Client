@@ -27,21 +27,21 @@ function Admission() {
           <div className="ad-but">
             <button
               className="ad-but-1"
-              onClick={() => {
-                const showItem = document.getElementById("show");
-                showItem.style.display =
-                  showItem.style.display === "none" ? "block" : "none";
-              }}
+              // onClick={() => {
+              //   const showItem = document.getElementById("show");
+              //   showItem.style.display =
+              //     showItem.style.display === "none" ? "block" : "none";
+              // }}
             >
               MBBC
             </button>
             <button
               className="ad-but-2"
-              onClick={() => {
-                const showItem = document.getElementById("show2");
-                showItem.style.display =
-                  showItem.style.display === "none" ? "block" : "none";
-              }}
+              // onClick={() => {
+              //   const showItem = document.getElementById("show2");
+              //   showItem.style.display =
+              //     showItem.style.display === "none" ? "block" : "none";
+              // }}
             >
               BDC
             </button>

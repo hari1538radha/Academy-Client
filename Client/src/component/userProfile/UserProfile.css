@@ -230,7 +230,7 @@
   display: flex;
   flex-direction: column;
   margin: auto 1em;
-  height: 26em;
+  height: 100%;
   width: 18em;
   background: #ffffff;
   color: #4c4c4d;
