@@ -4,44 +4,36 @@ import prevlogo from "./TopUniversity/Admission/Img/prev-but.png";
 
 function RightSideBar({ options }) {
   const [state, setState] = useState();
-  const [next, setNext] = useState(0);
 
   const settingState = (e) => {
     setState(e.target.value);
   };
+  const myFunction = () => {
+    var element = document.getElementById("category-options");
+    console.log(element)
+    element.classList.toggle("category-options-tile2");
+ }
   return (
     <div className="category-options-container">
-      {next != 0 && (
-        <button
-          className="prev-but"
-          onClick={() => {
-            setNext(next - 4);
-          }}
-        >
-          <img className="logo-img" src={prevlogo}></img>
-        </button>
-      )}
-      {options.slice(next, next + 4).map((item) => {
+      <img  className="previous-arrow" src={prevlogo}>
+      </img>
+      
+      {options.map((item) => {
         return (
-          <button
+          <div >
+               <button
             value={item}
+            id="category-options"
             onClick={settingState}
             className="category-options-tile"
           >
             {item}
           </button>
+            </div>
+       
         );
       })}
-      {next != 8 && (
-        <button
-          className="but"
-          onClick={() => {
-            setNext(next + 4);
-          }}
-        >
-          <img className="logo-img1" src={nextlogo}></img>
-        </button>
-      )}
+      <button className="next-arrow" onClick={myFunction} >hi</button>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Navbar from "../../Navbar/navbar";
 import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
 import UniversityCard from "./UniversityCard/UniversityCard";
 import RightSideBar from "../RightSideBar";
+import LoaderGif from "../../Event/img/loader.gif";
 import "./TopUniversity.css";
 
 function TopUniversity() {
@@ -76,14 +77,11 @@ function TopUniversity() {
       var value = select.options[select.selectedIndex].value;
 
       setDistrictDisplayed(value);
-      console.log(districtDisplayed);
     }
   };
 
-
   useEffect(() => {
     setuniversityStateData(universitiesData.slice(0, 10));
-    console.log(universitiesData);
   }, [universitiesData]);
   useEffect(() => {
     setuniversityStateData(
@@ -100,30 +98,17 @@ function TopUniversity() {
     );
   }, [districtDisplayed]);
 
-  console.log(universityDatafinal);
-
   useEffect(() => {
-
-   (universitiesData.forEach((element) => {
-      if (element.State === stateSelected) 
-      district.push(element.District)
-      
-      
-    }));
+    district.splice(0, district.length);
+    universitiesData.forEach((element) => {
+      if (element.State === stateSelected) district.push(element.District);
+    });
   }, [stateSelected]);
-  console.log(district);
-
-
-  // useEffect(() => {
-  //   if (district.length > 0) {
-  //     setDistrict([]);
-  //   }
-  // }, [stateSelected]);
 
   return (
     <>
       <Navbar />
-      <div class="uni-right-sidebar">
+      <div className="uni-right-sidebar">
         <RightSideBar options={options} />
       </div>
       <div className="university-main-heading">Top Universities</div>
@@ -152,6 +137,12 @@ function TopUniversity() {
       </div>
       <div className="uni-main-container">
         <div className="uni-list-main-container">
+          {universityDatafinal.length == 0 && (
+            <div>
+              {" "}
+              <img className="loadergif" src={LoaderGif}></img>
+            </div>
+          )}
           {universityDatafinal.length &&
             universityDatafinal.map((obj, index) => (
               <UniversityCard key={index} uniInfo={obj}></UniversityCard>
