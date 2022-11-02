@@ -46,6 +46,8 @@ function TopUniversity() {
 
     "Paramedical",
   ];
+  const pageIndex =1;
+  const pageSize=2000;
   const dispatch = useDispatch();
   const [universityDatafinal, setuniversityStateData] = useState([]);
 
@@ -53,7 +55,7 @@ function TopUniversity() {
     (state) => state.universitiesInfo
   );
   useEffect(() => {
-    dispatch(getUniversitiesInfo());
+    dispatch(getUniversitiesInfo({pageIndex, pageSize}));
   }, []);
   universitiesData.forEach((element) => {
     if (!state.includes(element.State)) {
@@ -139,11 +141,10 @@ function TopUniversity() {
         <div className="uni-list-main-container">
           {universityDatafinal.length == 0 && (
             <div>
-              {" "}
               <img className="loadergif" src={LoaderGif}></img>
             </div>
           )}
-          {universityDatafinal.length &&
+          {universityDatafinal?.length &&
             universityDatafinal.map((obj, index) => (
               <UniversityCard key={index} uniInfo={obj}></UniversityCard>
             ))}
