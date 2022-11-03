@@ -17,6 +17,7 @@ import addProfilepic from "./Slice/profilepicpost";
 import UserProfilepic from "./Slice/getProfilepic";
 import editedEventReducer from "./Slice/editEvent";
 import removingSelectedUniversity from "./Slice/deleteUniversity";
+import searchUniversityByName from "./Slice/SearchUniversity";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
   newprofilepicInfo: UserProfilepic,
   editEvent: editedEventReducer,
   selectDeletingUniversity: removingSelectedUniversity,
+  searchUniversityByNameInfo:searchUniversityByName
 });
 
 const store = configureStore({

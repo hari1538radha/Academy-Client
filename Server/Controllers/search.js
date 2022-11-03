@@ -1,10 +1,10 @@
 import { excelToJsonModel } from "../Schema/excelToJson.js";
 
-export const searchData = (req, res) => {
-  const val = req.query.Name
+export const searchData = async (req, res) => {
+  const val = req.query
   console.log(val)
   excelToJsonModel.findOne(
-    { Name_1: { $regex : val } },
+    { Name_1: { $regex : `${val}`}},
     (err, data) => {
       if (err) {
         console.log(err);
