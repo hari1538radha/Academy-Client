@@ -1,34 +1,34 @@
- export const options = [
-    "Top Arts, Science & Commerce Colleges",
-    "Top Engineering Colleges",
-    "Top Pharmacy Colleges",
-    "Top Medical Colleges",
-    "Top G Dental Colleges",
-    "Top Law Colleges",
-    "Top Architecture Colleges",
-  ];
- export  const specialization = [
-    "Agriculture",
+export const options = [
+  "Top Arts, Science & Commerce Colleges",
+  "Top Engineering Colleges",
+  "Top Pharmacy Colleges",
+  "Top Medical Colleges",
+  "Top G Dental Colleges",
+  "Top Law Colleges",
+  "Top Architecture Colleges",
+];
+export const specialization = [
+  "Agriculture",
 
-    "Architecture",
+  "Architecture",
 
-    "Arts & Science",
+  "Arts & Science",
 
-    "Commerce",
+  "Commerce",
 
-    "Education",
+  "Education",
 
-    "Engineering",
+  "Engineering",
 
-    "Hospitality",
+  "Hospitality",
 
-    "Journalism & Media",
+  "Journalism & Media",
 
-    "Law",
+  "Law",
 
-    "Management",
+  "Management",
 
-    "Medical",
+  "Medical",
 
-    "Paramedical",
-  ];
+  "Paramedical",
+];

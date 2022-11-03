@@ -54,11 +54,12 @@ function TopUniversity() {
 
   useEffect(() => {
     function generateRandomInt(max) {
-      return Math.floor(Math.random() * (universitiesData.length - 10));
+      return Math.floor(Math.random() * max);
     }
-    console.log(generateRandomInt());
+    const randomNumber = generateRandomInt(universitiesData.length - 10);
+    console.log(randomNumber);
     setuniversityStateData(
-      universitiesData.slice(generateRandomInt(), generateRandomInt() + 10)
+      universitiesData.slice(randomNumber, randomNumber + 10)
     );
   }, [universitiesData]);
   useEffect(() => {
@@ -115,13 +116,11 @@ function TopUniversity() {
       </div>
       <div className="uni-main-container">
         <div className="uni-list-main-container">
-          {
-            (universitiesLoading === true && (
-              <div className="loader">
-                <img className="loadergif" src={LoaderGif}></img>
-              </div>
-            ))
-          }
+          {universitiesLoading === true && (
+            <div className="loader">
+              <img className="loadergif" src={LoaderGif}></img>
+            </div>
+          )}
           {universityDatafinal.length > 0 &&
             universityDatafinal.map((obj, index) => (
               <UniversityCard key={index} uniInfo={obj}></UniversityCard>
