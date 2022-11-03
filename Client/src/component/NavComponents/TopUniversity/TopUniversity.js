@@ -1,61 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../../Navbar/navbar";
 import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
+import { options } from "./constTopUniversity/constTopUniversity";
+import { specialization } from "./constTopUniversity/constTopUniversity";
 import UniversityCard from "./UniversityCard/UniversityCard";
 import RightSideBar from "../RightSideBar";
-import LoaderGif from "../../Event/img/loader.gif";
+import Navbar from "../../Navbar/navbar";
+
 import "./TopUniversity.css";
+import LoaderGif from "../../Event/img/loader.gif";
 
 function TopUniversity() {
   const state = [];
   const [stateSelected, setState] = useState([]);
   const [district, setDistrict] = useState([]);
   const [districtDisplayed, setDistrictDisplayed] = useState([]);
-  const options = [
-    "Top Arts, Science & Commerce Colleges",
-    "Top Engineering Colleges",
-    "Top Pharmacy Colleges",
-    "Top Medical Colleges",
-    "Top G Dental Colleges",
-    "Top Law Colleges",
-    "Top Architecture Colleges",
-  ];
-  const specialization = [
-    "Agriculture",
-
-    "Architecture",
-
-    "Arts & Science",
-
-    "Commerce",
-
-    "Education",
-
-    "Engineering",
-
-    "Hospitality",
-
-    "Journalism & Media",
-
-    "Law",
-
-    "Management",
-
-    "Medical",
-
-    "Paramedical",
-  ];
-  const pageIndex =1;
-  const pageSize=2000;
-  const dispatch = useDispatch();
-  const [universityDatafinal, setuniversityStateData] = useState([]);
-
   const { universitiesData, universitiesLoading } = useSelector(
     (state) => state.universitiesInfo
   );
+  const [universityDatafinal, setuniversityStateData] = useState([]);
+  const pageIndex = 1;
+  const pageSize = 2000;
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getUniversitiesInfo({pageIndex, pageSize}));
+    dispatch(getUniversitiesInfo({ pageIndex, pageSize }));
   }, []);
   universitiesData.forEach((element) => {
     if (!state.includes(element.State)) {
@@ -83,7 +53,13 @@ function TopUniversity() {
   };
 
   useEffect(() => {
-    setuniversityStateData(universitiesData.slice(0, 10));
+    function generateRandomInt(max) {
+      return Math.floor(Math.random() * (universitiesData.length - 10));
+    }
+    console.log(generateRandomInt());
+    setuniversityStateData(
+      universitiesData.slice(generateRandomInt(), generateRandomInt() + 10)
+    );
   }, [universitiesData]);
   useEffect(() => {
     setuniversityStateData(
@@ -139,12 +115,14 @@ function TopUniversity() {
       </div>
       <div className="uni-main-container">
         <div className="uni-list-main-container">
-          {universityDatafinal.length == 0 && (
-            <div>
-              <img className="loadergif" src={LoaderGif}></img>
-            </div>
-          )}
-          {universityDatafinal?.length &&
+          {
+            (universitiesLoading === true && (
+              <div className="loader">
+                <img className="loadergif" src={LoaderGif}></img>
+              </div>
+            ))
+          }
+          {universityDatafinal.length > 0 &&
             universityDatafinal.map((obj, index) => (
               <UniversityCard key={index} uniInfo={obj}></UniversityCard>
             ))}
