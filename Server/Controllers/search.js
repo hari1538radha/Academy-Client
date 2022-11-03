@@ -1,7 +1,11 @@
 import { excelToJsonModel } from "../Schema/excelToJson.js";
 
 export const searchData = (req, res) => {
-    excelToJsonModel.findOne({ Name_1 : req.query.Name }, (err, data) => {
+  const val = req.query.Name
+  console.log(val)
+  excelToJsonModel.findOne(
+    { Name_1: { $regex : val } },
+    (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -18,6 +22,6 @@ export const searchData = (req, res) => {
           });
         }
       }
-    });
-  };
-  
+    }
+  );
+};
