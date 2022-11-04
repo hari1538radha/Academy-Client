@@ -1,62 +1,69 @@
-import React, { useState } from "react"
-import "./css/category.css"
-import Navbar from "../../Navbar/navbar"
-import Footer from "../../Footer/footer"
-import RightSideBar from "../RightSideBar"
+import React, { useState } from "react";
+import "./css/category.css";
+import Navbar from "../../Navbar/navbar";
+import Footer from "../../Footer/footer";
+import RightSideBar from "../RightSideBar";
 
 const Category = () => {
-    const options = [
-        "Agriculture and Allied Disciplines",
+  const options = [
+    "Agriculture and Allied Disciplines",
 
-        "Architecture, Planning and Design",
+    "Architecture, Planning and Design",
 
-        "Arts, Humanities and Social Sciences",
+    "Arts, Humanities and Social Sciences",
 
-        "Business Administration, Commerce, Management and Finance",
+    "Business Administration, Commerce, Management and Finance",
 
-        "Education",
+    "Education",
 
-        "Engineering and Technology",
+    "Engineering and Technology",
 
-        "Fine Arts, Performing Arts, Visual Arts and Applied Arts",
+    "Fine Arts, Performing Arts, Visual Arts and Applied Arts",
 
-        "Hotel Management, Hospitality, Tourism and Travel",
+    "Hotel Management, Hospitality, Tourism and Travel",
 
-        "Journalism, Mass Communication and Media",
+    "Journalism, Mass Communication and Media",
 
-        "Law",
+    "Law",
 
-        "Library and Information Sciences",
+    "Library and Information Sciences",
 
-        "Medical and Surgery",
+    "Medical and Surgery",
 
-        "Rehabilitation Sciences",
+    "Rehabilitation Sciences",
 
-        "Sciences",
+    "Sciences",
 
-        "Vocational Education",
-    ]
-    
-    const [state, setState] = useState()
+    "Vocational Education",
+  ];
 
-    const settingState = (e) => {
-        setState(e.target.value)
-    }
-    return (
-        <>
-        <Navbar/>
-        <div className="category-page-container">
-            <div className="category-details">
-            <RightSideBar options={options}/>
+  const [state, setState] = useState();
 
-                {state ? <div className="category-details-card">
-                    <p><strong>category : </strong>{state}</p>
-                </div> : <h1>select the required category from the right dashboard</h1>}
+  const settingState = (e) => {
+    setState(e.target.value);
+  };
+  return (
+    <>
+      <Navbar />
+      <div className="category-page-container">
+        <div className="category-details">
+          <RightSideBar options={options} />
+
+          {state ? (
+            <div className="category-details-card">
+              <p>
+                <strong>category : </strong>
+                {state}
+              </p>
             </div>
+          ) : (
+            <h1>select the required category from the right dashboard</h1>
+          )}
         </div>
-        <Footer/>
-        </>
-    )
-}
+      </div>
+      <Footer />
+    </>
+  );
+};
 
-export default Category
+export default Category;

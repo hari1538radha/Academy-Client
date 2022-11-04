@@ -6,6 +6,7 @@ export const getUniversityInfoByName = createAsyncThunk(
   async (data) => {
     console.log(data.searchedUniversity)
     return axio.get(`/api/search?Name=${data.searchedUniversity}`,);
+
   }
 );
 
@@ -14,6 +15,7 @@ const searchUniversityReducer = createSlice({
   initialState: {
     SearchedUniversity: [],
     SearchedUniversityLoading: true,
+
   },
   reducers: {},
   extraReducers: {
@@ -26,6 +28,7 @@ const searchUniversityReducer = createSlice({
     },
     [getUniversityInfoByName.rejected]: (state, action) => {
       state.SearchedUniversityLoading = false;
+
     },
   },
 });
