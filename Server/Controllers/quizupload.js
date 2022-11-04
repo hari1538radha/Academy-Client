@@ -1,20 +1,45 @@
 import { addQuizModel } from "../Schema/addQuizSchema.js";
 
 export const addQuiz = (req, res) => {
-  const body = req.body;
-  if (!(body.quizQuestionNo && body.quizQuestion && body.quizOption1 && body.quizOption2)) {
+  const {SlNo, 
+        Stem,
+        distractor1, 
+        distractor2, 
+        distractor3, 
+        distractor4,
+        Key,
+        Hint,
+        TypeOfAssessment,
+        CourseTitle,
+        CognitiveLevel,
+        ConceptCode,
+        PurposeCode,
+        EntranceCode} = req.body;
+  if (!!(SlNo && Stem && distractor1 && distractor2)) {
     res.status(200).send({
       message: "Please enter the questions and answer",
     });
   } else {
+    let ImageInfo = {
+      data: fs.readFileSync("QuizQuestionImage/" + req.file.filename),
+      contentType: "image/png",
+    }
     const addQuizData = new addQuizModel({
-      quizQuestionNo:body.quizQuestionNo,
-      quizQuestion: body.quizQuestion,
-      quizOption1: body.quizOption1,
-      quizOption2: body.quizOption2,
-      quizOption3: body.quizOption3,
-      quizOption4: body.quizOption4,
-      quizAnswer: body.quizAnswer,
+        SlNo, 
+        Stem, 
+        Image: ImageInfo,
+        distractor1, 
+        distractor2, 
+        distractor3, 
+        distractor4,
+        Key,
+        Hint,
+        TypeOfAssessment,
+        CourseTitle,
+        CognitiveLevel,
+        ConceptCode,
+        PurposeCode,
+        EntranceCode
     });
 
     console.log(addQuizData);

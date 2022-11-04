@@ -76,6 +76,20 @@ const eventImgUpload = multer({
   storage: eventStorage
 });
 
+const Quizimage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "QuizQuestionImage");
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const QuizImg = multer({
+  storage: Quizimage,
+});
+
 const Route = express.Router();
 
 Route.post("/signup", signup);
@@ -98,7 +112,7 @@ Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
 Route.put("/editevent",eventImgUpload.single("eventImage"), editEvent);
-Route.post("/addquiz", addQuiz);
+Route.post("/addquiz", QuizImg.single("Image"),addQuiz);
 Route.get("/quizdata", quizData);
 Route.put("/edit-event", editEvent);
 Route.put("/edit-universities", editUniversities);
