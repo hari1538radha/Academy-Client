@@ -4,28 +4,28 @@ import { axio } from "../../Config/Config.js";
 export const getUniversityInfoByName = createAsyncThunk(
   "Universities",
   async (data) => {
-    console.log(data)
-    return axio.get(`/api/search`,data);
+    console.log(data.searchedUniversity)
+    return axio.get(`/api/search?Name=${data.searchedUniversity}`,);
   }
 );
 
 const searchUniversityReducer = createSlice({
   name: "Universities",
   initialState: {
-    SearcheUniversity: [],
-    SearcheUniversityLoading: true,
+    SearchedUniversity: [],
+    SearchedUniversityLoading: true,
   },
   reducers: {},
   extraReducers: {
     [getUniversityInfoByName.pending]: (state, action) => {
-      state.SearcheUniversityLoading = true;
+      state.SearchedUniversityLoading = true;
     },
     [getUniversityInfoByName.fulfilled]: (state, action) => {
-      state.SearcheUniversity = action.payload;
-      state.SearcheUniversityLoading = false;
+      state.SearchedUniversity = action.payload;
+      state.SearchedUniversityLoading = false;
     },
     [getUniversityInfoByName.rejected]: (state, action) => {
-      state.SearcheUniversityLoading = false;
+      state.SearchedUniversityLoading = false;
     },
   },
 });
