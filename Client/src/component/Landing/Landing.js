@@ -80,14 +80,14 @@ function Landing() {
           </button>
         </div>
       </div>
-      
+
       <div className="third-container">
         <div className="third-content">
           <div className="third-top">
             <h1>Top Events</h1>
           </div>
           <div className="third-full-con">
-          <ListEvent eventsData = {eventsData}/>
+            <ListEvent eventsData={eventsData} />
           </div>
         </div>
       </div>
