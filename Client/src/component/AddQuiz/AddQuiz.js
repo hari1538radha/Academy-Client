@@ -18,21 +18,21 @@ const AddQuiz = () => {
   const [buttonText, setButtonText] = useState("Add-Quiz")
 
   const [state, setState] = useState({
-        SlNo: "", 
-        Stem: "",
-        distractor1: "", 
-        distractor2: "", 
-        distractor3: "", 
-        distractor4: "",
-        Key: "",
-        Hint: "",
-        Image: "",
-        TypeOfAssessment: "",
-        CourseTitle: "",
-        CognitiveLevel: "",
-        ConceptCode: "",
-        PurposeCode: "",
-        EntranceCode: ""
+    SlNo: "",
+    Stem: "",
+    distractor1: "",
+    distractor2: "",
+    distractor3: "",
+    distractor4: "",
+    Key: "",
+    Hint: "",
+    Image: "",
+    TypeOfAssessment: "",
+    CourseTitle: "",
+    CognitiveLevel: "",
+    ConceptCode: "",
+    PurposeCode: "",
+    EntranceCode: ""
   })
 
   const handleToggle = (e) => {
@@ -40,34 +40,34 @@ const AddQuiz = () => {
   }
 
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setState({...state, [name]: value})
+    const { name, value } = e.target
+    setState({ ...state, [name]: value })
   }
 
   const validate = (e) => {
-    const errors={}
-    if (!e.SlNo){
+    const errors = {}
+    if (!e.SlNo) {
       errors.SlNo = "enter the serial number"
     }
-    if(!e.Stem){
+    if (!e.Stem) {
       errors.Stem = "enter the question"
     }
-    if(!e.distractor1){
+    if (!e.distractor1) {
       errors.distractor1 = "enter the option"
     }
-    if(!e.distractor2){
+    if (!e.distractor2) {
       errors.distractor2 = "enter the option"
     }
-    if(!e.Key){
+    if (!e.Key) {
       errors.Key = "enter the correct answer"
     }
-    if(!e.TypeOfAssessment){
+    if (!e.TypeOfAssessment) {
       errors.TypeOfAssessment = "enter the type of assessment"
     }
-    if(!e.CourseTitle){
+    if (!e.CourseTitle) {
       errors.CourseTitle = "enter the Course Title"
     }
-    if(!e.CognitiveLevel){
+    if (!e.CognitiveLevel) {
       errors.CognitiveLevel = "enter the cognitive level"
     }
     return errors
@@ -80,7 +80,7 @@ const AddQuiz = () => {
   };
 
   useEffect(() => {
-    if(Object.values(error).length === 0 && status){
+    if (Object.values(error).length === 0 && status) {
       setButtonText("Added-Quiz")
       dispatch(postQuizData(state))
     }
@@ -101,70 +101,70 @@ const AddQuiz = () => {
           <form onSubmit={handelAddQuiz} className="form-data">
             <div className="add-quiz-container">
               <h1>Add new Question</h1>
-            <input type="Number" name="SlNo" placeholder="S-No" onChange={handleChange}></input>
-            <p>{error.SlNo}</p>
+              <input type="Number" name="SlNo" placeholder="S-No" onChange={handleChange}></input>
+              <p>{error.SlNo}</p>
 
-            <textarea name="Stem" placeholder="Stem" onChange={handleChange}></textarea>
-            <p>{error.Stem}</p>
+              <textarea name="Stem" placeholder="Stem" onChange={handleChange}></textarea>
+              <p>{error.Stem}</p>
 
-            <input type="text" name="distractor1" placeholder="first option" onChange={handleChange}></input>
-            <p>{error.distractor1}</p>
+              <input type="text" name="distractor1" placeholder="first option" onChange={handleChange}></input>
+              <p>{error.distractor1}</p>
 
-            <input type="text" name="distractor2" placeholder="second option" onChange={handleChange}></input>
-            <p>{error.distractor2}</p>
+              <input type="text" name="distractor2" placeholder="second option" onChange={handleChange}></input>
+              <p>{error.distractor2}</p>
 
-            <input type="text" name="distractor3" placeholder="third option" onChange={handleChange}></input>
-            <p>{error.distractor3}</p>
+              <input type="text" name="distractor3" placeholder="third option" onChange={handleChange}></input>
+              <p>{error.distractor3}</p>
 
-            <input type="text" name="distractor4" placeholder="fourth option" onChange={handleChange}></input>
-            <p>{error.distractor4}</p>
+              <input type="text" name="distractor4" placeholder="fourth option" onChange={handleChange}></input>
+              <p>{error.distractor4}</p>
 
-            <input type="Number" name="Key" placeholder="Key" onChange={handleChange}></input>
-            <p>{error.Key}</p>
+              <input type="Number" name="Key" placeholder="Key" onChange={handleChange}></input>
+              <p>{error.Key}</p>
 
-            <input type="text" name="Hint" placeholder="Hint" onChange={handleChange}></input>
-            <p></p>
+              <input type="text" name="Hint" placeholder="Hint" onChange={handleChange}></input>
+              <p></p>
 
-            <input type="text" name="TypeOfAssessment" placeholder="Type Of Assessment" onChange={handleChange}></input>
-            <p>{error.TypeOfAssessment}</p>
+              <input type="text" name="TypeOfAssessment" placeholder="Type Of Assessment" onChange={handleChange}></input>
+              <p>{error.TypeOfAssessment}</p>
 
-            <input type="text" name="CourseTitle" placeholder="Course Title" onChange={handleChange}></input>
-            <p>{error.CourseTitle}</p>
+              <input type="text" name="CourseTitle" placeholder="Course Title" onChange={handleChange}></input>
+              <p>{error.CourseTitle}</p>
 
-            <input type="text" name="CognitiveLevel" placeholder="Cognitive Level" onChange={handleChange}></input>
-            <p>{error.CognitiveLevel}</p>
+              <input type="text" name="CognitiveLevel" placeholder="Cognitive Level" onChange={handleChange}></input>
+              <p>{error.CognitiveLevel}</p>
 
-            <input type="text" name="ConceptCode" placeholder="Concept Code" onChange={handleChange}></input>
-            <p></p>
+              <input type="text" name="ConceptCode" placeholder="Concept Code" onChange={handleChange}></input>
+              <p></p>
 
-            <input type="text" name="PurposeCode" placeholder="PurposeCode url" onChange={handleChange}></input>
-            <p></p>
+              <input type="text" name="PurposeCode" placeholder="PurposeCode url" onChange={handleChange}></input>
+              <p></p>
 
-            <input type="text" name="EntranceCode" placeholder="EntranceCode" onChange={handleChange}></input>
-            <p></p>
+              <input type="text" name="EntranceCode" placeholder="EntranceCode" onChange={handleChange}></input>
+              <p></p>
 
-            <FormControlLabel control={<Switch checked={checked} onChange={handleToggle}/>} label="toggle to upload image if necessary" />
+              <FormControlLabel control={<Switch checked={checked} onChange={handleToggle} />} label="toggle to upload image if necessary" />
 
-            {checked &&  <label className="add-New-Quiz_Question">
-              <img
-                src={camImg}
-                alt="no img found"
-                className="quiz_Question_Image"
-              ></img>
-              {/* {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
+              {checked && <label className="add-New-Quiz_Question">
+                <img
+                  src={camImg}
+                  alt="no img found"
+                  className="quiz_Question_Image"
+                ></img>
+                {/* {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
               </label>} */}
-              <input
-                type="file"
-                className="select-new-Quiz-Picture"
-                required={true}
+                <input
+                  type="file"
+                  className="select-new-Quiz-Picture"
+                  required={true}
                 // onChange={onFileChange}
                 // accept=".png,.svg,.jpeg,.jpg"
-              ></input>
-            </label>}
-            <p></p>
+                ></input>
+              </label>}
+              <p></p>
 
-            <button className={`add-button-${buttonText}`}>{buttonText}</button>
+              <button className={`add-button-${buttonText}`}>{buttonText}</button>
             </div>
           </form>
         </div>
