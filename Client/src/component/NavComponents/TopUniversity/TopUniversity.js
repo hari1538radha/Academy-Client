@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUniversitiesInfo } from "../../../Store/Slice/getUniversities";
-import { options } from "./constTopUniversity/constTopUniversity";
-import { specialization } from "./constTopUniversity/constTopUniversity";
+import { topColleges } from "../ConstNavComponents/ConstNavComponents";
+import { specialization } from "../ConstNavComponents/ConstNavComponents";
 import UniversityCard from "./UniversityCard/UniversityCard";
 import RightSideBar from "../RightSideBar";
 import Navbar from "../../Navbar/navbar";
@@ -88,7 +88,7 @@ function TopUniversity() {
     <>
       <Navbar />
       <div className="uni-right-sidebar">
-        <RightSideBar options={options} />
+        <RightSideBar options={topColleges} />
       </div>
       <div className="university-main-heading">Top Universities</div>
       <div className="selecting-preferences">

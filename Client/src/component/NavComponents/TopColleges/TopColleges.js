@@ -2,18 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../../Navbar/navbar";
 import Footer from "../../Footer/footer";
 import RightSideBar from "../RightSideBar";
+import { topColleges } from "../ConstNavComponents/ConstNavComponents.js";
 
 const TopColleges = () => {
-  const options = [
-    "Top Arts, Science & Commerce Colleges",
-    "Top Engineering Colleges",
-    "Top Pharmacy Colleges",
-    "Top Medical Colleges",
-    "Top G Dental Colleges",
-    "Top Law Colleges",
-    "Top Architecture Colleges",
-  ];
-
   const [state, setState] = useState();
 
   const settingState = (e) => {
@@ -24,7 +15,7 @@ const TopColleges = () => {
       <Navbar />
       <div className="category-page-container">
         <div className="category-details">
-          <RightSideBar options={options} />
+          <RightSideBar options={topColleges} />
 
           {state ? (
             <div className="category-details-card">

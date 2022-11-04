@@ -3,34 +3,9 @@ import Navbar from "../../Navbar/navbar";
 import Footer from "../../Footer/footer";
 import "./css/specialization.css";
 import RightSideBar from "../RightSideBar";
+import { specialization } from "../ConstNavComponents/ConstNavComponents.js";
 
 const Specialization = () => {
-  const options = [
-    "Agriculture",
-
-    "Architecture",
-
-    "Arts & Science",
-
-    "Commerce",
-
-    "Education",
-
-    "Engineering",
-
-    "Hospitality",
-
-    "Journalism & Media",
-
-    "Law",
-
-    "Management",
-
-    "Medical",
-
-    "Paramedical",
-  ];
-
   const [state, setState] = useState();
 
   const settingState = (e) => {
@@ -41,7 +16,7 @@ const Specialization = () => {
       <Navbar />
       <div className="specialization-page-container">
         <div className="specialization-details">
-          <RightSideBar options={options} />
+          <RightSideBar options={specialization} />
           {state ? (
             <div className="specialization-details-card">
               <p>
