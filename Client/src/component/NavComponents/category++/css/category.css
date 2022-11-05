@@ -2,18 +2,17 @@
   width: 95%;
   margin: 1em auto;
 }
-.previous-arrow
-{
+.previous-arrow {
   width: 30px;
   height: 30px;
   position: absolute;
-  left:10px;
+  left: 10px;
 }
-.next-arrow
-{ position: absolute;
-  right:0;
+.next-arrow {
+  position: absolute;
+  right: 0;
   width: 30px;
-  height: 30px; 
+  height: 30px;
 }
 .category-options-container {
   display: flex;
@@ -25,8 +24,8 @@
   display: none;
 }
 .category-options-container {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 img.logo-img {
   width: 20px;

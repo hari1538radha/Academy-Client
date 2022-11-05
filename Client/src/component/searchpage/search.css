@@ -67,18 +67,19 @@
   font-size: 16px;
   line-height: 22px;
   letter-spacing: -0.411987px;
-  color: rgba(70, 70, 70, 0.64);
+  color: rgb(0, 0, 0);
 }
 
 .search-suggestion--container p:hover {
   background: #0281fe;
+  color: #ffffff;
 }
 
 .search-seeall-btn {
   width: 180px;
   background: #90c1f8;
   border-radius: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -93,7 +94,7 @@
   font-size: 16px;
   line-height: 22px;
   letter-spacing: -0.411987px;
-  color: rgba(70, 70, 70, 0.64);
+  color: rgb(0, 0, 0);
   border: none;
 }
 

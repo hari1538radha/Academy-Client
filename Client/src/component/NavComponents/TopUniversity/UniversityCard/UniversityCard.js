@@ -23,8 +23,7 @@ function UniversityCard({ uniInfo }) {
         </div>
         <div className="uni-place-container">
           <p className="uni-place">
-            <span className="uni-district">{uniInfo.District}</span>
-            -
+            <span className="uni-district">{uniInfo.District}</span>-
             <span className="uni-state">{uniInfo.State}</span>
           </p>
         </div>
