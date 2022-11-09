@@ -11,7 +11,7 @@ export const quizData = (req, res) => {
           status: 200,
           message: "quiz found",
           data: data,
-        });
+        })
       }
     })
 
