@@ -21,6 +21,7 @@ import postSchoolsReducer from "./Slice/AddSchoolData";
 import schoolDetailsReducer from "./Slice/getSchool";
 import removingSelectedProgramme from "./Slice/deleteProgramme";
 import removingSelectedSchool from "./Slice/deleteSchool";
+import searchUniversityByName from "./Slice/SearchUniversity";
 
 const rootReducer = combineReducers({
   signupInfo: signupReducer,
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
   getSchoolData: schoolDetailsReducer,
   deleteProgramme: removingSelectedProgramme,
   deleteSchool: removingSelectedSchool
+  searchUniversityByNameInfo:searchUniversityByName
 });
 
 const store = configureStore({

@@ -32,7 +32,7 @@ function RightSideBar({ options }) {
           </button>
         );
       })}
-      {next != 8 && (
+      {next < options.length - 4 && (
         <button
           className="but"
           onClick={() => {

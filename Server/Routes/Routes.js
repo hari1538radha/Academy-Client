@@ -34,6 +34,7 @@ import { AddSchoolData } from "../Controllers/addSchool.js";
 import GetSchoolData from "../Controllers/getSchool.js";
 import { editProgramme } from "../Controllers/editProgramme.js";
 import { editSchool } from "../Controllers/editSchoolData.js";
+import { searchData } from "../Controllers/search.js";
 
 const Storages = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -129,5 +130,6 @@ Route.put("/edit-school", editSchool);
 Route.delete("/delete-universities/:S_No", DeleteUniversity);
 Route.delete("/delete-programme/:SNo", DeleteProgramme);
 Route.delete("/delete-school/:SlNo", DeleteSchool);
+Route.get("/search", searchData) ;
 
 export default Route;
