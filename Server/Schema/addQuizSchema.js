@@ -7,8 +7,8 @@ const addQuizSchema = new mongoose.Schema({
       type: String
   },
   Image: {
-      type: Buffer,
-      contentType: String
+      type: String,
+      default: "NA",
   },
   distractor1: {
       type: String
@@ -49,4 +49,4 @@ const addQuizSchema = new mongoose.Schema({
   },
   { timestamps: true }
 );
-export const addQuizModel = new mongoose.model("addQuiz", addQuizSchema);
+export const addQuizModel = new mongoose.model("AddQuiz", addQuizSchema);

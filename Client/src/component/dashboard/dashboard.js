@@ -11,7 +11,11 @@ import { TablePagination } from '@mui/material'
 import "./dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import editUniversities from "../../Store/Slice/EditUniversities";
+import { getSchoolData } from "../../Store/Slice/getSchool";
 import { deleteSelectedUniversity } from "../../Store/Slice/deleteUniversity";
+import { deleteSelectedProgramme } from "../../Store/Slice/deleteProgramme";
+import { deleteSelectedSchool } from "../../Store/Slice/deleteSchool";
+import Loader from "../Event/img/loader.gif";
 
 import {
   Box,
@@ -36,7 +40,7 @@ const Dashboard = () => {
   const [dataState, setDataState] = useState("Universities");
   const [keys, setKeys] = useState(keyTypes.Universities);
   const [validationErrors, setValidationErrors] = useState({});
-  const [page, setPage] = useState(1);
+  const [render, setRender] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
   const [totalRows, setTotalRows] = useState(0);
@@ -47,29 +51,35 @@ const Dashboard = () => {
   })
 
   const appState = useSelector((state) => state);
-  const { universitiesData, universitiesLoading } = useSelector(
-    (state) => state.universitiesInfo
-  );
+
+  const { universitiesData, universitiesLoading } = useSelector((state) => state.universitiesInfo);
+
   const { programmeData } = useSelector((state) => state.getProgrammeInfo);
+
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
 
-  const {deleteLoading} = useSelector((state) => state.selectDeletingUniversity)
+  const {allSchoolData, schoolLoading} = useSelector((state) => state.getSchoolData);
 
   useEffect(() => {
-    axio.get(`/api/universities/`, {
-      params: {page: pagination.pageIndex, limit: pagination.pageSize}
-    })
-    .then((res) => {
-      setRows(res?.data?.data)
-      setTotalRows(res?.data?.data?.length)
-    })
-  }, [page, rowsPerPage])
+    if(dataState === "Universities"){
+      axio.get(`/api/universities/`, {
+        params: {page: pagination.pageIndex, limit: pagination.pageSize}
+      })
+      .then((res) => {
+        setRows(res?.data?.data)
+        setTotalRows(res?.data?.data?.length)
+      })
+    }
+  }, [])
 
   if(dataState === "Universities") {
     data = rows;
   }
   if (dataState === "Programme") {
     data = appState["getProgrammeInfo"]["programmeData"];
+  }
+  if (dataState === "School") {
+    data = appState["getSchoolData"]["allSchoolData"];
   }
 
   useEffect(() => {
@@ -83,6 +93,11 @@ const Dashboard = () => {
       data = appState["getProgrammeInfo"]["programmeData"];
       setKeys(keyTypes[dataState]);
     }
+    if (dataState === "School") {
+      dispatch(getSchoolData());
+      data = appState["getSchoolData"]["allSchoolData"];
+      setKeys(keyTypes[dataState]);
+    }
     dispatch(userProfileData(locationState));
   }, [dataState]);
 
@@ -91,10 +106,24 @@ const Dashboard = () => {
   };
 
   const changedValues = async(values) => {
-    const res = axio.put(`/api/edit-universities`, {
-      values
-    }).catch((err) => console.log(err,"editing error"))
-    return await res.data
+    if (dataState === "Universities"){
+      const res = axio.put(`/api/edit-universities`, {
+        values
+      }).catch((err) => console.log(err,"editing error"))
+      return await res.data
+    }
+    if (dataState === "Programme"){
+      const res = axio.put(`/api/edit-programme`, {
+        values
+      }).catch((err) => console.log(err,"editing error"))
+      return await res.data
+    }
+    if (dataState === "School"){
+      const res = axio.put(`/api/edit-school`, {
+        values
+      }).catch((err) => console.log(err,"editing error"))
+      return await res.data
+    }
   }
 
   const handleSaveRowEdits = async ({exitEditingMode, row, values }) => {
@@ -111,6 +140,34 @@ const Dashboard = () => {
     },
     [data]
   );
+
+  const handleDeleteforProgramme = useCallback((row) => {
+    alert(`Do you really want to delete this data`)
+    const serialNumber = (row._valuesCache.SNo)
+    dispatch(deleteSelectedProgramme(serialNumber))
+    },
+    [data]
+  )
+
+  const handleDeleteforSchool = useCallback((row) => {
+    alert(`Do you really want to delete this data`)
+    const serialNumber = (row._valuesCache.SlNo)
+    dispatch(deleteSelectedSchool(serialNumber))
+    },
+    [data]
+  )
+
+  const handleDeleteMode = (row) => {
+    if (dataState === "Universities"){
+      handleDeleteRow(row)
+    }
+    if (dataState === "Programme"){
+      handleDeleteforProgramme(row)
+    }
+    if (dataState === "School"){
+      handleDeleteforSchool(row)
+    }
+  }
 
   const getCommonEditTextFieldProps = useCallback(
     (cell) => {
@@ -143,7 +200,7 @@ const Dashboard = () => {
     [validationErrors]
   );
 
-  const columns = keys.map((key) => {
+  const columns = keys?.map((key) => {
     return {
       accessorKey: key,
       header: key,
@@ -173,6 +230,12 @@ const Dashboard = () => {
           >
             Programme
           </button>
+          <button
+            value="School"
+            onClick={(e) => setDataState(e.target.value)}
+          >
+            School
+          </button>
           <hr className="group-divider"></hr>
           <button>Table</button>
           <button>Services</button>
@@ -195,7 +258,7 @@ const Dashboard = () => {
           <button>Our Services</button>
           <button>Our Services</button>
         </div>
-        <MaterialReactTable
+        {data.length > 0 ? <MaterialReactTable
           displayColumnDefOptions={{
             "mrt-row-actions": {
               muiTableHeadCellProps: {
@@ -219,13 +282,13 @@ const Dashboard = () => {
                 </IconButton>
               </Tooltip>
               <Tooltip arrow placement="right" title="Delete">
-                <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+                <IconButton color="error" onClick={() => handleDeleteMode(row)}>
                   <Delete />
                 </IconButton>
               </Tooltip>
             </Box>
           )}
-        />
+        /> : <img src={Loader} alt=""/>}
       </div>
       <Footer />
     </>
