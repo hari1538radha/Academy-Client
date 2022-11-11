@@ -13,10 +13,10 @@ const Quiz = () => {
   };
   let newDate = new Date()
   let date = newDate.getDate();
-  let month = newDate.getMonth();
+  let month = newDate.getMonth()+1;
   let year = newDate.getFullYear();
 
-  const todayDate = `${date}/${month < 10 ? `0${month}` : `${month}`}/${year}`
+  const todayDate = `${date}/${month < 10?`0${month}`:`${month}`}/${year}`
 
   return (
     <div>

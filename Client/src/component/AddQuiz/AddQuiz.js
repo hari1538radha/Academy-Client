@@ -5,11 +5,14 @@ import Navbar from "../Navbar/navbar";
 import { postQuizData } from "../../Store/Slice/uploadQuizSlice";
 import { Switch, FormControlLabel } from "@mui/material";
 import camImg from "../Event/img/pngtree.jpg";
+import FileBase64 from "react-file-base64";
 
 const AddQuiz = () => {
   const dispatch = useDispatch();
 
   const [status, setStatus] = useState(false)
+
+  const [sample, setSample] = useState()
 
   const [error, setError] = useState({})
 
@@ -34,6 +37,11 @@ const AddQuiz = () => {
     PurposeCode: "",
     EntranceCode: ""
   })
+
+  useEffect(() => {
+    console.log(sample)
+    console.log(sample?.name)
+    }, [sample])
 
   const handleToggle = (e) => {
     setChecked(e.target.checked)
@@ -154,13 +162,22 @@ const AddQuiz = () => {
                 {/* {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
                 Upload PNG,JPEG,JPG,SVG only
               </label>} */}
-                <input
+                <div className="select-new-Quiz-Picture">
+                  <FileBase64
+                  multiple={false}
+                  name="Image"
+                  onDone={(base64) => setSample(base64)}
+                  onChange={handleChange}
+                  />
+                </div>
+               
+                {/* <input
                   type="file"
                   className="select-new-Quiz-Picture"
                   required={true}
                 // onChange={onFileChange}
                 // accept=".png,.svg,.jpeg,.jpg"
-                ></input>
+                ></input> */}
               </label>}
               <p></p>
 

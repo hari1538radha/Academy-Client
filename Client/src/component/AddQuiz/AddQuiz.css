@@ -98,6 +98,8 @@ label {
 
 .select-new-Quiz-Picture{
   display: none;
+  border: none;
+  background: transparent;
 }
 
 .quiz_Question_Image {

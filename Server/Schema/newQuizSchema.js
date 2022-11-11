@@ -8,8 +8,7 @@ const newQuizSchema = new mongoose.Schema({
         type: String
     },
     Image: {
-        type: Buffer,
-        contentType: String
+        type: String
     },
     distractor1: {
         type: String

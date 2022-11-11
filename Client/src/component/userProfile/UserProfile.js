@@ -22,6 +22,7 @@ import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import AddchartIcon from '@mui/icons-material/Addchart';
 import AddNewUniversity from "../addNew/addNewUniversity/addNewUniversity";
+import AddNewSchool from "../addNew/addNewSchool/addNewSchool";
 
 const UserProfile = () => {
   const [name, setname] = useState();
@@ -146,6 +147,10 @@ const UserProfile = () => {
                     <AddchartIcon/>
                     <button onClick={() => setcontent("new-program")}>Add Program</button>
                   </div>
+                  <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-school")}>Add school</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -164,6 +169,7 @@ const UserProfile = () => {
           {content === "add-quiz" && <AddQuiz/>}
           {content === "new-university" && <AddNewUniversity/>}
           {content === "new-program" && <AddNewProgram/>}
+          {content === "new-school" && <AddNewSchool/>}
           {/* {content === "edit-profile" && <EditProfile reqValues={eventsData}/>} */}
         </div>
       </div>
