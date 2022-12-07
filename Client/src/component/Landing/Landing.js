@@ -2,13 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import NavBar from "../Navbar/navbar";
 import img1 from "./Img/Frame.svg";
-// import img2 from "./Img/button.svg";
 import img3 from "./Img/Vector.svg";
-import img4 from "./Img/Rectangle-14.jpg";
-import img6 from "./Img/BookLogo.svg";
-import img7 from "./Img/NextButton.svg";
 import { useNavigate, useLocation } from "react-router-dom";
-// import img5 from "./Img/Quiz.jpg"
 import Footer from "../Footer/footer";
 import "./Css/Landing.css";
 import { useDispatch, useSelector } from "react-redux";
