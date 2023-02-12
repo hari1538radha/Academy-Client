@@ -28,6 +28,13 @@ import { createUser } from "../Controllers/userSignup.js";
 import { getuserimg } from "../Controllers/getuserimg.js";
 import { editUniversities } from "../Controllers/EditUniversities.js";
 import { DeleteUniversity } from "../Controllers/deleteUniversity.js";
+import { DeleteProgramme } from "../Controllers/deleteProgramme.js";
+import { DeleteSchool } from "../Controllers/deleteSchool.js";
+import { AddSchoolData } from "../Controllers/addSchool.js";
+import GetSchoolData from "../Controllers/getSchool.js";
+import { editProgramme } from "../Controllers/editProgramme.js";
+import { editSchool } from "../Controllers/editSchoolData.js";
+import { searchData } from "../Controllers/search.js";
 
 const Storages = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -76,6 +83,20 @@ const eventImgUpload = multer({
   storage: eventStorage
 });
 
+const Quizimage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "QuizQuestionImage");
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const QuizImg = multer({
+  storage: Quizimage,
+});
+
 const Route = express.Router();
 
 Route.post("/signup", signup);
@@ -98,10 +119,17 @@ Route.post("/programme", postProgramme);
 Route.get("/programme", getProgramme);
 Route.get("/event/:id", EventById);
 Route.put("/editevent",eventImgUpload.single("eventImage"), editEvent);
-Route.post("/addquiz", addQuiz);
+Route.post("/addquiz",addQuiz);
+Route.post("/addschool",AddSchoolData);
+Route.get("/getschool", GetSchoolData);
 Route.get("/quizdata", quizData);
 Route.put("/edit-event", editEvent);
 Route.put("/edit-universities", editUniversities);
+Route.put("/edit-programme", editProgramme);
+Route.put("/edit-school", editSchool);
 Route.delete("/delete-universities/:S_No", DeleteUniversity);
+Route.delete("/delete-programme/:SNo", DeleteProgramme);
+Route.delete("/delete-school/:SlNo", DeleteSchool);
+Route.get("/search", searchData) ;
 
 export default Route;

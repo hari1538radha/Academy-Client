@@ -13,12 +13,16 @@ import editImg from "../Event/img/edit.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import ListEvent from "../Event/ListEvent/ListEvent";
 import AddQuiz from "../AddQuiz/AddQuiz";
+import AddNewProgram from "../addNew/addNewProgram/addNewProgram";
 import SaveAltOutlinedIcon from '@mui/icons-material/SaveAltOutlined';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import EventIcon from '@mui/icons-material/Event';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import AddchartIcon from '@mui/icons-material/Addchart';
+import AddNewUniversity from "../addNew/addNewUniversity/addNewUniversity";
+import AddNewSchool from "../addNew/addNewSchool/addNewSchool";
 
 const UserProfile = () => {
   const [name, setname] = useState();
@@ -31,6 +35,8 @@ const UserProfile = () => {
     (state) => state.newprofilepicInfo
   );
   const { userData, loading } = useSelector((state) => state.userProfileInfo);
+
+  const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   useEffect(() => {
     dispatch(getTopicInfo());
     dispatch(getEventInfo());
@@ -39,6 +45,12 @@ const UserProfile = () => {
     }
     return () => {}
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(getEventInfo());
+    }, "120000")
+  }, [eventsData])
 
   useEffect(() => {
     dispatch(GetProfilepic());
@@ -51,7 +63,6 @@ const UserProfile = () => {
   const lastimg = userImage.slice(forsecondlastimg, forlastimg);
 
   // const { topicData, eventLoading } = useSelector((state) => state.topicInfo);
-  const { eventsData, eventLoading } = useSelector((state) => state.eventsInfo);
   // console.log(eventsData)
 
   const AddEvents = (e) => {
@@ -128,6 +139,18 @@ const UserProfile = () => {
                     <PostAddIcon/>
                     <button onClick={() => setcontent("add-quiz")}>Add Quiz</button>
                   </div>
+                  <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-university")}>Add University</button>
+                  </div>
+                  <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-program")}>Add Program</button>
+                  </div>
+                  <div className="left-container--dashboard--content">
+                    <AddchartIcon/>
+                    <button onClick={() => setcontent("new-school")}>Add school</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -144,6 +167,9 @@ const UserProfile = () => {
           )}
           {content === "add-event" && <AddEvent />}
           {content === "add-quiz" && <AddQuiz/>}
+          {content === "new-university" && <AddNewUniversity/>}
+          {content === "new-program" && <AddNewProgram/>}
+          {content === "new-school" && <AddNewSchool/>}
           {/* {content === "edit-profile" && <EditProfile reqValues={eventsData}/>} */}
         </div>
       </div>
