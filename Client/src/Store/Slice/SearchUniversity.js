@@ -6,7 +6,6 @@ export const getUniversityInfoByName = createAsyncThunk(
   async (data) => {
     console.log(data.searchedUniversity)
     return axio.get(`/api/search?Name=${data.searchedUniversity}`);
-
   }
 );
 
