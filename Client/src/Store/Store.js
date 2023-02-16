@@ -45,7 +45,7 @@ const rootReducer = combineReducers({
   addSchoolData: postSchoolsReducer,
   getSchoolData: schoolDetailsReducer,
   deleteProgramme: removingSelectedProgramme,
-  deleteSchool: removingSelectedSchool
+  deleteSchool: removingSelectedSchool,
   searchUniversityByNameInfo:searchUniversityByName
 });
 
