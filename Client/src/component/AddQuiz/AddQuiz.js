@@ -3,53 +3,80 @@ import "./AddQuiz.css";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/navbar";
 import { postQuizData } from "../../Store/Slice/uploadQuizSlice";
+import { Switch, FormControlLabel } from "@mui/material";
+import camImg from "../Event/img/pngtree.jpg";
+import FileBase64 from "react-file-base64";
 
 const AddQuiz = () => {
   const dispatch = useDispatch();
 
   const [status, setStatus] = useState(false)
 
+  const [sample, setSample] = useState()
+
   const [error, setError] = useState({})
+
+  const [checked, setChecked] = useState(false)
 
   const [buttonText, setButtonText] = useState("Add-Quiz")
 
   const [state, setState] = useState({
-    quizQuestionNo: "",
-    quizQuestion: "",
-    quizOption1: "",
-    quizOption2: "",
-    quizOption3: "",
-    quizOption4: "",
-    quizAnswer: ""
+    SlNo: "",
+    Stem: "",
+    distractor1: "",
+    distractor2: "",
+    distractor3: "",
+    distractor4: "",
+    Key: "",
+    Hint: "",
+    Image: "",
+    TypeOfAssessment: "",
+    CourseTitle: "",
+    CognitiveLevel: "",
+    ConceptCode: "",
+    PurposeCode: "",
+    EntranceCode: ""
   })
 
+  useEffect(() => {
+    console.log(sample)
+    console.log(sample?.name)
+    }, [sample])
+
+  const handleToggle = (e) => {
+    setChecked(e.target.checked)
+  }
+
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setState({...state, [name]: value})
+    const { name, value } = e.target
+    setState({ ...state, [name]: value })
   }
 
   const validate = (e) => {
-    const errors={}
-    if (!e.quizQuestionNo){
-      errors.quizQuestionNo = "enter the serial number"
+    const errors = {}
+    if (!e.SlNo) {
+      errors.SlNo = "enter the serial number"
     }
-    if(!e.quizQuestion){
-      errors.quizQuestion = "enter the question"
+    if (!e.Stem) {
+      errors.Stem = "enter the question"
     }
-    if(!e.quizOption1){
-      errors.quizOption1 = "enter the option"
+    if (!e.distractor1) {
+      errors.distractor1 = "enter the option"
     }
-    if(!e.quizOption2){
-      errors.quizOption2 = "enter the option"
+    if (!e.distractor2) {
+      errors.distractor2 = "enter the option"
     }
-    // if(!e.quizOption3){
-    //   errors.quizOption3 = "enter the option"
-    // }
-    // if(!e.quizOption4){
-    //   errors.quizOption4 = "enter the option"
-    // }
-    if(!e.quizAnswer){
-      errors.quizAnswer = "enter the correct answer"
+    if (!e.Key) {
+      errors.Key = "enter the correct answer"
+    }
+    if (!e.TypeOfAssessment) {
+      errors.TypeOfAssessment = "enter the type of assessment"
+    }
+    if (!e.CourseTitle) {
+      errors.CourseTitle = "enter the Course Title"
+    }
+    if (!e.CognitiveLevel) {
+      errors.CognitiveLevel = "enter the cognitive level"
     }
     return errors
   }
@@ -61,7 +88,7 @@ const AddQuiz = () => {
   };
 
   useEffect(() => {
-    if(Object.values(error).length === 0 && status){
+    if (Object.values(error).length === 0 && status) {
       setButtonText("Added-Quiz")
       dispatch(postQuizData(state))
     }
@@ -81,67 +108,79 @@ const AddQuiz = () => {
         <div className="form-add">
           <form onSubmit={handelAddQuiz} className="form-data">
             <div className="add-quiz-container">
-              <label className="title-add-quiz">
-                Enter the Quiz Questions:
-              </label>
-              <div className="first-box">
-                <input
-                  required={true}
-                  type="number"
-                  placeholder="S/No"
-                  className="input-que-box"
-                  min="1" max="100"
-                  onChange={handleChange}
-                ></input>
-                <textarea
-                  required={true}
-                  type="text"
-                  placeholder="Enter The Quiz Questions"
-                  className="input-box-1"
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <label className="title-add-quiz">
-                If options are true or false leave last two fields empty
-              </label>
-              <input
-                required={true}
-                type="text"
-                placeholder="Option 1"
-                className="input-box"
-                onChange={handleChange}
-              ></input>
-              <p>{error.quizOption1}</p>
-              <input
-                required={true}
-                type="text"
-                placeholder="Option 2"
-                className="input-box"
-                onChange={handleChange}
-              ></input>
-              <p>{error.quizOption2}</p>
-              <input
-                type="text"
-                placeholder="Option 3"
-                className="input-box"
-                onChange={handleChange}
-              ></input>
+              <h1>Add new Question</h1>
+              <input type="Number" name="SlNo" placeholder="S-No" onChange={handleChange}></input>
+              <p>{error.SlNo}</p>
 
-              <input
-                type="text"
-                placeholder="Option 4"
-                className="input-box"
-                onChange={handleChange}
-              ></input>
-              <label className="title-add-quiz">Correct Answer:</label>
-              <input
-                required={true}
-                type="text"
-                placeholder="Correct answer"
-                className="input-box"
-                onChange={handleChange}
-              ></input>
-              <p>{error.quizAnswer}</p>
+              <textarea name="Stem" placeholder="Stem" onChange={handleChange}></textarea>
+              <p>{error.Stem}</p>
+
+              <input type="text" name="distractor1" placeholder="first option" onChange={handleChange}></input>
+              <p>{error.distractor1}</p>
+
+              <input type="text" name="distractor2" placeholder="second option" onChange={handleChange}></input>
+              <p>{error.distractor2}</p>
+
+              <input type="text" name="distractor3" placeholder="third option" onChange={handleChange}></input>
+              <p>{error.distractor3}</p>
+
+              <input type="text" name="distractor4" placeholder="fourth option" onChange={handleChange}></input>
+              <p>{error.distractor4}</p>
+
+              <input type="Number" name="Key" placeholder="Key" onChange={handleChange}></input>
+              <p>{error.Key}</p>
+
+              <input type="text" name="Hint" placeholder="Hint" onChange={handleChange}></input>
+              <p></p>
+
+              <input type="text" name="TypeOfAssessment" placeholder="Type Of Assessment" onChange={handleChange}></input>
+              <p>{error.TypeOfAssessment}</p>
+
+              <input type="text" name="CourseTitle" placeholder="Course Title" onChange={handleChange}></input>
+              <p>{error.CourseTitle}</p>
+
+              <input type="text" name="CognitiveLevel" placeholder="Cognitive Level" onChange={handleChange}></input>
+              <p>{error.CognitiveLevel}</p>
+
+              <input type="text" name="ConceptCode" placeholder="Concept Code" onChange={handleChange}></input>
+              <p></p>
+
+              <input type="text" name="PurposeCode" placeholder="PurposeCode url" onChange={handleChange}></input>
+              <p></p>
+
+              <input type="text" name="EntranceCode" placeholder="EntranceCode" onChange={handleChange}></input>
+              <p></p>
+
+              <FormControlLabel control={<Switch checked={checked} onChange={handleToggle} />} label="toggle to upload image if necessary" />
+
+              {checked && <label className="add-New-Quiz_Question">
+                <img
+                  src={camImg}
+                  alt="no img found"
+                  className="quiz_Question_Image"
+                ></img>
+                {/* {name ?<label className="upload-pic-txt">{name}</label>:<label className="upload-pic-txt">
+                Upload PNG,JPEG,JPG,SVG only
+              </label>} */}
+                <div className="select-new-Quiz-Picture">
+                  <FileBase64
+                  multiple={false}
+                  name="Image"
+                  onDone={(base64) => setSample(base64)}
+                  onChange={handleChange}
+                  />
+                </div>
+               
+                {/* <input
+                  type="file"
+                  className="select-new-Quiz-Picture"
+                  required={true}
+                // onChange={onFileChange}
+                // accept=".png,.svg,.jpeg,.jpg"
+                ></input> */}
+              </label>}
+              <p></p>
+
               <button className={`add-button-${buttonText}`}>{buttonText}</button>
             </div>
           </form>

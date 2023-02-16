@@ -8,6 +8,8 @@ import { postUniversities } from "../../Store/Slice/ExcelToJson";
 import { userProfileData } from "../../Store/Slice/UserprofilePageSlice";
 import { postProgramme } from "../../Store/Slice/postProgramme";
 import { useNavigate } from "react-router-dom";
+import { postQuizData } from "../../Store/Slice/uploadQuizSlice";
+import { postSchools } from "../../Store/Slice/AddSchoolData";
 import "./exceltojson.css";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
@@ -30,6 +32,7 @@ const PostUniversity = () => {
     "Select any",
     "Universities",
     "Programme",
+    "School",
     "Quiz",
     "Topics",
     "Events",
@@ -51,6 +54,13 @@ const PostUniversity = () => {
         }
         if (selectedOpt === "Programme") {
           dispatch(postProgramme(json));
+        }
+        if (selectedOpt === "Quiz") {
+          dispatch(postQuizData(json));
+          // console.log(json)
+        }
+        if (selectedOpt === "School") {
+          dispatch(postSchools(json));
         }
         setMessage("dashboard");
       };

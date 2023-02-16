@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../Navbar/navbar";
 import startQuizLogo from "../Login/Images/startquiz.svg";
+import quizImage from "../Login/Images/quiz.svg";
 import "./quiz.css";
 import Footer from "../Footer/footer";
 import { useNavigate } from "react-router-dom";
@@ -12,10 +13,10 @@ const Quiz = () => {
   };
   let newDate = new Date()
   let date = newDate.getDate();
-  let month = newDate.getMonth();
+  let month = newDate.getMonth()+1;
   let year = newDate.getFullYear();
 
-  const todayDate = `${date}/${month < 10 ? `0${month}` : `${month}`}/${year}`
+  const todayDate = `${date}/${month < 10?`0${month}`:`${month}`}/${year}`
 
   return (
     <div>
@@ -25,7 +26,7 @@ const Quiz = () => {
           <img src={startQuizLogo} alt="no img found" className="quiz-header"></img>
           <div className="quiz-container-block">
             <div className="quiz-image-container">
-              <img alt="no img found" className="quiz-image"></img>
+              <img src={quizImage} alt="no img found" className="quiz-image"></img>
             </div>
             <div className="quiz-details-container">
               <div className="quiz-details">
@@ -57,7 +58,7 @@ const Quiz = () => {
           <p>C++</p>
           <p>Python</p>
           <p>Javascript</p>
-          <button className="chapter-seemore-btn">See More</button>
+          {/* <button className="chapter-seemore-btn">See More</button> */}
         </div>
       </div>
       <Footer />
