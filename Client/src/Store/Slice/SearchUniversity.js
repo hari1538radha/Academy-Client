@@ -4,10 +4,7 @@ import { axio } from "../../Config/Config.js";
 export const getUniversityInfoByName = createAsyncThunk(
   "Universities",
   async (data) => {
-<<<<<<< HEAD
     console.log(data.searchedUniversity)
-=======
->>>>>>> e0f6ddcef101a9dc4ef1ed8642016e114d1e7abd
     return axio.get(`/api/search?Name=${data.searchedUniversity}`);
   }
 );
