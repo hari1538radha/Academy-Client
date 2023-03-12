@@ -15,18 +15,6 @@ const Navbar = ({ profileInfo }) => {
 
   return (
     <header className="navbars">
-      <div className="top-navmenus">
-        <nav ref={navRef}>
-          <a href="/about">About us</a>
-          <a href="/#">Study Abroad</a>
-          <a href="/#">Announcement</a>
-          <a href="/#">Forum</a>
-          <a href="/#">Ask a Question</a>
-          <a href="/login">Login</a>
-          <a href="/signup">Register</a>
-          <a href="#">WhatsApp: +91-94421 10920</a>
-        </nav>
-      </div>
       <div className="mid-navmenus">
         <Link to="/landing" className="logo-img-contain">
           <img
@@ -36,14 +24,17 @@ const Navbar = ({ profileInfo }) => {
           ></img>
         </Link>
         <nav ref={navRef}>
-          <a href="/#">Home</a>
+          {/* <a href="/#">Home</a>
           <a href="/#">Skills++</a>
           <a href="/#">Concepts++</a>
           <a href="/#">Career++</a>
           <a href="/#">Entrance++</a>
           <a href="/#">Perceptions++</a>
-          <a href="/#">Competition++</a>
-          <a href="/quiz">Quiz</a>
+          <a href="/#">Competition++</a> */}
+           <a href="/login">Login</a>
+          <a href="/signup">Register</a>
+          <a href="#">WhatsApp: +91-99999 99999</a>
+          
           {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>}
 
           {/* <button className="nav-btn nav-close-btn" onClick={showNavbar}>
@@ -55,15 +46,15 @@ const Navbar = ({ profileInfo }) => {
         <nav ref={navRef}>
           <div className="inside-nav-option hidden-navbar-options ">
           <a href="/about">About us</a>
-          <a href="/#">Study Abroad</a>
+          {/* <a href="/#">Study Abroad</a>
           <a href="/#">Announcement</a>
           <a href="/#">Forum</a>
-          <a href="/#">Ask a Question</a>
+          <a href="/#">Ask a Question</a> */}
           <a href="/login">Login</a>
           <a href="/signup">Register</a>
           </div>
           <hr className="hidden-divider"></hr>
-          <div className="inside-nav-option hidden-navbar-options">
+          {/* <div className="inside-nav-option hidden-navbar-options">
           <a href="/#">Home</a>
           <a href="/#">Skills++</a>
           <a href="/#">Concepts++</a>
@@ -72,7 +63,7 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Perceptions++</a>
           <a href="/#">Competition++</a>
           <a href="/quiz">Quiz</a>
-          </div>
+          </div> */}
           <hr className="hidden-divider"></hr>
           <div className="inside-nav-option visible-nav-option">
             <a href="/categories">category++</a>
@@ -82,8 +73,8 @@ const Navbar = ({ profileInfo }) => {
             <a href="/#">Top Schools</a>
             <a href="/#">Top Placements</a>
             <a href="/#">Top Events</a>
-            <a href="/#">Resources</a>
-            <a href="/internship">Internships/Jobs</a>
+           
+            <a href="/quiz">Quiz</a>
           </div>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <CloseIcon />
