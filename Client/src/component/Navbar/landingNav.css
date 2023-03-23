@@ -25,12 +25,14 @@ body {
 
 .top-navmenus,
 .bot-navmenus {
-  background: rgb(117, 167, 253);;
+  /* background: rgb(117, 167, 253);; */
+  box-shadow:  10px 10px 10px  rgb(114, 112, 112);
   width: 100%;
   padding: 0.5em 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
 }
 
 .visible-nav-option {
@@ -49,7 +51,7 @@ body {
 
 .visible-nav-option a:hover,
 .top-navmenus a:hover {
-  color: white;
+  color: rgb(247, 21, 21);
 }
 
 nav a {

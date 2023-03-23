@@ -15,45 +15,41 @@ const Navbar = ({ profileInfo }) => {
 
   return (
     <header className="navbars">
-      <div className="mid-navmenus">
-        <Link to="/landing" className="logo-img-contain">
-          <img
-            className="AcademyLogo"
-            src={Logo}
-            alt="no img found"
-          ></img>
-        </Link>
-        <nav ref={navRef}>
-          {/* <a href="/#">Home</a>
+      {/* <div className="mid-navmenus"> */}
+      {/* <Link to="/landing" className="logo-img-contain">
+          <img className="AcademyLogo" src={Logo} alt="no img found"></img>
+        </Link> */}
+      {/* <nav ref={navRef}> */}
+      {/* <a href="/#">Home</a>
           <a href="/#">Skills++</a>
           <a href="/#">Concepts++</a>
           <a href="/#">Career++</a>
           <a href="/#">Entrance++</a>
           <a href="/#">Perceptions++</a>
           <a href="/#">Competition++</a> */}
-           <a href="/login">Login</a>
+      {/* <a href="/login">Login</a>
           <a href="/signup">Register</a>
-          <a href="#">WhatsApp: +91-99999 99999</a>
-          
-          {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>}
+          <a href="#">WhatsApp: +91-99999 99999</a> */}
 
-          {/* <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+      {/* {profileInfo && <Dropdown profileInfo={profileInfo}></Dropdown>} */}
+
+      {/* <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
           </button> */}
-        </nav>
-      </div>
+      {/* </nav>
+      </div> */}
       <div className="bot-navmenus">
         <nav ref={navRef}>
-          <div className="inside-nav-option hidden-navbar-options ">
-          <a href="/about">About us</a>
+          {/* <div className="inside-nav-option hidden-navbar-options "> */}
+          {/* <a href="/about">About us</a> */}
           {/* <a href="/#">Study Abroad</a>
           <a href="/#">Announcement</a>
           <a href="/#">Forum</a>
           <a href="/#">Ask a Question</a> */}
-          <a href="/login">Login</a>
-          <a href="/signup">Register</a>
-          </div>
-          <hr className="hidden-divider"></hr>
+          {/* <a href="/login">Login</a>
+            <a href="/signup">Register</a> */}
+          {/* </div> */}
+          {/* <hr className="hidden-divider"></hr> */}
           {/* <div className="inside-nav-option hidden-navbar-options">
           <a href="/#">Home</a>
           <a href="/#">Skills++</a>
@@ -64,17 +60,22 @@ const Navbar = ({ profileInfo }) => {
           <a href="/#">Competition++</a>
           <a href="/quiz">Quiz</a>
           </div> */}
-          <hr className="hidden-divider"></hr>
+          {/* <hr className="hidden-divider"></hr> */}
           <div className="inside-nav-option visible-nav-option">
-            <a href="/categories">category++</a>
-            <a href="/specialization">Specialization++</a>
+            <Link to="/landing" className="logo-img-contain">
+              <img className="AcademyLogo" src={Logo} alt="no img found"></img>
+            </Link>
+
             <a href="/universities">Top Universities</a>
             <a href="/colleges">Top Colleges</a>
-            <a href="/#">Top Schools</a>
-            <a href="/#">Top Placements</a>
-            <a href="/#">Top Events</a>
-           
+            <a href="/categories">Category</a>
+            <a href="/specialization">Specialization</a>
             <a href="/quiz">Quiz</a>
+            {/* <a href="/#">Top Schools</a>
+            <a href="/#">Top Placements</a>
+            <a href="/#">Top Events</a> */}
+            <a href="/login">Login</a>
+            <a href="/signup">Register</a>
           </div>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <CloseIcon />
