@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Navbar from "../../Navbar/navbar";
 import Footer from "../../Footer/footer";
 import "./css/specialization.css";
 import RightSideBar from "../RightSideBar";
+import { getProgrammeInfo } from "../../../Store/Slice/getProgramme";
 import { specialization } from "../ConstNavComponents/ConstNavComponents.js";
+import { useDispatch,useSelector } from "react-redux";
 
 const Specialization = () => {
+  const dispatch= useDispatch()
   const [state, setState] = useState();
 
   const settingState = (e) => {
     setState(e.target.value);
   };
+  useEffect(() => {
+    dispatch(getProgrammeInfo())
+  }, [])
+  
+  
   return (
     <>
       <Navbar />
